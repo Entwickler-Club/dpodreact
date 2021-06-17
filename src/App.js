@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Datapod for React
+          Datapod from niko
         </p>
         <a
           className="App-link"
