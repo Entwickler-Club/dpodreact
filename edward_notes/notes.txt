@@ -1,7 +1,3 @@
 this is a test
-<<<<<<< HEAD
-002 note
-=======
 002 note
 third line
->>>>>>> dev
