@@ -9,10 +9,35 @@ body {
 	padding: basic.$padding;
 	font-family: basic.$primaryFontFamily;
 
-	h1.siteTitle {
+	/* override resets */
+	h1 {
 		font-size: 2em;
 		margin-left: basic.$margin;
 	}
+	h2 {
+		font-size: 1.6em;
+	}
+	a {
+		color: #000;
+	}
+
+	/* all pages */
+	.page {
+		h2.title {
+			margin-bottom: 10px;
+		}
+		p.description {
+			margin-bottom: 20px;
+			font-style: italic;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #ccc;
+			display: inline-block;
+		}
+	}
+	.app_site {
+		h1.siteTitle {
+			margin-left: 20px;
+		}
 
 	.app_container {
 		background-color: basic.$secondColor;
@@ -22,4 +47,18 @@ body {
 		border-radius: 5px;
 		min-height: basic.$basicLayoutHeight;
 	}
+
+		nav > ul {
+			display: flex;
+			margin: 0 0 0 20px;
+
+			li {
+				margin-right: 10px;
+			}
+			a {
+				color: #333;
+				font-size: .9em;
+			}
+		}
+
 }
