@@ -4,15 +4,15 @@ import '../styles/pageShowcaseCounterUsingState.scss';
 function PageShowcaseCounterUsingState() {
 	const [count, setCount] = useState(0);
 
-	const incrementCounHandler = () => {
+	const incrementCountHandler = () => {
 		setCount(prevCount => prevCount + 1);
 	};
 
-	const decrementCounHandler = () => {
+	const decrementCountHandler = () => {
 		setCount(prevCount => prevCount - 1);
 	};
 
-	const resetCounHandler = () => {
+	const resetCountHandler = () => {
 		setCount(0);
 	};
 
@@ -22,11 +22,11 @@ function PageShowcaseCounterUsingState() {
 			<p className="description">This is a simple demonstration how to use state on a React page.</p>
 			<div className='button'>
 				<p>You can count between 0 and 10:</p>
-				<button onClick={decrementCounHandler} disabled={count === 0}>
+				<button onClick={decrementCountHandler} disabled={count === 0}>
 					Click - 1
 				</button>
-				<button onClick={resetCounHandler}>Click 0</button>
-				<button onClick={incrementCounHandler} disabled={count === 10}>
+				<button onClick={resetCountHandler}>Click 0</button>
+				<button onClick={incrementCountHandler} disabled={count === 10}>
 					Click + 1
 				</button>
 			</div>
