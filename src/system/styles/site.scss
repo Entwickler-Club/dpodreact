@@ -2,18 +2,28 @@ body {
 	background-color: #eee;
 	padding: 20px;
 	font-family: Arial, Helvetica, sans-serif;
+	.app_site {
+		h1.siteTitle {
+			font-size: 2em;
+			margin-left: 20px;
+		}
 
-	h1.siteTitle {
-		font-size: 2em;
-		margin-left: 20px;
-	}
+		.app_container {
+			background-color: #fff;
+			margin: 20px 0 0 0;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			min-height: 80vh;
+		}
 
-	.app_container {
-		background-color: #fff;
-		margin: 20px 0 0 0;
-		padding: 20px;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		min-height: 80vh;
+		nav > ul {
+			display: flex;
+			margin: 0 0 0 20px;
+
+			li {
+				margin-right: 10px;
+			}
+		}
 	}
 }

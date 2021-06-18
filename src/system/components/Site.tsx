@@ -8,30 +8,37 @@ import {
 import '../styles/reset.scss';
 import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
+import PageShowcaseCounterUsingState from "./PageShowcaseCounterUsingState";
 
 function Site() {
 
 	return (
-		<div className="app_site">
-			<h1 className="siteTitle">Info Site</h1>
-			<Router>
+		<Router>
+			<div className="app_site">
+				<h1 className="siteTitle">Info Site</h1>
 				<nav>
 					<ul>
 						<li>
 							<Link to="/">Home</Link>
+						</li>
+						<li>
+							<Link to="/showcaseCounterUsingState">Showcase: Counter Using State</Link>
 						</li>
 					</ul>
 				</nav>
 
 				<section className="app_container">
 					<Switch>
-						<Route path="/">
+						<Route exact path="/">
 							<PageHome />
+						</Route>
+						<Route path="/showcaseCounterUsingState">
+							<PageShowcaseCounterUsingState />
 						</Route>
 					</Switch>
 				</section>
-			</Router>
-		</div >
+			</div >
+		</Router>
 	)
 }
 
