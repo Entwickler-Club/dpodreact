@@ -1,11 +1,18 @@
+@use 'partials/variables' as basic;
+
+html {
+	font-size: basic.$basicFontSize;
+}
+
 body {
-	background-color: #eee;
-	padding: 20px;
-	font-family: Arial, Helvetica, sans-serif;
+	background-color: basic.$firstColor;
+	padding: basic.$padding;
+	font-family: basic.$primaryFontFamily;
 
 	/* override resets */
 	h1 {
 		font-size: 2em;
+		margin-left: basic.$margin;
 	}
 	h2 {
 		font-size: 1.6em;
@@ -32,14 +39,14 @@ body {
 			margin-left: 20px;
 		}
 
-		.app_container {
-			background-color: #fff;
-			margin: 20px 0 0 0;
-			padding: 20px;
-			border: 1px solid #ddd;
-			border-radius: 5px;
-			min-height: 80vh;
-		}
+	.app_container {
+		background-color: basic.$secondColor;
+		margin: basic.$margin 0 0 0;
+		padding: basic.$padding;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		min-height: basic.$basicLayoutHeight;
+	}
 
 		nav > ul {
 			display: flex;
@@ -53,5 +60,5 @@ body {
 				font-size: .9em;
 			}
 		}
-	}
+
 }
