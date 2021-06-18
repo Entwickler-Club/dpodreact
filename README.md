@@ -7,6 +7,8 @@ This is a framework build on top of create-react-app which enables you to quickl
 - clone repository
 - `npm install`
 - `npm start`
+- you will see in your browser a site like this:
+<img src="dev/github/graphics/firstScreen.png">
 
 ## Datapod Concepts
 
@@ -19,6 +21,12 @@ This is a framework build on top of create-react-app which enables you to quickl
 	- `custom` - contains all components, classes, etc. for a specific website that uses Datapod as its framework
 	- keep these files separate as you build your site so that in the future, you can upgrade to a new version of Datapod which will only change files in `system`
 - you will also see this distinction in e.g. ItemTypes and DataTypes, some that are `system` (e.g. `users`, `pageItems`) and some that are not (e.g. `howtos`, `flashcards`, `servers`, etc.)
+
+### Showcase Pages
+
+Datapod is seen foremost as a tool in which everything that you need to develop is contained (hence "pod"). In this spirit, Datapod-for-React has many Showcase Pages each which demonstrate how to do something useful in React or with Datapod. These pages show a live example of something that works which the developer can use and study the code to see how to implement it.
+
+Datapod has a `live` mode and a `developer` mode. When the site is in live mode, none of these showcase pages or any other developer pages are visible or available. But when the developer switched to developer mode, all of these pages are available in the menu of the site itself.
 
 ### ItemTypes
 
