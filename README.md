@@ -24,7 +24,7 @@ This is a framework build on top of create-react-app which enables you to quickl
 
 ### Showcase Pages
 
-Datapod is seen foremost as a tool in which everything that you need to develop is contained in the site itself, i.e. is "pod like." In this spirit, Datapod-for-React has many Showcase Pages each which demonstrate how to do something useful in React or with Datapod. These pages show a live example of something that works which the developer can use and study the code to see how to implement it.
+Datapod is seen foremost as a tool in which everything that you need to develop is contained in the site itself, i.e. is "pod like." In this spirit, Datapod-for-React has many *Showcase Pages* each which demonstrate how to do something with Datapod-for-React or in React itself. These pages show a live example of something that works which the developer can experiment with and then study the code to see how to implement it. When Datapod code contributors work on certain aspects of the site and first need to try something out to see if it works, they will often create a *Showcase Page* to get it working, and then when it works, they will leave it there for other developers to use.
 
 Datapod has a `live` mode and a `developer` mode. When the site is in live mode, none of these showcase pages or any other developer pages are visible or available. But when the developer switched to developer mode, all of these pages are available in the menu of the site itself.
 
