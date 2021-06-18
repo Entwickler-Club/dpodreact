@@ -1,19 +1,25 @@
+@use 'partials/variables' as basic;
+
+html {
+	font-size: basic.$basicFontSize;
+}
+
 body {
-	background-color: #eee;
-	padding: 20px;
-	font-family: Arial, Helvetica, sans-serif;
+	background-color: basic.$firstColor;
+	padding: basic.$padding;
+	font-family: basic.$primaryFontFamily;
 
 	h1.siteTitle {
 		font-size: 2em;
-		margin-left: 20px;
+		margin-left: basic.$margin;
 	}
 
 	.app_container {
-		background-color: #fff;
-		margin: 20px 0 0 0;
-		padding: 20px;
+		background-color: basic.$secondColor;
+		margin: basic.$margin 0 0 0;
+		padding: basic.$padding;
 		border: 1px solid #ddd;
 		border-radius: 5px;
-		min-height: 80vh;
+		min-height: basic.$basicLayoutHeight;
 	}
 }
