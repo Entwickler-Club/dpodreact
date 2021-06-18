@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Datapod for React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a framework build on top of create-react-app which enables you to quickly build data-driven sites.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+- clone repository
+- `npm install`
+- `npm start`
 
-### `npm start`
+## Datapod Concepts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### The distinction between `system` and `custom` 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- `system` = everything that is core to the Datapod framework
+- `custom` = everything that is specific to a particular website which uses Datapod
+- there are two areas under `src`: 
+	- `system` - contains all components, classes and all other files that are necessary for the framework to run
+	- `custom` - contains all components, classes, etc. for a specific website that uses Datapod as its framework
+	- keep these files separate as you build your site so that in the future, you can upgrade to a new version of Datapod which will only change files in `system`
+- you will also see this distinction in e.g. ItemTypes and DataTypes, some that are `system` (e.g. `users`, `pageItems`) and some that are not (e.g. `howtos`, `flashcards`, `servers`, etc.)
 
-### `npm test`
+### ItemTypes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- (todo)
 
-### `npm run build`
+### DataTypes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- (todo)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Datapod-for-React Conventions 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prefer TypeScript
 
-### `npm run eject`
+- to increase code security and stability, use TypeScript to create components, classes and modules instead of JavaScript
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prefer function components
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- to increase readability and testing, use React function components instead of class components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Prefer SASS
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- to increase styling flexibility, use SASS (`.scss`) instead of CSS files
 
-## Learn More
+### File extensions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- TypeScript components have the extension `.tsx`
+- TypeScript classes, modules and scripts have the extension `.ts`
+- JavaScript components have the extension `.jsx`
+- JavaScript classes, modules and scripts have the extensions `.js`

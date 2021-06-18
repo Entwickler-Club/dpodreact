@@ -1,0 +1,19 @@
+body {
+	background-color: #eee;
+	padding: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+
+	h1.siteTitle {
+		font-size: 2em;
+		margin-left: 20px;
+	}
+
+	.app_container {
+		background-color: #fff;
+		margin: 20px 0 0 0;
+		padding: 20px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		min-height: 80vh;
+	}
+}
