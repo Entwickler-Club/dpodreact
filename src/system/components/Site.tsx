@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import ShowcaseContext from '../../context/ShowcaseContext.jsx';
+import ShowContext from '../../context/ShowContext.jsx';
 import '../styles/reset.scss';
 import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
 
 function Site() {
-	const { isShowcase, setIsShowcase } = useContext(ShowcaseContext);
+	const { isShowing, setIsShowing } = useContext(ShowContext);
 
-	const showcaseHandler = () => {
-		setIsShowcase((prevIsShowcase: boolean) => !prevIsShowcase);
+	const showHandler = () => {
+		setIsShowing((prevIsShowing: boolean) => !prevIsShowing);
 	};
 
 	return (
@@ -25,8 +25,8 @@ function Site() {
 									className='toggle_input'
 									type='checkbox'
 									id='myToggle'
-									checked={isShowcase}
-									onChange={showcaseHandler}
+									checked={isShowing}
+									onChange={showHandler}
 								/>
 								<div className='toggle_fill'></div>
 							</label>
@@ -34,7 +34,7 @@ function Site() {
 						<li>
 							<Link to='/'>Home</Link>
 						</li>
-						{isShowcase && (
+						{isShowing && (
 							<li>
 								<Link to='/showcaseCounterUsingState'>
 									Showcase: Counter Using State

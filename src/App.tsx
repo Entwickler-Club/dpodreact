@@ -1,14 +1,14 @@
 import React from 'react';
-import { ShowcaseProvider } from './context/ShowcaseContext.jsx';
+import { ShowProvider } from './context/ShowContext.jsx';
 import Site from './system/components/Site';
 
 function App() {
 	return (
-		<ShowcaseProvider>
+		<ShowProvider>
 			<div className='App'>
 				<Site />
 			</div>
-		</ShowcaseProvider>
+		</ShowProvider>
 	);
 }
 
