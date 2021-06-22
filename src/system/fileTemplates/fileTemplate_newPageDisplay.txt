@@ -1,0 +1,12 @@
+import '../styles/@@pageCamelSingular.scss';
+
+function Page@@pagePascalSingular() {
+
+	return (
+		<div className="page page_@@pageCamelSingular">
+			<p>Welcome to this site.</p>	
+		</div>
+	)
+}
+
+export default Page@@pagePascalSingular;
