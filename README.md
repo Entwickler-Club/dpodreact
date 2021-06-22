@@ -12,8 +12,8 @@ This is a framework build on top of create-react-app which enables you to quickl
 
 ## Datapod Command Line Interface
 
-help: `npm run dpod`
-create page: `npm run dpod -- createPage --pageTitle "Showcase Regex"`
+- get help: `npm run dpod`
+- create page: `npm run dpod -- createPage --pageTitle "Showcase Regex"`
 
 ## Datapod Concepts
 
