@@ -5,7 +5,8 @@ function PageShowcaseTest() {
 	return (
 		<div className="page page_showcaseTest">
 			<h2 className="title">Showcase Test</h2>
-			<p className="message">Info page.</p>	
+			<p className="description">An info page that displays showcase test.</p>	
+			<p>Welcome to this page.</p>
 		</div>
 	)
 }
