@@ -5,6 +5,7 @@ import '../styles/reset.scss';
 import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
+import PageShowcaseTest from './PageShowcaseTest';
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -36,9 +37,8 @@ function Site() {
 						</li>
 						{isShowing && (
 							<li>
-								<Link to='/showcaseCounterUsingState'>
-									Showcase: Counter Using State
-								</Link>
+								<Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link>
+								<Link to='/showcaseTest'>Showcase: Test</Link>
 							</li>
 						)}
 					</ul>
@@ -49,9 +49,8 @@ function Site() {
 						<Route exact path='/'>
 							<PageHome />
 						</Route>
-						<Route path='/showcaseCounterUsingState'>
-							<PageShowcaseCounterUsingState />
-						</Route>
+						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route>
+						<Route path='/showcaseTest'><PageShowcaseTest/></Route>
 					</Switch>
 				</section>
 			</div>

@@ -4,6 +4,7 @@ function Page@@pagePascal() {
 
 	return (
 		<div className="page page_@@pageCamel">
+			<h2 className="title">@@pageTitle</h2>
 			<p className="message">Info page.</p>	
 		</div>
 	)
