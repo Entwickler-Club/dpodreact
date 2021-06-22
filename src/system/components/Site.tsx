@@ -38,11 +38,11 @@ function Site() {
 							<Link to='/'>Home</Link>
 						</li>
 						{isShowing && (
-							<li>
+							<>
 								{/* DYNAMIC_CODE_AREA:linkPageComponents  */}
-								<Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link>
-								<Link to='/showcaseTest'>Showcase: Test</Link>
-							</li>
+								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li>
+								<li><Link to='/showcaseTest'>Showcase: Test</Link></li>
+							</>
 						)}
 					</ul>
 				</nav>
