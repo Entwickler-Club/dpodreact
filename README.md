@@ -10,6 +10,11 @@ This is a framework build on top of create-react-app which enables you to quickl
 - you will see in your browser a site like this:
 <img src="dev/github/graphics/firstScreen.png">
 
+## Datapod Command Line Interface
+
+help: `npm run dpod`
+create page: `npm run dpod -- createPage --pageTitle "Showcase Regex"`
+
 ## Datapod Concepts
 
 ### The distinction between `system` and `custom` 
