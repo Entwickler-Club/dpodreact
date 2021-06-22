@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-export {}; // fixes VSCode variable-checking in other files (ts2451)
-
-// import DpodSiteBuilder from '../src/datapod/classes/dpodSiteBuilder';
+// fixes VSCode variable-checking in other files (ts2451)
+import DpodSiteBuilder from '../classes/dpodSiteBuilder';
+export {};
 
 const argv = require('minimist')(process.argv.slice(2));
 
@@ -9,9 +9,8 @@ console.log('===================================================================
 console.log('DATAPOD COMMAND LINE INTERFACE');
 console.log('===========================================================================');
 if (argv._[0] === 'createPage') {
-	// const { pageTitle } = argv;
-	console.log('create page...');
-	// DpodSiteBuilder.createPage(pageTitle);
+	const { pageTitle } = argv;
+	DpodSiteBuilder.createPage(pageTitle);
 } else {
     // npm run d01
     // npm run d01 -- help
