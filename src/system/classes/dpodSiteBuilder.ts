@@ -9,14 +9,14 @@ class DpodSiteBuilder {
             ...pageSyntaxVariations
         };
         // main display page
-        const textFileBuilder = new TextFileBuilder('newPageDisplay');
+        const textFileBuilder = new TextFileBuilder('newPageComponent');
         textFileBuilder.data = data;
         textFileBuilder.buildNow(`src/custom/components/page${data.pagePascal}.tsx`);
 
         // stylesheet
-        // const textFileBuilderStylesheet = new TextFileBuilder('newPageItemTypeSimpleHookStylesheet');
-        // textFileBuilderStylesheet.data = data;
-        // textFileBuilderStylesheet.buildNow(`src/custom/styles/stylesPage${data.pagePascal}.scss`);
+        const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
+        textFileBuilderStylesheet.data = data;
+        textFileBuilderStylesheet.buildNow(`src/custom/styles/${data.pageCamel}.scss`);
 
     }
 

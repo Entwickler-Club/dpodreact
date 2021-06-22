@@ -1,0 +1,12 @@
+import '../styles/@@pageCamel.scss';
+
+function Page@@pagePascal() {
+
+	return (
+		<div className="page page_@@pageCamel">
+			<p className="message">Info page.</p>	
+		</div>
+	)
+}
+
+export default Page@@pagePascal;
