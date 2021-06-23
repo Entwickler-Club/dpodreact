@@ -6,7 +6,7 @@ function Page@@pagePascal() {
 		<div className="page page_@@pageCamel">
 			<h2 className="title">@@pageTitle</h2>
 			<p className="description">An info page that displays @@pageText.</p>	
-			<p>Welcome to this page.</p>
+			<p className="message">Welcome to this page.</p>
 		</div>
 	)
 }

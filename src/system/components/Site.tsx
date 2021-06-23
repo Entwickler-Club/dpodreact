@@ -8,6 +8,7 @@ import PageHome from '../../custom/components/PageHome';
 // DYNAMIC_CODE_AREA:loadPageComponents
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
 import PageShowcaseTest from './PageShowcaseTest';
+import PageShowCaseLodash from './PageShowcaseLodash';
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -42,6 +43,7 @@ function Site() {
 								{/* DYNAMIC_CODE_AREA:linkPageComponents  */}
 								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li>
 								<li><Link to='/showcaseTest'>Showcase: Test</Link></li>
+								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li>
 							</>
 						)}
 					</ul>
@@ -55,6 +57,7 @@ function Site() {
 						{/* DYNAMIC_CODE_AREA:routePageComponents  */}
 						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route>
 						<Route path='/showcaseTest'><PageShowcaseTest /></Route>
+						<Route path='/showcaseLodash'><PageShowCaseLodash /></Route>
 					</Switch>
 				</section>
 			</div>
