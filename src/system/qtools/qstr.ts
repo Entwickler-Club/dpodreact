@@ -686,3 +686,20 @@ export const forcePlural = (potentialSingularNotation: string) => {
     return potentialSingularNotation;
 
 }
+
+export const removeEndMarkerAndGetNumberOfPrecedingTabsAndLine = (line: string, marker: string) => {
+	const numberOfPrecedingTabs = qstr.getNumberOfPrecedingTabs(line);
+	let newLine = qstr.chopLeft(line, qstr.tabs(numberOfPrecedingTabs));
+	newLine = qstr.stripEndingMarker(newLine, marker);
+	return [numberOfPrecedingTabs, newLine];
+}
+
+export const TAB = (numberOfTabs: number = 1) => {
+	const tab = "    "; // 4 spaces
+	return tab.repeat(numberOfTabs);
+}
+
+exports.tabs = function (number) {
+	const tab = qstr.TAB();
+	return tab.repeat(number);
+}
