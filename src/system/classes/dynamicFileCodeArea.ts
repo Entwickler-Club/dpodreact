@@ -1,14 +1,14 @@
-// fixes VSCode variable-checking in other files (ts2451)
-export { };
-
 import * as qstr from '../qtools/qstr';
 import DynamicFileCodeAreaCodeChunk from './dynamicFileCodeAreaCodeChunk';
+
+// fixes VSCode variable-checking in other files (ts2451)
+// export { };
 
 class DynamicFileCodeArea {
 
     private idCode: string;
-    private linesInCodeChunk: string[];
-    private dynamicFileCodeAreaCodeChunks: string[];
+    private linesInCodeChunk: number;
+    private dynamicFileCodeAreaCodeChunks: any[];
 
     //signature:
     // loadTools
@@ -16,7 +16,7 @@ class DynamicFileCodeArea {
     constructor(signature: string) {
         const parts = qstr.breakIntoParts(signature, ',');
         const idCode = parts[0];
-        const linesInCodeChunk = parts.length > 1 ? parts[1] : 1;
+        const linesInCodeChunk = parts.length > 1 ? Number(parts[1]) : 1;
 
         this.idCode = idCode;
         this.linesInCodeChunk = linesInCodeChunk;
@@ -34,7 +34,7 @@ class DynamicFileCodeArea {
         }
     }
 
-    addNewCodeChunk(codeChunkIdCode, lines) {
+    addNewCodeChunk(codeChunkIdCode: string, lines: string[]) {
         if (this.dynamicFileCodeAreaCodeChunks.length > 0) {
             if (!this.codeChunkIdCodeAlreadyExists(codeChunkIdCode)) {
                 const dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode);
@@ -45,7 +45,7 @@ class DynamicFileCodeArea {
         }
     }
 
-    codeChunkIdCodeAlreadyExists(codeChunkIdCode) {
+    codeChunkIdCodeAlreadyExists(codeChunkIdCode: string) {
         for (const dynamicFileCodeAreaCodeChunk of this.dynamicFileCodeAreaCodeChunks) {
             if (dynamicFileCodeAreaCodeChunk.idCode == codeChunkIdCode) {
                 return true;
@@ -54,7 +54,7 @@ class DynamicFileCodeArea {
         return false;
     }
 
-    deleteCodeChunk(codeChunkIdCode) {
+    deleteCodeChunk(codeChunkIdCode: string) {
         const newDynamicFileCodeAreaCodeChunks = [];
         for (const dynamicFileCodeAreaCodeChunk of this.dynamicFileCodeAreaCodeChunks) {
             if (dynamicFileCodeAreaCodeChunk.idCode != codeChunkIdCode) {
@@ -64,9 +64,9 @@ class DynamicFileCodeArea {
         this.dynamicFileCodeAreaCodeChunks = newDynamicFileCodeAreaCodeChunks;
     }
 
-    getDynamicFileCodeAreaCodeChunkWithChunkIdCode(codeChunkIdCode: string): string {
+    getDynamicFileCodeAreaCodeChunkWithChunkIdCode(codeChunkIdCode: string): any {
         for (const dynamicFileCodeAreaCodeChunk of this.dynamicFileCodeAreaCodeChunks) {
-            if (dynamicFileCodeAreaCodeChunk.idCode == codeChunkIdCode) {
+            if (dynamicFileCodeAreaCodeChunk.idCode === codeChunkIdCode) {
                 return dynamicFileCodeAreaCodeChunk;
             }
         }

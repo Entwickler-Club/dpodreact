@@ -1,12 +1,12 @@
-// fixes VSCode variable-checking in other files (ts2451)
-export { };
-
 import * as qstr from '../qtools/qstr';
+
+// fixes VSCode variable-checking in other files (ts2451)
+// export { };
 
 class DynamicFileCodeAreaCodeChunk {
 
-    private idCode: string;
-    private numberOfPrecedingTabs: string[];
+    public idCode: string;
+    private numberOfPrecedingTabs: any[];
     private lines: string[];
 
 

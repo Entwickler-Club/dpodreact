@@ -233,11 +233,6 @@ export const getNumberOfPrecedingTabs = (text: string, forceRealTabs = false) =>
     return numberOfPrecedingTabs;
 }
 
-export const TAB = (numberOfTabs = 1) => {
-    const tab = '    '; // 4 spaces
-    return tab.repeat(numberOfTabs);
-}
-
 // e.g. - im [intranet](http://intranet/index.php)
 export const containsUrlMarkdown = (text: string) => {
     if (qstr.contains(text, '(') && qstr.contains(text, ')') && qstr.contains(text, '[') && qstr.contains(text, ']')) {
@@ -687,7 +682,7 @@ export const forcePlural = (potentialSingularNotation: string) => {
 
 }
 
-export const removeEndMarkerAndGetNumberOfPrecedingTabsAndLine = (line: string, marker: string) => {
+export const removeEndMarkerAndGetNumberOfPrecedingTabsAndLine = (line: string, marker: string) : any[] => {
 	const numberOfPrecedingTabs = qstr.getNumberOfPrecedingTabs(line);
 	let newLine = qstr.chopLeft(line, qstr.tabs(numberOfPrecedingTabs));
 	newLine = qstr.stripEndingMarker(newLine, marker);
@@ -699,7 +694,16 @@ export const TAB = (numberOfTabs: number = 1) => {
 	return tab.repeat(numberOfTabs);
 }
 
-exports.tabs = function (number) {
+export const tabs = function (num: number) {
 	const tab = qstr.TAB();
-	return tab.repeat(number);
+	return tab.repeat(num);
+}
+
+// e.g. "const temp = 2; //:temp", return "const temp = 2;"
+export const stripEndingMarker = (text: string, marker: string) => {
+	const parts = qstr.breakIntoParts(text, marker);
+	if (parts.length > 0) {
+		return parts[0];
+	}
+	return '';
 }
