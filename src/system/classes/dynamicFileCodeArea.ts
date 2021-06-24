@@ -6,8 +6,8 @@ import DynamicFileCodeAreaCodeChunk from './dynamicFileCodeAreaCodeChunk';
 
 class DynamicFileCodeArea {
 
-    private idCode: string;
-    private linesInCodeChunk: number;
+    public idCode: string;
+    public linesInCodeChunk: number;
     private dynamicFileCodeAreaCodeChunks: any[];
 
     //signature:
@@ -105,4 +105,4 @@ class DynamicFileCodeArea {
 
 }
 
-module.exports = DynamicFileCodeArea
+export default DynamicFileCodeArea;

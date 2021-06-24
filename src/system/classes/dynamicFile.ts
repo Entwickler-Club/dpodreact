@@ -5,15 +5,21 @@ import * as qstr from '../qtools/qstr';
 import * as qfil from '../qtools/qfil';
 import DynamicFileCodeArea from './dynamicFileCodeArea';
 import fs from 'fs';
-import config from '../system/config';
+import * as config from './config';
 
 class DynamicFile {
-	constructor(pathAndFileName) {
+	private pathAndFileName: string;
+	private contents: string;
+	private lines: string[];
+	private codeAreaMarker: string;
+	private codeChunkMarker: string;
+	private codeAreas: any[];
+	private codeAreaTemplateLines: string[];
+	
+	constructor(pathAndFileName: string) {
 		this.pathAndFileName = pathAndFileName;
-		this.type = 'text';
 		this.contents = '';
 		this.lines = [];
-		this.areas = [];
 		this.codeAreaMarker = config.dynamicFileCodeAreaMarker();
 		this.codeChunkMarker = config.dynamicFileCodeChunkMarker();
 		this.codeAreas = [];
@@ -24,7 +30,7 @@ class DynamicFile {
 	initialize() {
 		this.contents = fs.readFileSync(this.pathAndFileName, 'utf8');
 		this.lines = qstr.convertStringBlockToLinesNoTrim(this.contents);
-		this.areas = this.buildAreas();
+		this.buildAreas();
 	}
 
 	buildAreas() {
@@ -42,18 +48,18 @@ class DynamicFile {
 			} else if (currentlyRecordingCodeArea) {
 				const chunkIdCode = qstr.getRestAfterMarker(line, this.codeChunkMarker);
 				if (!qstr.isEmpty(chunkIdCode)) {
-					currentCodeArea.addLineToCodeChunk(chunkIdCode, line);
+					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
 					currentChunkIdCode = chunkIdCode;
 				} else {
-					if (currentNumberOfCodeChunkLinesRecorded == currentCodeArea.linesInCodeChunk) {
-						this.codeAreas.push(currentCodeArea);
+					if (currentNumberOfCodeChunkLinesRecorded == currentCodeArea!.linesInCodeChunk) {
+						this.codeAreas.push(currentCodeArea!);
 						currentCodeArea = null;
 						currentlyRecordingCodeArea = false;
 						currentNumberOfCodeChunkLinesRecorded = 0;
 						currentChunkIdCode = '';
 					} else {
-						currentCodeArea.addLineToCodeChunk(currentChunkIdCode, line);
+						currentCodeArea!.addLineToCodeChunk(currentChunkIdCode, line);
 						currentNumberOfCodeChunkLinesRecorded++;
 					}
 				}
@@ -80,7 +86,7 @@ class DynamicFile {
 	}
 
 	// e.g. finds a line like this: "//extensions: jquery, bootstrap" and returns 'jquery, bootstrap'
-	getDataFromVariableLine(marker) {
+	getDataFromVariableLine(marker: string) {
 		const variableLinePrefix = `//DYNAMIC_VARIABLE:${marker}=`;
 		for (const line of this.lines) {
 			if (line.includes(variableLinePrefix)) {
@@ -92,23 +98,23 @@ class DynamicFile {
 		return '';
 	}
 
-	getIdCodeArrayFromVariableLine(marker) {
+	getIdCodeArrayFromVariableLine(marker:string) {
 		const extensionLine = this.getDataFromVariableLine(marker);
 		const idCodes = qstr.breakIntoParts(extensionLine, ',');
 		return idCodes;
 	}
 
-	getLine(number) {
-		if (number > this.lines.length || number < 1) {
+	getLine(lineNumber: number) {
+		if (lineNumber > this.lines.length || lineNumber < 1) {
 			return '';
 		}
-		const index = number - 1;
+		const index = lineNumber - 1;
 		const line = this.lines[index];
 		const cleanLine = qstr.replaceAll(line, '\r', '');
 		return cleanLine;
 	}
 
-	changeMarkerLineAndSave(marker, newLine) {
+	changeMarkerLineAndSave(marker: string, newLine: string) {
 		const fullMarker = '//DYNAMIC_LINE:' + marker;
 		const newLines = [];
 		for (const line of this.lines) {
@@ -133,7 +139,7 @@ class DynamicFile {
 		qfil.createFileWithLines(this.pathAndFileName, lines);
 	}
 
-	getCodeArea(codeAreaIdCode) {
+	getCodeArea(codeAreaIdCode: string) {
 		for (const codeArea of this.codeAreas) {
 			if (codeArea.idCode == codeAreaIdCode) {
 				return codeArea;
@@ -142,7 +148,7 @@ class DynamicFile {
 		return null;
 	}
 
-	addCodeChunkToCodeArea(codeAreaIdCode, codeChunkIdCode, lineOrLines) {
+	addCodeChunkToCodeArea(codeAreaIdCode:string, codeChunkIdCode:string, lineOrLines:string) {
 		let lines = null;
 		if (qstr.isArray(lineOrLines)) {
 			lines = lineOrLines;
@@ -158,14 +164,14 @@ class DynamicFile {
 		}
 	}
 
-	deleteCodeChunkFromCodeArea(codeAreaIdCode, codeChunkIdCode) {
+	deleteCodeChunkFromCodeArea(codeAreaIdCode: string, codeChunkIdCode: string) {
 		const codeArea = this.getCodeArea(codeAreaIdCode);
 		if (codeArea != null) {
 			codeArea.deleteCodeChunk(codeChunkIdCode);
 		}
 	}
 
-	getCodeAreaIdCodeFromTemplateMarker(line) {
+	getCodeAreaIdCodeFromTemplateMarker(line: string) {
 		let r = line;
 		r = qstr.chopLeft(r, '[[DYNAMIC_CODE_AREA:');
 		r = qstr.chopRight(r, ']]');
@@ -173,7 +179,7 @@ class DynamicFile {
 	}
 
 	getLinesWithUpdatedCodeAreas() {
-		let lines = [];
+		let lines: string[] = [];
 		for (const line of this.codeAreaTemplateLines) {
 			if (line.startsWith('[[DYNAMIC_CODE_AREA')) {
 				const areaCodeIdCode = this.getCodeAreaIdCodeFromTemplateMarker(line);

@@ -177,6 +177,11 @@ export const convertStringBlockToLines = (stringBlock: string, trimLines = true)
     return roughLines;
 }
 
+// also does full trim, of array and each line
+export const convertStringBlockToLinesNoTrim = (stringBlock: string) => {
+	return qstr.convertStringBlockToLines(stringBlock, false);
+}
+
 export const trimAllLinesInLinesArray = (lines: string[]) => {
     const newLines: string[] = [];
     lines.forEach(function (line) {
@@ -706,4 +711,37 @@ export const stripEndingMarker = (text: string, marker: string) => {
 		return parts[0];
 	}
 	return '';
+}
+
+// e.g. "//DYNAMIC_CODE_AREA:loadTools", return "loadTools"
+export const getRestAfterMarker = (text: string, marker: string) => {
+	const parts = qstr.breakIntoParts(text, marker);
+	if (parts.length > 1) {
+		return parts[1];
+	}
+    return '';
+}
+
+export const addLinesToLines = (lines1: string[], lines2: string[]) => {
+	const lines = lines1;
+	for (const line of lines2) {
+		lines.push(line);
+	}
+	return lines;
+}
+
+export const isString = (obj: any) => {
+	if (typeof obj === 'string' || obj instanceof String) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+export const isArray = (obj: any) => {
+	if (Array.isArray(obj)) {
+		return true;
+	} else {
+		return false;
+	}
 }
