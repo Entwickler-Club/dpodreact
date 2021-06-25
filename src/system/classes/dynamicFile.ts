@@ -3,8 +3,9 @@
 import * as qstr from '../qtools/qstr';
 import * as qfil from '../qtools/qfil';
 import DynamicFileCodeArea from './dynamicFileCodeArea';
-import fs from 'fs';
 import * as config from './config';
+const fs = require('fs');
+const path = require('path');
 
 class DynamicFile {
 	private pathAndFileName: string;
@@ -24,10 +25,13 @@ class DynamicFile {
 		this.codeAreas = [];
 		this.codeAreaTemplateLines = [];
 		this.initialize();
+		console.log('initiaized dynamicFile');
 	}
 
 	initialize() {
-		this.contents = fs.readFileSync(this.pathAndFileName, 'utf8');
+		console.log(this.pathAndFileName);
+		this.contents = fs.readFileSync(path.resolve(__dirname, this.pathAndFileName), 'utf8');
+		console.log(this.contents);
 		this.lines = qstr.convertStringBlockToLinesNoTrim(this.contents);
 		this.buildAreas();
 	}

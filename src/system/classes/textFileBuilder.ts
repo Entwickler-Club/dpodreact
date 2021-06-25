@@ -1,6 +1,6 @@
 import * as qstr from '../qtools/qstr';
 
-const fs = require('fs')
+const fs = require('fs');
 
 class TextFileBuilder {
 

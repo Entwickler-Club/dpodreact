@@ -22,8 +22,7 @@ class DpodSiteBuilder {
 		textFileBuilderStylesheet.buildNow(`src/system/styles/${data.pageCamel}.scss`);
 
 		// make modifications in the Site.tsx file
-		// const systemDynamicFile = new DynamicFile('system/system.js');
-		console.log('editing site.tsx');
+		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
 
 		// TODO: send data into DynamicFile
 		// const singularItemTypeIdCode = qstr.forceSingular(data.pageCamel); // showcaseBook
