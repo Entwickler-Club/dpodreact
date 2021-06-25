@@ -38,6 +38,8 @@ class DynamicFileCodeArea {
     }
 
     addNewCodeChunk(codeChunkIdCode: string, lines: string[]) {
+
+				console.log('adding code chunk222');
         if (this.dynamicFileCodeAreaCodeChunks.length > 0) {
             if (!this.codeChunkIdCodeAlreadyExists(codeChunkIdCode)) {
                 const dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode);
