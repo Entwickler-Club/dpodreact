@@ -33,6 +33,7 @@ class DynamicFile {
 		this.buildAreas();
 	}
 
+	// TODO: refactor this so that it uses an item Type instead of these classes, store all information in each item
 	getDynamicCodeAreaObjects() {
 		const dynamicCodeAreaObjects = [
 			{

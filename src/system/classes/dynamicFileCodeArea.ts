@@ -29,7 +29,7 @@ class DynamicFileCodeArea {
     addLineToCodeChunk(codeChunkIdCode: string, line: string) {
         let dynamicFileCodeAreaCodeChunk = this.getDynamicFileCodeAreaCodeChunkWithChunkIdCode(codeChunkIdCode);
         if (dynamicFileCodeAreaCodeChunk == null) {
-            dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode);
+            dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode, this.dynamicCodeAreaObject);
             dynamicFileCodeAreaCodeChunk.addLine(line);
             this.dynamicFileCodeAreaCodeChunks.push(dynamicFileCodeAreaCodeChunk);
         } else {
@@ -40,7 +40,7 @@ class DynamicFileCodeArea {
     addNewCodeChunk(codeChunkIdCode: string, lines: string[]) {
         if (this.dynamicFileCodeAreaCodeChunks.length > 0) {
             if (!this.codeChunkIdCodeAlreadyExists(codeChunkIdCode)) {
-                const dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode);
+				const dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode, this.dynamicCodeAreaObject);
                 const numberOfPrecedingTabs = this.dynamicFileCodeAreaCodeChunks[0].numberOfPrecedingTabs;
                 dynamicFileCodeAreaCodeChunk.addNewContent(numberOfPrecedingTabs, lines);
                 this.dynamicFileCodeAreaCodeChunks.push(dynamicFileCodeAreaCodeChunk);
@@ -94,7 +94,7 @@ class DynamicFileCodeArea {
     getLinesForTemplateInsertion() {
         let lines = [];
 
-        let firstLine = qstr.tabs(this.getFirstLinePrecedingTabs()) + '// DYNAMIC_CODE_AREA: ' + this.idCode;
+        let firstLine = qstr.tabs(this.getFirstLinePrecedingTabs()) + this.dynamicCodeAreaObject.getFullMarker() + this.idCode;
         if (this.linesInCodeChunk !== 1) {
             firstLine += ',' + this.linesInCodeChunk;
         }

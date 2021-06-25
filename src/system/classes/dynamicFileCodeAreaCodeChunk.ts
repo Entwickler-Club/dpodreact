@@ -8,16 +8,18 @@ class DynamicFileCodeAreaCodeChunk {
     public idCode: string;
     private numberOfPrecedingTabs: any[];
     private lines: string[];
+	private dynamicCodeAreaObject: any;
 
 
-    constructor(idCode: string) {
+    constructor(idCode: string, dynamicCodeAreaObject: any) {
         this.idCode = idCode;
         this.numberOfPrecedingTabs = [];
         this.lines = [];
+		this.dynamicCodeAreaObject = dynamicCodeAreaObject;
     }
 
     addLine(fullLine: string) {
-        const values = qstr.removeEndMarkerAndGetNumberOfPrecedingTabsAndLine(fullLine, 'DYNAMIC_CODE_AREA');
+        const values = qstr.removeEndMarkerAndGetNumberOfPrecedingTabsAndLine(fullLine, this.dynamicCodeAreaObject.marker);
         const numberOfPrecedingTabs = values[0];
         const line = values[1];
         this.numberOfPrecedingTabs.push(numberOfPrecedingTabs);
@@ -50,7 +52,7 @@ class DynamicFileCodeAreaCodeChunk {
             const numberOfPrecedingTabs = this.numberOfPrecedingTabs[index];
             let marker = '';
             if (index === 0) {
-                marker = ' //:' + this.idCode;
+				marker = this.getFullEndMarker(this.idCode);
             }
 			const choppedLine = qstr.chopRight(line, marker);
             const newLine = qstr.tabs(numberOfPrecedingTabs) + choppedLine + marker;
@@ -59,6 +61,11 @@ class DynamicFileCodeAreaCodeChunk {
         }
         return newLines;
     }
+
+	getFullEndMarker(idCode: string) {
+		// " // ::showcaseLodash"
+		return this.dynamicCodeAreaObject.idCode === 'null' ? '' : `${this.dynamicCodeAreaObject.markerPrefix}::${idCode}${this.dynamicCodeAreaObject.markerSuffix}`;
+	}
 
 }
 
