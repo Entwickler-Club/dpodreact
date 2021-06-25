@@ -80,8 +80,6 @@ class DynamicFile {
 	getIdCodeFromArea(dynamicCodeAreaObject: any, line: string) {
 		let r = line.trim();
 		const chopLeftText = dynamicCodeAreaObject.markerPrefix + dynamicCodeAreaObject.marker + ': ';
-		console.log(line);
-		console.log(chopLeftText);
 		r = qstr.chopLeft(r, chopLeftText);
 		r = qstr.chopRight(r, dynamicCodeAreaObject.markerSuffix);
 		return r;
@@ -105,9 +103,7 @@ class DynamicFile {
 			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
 			if (currentDynamicCodeAreaObject.idCode === 'code') {
 				const codeAreaSignature = this.getIdCodeFromArea(currentDynamicCodeAreaObject, line);
-				console.log("sig: " + codeAreaSignature);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature, currentDynamicCodeAreaObject);
-				console.log('saved: ' + currentCodeArea.idCode);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
 				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
@@ -208,10 +204,7 @@ class DynamicFile {
 	}
 
 	getCodeArea(codeAreaIdCode: string) {
-		console.log('checking [' + codeAreaIdCode + ']');
-		console.log(this.dynamicCodeAreas.length);
 		for (const codeArea of this.dynamicCodeAreas) {
-			console.log(codeArea.idCode);
 			if (codeArea.idCode === codeAreaIdCode) {
 				return codeArea;
 			}
@@ -229,9 +222,7 @@ class DynamicFile {
 		}
 		if (qstr.isArray(lines)) {
 			const codeArea = this.getCodeArea(codeAreaIdCode);
-			console.log(codeArea);
 			if (codeArea !== null) {
-			console.log('222');
 				codeArea.addNewCodeChunk(codeChunkIdCode, lines);
 			}
 		}
