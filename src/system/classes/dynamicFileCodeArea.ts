@@ -47,7 +47,7 @@ class DynamicFileCodeArea {
 
     codeChunkIdCodeAlreadyExists(codeChunkIdCode: string) {
         for (const dynamicFileCodeAreaCodeChunk of this.dynamicFileCodeAreaCodeChunks) {
-            if (dynamicFileCodeAreaCodeChunk.idCode == codeChunkIdCode) {
+            if (dynamicFileCodeAreaCodeChunk.idCode === codeChunkIdCode) {
                 return true;
             }
         }
@@ -57,7 +57,7 @@ class DynamicFileCodeArea {
     deleteCodeChunk(codeChunkIdCode: string) {
         const newDynamicFileCodeAreaCodeChunks = [];
         for (const dynamicFileCodeAreaCodeChunk of this.dynamicFileCodeAreaCodeChunks) {
-            if (dynamicFileCodeAreaCodeChunk.idCode != codeChunkIdCode) {
+            if (dynamicFileCodeAreaCodeChunk.idCode !== codeChunkIdCode) {
                 newDynamicFileCodeAreaCodeChunks.push(dynamicFileCodeAreaCodeChunk);
             }
         }
@@ -92,7 +92,7 @@ class DynamicFileCodeArea {
         let lines = [];
 
         let firstLine = qstr.tabs(this.getFirstLinePrecedingTabs()) + 'DYNAMIC_CODE_AREA' + this.idCode;
-        if (this.linesInCodeChunk != 1) {
+        if (this.linesInCodeChunk !== 1) {
             firstLine += ',' + this.linesInCodeChunk;
         }
 

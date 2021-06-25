@@ -1,6 +1,5 @@
 // fixes VSCode variable-checking in other files (ts2451)
-export {};
-
+// export {};
 import * as qstr from '../qtools/qstr';
 import * as qfil from '../qtools/qfil';
 import DynamicFileCodeArea from './dynamicFileCodeArea';
@@ -52,7 +51,7 @@ class DynamicFile {
 					currentNumberOfCodeChunkLinesRecorded = 1;
 					currentChunkIdCode = chunkIdCode;
 				} else {
-					if (currentNumberOfCodeChunkLinesRecorded == currentCodeArea!.linesInCodeChunk) {
+					if (currentNumberOfCodeChunkLinesRecorded === currentCodeArea!.linesInCodeChunk) {
 						this.codeAreas.push(currentCodeArea!);
 						currentCodeArea = null;
 						currentlyRecordingCodeArea = false;
@@ -73,7 +72,7 @@ class DynamicFile {
 
 	debugOutput() {
 		for (const codeArea of this.codeAreas) {
-			//codeArea.debugOutput();
+			codeArea.debugOutput();
 		}
 		console.log('TEMPLATE FOR CODE AREAS:');
 		console.log('=================================');
@@ -141,7 +140,7 @@ class DynamicFile {
 
 	getCodeArea(codeAreaIdCode: string) {
 		for (const codeArea of this.codeAreas) {
-			if (codeArea.idCode == codeAreaIdCode) {
+			if (codeArea.idCode === codeAreaIdCode) {
 				return codeArea;
 			}
 		}
@@ -194,4 +193,4 @@ class DynamicFile {
 
 }
 
-module.exports = DynamicFile
+export default DynamicFile;

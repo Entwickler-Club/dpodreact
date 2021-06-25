@@ -1,7 +1,10 @@
 import TextFileBuilder from './textFileBuilder';
 import * as qstr from '../qtools/qstr';
+import DynamicFile from './dynamicFile';
 
 class DpodSiteBuilder {
+
+	// TODO: convert from static class to object class
 
 	static createPage(pageTitle: string) {
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
@@ -18,7 +21,23 @@ class DpodSiteBuilder {
 		textFileBuilderStylesheet.data = data;
 		textFileBuilderStylesheet.buildNow(`src/system/styles/${data.pageCamel}.scss`);
 
-		DpodSiteBuilder.log('TODO: Make appropriate changes to src\\system\\components\\site.tsx');
+		// make modifications in the Site.tsx file
+		// const systemDynamicFile = new DynamicFile('system/system.js');
+		console.log('editing site.tsx');
+
+		// TODO: send data into DynamicFile
+		// const singularItemTypeIdCode = qstr.forceSingular(data.pageCamel); // showcaseBook
+		// const singularItemTypeClass = qstr.forcePascalNotation(singularItemTypeIdCode); // e.g. ShowcaseBook
+		// const pluralItemTypeIdCode = qstr.forcePlural(this.idCode); // showcaseBooks
+		// const pluralItemTypeClass = qstr.forcePascalNotation(pluralItemTypeIdCode); // e.g. ShowcaseBooks
+
+		// this.systemDynamicFile.addCodeChunkToCodeArea('includeItemArea', this.idCode, `const ${singularItemTypeClass} = require('../systemItems/${singularItemTypeIdCode}');`);
+		// this.systemDynamicFile.addCodeChunkToCodeArea('instantiateItemArea', this.idCode, `"${this.idCode}": ${singularItemTypeClass},`);
+
+		// this.systemDynamicFile.addCodeChunkToCodeArea('includeItemsArea', this.idCode, `const ${pluralItemTypeClass} = require('../systemItems/${pluralItemTypeIdCode}');`);
+		// this.systemDynamicFile.addCodeChunkToCodeArea('instantiateItemsArea', this.idCode, `"${this.idCode}": ${pluralItemTypeClass},`);
+
+		// this.systemDynamicFile.save();
 	}
 
 	static log(line: string) {
