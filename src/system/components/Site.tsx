@@ -6,9 +6,9 @@ import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 
 // DYNAMIC_CODE_AREA: loadPageComponents
-import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; //:pageShowcaseCounterUsingState
-import PageShowcaseTest from './PageShowcaseTest'; //:pageShowCaseTest
-import PageShowCaseLodash from './PageShowcaseLodash'; //:pageShowcaseLodash
+import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; //:showcaseCounterUsingState
+import PageShowcaseTest from './PageShowcaseTest'; //:showCaseTest
+import PageShowCaseLodash from './PageShowcaseLodash'; //:showcaseLodash
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
