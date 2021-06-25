@@ -5,10 +5,9 @@ import '../styles/reset.scss';
 import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 
-// DYNAMIC_CODE_AREA:loadPageComponents
-import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
-import PageShowcaseTest from './PageShowcaseTest';
-import PageShowCaseLodash from './PageShowcaseLodash';
+// DYNAMIC_CODE_AREA: loadPageComponentLines
+import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
+import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -40,10 +39,9 @@ function Site() {
 						</li>
 						{isShowing && (
 							<>
-								{/* DYNAMIC_CODE_AREA:linkPageComponents  */}
-								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li>
-								<li><Link to='/showcaseTest'>Showcase: Test</Link></li>
-								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li>
+								{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
+								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
+								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
 							</>
 						)}
 					</ul>
@@ -54,10 +52,9 @@ function Site() {
 						<Route exact path='/'>
 							<PageHome />
 						</Route>
-						{/* DYNAMIC_CODE_AREA:routePageComponents  */}
-						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route>
-						<Route path='/showcaseTest'><PageShowcaseTest /></Route>
-						<Route path='/showcaseLodash'><PageShowCaseLodash /></Route>
+						{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
+						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
+						<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
 					</Switch>
 				</section>
 			</div>
