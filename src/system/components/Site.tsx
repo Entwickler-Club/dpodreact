@@ -7,7 +7,6 @@ import PageHome from '../../custom/components/PageHome';
 
 // DYNAMIC_CODE_AREA: loadPageComponentLines
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
-import PageShowcaseTest from './PageShowcaseTest'; // ::showcaseTest
 import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 
 function Site() {
@@ -42,7 +41,6 @@ function Site() {
 							<>
 								{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
 								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
-								<li><Link to='/showcaseTest'>Showcase: Test</Link></li> {/* ::showcaseTest */}
 								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
 							</>
 						)}
@@ -56,7 +54,6 @@ function Site() {
 						</Route>
 						{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
 						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
-						<Route path='/showcaseTest'><PageShowcaseTest /></Route> {/* ::showcaseTest */}
 						<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
 					</Switch>
 				</section>

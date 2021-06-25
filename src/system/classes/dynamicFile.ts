@@ -6,6 +6,7 @@ import DynamicFileCodeArea from './dynamicFileCodeArea';
 const fs = require('fs');
 const path = require('path');
 
+// TODO: force correct tabs when rebuilding code text
 // TODO: make interfaces for all objects and classes
 class DynamicFile {
 	private pathAndFileName: string;
@@ -71,8 +72,7 @@ class DynamicFile {
 	// <li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
 	// get "showcaseLodash"
 	getChunkIdCodeFromLine(dynamicCodeAreaObject: any, line: string) {
-		console.log('tochop: ' + dynamicCodeAreaObject.idCode);
-		const searchMarker = dynamicCodeAreaObject.markerPrefix + ' ::';
+		const searchMarker = dynamicCodeAreaObject.markerPrefix + '::';
 		const parts = qstr.breakIntoParts(line, searchMarker);
 		if (parts.length >= 2) {
 			let r = parts[1];
@@ -106,16 +106,20 @@ class DynamicFile {
 		let currentChunkIdCode = '';
 		let currentNumberOfCodeChunkLinesRecorded = 0;
 		let chunkIdCode = '';
+		let holdCurrentDynamicCodeAreaObject = null;
 		for (const line of this.lines) {
 			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
 			if (currentDynamicCodeAreaObject.idCode !== 'null') {
+				holdCurrentDynamicCodeAreaObject = currentDynamicCodeAreaObject;
 				const codeAreaSignature = this.getIdCodeFromArea(currentDynamicCodeAreaObject, line);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature, currentDynamicCodeAreaObject);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
 				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
 			} else if (currentlyRecordingCodeArea) {
-				chunkIdCode = this.getChunkIdCodeFromLine(currentDynamicCodeAreaObject, line);
+				chunkIdCode = this.getChunkIdCodeFromLine(holdCurrentDynamicCodeAreaObject, line);
+				console.log('currid: ' + holdCurrentDynamicCodeAreaObject.idCode);
+				console.log('running: ' + chunkIdCode);
 				if (!qstr.isEmpty(chunkIdCode)) {
 					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
