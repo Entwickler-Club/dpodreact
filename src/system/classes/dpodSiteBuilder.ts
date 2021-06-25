@@ -23,10 +23,9 @@ class DpodSiteBuilder {
 
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-
-		// DYNAMIC_CODE_AREA:loadPageComponents
-		// import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
 		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponents', data.pageCamel, `import PageShowcase${data.pagePascal} from './PageShowcase${data.pagePascal}';`);
+		systemDynamicFile.addCodeChunkToCodeArea('linkPageComponents', data.pageCamel, `<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li>`);
+		systemDynamicFile.save();
 
 
 		// TODO: send data into DynamicFile
@@ -41,7 +40,6 @@ class DpodSiteBuilder {
 		// this.systemDynamicFile.addCodeChunkToCodeArea('includeItemsArea', this.idCode, `const ${pluralItemTypeClass} = require('../systemItems/${pluralItemTypeIdCode}');`);
 		// this.systemDynamicFile.addCodeChunkToCodeArea('instantiateItemsArea', this.idCode, `"${this.idCode}": ${pluralItemTypeClass},`);
 
-		systemDynamicFile.save();
 	}
 
 	static log(line: string) {
