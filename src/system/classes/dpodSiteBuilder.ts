@@ -1,6 +1,6 @@
 import TextFileBuilder from './textFileBuilder';
 import * as qstr from '../qtools/qstr';
-import DynamicFile from './dynamicFile';
+import DynamicFile, { ICodeAreaType } from './dynamicFile';
 
 class DpodSiteBuilder {
 

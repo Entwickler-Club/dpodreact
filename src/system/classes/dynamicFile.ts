@@ -3,7 +3,6 @@
 import * as qstr from '../qtools/qstr';
 import * as qfil from '../qtools/qfil';
 import DynamicFileCodeArea from './dynamicFileCodeArea';
-import * as config from './config';
 const fs = require('fs');
 const path = require('path');
 
@@ -12,18 +11,17 @@ class DynamicFile {
 	private absolutePathAndFileName: string;
 	private contents: string;
 	private lines: string[];
-	private codeAreaMarker: string;
-	private codeChunkMarker: string;
+	private dynamicCodeAreaMarker: string;
 	private codeAreas: any[];
 	private codeAreaTemplateLines: string[];
+	private dynamicCodeMakers: any[];
 
 	constructor(pathAndFileName: string) {
 		this.pathAndFileName = pathAndFileName;
 		this.absolutePathAndFileName = path.resolve(__dirname, this.pathAndFileName);
 		this.contents = '';
 		this.lines = [];
-		this.codeAreaMarker = config.dynamicFileCodeAreaMarker();
-		this.codeChunkMarker = config.dynamicFileCodeChunkMarker();
+		this.dynamicCodeAreaMarker = 'DYNAMIC_CODE_AREA';
 		this.codeAreas = [];
 		this.codeAreaTemplateLines = [];
 		this.initialize();
@@ -35,20 +33,37 @@ class DynamicFile {
 		this.buildAreas();
 	}
 
+	getDynamicCodeMarkers() {
+		return [
+			{
+				idCode: 'code',
+				codeAreaMarker: 'DYNAMIC_CODE_MARKER',
+				codeAreaMarkerPrefix: '// ',
+				codeAreaMarkerSuffix: ''
+			},
+			{
+				idCode: 'jsx',
+				codeMarker: 'DYNAMIC_JSX_MARKER',
+				codeAreaMarkerPrefix: '{/* ',
+				codeAreaMarkerSuffix: ' */}'
+			}
+		];
+	}
+
 	buildAreas() {
 		let currentCodeArea = null;
 		let currentlyRecordingCodeArea = false;
 		let currentChunkIdCode = '';
 		let currentNumberOfCodeChunkLinesRecorded = 0;
 		for (const line of this.lines) {
-			if (line.includes(this.codeAreaMarker)) {
-				const codeAreaSignature = qstr.getRestAfterMarker(line, this.codeAreaMarker);
+			if (line.includes(this.dynamicCodeAreaMarker)) {
+				const codeAreaSignature = qstr.getRestAfterMarker(line, this.dynamicCodeAreaMarker);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
 				this.codeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
 			} else if (currentlyRecordingCodeArea) {
-				const chunkIdCode = qstr.getRestAfterMarker(line, this.codeChunkMarker);
+				const chunkIdCode = this.getChunkIdCodeFromLine(line);
 				if (!qstr.isEmpty(chunkIdCode)) {
 					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
@@ -71,6 +86,13 @@ class DynamicFile {
 			}
 
 		}
+	}
+
+	lineIncludesDynamicCodeMarker(line) {
+
+	}
+	getChunkIdCodeFromLine() {
+
 	}
 
 	debugOutput() {
@@ -195,6 +217,11 @@ class DynamicFile {
 		return lines;
 	}
 
+}
+
+export enum ICodeAreaType {
+	code,
+	jsx
 }
 
 export default DynamicFile;
