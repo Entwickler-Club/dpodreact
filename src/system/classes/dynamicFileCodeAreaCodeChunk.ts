@@ -49,10 +49,11 @@ class DynamicFileCodeAreaCodeChunk {
         for (const line of this.lines) {
             const numberOfPrecedingTabs = this.numberOfPrecedingTabs[index];
             let marker = '';
-            if (index == 0) {
+            if (index === 0) {
                 marker = ' //:' + this.idCode;
             }
-            const newLine = qstr.tabs(numberOfPrecedingTabs) + line + marker;
+			const choppedLine = qstr.chopRight(line, marker);
+            const newLine = qstr.tabs(numberOfPrecedingTabs) + choppedLine + marker;
             newLines.push(newLine);
             index++;
         }

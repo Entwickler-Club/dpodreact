@@ -23,7 +23,6 @@ class DynamicFile {
 		this.contents = '';
 		this.lines = [];
 		this.codeAreaMarker = config.dynamicFileCodeAreaMarker();
-		console.log(this.codeAreaMarker);
 		this.codeChunkMarker = config.dynamicFileCodeChunkMarker();
 		this.codeAreas = [];
 		this.codeAreaTemplateLines = [];
@@ -153,8 +152,6 @@ class DynamicFile {
 
 	addCodeChunkToCodeArea(codeAreaIdCode: string, codeChunkIdCode: string, lineOrLines: string) {
 
-		console.log(codeAreaIdCode);
-		console.log(this.codeAreas.length);
 		let lines = null;
 		if (qstr.isArray(lineOrLines)) {
 			lines = lineOrLines;
