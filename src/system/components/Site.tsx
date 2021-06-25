@@ -5,7 +5,7 @@ import '../styles/reset.scss';
 import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 
-// DYNAMIC_CODE_AREA: : : : : : : loadPageComponentLines
+// DYNAMIC_CODE_AREA: loadPageComponentLines
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState //:
 import PageShowcaseTest from './PageShowcaseTest'; // ::showcaseTest
 import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
@@ -65,4 +65,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;
