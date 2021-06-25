@@ -59,7 +59,7 @@ class DynamicFile {
 		];
 		for (const dynamicCodeAreaObject of dynamicCodeAreaObjects) {
 			dynamicCodeAreaObject.getFullMarker = function () {
-				return `${this.markerPrefix}${this.marker}${this.markerSuffix}`;
+				return this.idCode === 'null' ? '' : `${this.markerPrefix}${this.marker}: `;
 			}
 		}
 		return dynamicCodeAreaObjects;
