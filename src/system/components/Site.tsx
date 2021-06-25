@@ -5,11 +5,10 @@ import '../styles/reset.scss';
 import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 
-DYNAMIC_CODE_AREAloadPageComponents
-import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; //:
-import PageShowcaseNNN from './PageShowcaseNNN'; //:nnn
-import PageShowcaseTest from './PageShowcaseTest';
-import PageShowCaseLodash from './PageShowcaseLodash';
+// DYNAMIC_CODE_AREA: loadPageComponents
+import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; //:pageShowcaseCounterUsingState
+import PageShowcaseTest from './PageShowcaseTest'; //:pageShowCaseTest
+import PageShowCaseLodash from './PageShowcaseLodash'; //:pageShowcaseLodash
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -66,4 +65,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;
