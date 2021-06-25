@@ -60,23 +60,23 @@ export const convertAbsoluteWindowsPathAndFileNameToPathAndFileName = (
     return r;
 };
 
-export const changeBrowserState = (doc: any, page: string, variable: string, value: string, title: string) => {
-    if (qstr.isEmpty(variable)) {
-        window.history.replaceState('', '', page);
-    } else {
-        window.history.replaceState('', '', `${page}?${variable}=${value}`);
-    }
-    doc.title = title;
-};
+// export const changeBrowserState = (doc: any, page: string, variable: string, value: string, title: string) => {
+//     if (qstr.isEmpty(variable)) {
+//         window.history.replaceState('', '', page);
+//     } else {
+//         window.history.replaceState('', '', `${page}?${variable}=${value}`);
+//     }
+//     doc.title = title;
+// };
 
-export const getParameterValueFromUrl = (parameter: string): string => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const value: any = urlParams.get(parameter);
-    if (value === null) {
-        return '';
-    }
-    return String(value);
-}
+// export const getParameterValueFromUrl = (parameter: string): string => {
+//     const urlParams = new URLSearchParams(window.location.search);
+//     const value: any = urlParams.get(parameter);
+//     if (value === null) {
+//         return '';
+//     }
+//     return String(value);
+// }
 
 export const getImagePathAndFileNameWithForceImport = (itemTypeIdCode: string, fileIdCode: string): string => {
     const potentialPathAndFileName = qsys.getPotentialImagePathAndFileName(itemTypeIdCode, fileIdCode);
