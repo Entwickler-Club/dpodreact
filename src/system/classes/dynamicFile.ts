@@ -95,7 +95,7 @@ class DynamicFile {
 			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
 			if (currentDynamicCodeAreaObject.idCode === 'code') {
 				const codeAreaSignature = qstr.getRestAfterMarker(line, currentDynamicCodeAreaObject.marker);
-				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature);
+				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature, currentDynamicCodeAreaObject);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
 				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
@@ -206,7 +206,6 @@ class DynamicFile {
 	}
 
 	addCodeChunkToCodeArea(codeAreaIdCode: string, codeChunkIdCode: string, lineOrLines: string) {
-
 		let lines = null;
 		if (qstr.isArray(lineOrLines)) {
 			lines = lineOrLines;

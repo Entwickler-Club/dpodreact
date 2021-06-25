@@ -24,7 +24,7 @@ class DpodSiteBuilder {
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
 		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponents', data.pageCamel, `import PageShowcase${data.pagePascal} from './PageShowcase${data.pagePascal}';`);
-		systemDynamicFile.addCodeChunkToCodeArea('linkPageComponents', data.pageCamel, `<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li>`);
+		// systemDynamicFile.addCodeChunkToCodeArea('linkPageComponents', data.pageCamel, `<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li>`);
 		systemDynamicFile.save();
 
 

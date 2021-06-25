@@ -9,12 +9,13 @@ class DynamicFileCodeArea {
     public idCode: string;
     public linesInCodeChunk: number;
     private dynamicFileCodeAreaCodeChunks: any[];
+	private dynamicCodeAreaObject: any;
 
 	// The signature differs from the idCode. It enables you to define that there are two lines for each 
 	// item, e.g. in a switch statement.
 	// EXAMPLE 1: signature = "loadTools", idCode = "loadTools" (linesInCodeChunk = 1)
 	// EXAMPLE 2: signature = "controllerCaseStatements, 2", idCode = "controllerCaseStatements", linesInCodeChunk = 2
-    constructor(signature: string) {
+    constructor(signature: string, dynamicCodeAreaObject: any) {
         const parts = qstr.breakIntoParts(signature, ',');
         const idCode = parts[0];
         const linesInCodeChunk = parts.length > 1 ? Number(parts[1]) : 1;
@@ -22,6 +23,7 @@ class DynamicFileCodeArea {
         this.idCode = idCode;
         this.linesInCodeChunk = linesInCodeChunk;
         this.dynamicFileCodeAreaCodeChunks = [];
+		this.dynamicCodeAreaObject = dynamicCodeAreaObject;
     }
 
     addLineToCodeChunk(codeChunkIdCode: string, line: string) {
