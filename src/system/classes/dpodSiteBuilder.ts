@@ -24,6 +24,11 @@ class DpodSiteBuilder {
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
 
+		// DYNAMIC_CODE_AREA:loadPageComponents
+		// import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
+		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponents', 'nnn', `import PageShowcaseNNN from './PageShowcaseNNN';`);
+
+
 		// TODO: send data into DynamicFile
 		// const singularItemTypeIdCode = qstr.forceSingular(data.pageCamel); // showcaseBook
 		// const singularItemTypeClass = qstr.forcePascalNotation(singularItemTypeIdCode); // e.g. ShowcaseBook
@@ -36,7 +41,7 @@ class DpodSiteBuilder {
 		// this.systemDynamicFile.addCodeChunkToCodeArea('includeItemsArea', this.idCode, `const ${pluralItemTypeClass} = require('../systemItems/${pluralItemTypeIdCode}');`);
 		// this.systemDynamicFile.addCodeChunkToCodeArea('instantiateItemsArea', this.idCode, `"${this.idCode}": ${pluralItemTypeClass},`);
 
-		// this.systemDynamicFile.save();
+		systemDynamicFile.save();
 	}
 
 	static log(line: string) {

@@ -9,6 +9,7 @@ const path = require('path');
 
 class DynamicFile {
 	private pathAndFileName: string;
+	private absolutePathAndFileName: string;
 	private contents: string;
 	private lines: string[];
 	private codeAreaMarker: string;
@@ -18,6 +19,7 @@ class DynamicFile {
 	
 	constructor(pathAndFileName: string) {
 		this.pathAndFileName = pathAndFileName;
+		this.absolutePathAndFileName = path.resolve(__dirname, this.pathAndFileName);
 		this.contents = '';
 		this.lines = [];
 		this.codeAreaMarker = config.dynamicFileCodeAreaMarker();
@@ -25,13 +27,10 @@ class DynamicFile {
 		this.codeAreas = [];
 		this.codeAreaTemplateLines = [];
 		this.initialize();
-		console.log('initiaized dynamicFile');
 	}
 
 	initialize() {
-		console.log(this.pathAndFileName);
-		this.contents = fs.readFileSync(path.resolve(__dirname, this.pathAndFileName), 'utf8');
-		console.log(this.contents);
+		this.contents = fs.readFileSync(this.absolutePathAndFileName, 'utf8');
 		this.lines = qstr.convertStringBlockToLinesNoTrim(this.contents);
 		this.buildAreas();
 	}
@@ -139,7 +138,7 @@ class DynamicFile {
 
 	save() {
 		const lines = this.getLinesWithUpdatedCodeAreas();
-		qfil.createFileWithLines(this.pathAndFileName, lines);
+		qfil.createFileWithLines(this.absolutePathAndFileName, lines);
 	}
 
 	getCodeArea(codeAreaIdCode: string) {
@@ -152,6 +151,9 @@ class DynamicFile {
 	}
 
 	addCodeChunkToCodeArea(codeAreaIdCode:string, codeChunkIdCode:string, lineOrLines:string) {
+
+		console.log(codeAreaIdCode);
+		console.log(this.codeAreas.length);
 		let lines = null;
 		if (qstr.isArray(lineOrLines)) {
 			lines = lineOrLines;
