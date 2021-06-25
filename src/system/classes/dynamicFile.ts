@@ -37,14 +37,14 @@ class DynamicFile {
 		const dynamicCodeAreaObjects = [
 			{
 				idCode: 'code',
-				marker: 'DYNAMIC_CODE_MARKER',
+				marker: 'DYNAMIC_CODE_AREA',
 				markerPrefix: '// ',
 				markerSuffix: '',
 				getFullMarker: function () {}
 			},
 			{
 				idCode: 'jsx',
-				marker: 'DYNAMIC_JSX_MARKER',
+				marker: 'DYNAMIC_JSX_AREA',
 				markerPrefix: '{/* ',
 				markerSuffix: ' */}',
 				getFullMarker: function () {}
@@ -79,8 +79,8 @@ class DynamicFile {
 
 	getDynamicCodeAreaObject(line: string) {
 		for (const dynamicCodeAreaObject of this.dynamicCodeAreaObjects) {
-			if (line.includes(dynamicCodeAreaObject.marker)) {
-			return dynamicCodeAreaObject;
+			if (line.includes(dynamicCodeAreaObject.getFullMarker())) {
+				return dynamicCodeAreaObject;
 			}
 		}
 		return null;
@@ -94,6 +94,7 @@ class DynamicFile {
 		for (const line of this.lines) {
 			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
 			if (currentDynamicCodeAreaObject.idCode === 'code') {
+				console.log('start code: ' + line);
 				const codeAreaSignature = qstr.getRestAfterMarker(line, currentDynamicCodeAreaObject.marker);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature);
 				currentlyRecordingCodeArea = true;
