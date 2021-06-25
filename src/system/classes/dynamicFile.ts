@@ -16,13 +16,14 @@ class DynamicFile {
 	private codeChunkMarker: string;
 	private codeAreas: any[];
 	private codeAreaTemplateLines: string[];
-	
+
 	constructor(pathAndFileName: string) {
 		this.pathAndFileName = pathAndFileName;
 		this.absolutePathAndFileName = path.resolve(__dirname, this.pathAndFileName);
 		this.contents = '';
 		this.lines = [];
 		this.codeAreaMarker = config.dynamicFileCodeAreaMarker();
+		console.log(this.codeAreaMarker);
 		this.codeChunkMarker = config.dynamicFileCodeChunkMarker();
 		this.codeAreas = [];
 		this.codeAreaTemplateLines = [];
@@ -100,7 +101,7 @@ class DynamicFile {
 		return '';
 	}
 
-	getIdCodeArrayFromVariableLine(marker:string) {
+	getIdCodeArrayFromVariableLine(marker: string) {
 		const extensionLine = this.getDataFromVariableLine(marker);
 		const idCodes = qstr.breakIntoParts(extensionLine, ',');
 		return idCodes;
@@ -150,7 +151,7 @@ class DynamicFile {
 		return null;
 	}
 
-	addCodeChunkToCodeArea(codeAreaIdCode:string, codeChunkIdCode:string, lineOrLines:string) {
+	addCodeChunkToCodeArea(codeAreaIdCode: string, codeChunkIdCode: string, lineOrLines: string) {
 
 		console.log(codeAreaIdCode);
 		console.log(this.codeAreas.length);
