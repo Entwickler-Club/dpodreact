@@ -7,8 +7,8 @@ import PageHome from '../../custom/components/PageHome';
 
 // DYNAMIC_CODE_AREA: loadPageComponentLines
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
-import PageShowcaseTest from './PageShowcaseTest'; // ::showcaseTest 
-import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash 
+import PageShowcaseTest from './PageShowcaseTest'; // ::showcaseTest
+import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
