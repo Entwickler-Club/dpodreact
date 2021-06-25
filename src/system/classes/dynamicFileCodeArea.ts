@@ -28,7 +28,8 @@ class DynamicFileCodeArea {
 
     addLineToCodeChunk(codeChunkIdCode: string, line: string) {
         let dynamicFileCodeAreaCodeChunk = this.getDynamicFileCodeAreaCodeChunkWithChunkIdCode(codeChunkIdCode);
-        if (dynamicFileCodeAreaCodeChunk == null) {
+		if (dynamicFileCodeAreaCodeChunk == null) {
+			console.log('origidcode: ' + codeChunkIdCode);
             dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode, this.dynamicCodeAreaObject);
             dynamicFileCodeAreaCodeChunk.addLine(line);
             this.dynamicFileCodeAreaCodeChunks.push(dynamicFileCodeAreaCodeChunk);
@@ -94,7 +95,7 @@ class DynamicFileCodeArea {
     getLinesForTemplateInsertion() {
         let lines = [];
 
-        let firstLine = qstr.tabs(this.getFirstLinePrecedingTabs()) + this.dynamicCodeAreaObject.getFullMarker() + this.idCode;
+        let firstLine = qstr.tabs(this.getFirstLinePrecedingTabs()) + this.dynamicCodeAreaObject.getFullMarker() + this.idCode + this.dynamicCodeAreaObject.markerSuffix;
         if (this.linesInCodeChunk !== 1) {
             firstLine += ',' + this.linesInCodeChunk;
         }

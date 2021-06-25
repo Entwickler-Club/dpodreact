@@ -68,11 +68,16 @@ class DynamicFile {
 
 	// import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 	// get "showcaseLodash"
+	// <li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
+	// get "showcaseLodash"
 	getChunkIdCodeFromLine(dynamicCodeAreaObject: any, line: string) {
+		console.log('tochop: ' + dynamicCodeAreaObject.idCode);
 		const searchMarker = dynamicCodeAreaObject.markerPrefix + ' ::';
 		const parts = qstr.breakIntoParts(line, searchMarker);
 		if (parts.length >= 2) {
-			return parts[1];
+			let r = parts[1];
+			r = qstr.chopRight(r, dynamicCodeAreaObject.markerSuffix);
+			return r;
 		} else {
 			return '';
 		}
@@ -100,16 +105,17 @@ class DynamicFile {
 		let currentlyRecordingCodeArea = false;
 		let currentChunkIdCode = '';
 		let currentNumberOfCodeChunkLinesRecorded = 0;
+		let chunkIdCode = '';
 		for (const line of this.lines) {
 			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
-			if (currentDynamicCodeAreaObject.idCode === 'code') {
+			if (currentDynamicCodeAreaObject.idCode !== 'null') {
 				const codeAreaSignature = this.getIdCodeFromArea(currentDynamicCodeAreaObject, line);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature, currentDynamicCodeAreaObject);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
 				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
 			} else if (currentlyRecordingCodeArea) {
-				const chunkIdCode = this.getChunkIdCodeFromLine(currentDynamicCodeAreaObject, line);
+				chunkIdCode = this.getChunkIdCodeFromLine(currentDynamicCodeAreaObject, line);
 				if (!qstr.isEmpty(chunkIdCode)) {
 					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
