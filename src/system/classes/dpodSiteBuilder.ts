@@ -26,7 +26,7 @@ class DpodSiteBuilder {
 
 		// DYNAMIC_CODE_AREA:loadPageComponents
 		// import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState';
-		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponents', data.pageCamel, `import PageShowcaseNNN from './PageShowcaseNNN';`);
+		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponents', data.pageCamel, `import PageShowcase${data.pagePascal} from './PageShowcase${data.pagePascal}';`);
 
 
 		// TODO: send data into DynamicFile
