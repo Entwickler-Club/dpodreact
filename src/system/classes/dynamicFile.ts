@@ -48,6 +48,13 @@ class DynamicFile {
 				markerPrefix: '{/* ',
 				markerSuffix: ' */}',
 				getFullMarker: function () {}
+			},
+			{
+				idCode: 'null',
+				marker: '',
+				markerPrefix: '',
+				markerSuffix: '',
+				getFullMarker: function () {}
 			}
 		];
 		for (const dynamicCodeAreaObject of dynamicCodeAreaObjects) {
@@ -72,9 +79,11 @@ class DynamicFile {
 
 	getDynamicCodeAreaObject(line: string) {
 		for (const dynamicCodeAreaObject of this.dynamicCodeAreaObjects) {
-			console.log(dynamicCodeAreaObject.getFullMarker());
+			if (line.includes(dynamicCodeAreaObject.marker)) {
 			return dynamicCodeAreaObject;
+			}
 		}
+		return null;
 	}
 
 	buildAreas() {
