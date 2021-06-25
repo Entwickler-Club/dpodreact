@@ -6,7 +6,7 @@ import '../styles/site.scss';
 import PageHome from '../../custom/components/PageHome';
 
 // DYNAMIC_CODE_AREA: loadPageComponentLines
-import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState //:
+import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
 import PageShowcaseTest from './PageShowcaseTest'; // ::showcaseTest
 import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 

@@ -94,14 +94,14 @@ class DynamicFile {
 		for (const line of this.lines) {
 			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
 			if (currentDynamicCodeAreaObject.idCode === 'code') {
-				console.log('start code: ' + line);
 				const codeAreaSignature = qstr.getRestAfterMarker(line, currentDynamicCodeAreaObject.marker);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
 				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
 			} else if (currentlyRecordingCodeArea) {
-				const chunkIdCode = this.getChunkIdCodeFromLine(currentChunkIdCode, line);
+				const chunkIdCode = this.getChunkIdCodeFromLine(currentDynamicCodeAreaObject, line);
+				console.log('chunk: ' + chunkIdCode);
 				if (!qstr.isEmpty(chunkIdCode)) {
 					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
