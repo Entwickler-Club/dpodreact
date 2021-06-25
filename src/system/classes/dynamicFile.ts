@@ -6,24 +6,24 @@ import DynamicFileCodeArea from './dynamicFileCodeArea';
 const fs = require('fs');
 const path = require('path');
 
+// TODO: make interfaces for all objects and classes
 class DynamicFile {
 	private pathAndFileName: string;
 	private absolutePathAndFileName: string;
 	private contents: string;
 	private lines: string[];
-	private dynamicCodeAreaMarker: string;
-	private codeAreas: any[];
-	private codeAreaTemplateLines: string[];
-	private dynamicCodeMakers: any[];
+	private dynamicCodeAreas: any[];
+	private dynamicCodeAreaTemplateLines: string[];
+	private dynamicCodeAreaObjects: any[];
 
 	constructor(pathAndFileName: string) {
 		this.pathAndFileName = pathAndFileName;
 		this.absolutePathAndFileName = path.resolve(__dirname, this.pathAndFileName);
 		this.contents = '';
 		this.lines = [];
-		this.dynamicCodeAreaMarker = 'DYNAMIC_CODE_AREA';
-		this.codeAreas = [];
-		this.codeAreaTemplateLines = [];
+		this.dynamicCodeAreas = [];
+		this.dynamicCodeAreaTemplateLines = [];
+		this.dynamicCodeAreaObjects = this.getDynamicCodeAreaObjects();
 		this.initialize();
 	}
 
@@ -33,21 +33,48 @@ class DynamicFile {
 		this.buildAreas();
 	}
 
-	getDynamicCodeMarkers() {
-		return [
+	getDynamicCodeAreaObjects() {
+		const dynamicCodeAreaObjects = [
 			{
 				idCode: 'code',
-				codeAreaMarker: 'DYNAMIC_CODE_MARKER',
-				codeAreaMarkerPrefix: '// ',
-				codeAreaMarkerSuffix: ''
+				marker: 'DYNAMIC_CODE_MARKER',
+				markerPrefix: '// ',
+				markerSuffix: '',
+				getFullMarker: function () {}
 			},
 			{
 				idCode: 'jsx',
-				codeMarker: 'DYNAMIC_JSX_MARKER',
-				codeAreaMarkerPrefix: '{/* ',
-				codeAreaMarkerSuffix: ' */}'
+				marker: 'DYNAMIC_JSX_MARKER',
+				markerPrefix: '{/* ',
+				markerSuffix: ' */}',
+				getFullMarker: function () {}
 			}
 		];
+		for (const dynamicCodeAreaObject of dynamicCodeAreaObjects) {
+			dynamicCodeAreaObject.getFullMarker = function () {
+				return `${this.markerPrefix}${this.marker}${this.markerSuffix}`;
+			}
+		}
+		return dynamicCodeAreaObjects;
+	}
+
+	// import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
+	// get "showcaseLodash"
+	getChunkIdCodeFromLine(dynamicCodeAreaObject: any, line: string) {
+		const searchMarker = dynamicCodeAreaObject.markerPrefix + ' ::';
+		const parts = qstr.breakIntoParts(line, searchMarker);
+		if (parts.length >= 2) {
+			return parts[1];
+		} else {
+			return '';
+		}
+	}
+
+	getDynamicCodeAreaObject(line: string) {
+		for (const dynamicCodeAreaObject of this.dynamicCodeAreaObjects) {
+			console.log(dynamicCodeAreaObject.getFullMarker());
+			return dynamicCodeAreaObject;
+		}
 	}
 
 	buildAreas() {
@@ -56,21 +83,22 @@ class DynamicFile {
 		let currentChunkIdCode = '';
 		let currentNumberOfCodeChunkLinesRecorded = 0;
 		for (const line of this.lines) {
-			if (line.includes(this.dynamicCodeAreaMarker)) {
-				const codeAreaSignature = qstr.getRestAfterMarker(line, this.dynamicCodeAreaMarker);
+			const currentDynamicCodeAreaObject = this.getDynamicCodeAreaObject(line);
+			if (currentDynamicCodeAreaObject.idCode === 'code') {
+				const codeAreaSignature = qstr.getRestAfterMarker(line, currentDynamicCodeAreaObject.marker);
 				currentCodeArea = new DynamicFileCodeArea(codeAreaSignature);
 				currentlyRecordingCodeArea = true;
 				currentNumberOfCodeChunkLinesRecorded = 0;
-				this.codeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
+				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
 			} else if (currentlyRecordingCodeArea) {
-				const chunkIdCode = this.getChunkIdCodeFromLine(line);
+				const chunkIdCode = this.getChunkIdCodeFromLine(currentChunkIdCode, line);
 				if (!qstr.isEmpty(chunkIdCode)) {
 					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
 					currentChunkIdCode = chunkIdCode;
 				} else {
 					if (currentNumberOfCodeChunkLinesRecorded === currentCodeArea!.linesInCodeChunk) {
-						this.codeAreas.push(currentCodeArea!);
+						this.dynamicCodeAreas.push(currentCodeArea!);
 						currentCodeArea = null;
 						currentlyRecordingCodeArea = false;
 						currentNumberOfCodeChunkLinesRecorded = 0;
@@ -82,26 +110,20 @@ class DynamicFile {
 				}
 			}
 			if (!currentlyRecordingCodeArea) {
-				this.codeAreaTemplateLines.push(line);
+				this.dynamicCodeAreaTemplateLines.push(line);
 			}
 
 		}
 	}
 
-	lineIncludesDynamicCodeMarker(line) {
-
-	}
-	getChunkIdCodeFromLine() {
-
-	}
 
 	debugOutput() {
-		for (const codeArea of this.codeAreas) {
+		for (const codeArea of this.dynamicCodeAreas) {
 			codeArea.debugOutput();
 		}
 		console.log('TEMPLATE FOR CODE AREAS:');
 		console.log('=================================');
-		console.log(qstr.convertLinesToStringBlock(this.codeAreaTemplateLines));
+		console.log(qstr.convertLinesToStringBlock(this.dynamicCodeAreaTemplateLines));
 		console.log('=================================');
 		console.log(qstr.convertLinesToStringBlock(this.getLinesWithUpdatedCodeAreas()));
 		console.log('=================================');
@@ -164,7 +186,7 @@ class DynamicFile {
 	}
 
 	getCodeArea(codeAreaIdCode: string) {
-		for (const codeArea of this.codeAreas) {
+		for (const codeArea of this.dynamicCodeAreas) {
 			if (codeArea.idCode === codeAreaIdCode) {
 				return codeArea;
 			}
@@ -205,7 +227,7 @@ class DynamicFile {
 
 	getLinesWithUpdatedCodeAreas() {
 		let lines: string[] = [];
-		for (const line of this.codeAreaTemplateLines) {
+		for (const line of this.dynamicCodeAreaTemplateLines) {
 			if (line.startsWith('[[DYNAMIC_CODE_AREA')) {
 				const areaCodeIdCode = this.getCodeAreaIdCodeFromTemplateMarker(line);
 				const areaCode = this.getCodeArea(areaCodeIdCode);
@@ -217,11 +239,6 @@ class DynamicFile {
 		return lines;
 	}
 
-}
-
-export enum ICodeAreaType {
-	code,
-	jsx
 }
 
 export default DynamicFile;
