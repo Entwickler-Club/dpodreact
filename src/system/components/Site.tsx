@@ -8,6 +8,7 @@ import PageHome from '../../custom/components/PageHome';
 // DYNAMIC_CODE_AREA: loadPageComponentLines
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
 import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
+import PageShowcaseRedux from './PageShowcaseRedux';// ::showcaseRedux
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -39,9 +40,10 @@ function Site() {
 						</li>
 						{isShowing && (
 							<>
-								{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
-								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
-								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
+{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
+<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
+<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
+<li><Link to='/showcaseRedux'>Showcase Redux</Link></li>{/* ::showcaseRedux */}
 							</>
 						)}
 					</ul>
@@ -52,9 +54,10 @@ function Site() {
 						<Route exact path='/'>
 							<PageHome />
 						</Route>
-						{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
-						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
-						<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
+{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
+<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
+<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
+<Route path='/showcaseRedux'><PageShowcaseRedux /></Route>{/* ::showcaseRedux */}
 					</Switch>
 				</section>
 			</div>
