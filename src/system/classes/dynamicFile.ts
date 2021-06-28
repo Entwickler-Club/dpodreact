@@ -118,15 +118,12 @@ class DynamicFile {
 				this.dynamicCodeAreaTemplateLines.push('[[DYNAMIC_CODE_AREA:' + currentCodeArea.idCode + ']]');
 			} else if (currentlyRecordingCodeArea) {
 				chunkIdCode = this.getChunkIdCodeFromLine(holdCurrentDynamicCodeAreaObject, line);
-				console.log('currid: ' + holdCurrentDynamicCodeAreaObject.idCode);
-				console.log('running: ' + chunkIdCode);
 				if (!qstr.isEmpty(chunkIdCode)) {
 					currentCodeArea!.addLineToCodeChunk(chunkIdCode, line);
 					currentNumberOfCodeChunkLinesRecorded = 1;
 					currentChunkIdCode = chunkIdCode;
 				} else {
 					if (currentNumberOfCodeChunkLinesRecorded === currentCodeArea!.linesInCodeChunk) {
-						currentCodeArea?.debugOutput();
 						this.dynamicCodeAreas.push(currentCodeArea!);
 						currentCodeArea = null;
 						currentlyRecordingCodeArea = false;
