@@ -548,6 +548,9 @@ export const forceCamelNotation = (term: string) => {
 		r = qstr.lowercaseFirstLetter(pascalNotation);
 	}
 
+	// make sure no spaces are in the string, e.g. "showcaseType Script" --> "showcaseTypeScript"
+	r = qstr.replaceAll(r, ' ', '');
+
 	return r;
 }
 
@@ -570,6 +573,9 @@ export const forcePascalNotation = (term: string) => {
 	// now simply take all spaces out
 	r = r.replace(' ', '');
 
+	// make sure no spaces are in the string, e.g. "showcaseType Script" --> "showcaseTypeScript"
+	r = qstr.replaceAll(r, ' ', '');
+	
 	return r;
 }
 
