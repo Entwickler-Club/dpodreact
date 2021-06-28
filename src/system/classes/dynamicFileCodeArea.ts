@@ -29,7 +29,6 @@ class DynamicFileCodeArea {
     addLineToCodeChunk(codeChunkIdCode: string, line: string) {
         let dynamicFileCodeAreaCodeChunk = this.getDynamicFileCodeAreaCodeChunkWithChunkIdCode(codeChunkIdCode);
 		if (dynamicFileCodeAreaCodeChunk == null) {
-			console.log('origidcode: ' + codeChunkIdCode);
             dynamicFileCodeAreaCodeChunk = new DynamicFileCodeAreaCodeChunk(codeChunkIdCode, this.dynamicCodeAreaObject);
             dynamicFileCodeAreaCodeChunk.addLine(line);
             this.dynamicFileCodeAreaCodeChunks.push(dynamicFileCodeAreaCodeChunk);

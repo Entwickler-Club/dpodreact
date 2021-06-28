@@ -28,19 +28,6 @@ class DpodSiteBuilder {
 		systemDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', data.pageCamel, `<Route path='/${data.pageCamel}'><Page${data.pagePascal} /></Route>`);
 		systemDynamicFile.save();
 
-
-		// TODO: send data into DynamicFile
-		// const singularItemTypeIdCode = qstr.forceSingular(data.pageCamel); // showcaseBook
-		// const singularItemTypeClass = qstr.forcePascalNotation(singularItemTypeIdCode); // e.g. ShowcaseBook
-		// const pluralItemTypeIdCode = qstr.forcePlural(this.idCode); // showcaseBooks
-		// const pluralItemTypeClass = qstr.forcePascalNotation(pluralItemTypeIdCode); // e.g. ShowcaseBooks
-
-		// this.systemDynamicFile.addCodeChunkToCodeArea('includeItemArea', this.idCode, `const ${singularItemTypeClass} = require('../systemItems/${singularItemTypeIdCode}');`);
-		// this.systemDynamicFile.addCodeChunkToCodeArea('instantiateItemArea', this.idCode, `"${this.idCode}": ${singularItemTypeClass},`);
-
-		// this.systemDynamicFile.addCodeChunkToCodeArea('includeItemsArea', this.idCode, `const ${pluralItemTypeClass} = require('../systemItems/${pluralItemTypeIdCode}');`);
-		// this.systemDynamicFile.addCodeChunkToCodeArea('instantiateItemsArea', this.idCode, `"${this.idCode}": ${pluralItemTypeClass},`);
-
 	}
 
 	static log(line: string) {
