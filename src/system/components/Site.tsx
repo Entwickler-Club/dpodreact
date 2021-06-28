@@ -9,6 +9,7 @@ import PageHome from '../../custom/components/PageHome';
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
 import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 import PageShowcaseTypeScriptClasses from './PageShowcaseTypeScriptClasses';// ::showcaseTypeScriptClasses
+import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';// ::showcaseJavaScriptComponent
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -44,6 +45,7 @@ function Site() {
 								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
 								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
 								<li><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></li>{/* ::showcaseTypeScriptClasses */}
+								<li><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></li>{/* ::showcaseJavaScriptComponent */}
 							</>
 						)}
 					</ul>
@@ -58,6 +60,7 @@ function Site() {
 						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
 						<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
 						<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
+						<Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
 					</Switch>
 				</section>
 			</div>
