@@ -22,6 +22,8 @@ class DpodSiteBuilder {
 		textFileBuilderStylesheet.buildNow(`src/system/styles/${data.pageCamel}.scss`);
 
 		// make modifications in the Site.tsx file
+
+		console.log(data);
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
 		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', data.pageCamel, `import Page${data.pagePascal} from './Page${data.pagePascal}';`);
 		systemDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', data.pageCamel, `<li><Link to='/${data.pageCamel}'>${pageTitle}</Link></li>`);
