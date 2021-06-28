@@ -2,19 +2,19 @@ import { useState } from 'react';
 import '../styles/showcaseTypeScriptClasses.scss';
 
 interface IMessageManager {
-	// title: string;
+	title: string;
 	addMessage(arg: string): void;
 	getMessage(): string;
 }
 
 class MessageManager implements IMessageManager {
 
-	// public title: string;
+	public title: string;
 	private messages: string[];
 
 	constructor() {
 		this.messages = [];
-		// title: 'Message Manager';
+		this.title = 'Message Manager';
 	}
 
 	addMessage(message: string) {
@@ -22,7 +22,7 @@ class MessageManager implements IMessageManager {
 	}
 
 	getMessage(): string {
-		return this.messages.pop() || '';
+		return `the ${this.title} class says ${this.messages.pop()}` || '';
 	}
 }
 

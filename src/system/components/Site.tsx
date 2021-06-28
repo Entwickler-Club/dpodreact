@@ -40,10 +40,10 @@ function Site() {
 						</li>
 						{isShowing && (
 							<>
-{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
-<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
-<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
-<li><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></li>{/* ::showcaseTypeScriptClasses */}
+								{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
+								<li><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></li> {/* ::showcaseCounterUsingState */}
+								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
+								<li><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></li>{/* ::showcaseTypeScriptClasses */}
 							</>
 						)}
 					</ul>
@@ -54,10 +54,10 @@ function Site() {
 						<Route exact path='/'>
 							<PageHome />
 						</Route>
-{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
-<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
-<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
-<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
+						{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
+						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
+						<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
+						<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
 					</Switch>
 				</section>
 			</div>
@@ -65,4 +65,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;
