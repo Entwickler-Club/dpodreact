@@ -15,13 +15,21 @@
 		"sass": "^1.35.1",
 		"ts-node": "^10.0.0",
 		"typescript": "^4.3.4",
-		"web-vitals": "^1.1.2"
+		"web-vitals": "^1.1.2",
+		"axios": "^0.21.1",
+		"express": "^4.17.1",
+		"express-graphql": "^0.12.0",
+		"graphql": "^15.5.0",
+		"json-server": "^0.16.3",
+		"nodemon": "^2.0.7"
 	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"dpod": "./node_modules/.bin/ts-node --skip-project src/system/scripts/dpod.ts"
+		"dpod": "./node_modules/.bin/ts-node --skip-project src/system/scripts/dpod.ts",
+		"dev:server": "nodemon server.js",
+		"json:server": "json-server --watch data.json"
 	},
 	"eslintConfig": {
 		"extends": [
