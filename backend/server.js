@@ -6,12 +6,12 @@ const port = 5001;
 
 app.get('/sqliteTest', (req, res) => {
 
-	const sqliteManager = new SqliteManager('../src/system/data/main.sqlite');
+	const sqliteManager = new SqliteManager('./src/system/data/main.sqlite');
 
 	sqliteManager.getRecordsWithSql(`SELECT * FROM messages`)
 		.then((records) => {
 			for (const record of records) {
-				console.log(record.title);
+				console.log(record.message);
 			}
 		})
 		.catch((error) => console.log(error));
