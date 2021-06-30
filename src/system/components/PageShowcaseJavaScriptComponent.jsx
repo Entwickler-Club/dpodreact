@@ -1,6 +1,5 @@
 import '../styles/showcaseJavaScriptComponent.scss';
 
-
 function PageShowcaseJavaScriptComponent() {
 
 	return (

@@ -3,14 +3,14 @@ const sqlite3 = require('sqlite3').verbose();
 class SqliteManager {
     dbPathAndFileName;
  
-    constructor(dbPathAndFileName) {
+    constructor(dbPathAndFileName: string) {
         this.dbPathAndFileName = dbPathAndFileName;
     }
  
-    getRecordWithSql(sql) {
+    getRecordWithSql(sql: string) {
         return new Promise((resolve, reject) => {
             const db = new sqlite3.Database(this.dbPathAndFileName);
-            db.all(sql, function (err, records) {
+            db.all(sql, function (err: object, records: any[]) {
                 if (records === undefined) {
                     reject(err);
                 } else if (records.length === 0) {
@@ -23,10 +23,10 @@ class SqliteManager {
         });
     }
  
-    getRecordsWithSql(sql) {
+    getRecordsWithSql(sql: string) {
         return new Promise((resolve, reject) => {
             const db = new sqlite3.Database(this.dbPathAndFileName);
-            db.all(sql, function (err, records) {
+            db.all(sql, function (err: object, records: any[]) {
                 if (records === undefined) {
                     reject(err);
                 } else if (records.length === 0) {
@@ -38,7 +38,6 @@ class SqliteManager {
             db.close();
         });
     }
- 
 }
  
-module.exports = SqliteManager;
+export default SqliteManager;
