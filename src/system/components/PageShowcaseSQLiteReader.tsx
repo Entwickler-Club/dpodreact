@@ -3,15 +3,14 @@ import '../styles/showcaseSQLiteReader.scss';
 
 function PageShowcaseSQLiteReader() {
 
-	const [records, setRecords] = useState([{ id: 1, message: "test message" }]);
+	const [records, setRecords] = useState([{}]);
 	console.log('1111');
 	useEffect(() => {
 		fetch('http://localhost:5001/sqliteTest')
 			.then(response => response.json())
-			.then(data => {
-				console.log(data);
+			.then((data: any) => {
+				setRecords([...data.records]);
 			});
-		setRecords([...records, ...[{ id: 999, message: 'nnn2' }]]);
 	}, []);
 
 

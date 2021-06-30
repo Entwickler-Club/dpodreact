@@ -1,15 +1,15 @@
+export {};
+
 const express = require('express');
-// const SqliteManager = require('../src/system/classes/sqliteManager');
-const SqliteManager = require('../src/system/classes/sqliteManager.ts');
+import SqliteManager from '../src/system/classes/sqliteManager';
 const cors = require('cors');
 
 const app = express();
 const port = 5001;
 
-// Cross-origin resource sharing
 app.use(cors());
 
-app.get('/sqliteTest', (req, res) => {
+app.get('/sqliteTest', (req: any, res: any) => {
 
 	const sqliteManager = new SqliteManager('./src/system/data/main.sqlite');
 
@@ -19,7 +19,7 @@ app.get('/sqliteTest', (req, res) => {
 				records
 			});
 		})
-		.catch((error) => console.log(error));
+		.catch((error: any) => console.log(error));
 });
 
 app.listen(port, () => {
