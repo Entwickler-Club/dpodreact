@@ -10,14 +10,11 @@ app.get('/sqliteTest', (req, res) => {
 
 	sqliteManager.getRecordsWithSql(`SELECT * FROM messages`)
 		.then((records) => {
-			for (const record of records) {
-				console.log(record.message);
-			}
+			res.send({
+				records
+			});
 		})
 		.catch((error) => console.log(error));
-	res.send({
-		message: "test sqlite"
-	});
 });
 
 app.listen(port, () => {
