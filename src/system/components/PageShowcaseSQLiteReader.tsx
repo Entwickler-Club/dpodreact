@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/showcaseSQLiteReader.scss';
 
 function PageShowcaseSQLiteReader() {
 
-	const [records] = useState([{ id: 1, message: "test message" }]);
+	const [records, setRecords] = useState([{ id: 1, message: "test message" }]);
+
+	useEffect(() => {
+		setRecords([...records, ...[{ id: 999, message: 'nnn' }]]);
+	}, []);
+
+	// fetch('https://hplussport.com/api/products/order/price')
+	// .then(response => response.json())
+	// .then(data => {
+	//     this.products = data;
+	// })
 
 	return (
 		<div className="page page_showcaseSQLiteReader">
