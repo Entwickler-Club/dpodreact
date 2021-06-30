@@ -4,7 +4,6 @@ import '../styles/showcaseSQLiteReader.scss';
 function PageShowcaseSQLiteReader() {
 
 	const [records, setRecords] = useState([{}]);
-	console.log('1111');
 	useEffect(() => {
 		fetch('http://localhost:5001/sqliteTest')
 			.then(response => response.json())
