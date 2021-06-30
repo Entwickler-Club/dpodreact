@@ -4,16 +4,16 @@ import '../styles/showcaseSQLiteReader.scss';
 function PageShowcaseSQLiteReader() {
 
 	const [records, setRecords] = useState([{ id: 1, message: "test message" }]);
-
+	console.log('1111');
 	useEffect(() => {
-		setRecords([...records, ...[{ id: 999, message: 'nnn' }]]);
+		fetch('http://localhost:5001/sqliteTest')
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+			});
+		setRecords([...records, ...[{ id: 999, message: 'nnn2' }]]);
 	}, []);
 
-	// fetch('https://hplussport.com/api/products/order/price')
-	// .then(response => response.json())
-	// .then(data => {
-	//     this.products = data;
-	// })
 
 	return (
 		<div className="page page_showcaseSQLiteReader">

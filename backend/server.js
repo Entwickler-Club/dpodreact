@@ -1,8 +1,13 @@
 const express = require('express');
-const SqliteManager = require('../src/system/classes/sqliteManager');
+// const SqliteManager = require('../src/system/classes/sqliteManager');
+const SqliteManager = require('../src/system/classes/sqliteManager.ts');
+const cors = require('cors');
 
 const app = express();
 const port = 5001;
+
+// Cross-origin resource sharing
+app.use(cors());
 
 app.get('/sqliteTest', (req, res) => {
 
