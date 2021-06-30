@@ -10,6 +10,7 @@ import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // 
 import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
 import PageShowcaseTypeScriptClasses from './PageShowcaseTypeScriptClasses';// ::showcaseTypeScriptClasses
 import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';// ::showcaseJavaScriptComponent
+import PageShowcaseSQLiteReader from './PageShowcaseSQLiteReader';// ::showcaseSQLiteReader
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -46,6 +47,7 @@ function Site() {
 								<li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
 								<li><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></li>{/* ::showcaseTypeScriptClasses */}
 								<li><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></li>{/* ::showcaseJavaScriptComponent */}
+								<li><Link to='/showcaseSQLiteReader'>Showcase: SQLite Reader</Link></li>{/* ::showcaseSQLiteReader */}
 							</>
 						)}
 					</ul>
@@ -61,6 +63,7 @@ function Site() {
 						<Route path='/showcaseLodash'><PageShowcaseLodash /></Route> {/* ::showcaseLodash */}
 						<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
 						<Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
+						<Route path='/showcaseSQLiteReader'><PageShowcaseSQLiteReader /></Route>{/* ::showcaseSQLiteReader */}
 					</Switch>
 				</section>
 			</div>
