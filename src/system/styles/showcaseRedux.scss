@@ -1,5 +1,17 @@
-.page_showcaseRedux {
-    .message {
-        font-style: italic;
+ .header{
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda0);
+    .h3{
+        text-align: center;
     }
-}
+    .input{
+        padding: 0.5rem;
+        font-size: 2rem;
+        border: none;
+        background: white;
+    }
+    
+ }

@@ -1,19 +1,6 @@
 // React App
 import { useState } from "react";
 import '../styles/showcaseRedux.scss';
-// Material-UI Imports
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import Checkbox from "@material-ui/core/Checkbox";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from '@material-ui/icons/Edit';
 // Other Imports
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
@@ -30,73 +17,69 @@ function PageShowcaseRedux(){
 	const dispatch = useDispatch<AppDispatch>();
   
 	//Rendering	
-	return (<div className="page page_showcaseRedux">
+	return (<div className="page page_showcaseRedux"> 
 			<h2 className="title">Showcase Redux</h2>
 			<p className="description">An info page that displays showcase redux.</p>	
 			<p className="message">Welcome to this page.</p>
-			<Container maxWidth="xs">
-      <Typography style={{ textAlign: "center" }} variant="h3">
+			<div className="header">
+      <h3 className="h3" style={{ textAlign: "center" }}>
         Redux List App
-      </Typography>
-      <TextField
-        variant="outlined"
-        label="To Do Item"
-        fullWidth
+      </h3>
+      <input
+        
+      className="input"
         onChange={(e) => setTodoDescription(e.target.value)}
         value={todoDescription}
       />
-      <Button
-        variant="contained"
-        color="primary"
-        fullWidth
+      <button
+        className="btn"
         onClick={() => {
           dispatch(addTodo(todoDescription));
           setTodoDescription("");
         }}
       >
         Add Item
-      </Button>
-      <List>
+      </button>
+      <li>
         {todoList.map((todo) => (
-          <ListItem key={todo.id}>
-            <ListItemText
+          <div className="ListItem" key={todo.id}>
+            <div className= "ListItemText"
               style={{
                 textDecoration: todo.completed ? "line-through" : "none",
               }}
             >
               {todo.description}
-            </ListItemText>
-            <ListItemSecondaryAction>
-              <IconButton
+            </div>
+            <div className="ListItemSecondaryAction" >
+              <button className="deletebtn"
                 onClick={() => {
                   dispatch(removeTodo(todo.id));
                 }}
-              >
-                <DeleteIcon />
-              </IconButton>
-              <IconButton
-              
+              >delete
+
+              </button>
+              <button
+              className="editbutton"
                 onClick={() => {
                   dispatch(editTodo(todo.id));
                 }}
               >
-                <EditIcon />
-              </IconButton>
+                Edit Me
+              </button>
 
-              <Checkbox
-                edge="end"
-                value={todo.completed}
+              <input type="checkbox"
+                value="{todo.completed}"
                 onChange={() => {
                   dispatch(
                     setTodoStatus({ completed: !todo.completed, id: todo.id })
                   );
                 }}
               />
-            </ListItemSecondaryAction>
-          </ListItem>
+            </div>
+          </div>
         ))}
-      </List>
-    </Container>
+      </li>
+    </div>
 			</div>
      
 		
