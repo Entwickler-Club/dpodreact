@@ -25,8 +25,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"dpod": "./node_modules/.bin/ts-node --skip-project src/system/scripts/dpod.ts",
-		"backendts": "./node_modules/.bin/ts-node --skip-project backend/server.ts",
-		"backend": "./node_modules/.bin/nodemon backend/server.js"
+		"backend": "./node_modules/.bin/ts-node --skip-project backend/server.ts"
 	},
 	"eslintConfig": {
 		"extends": [
