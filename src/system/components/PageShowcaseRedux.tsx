@@ -1,7 +1,6 @@
 // React App
 import { useState } from "react";
 import '../styles/showcaseRedux.scss';
-// Other Imports
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { addTodo, removeTodo, setTodoStatus, editTodo } from "../redux/todoSlice";
@@ -21,26 +20,26 @@ function PageShowcaseRedux(){
 			<h2 className="title">Showcase Redux</h2>
 			<p className="description">An info page that displays showcase redux.</p>	
 			<p className="message">Welcome to this page.</p>
-			<div className="header">
-      <h3 className="h3" style={{ textAlign: "center" }}>
+			<div className="header1">
+      <h2 className="h2">
         Redux List App
-      </h3>
-      <input
-        
+      </h2>
+      <div  className="search-form">
+      <input        
       className="input"
         onChange={(e) => setTodoDescription(e.target.value)}
         value={todoDescription}
       />
       <button
-        className="btn"
+        className="inputbtn"
         onClick={() => {
           dispatch(addTodo(todoDescription));
           setTodoDescription("");
         }}
       >
         Add Item
-      </button>
-      <li>
+      </button></div>
+      <ul>
         {todoList.map((todo) => (
           <div className="ListItem" key={todo.id}>
             <div className= "ListItemText"
@@ -78,7 +77,7 @@ function PageShowcaseRedux(){
             </div>
           </div>
         ))}
-      </li>
+      </ul>
     </div>
 			</div>
      
