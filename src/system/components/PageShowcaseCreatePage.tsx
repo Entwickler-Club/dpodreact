@@ -3,15 +3,15 @@ import '../styles/showcaseCreatePage.scss';
 
 function PageShowcaseCreatePage() {
 	const [pageTitle, setPageTitle] = useState('');
+	const [records, setRecords] = useState<any[]>([]);
 	useEffect(() => {
+		console.log(records);
 	}, []);
 	const createPage = () => {
 		setPageTitle('changed');
 		fetch('http://localhost:5001/sqliteTest')
 			.then(response => response.json())
-			.then((data: any) => {
-				console.log(data);
-			});
+			.then((data: any) => setRecords([...data.records]));
 	}
 
 	const onPageTitleChange = (event: any) => {
@@ -27,7 +27,8 @@ function PageShowcaseCreatePage() {
 				<input type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
 				<button type="button" onClick={() => createPage()}>Submit</button>
 			</form>
-			[{pageTitle}]
+			<div>[{pageTitle}]</div>
+			<div>[{records.length}]</div>
 		</div>
 	)
 }
