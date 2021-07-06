@@ -9,7 +9,12 @@ function PageShowcaseCreatePage() {
 	}, []);
 	const createPage = () => {
 		setPageTitle('changed');
-		fetch('http://localhost:5001/sqliteTest')
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ title: 'test create page' })
+		};
+		fetch('http://localhost:5001/createPage', requestOptions)
 			.then(response => response.json())
 			.then((data: any) => setRecords([...data.records]));
 	}
