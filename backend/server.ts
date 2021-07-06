@@ -22,6 +22,10 @@ app.get('/sqliteTest', (req: any, res: any) => {
 		.catch((error: any) => console.log(error));
 });
 
+app.post('/createPage', (req: any, res: any) => {
+	console.log('posting in server');
+	res.send('testCreatedPage');
+});
+
 app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
 });
