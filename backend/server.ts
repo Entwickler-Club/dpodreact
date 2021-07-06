@@ -1,7 +1,8 @@
-export {};
+export { };
 
 const express = require('express');
 import SqliteManager from '../src/system/classes/sqliteManager';
+import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 const cors = require('cors');
 
 const app = express();
@@ -24,9 +25,12 @@ app.get('/sqliteTest', (req: any, res: any) => {
 });
 
 app.post('/createPage', (req: any, res: any) => {
-	console.log(req.body);
-	console.log('posting in server');
-	res.send('testCreatedPage');
+	const {pageTitle} = req.body;
+	DpodSiteBuilder.createPage(pageTitle);
+	res.status(201).json({
+		success: true,
+		pageTitle
+	});
 });
 
 app.listen(port, () => {

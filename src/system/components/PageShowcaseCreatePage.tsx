@@ -12,7 +12,7 @@ function PageShowcaseCreatePage() {
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ title: 'test create page' })
+			body: JSON.stringify({ pageTitle })
 		};
 		fetch('http://localhost:5001/createPage', requestOptions)
 			.then(response => response.json())
