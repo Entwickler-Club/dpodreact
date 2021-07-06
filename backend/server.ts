@@ -8,6 +8,7 @@ const app = express();
 const port = 5001;
 
 app.use(cors());
+app.use(express.json());
 
 app.get('/sqliteTest', (req: any, res: any) => {
 
@@ -23,6 +24,7 @@ app.get('/sqliteTest', (req: any, res: any) => {
 });
 
 app.post('/createPage', (req: any, res: any) => {
+	console.log(req.body);
 	console.log('posting in server');
 	res.send('testCreatedPage');
 });
