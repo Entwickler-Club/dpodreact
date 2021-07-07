@@ -3,7 +3,6 @@ export { };
 const express = require('express');
 import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
-import { createLogicalAnd } from 'typescript';
 const cors = require('cors');
 
 const app = express();
@@ -36,7 +35,7 @@ app.post('/createPage', (req: any, res: any) => {
 
 app.post('/deletePage', (req: any, res: any) => {
 	const {pageTitle} = req.body;
-	// DpodSiteBuilder.createPage(pageTitle);
+	DpodSiteBuilder.deletePage(pageTitle);
 	console.log('delete page ' + pageTitle);
 	res.status(204).json({
 		success: true,
