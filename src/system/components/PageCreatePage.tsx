@@ -24,16 +24,14 @@ function PageCreatePage() {
 	}
 
 	return (
-		<div className="page page_showcaseCreatePage">
+		<div className="page page_createPage">
 			<h2 className="title">Create Page</h2>
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
-				<label htmlFor="pageTitle">Page Title</label>
+				<label htmlFor="pageTitle">Page Title: </label>
 				<input type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
-				<button type="button" onClick={() => createPage()}>Submit</button>
+				<button className="submitButton" type="button" onClick={() => createPage()}>Submit</button>
 			</form>
-			<div>[{pageTitle}]</div>
-			<div>[{records.length}]</div>
 		</div>
 	)
 }
