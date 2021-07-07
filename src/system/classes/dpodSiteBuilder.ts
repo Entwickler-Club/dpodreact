@@ -29,7 +29,7 @@ class DpodSiteBuilder {
 		const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
 		textFileBuilderStylesheet.data = data;
 		// TODO: create enums on data
-		textFileBuilder.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
+		textFileBuilderStylesheet.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
 
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
