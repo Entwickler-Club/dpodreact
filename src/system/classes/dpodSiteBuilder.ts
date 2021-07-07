@@ -23,13 +23,13 @@ class DpodSiteBuilder {
 		// main display page
 		const textFileBuilder = new TextFileBuilder('newPageComponent');
 		textFileBuilder.data = data;
-		textFileBuilder.buildNow(DpodSiteBuilder.getPageComponentPathAndFileName(data.pascalNotation));
+		textFileBuilder.buildNow(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
 
 		// stylesheet
 		const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
 		textFileBuilderStylesheet.data = data;
 		// TODO: create enums on data
-		textFileBuilder.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pascalNotation));
+		textFileBuilder.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
 
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
