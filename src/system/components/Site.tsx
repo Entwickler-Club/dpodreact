@@ -13,6 +13,7 @@ import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';
 import PageShowcaseSQLiteReader from './PageShowcaseSQLiteReader';// ::showcaseSQLiteReader
 import PageShowcaseCreatePage from './PageShowcaseCreatePage';// ::showcaseCreatePage
 import PageCreatePage from './PageCreatePage';// ::createPage
+import PageDeletePage from './PageDeletePage';// ::deletePage
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -52,6 +53,7 @@ function Site() {
 <li><Link to='/showcaseSQLiteReader'>Showcase: SQLite Reader</Link></li>{/* ::showcaseSQLiteReader */}
 <li><Link to='/showcaseCreatePage'>Showcase: Create Page</Link></li>{/* ::showcaseCreatePage */}
 <li><Link to='/createPage'>Create Page</Link></li>{/* ::createPage */}
+<li><Link to='/deletePage'>Delete Page</Link></li>{/* ::deletePage */}
 							</>
 						)}
 					</ul>
@@ -70,6 +72,7 @@ function Site() {
 <Route path='/showcaseSQLiteReader'><PageShowcaseSQLiteReader /></Route>{/* ::showcaseSQLiteReader */}
 <Route path='/showcaseCreatePage'><PageShowcaseCreatePage /></Route>{/* ::showcaseCreatePage */}
 <Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
+<Route path='/deletePage'><PageDeletePage /></Route>{/* ::deletePage */}
 					</Switch>
 				</section>
 			</div>
