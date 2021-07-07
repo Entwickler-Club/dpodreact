@@ -25,8 +25,8 @@ function PageCreatePage() {
 
 	return (
 		<div className="page page_showcaseCreatePage">
-			<h2 className="title">Showcase: Create Page</h2>
-			<p className="description">An info page that displays showcase: create page.</p>
+			<h2 className="title">Create Page</h2>
+			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
 				<label htmlFor="pageTitle">Page Title</label>
 				<input type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
