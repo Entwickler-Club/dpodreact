@@ -26,6 +26,7 @@
 		"test": "react-scripts test",
 		"dpod": "./node_modules/.bin/ts-node --skip-project src/system/scripts/dpod.ts",
 		"backend_old": "./node_modules/.bin/ts-node --skip-project backend/server.ts",
+		"backend_node": "./node_modules/.bin/ts-node --skip-project backend/server.ts",
 		"backend": "./node_modules/.bin/nodemon"
 	},
 	"eslintConfig": {

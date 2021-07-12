@@ -5,7 +5,7 @@ function PageCreatePage() {
 	const [pageTitle, setPageTitle] = useState('');
 	const [records, setRecords] = useState<any[]>([]);
 	useEffect(() => {
-		console.log(records);
+		// console.log(records);
 	}, []);
 	const createPage = () => {
 		setPageTitle('changed');
@@ -15,8 +15,8 @@ function PageCreatePage() {
 			body: JSON.stringify({ pageTitle })
 		};
 		fetch('http://localhost:5001/createPage', requestOptions)
-			.then(response => response.json())
-			.then((data: any) => setRecords([...data.records]));
+			.then(response => response.json());
+			// .then((data: any) => setRecords([...data.records]));
 	}
 
 	const onPageTitleChange = (event: any) => {
