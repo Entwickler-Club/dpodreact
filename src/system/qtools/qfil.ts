@@ -79,4 +79,9 @@ export const createFileWithLines = (pathAndFileName: string, lines: string[]) =>
 //     const absoluteDirectory = qsys.getApplicationBaseDirectoryWithBackslashes();
 //     const fullPathAndFileName = absoluteDirectory + pathAndFileName;
 //     return fs.readFileSync(fullPathAndFileName, 'utf8');
-// }
+
+export const deleteFile = function (pathAndFileName: string) {
+    if (qfil.fileExists(pathAndFileName)) {
+        fs.unlinkSync(pathAndFileName);
+    }
+}
