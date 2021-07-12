@@ -3,18 +3,29 @@ import { useState } from "react";
 import '../styles/showcaseRedux.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
-import { addTodo, removeTodo, setTodoStatus, editTodo } from "../redux/todoSlice";
+import { addTodo, removeTodo, setTodoStatus, editTodo, addEditItem } from "../redux/todoSlice";
 
 
 
 function PageShowcaseRedux(){
 	//React Hooks
 	const [todoDescription, setTodoDescription] = useState("");
+  const [showEdit, setShowEdit] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
 	//React Redux Hooks
 	const todoList = useSelector((state: RootState) => state);
 	const dispatch = useDispatch<AppDispatch>();
-  
+
+  const editHandler = (ind: any, a :string) =>{
+   
+    setTodoDescription(a)
+    setSelectedIndex(ind)    
+    setShowEdit(true)
+    
+  }
+
+
 	//Rendering	
 	return (<div className="page page_showcaseRedux"> 
 			<h2 className="title">Showcase Redux</h2>
@@ -30,17 +41,23 @@ function PageShowcaseRedux(){
         onChange={(e) => setTodoDescription(e.target.value)}
         value={todoDescription}
       />
-      <button
-        className="inputbtn"
-        onClick={() => {
-          dispatch(addTodo(todoDescription));
-          setTodoDescription("");
-        }}
-      >
-        Add Item
-      </button></div>
+      {showEdit
+      ? <button onClick={()=> {
+        dispatch(addEditItem({ index : selectedIndex as any, text: todoDescription  }))
+        setShowEdit(false)
+      }}>Edit</button>
+      :      <button
+      className="inputbtn"
+      onClick={() => {
+        dispatch(addTodo(todoDescription));
+        setTodoDescription("");
+      }}
+    >
+      Add Item
+    </button>}
+      </div>
       <ul>
-        {todoList.map((todo) => (
+        {todoList.map((todo,index) => (
           <div className="ListItem" key={todo.id}>
             <div className= "ListItemText"
               style={{
@@ -58,10 +75,9 @@ function PageShowcaseRedux(){
 
               </button>
               <button
-              className="editbutton"
-                onClick={() => {
-                  dispatch(editTodo(todo.id));
-                }}
+                  className="editbutton"
+                  onClick={()=>editHandler(index,todo.description)}
+                
               >
                 Edit Me
               </button>

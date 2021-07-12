@@ -42,7 +42,26 @@
         height: 50px;
     }
     .ListItem {
-        min-width: 30%;
+        width: 20rem;
         list-style: none;
+        display: flex;
+        justify-content: space-around;
+        background: #d7d9db;
+        height: 50px;
+        margin: 10px auto;
+        padding: 10px;
+
+        .ListItemText {
+            padding: 5px;
+            background: #e1e2df;
+            color: #000;
+            font-size: 24px;
+
+            input{
+                width: 10rem;
+                background: #777a77;
+            }
+        }
+
     }
 }
