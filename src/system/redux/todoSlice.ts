@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Todo } from "../models/Todo";
-
-
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = [] as Todo[];
 
@@ -12,12 +11,13 @@ const todoSlice = createSlice({
     addTodo: {
       reducer: (state, action: PayloadAction<Todo>) => {
         state.push(action.payload);
-        return state;
       },
       prepare: (description: string) => ({
         payload: {
+          id: uuidv4(),
           description,
-          completed: false} as Todo,
+          completed: false,
+        } as Todo,
       }),
     },
     removeTodo(state, action: PayloadAction<string>) {
@@ -31,18 +31,11 @@ const todoSlice = createSlice({
       const index = state.findIndex((todo) => todo.id === action.payload.id);
       state[index].completed = action.payload.completed;
     },
-    editTodo(state, action: PayloadAction<{index:number}>){
-      console.log(action.payload);
-      
-      /* const index = state.filter((todo) => todo.id === action.payload); */
-  
-    },
-    addEditItem(state, action){
-      state[action.payload.index].description = action.payload.text
-
-    }
-  },  
+    editTodo(state, action: PayloadAction<string>){
+      const index = state.findIndex((todo) => todo.id === action.payload);
+      state.splice(index, 0);}
+  },
 });
 
-export const { addTodo, removeTodo,editTodo, setTodoStatus, addEditItem } = todoSlice.actions;
+export const { addTodo, removeTodo,editTodo, setTodoStatus } = todoSlice.actions;
 export default todoSlice.reducer;
