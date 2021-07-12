@@ -585,7 +585,7 @@ export const forcePascalNotation = (term: string) => {
 export const cleanForCamelAndPascalNotation = (term: string) => {
 	let r = term;
 	r = qstr.convertForeignCharactersToStandardAscii(r);
-	r = r.replace(/[^A-Za-z1-9 ]/g, '');
+	r = r.replace(/[^A-Za-z0-9 ]/g, '');
 	return r;
 }
 
