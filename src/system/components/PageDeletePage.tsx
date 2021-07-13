@@ -23,8 +23,8 @@ function PageDeletePage() {
 			<h2 className="title">Delete Page</h2>
 			<p className="description">This page deletes a page from this website.</p>
 			<form>
-				<label htmlFor="pageTitle">Page Title: </label>
-				<input type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
+				<label htmlFor="pageTitle">Page to delete: </label>
+				<input className="pageTitle" type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
 				<button className="submitButton" type="button" onClick={() => deletePage()}>Submit</button>
 			</form>
 		</div>
