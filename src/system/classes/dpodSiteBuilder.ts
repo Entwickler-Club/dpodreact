@@ -46,11 +46,14 @@ class DpodSiteBuilder {
 		const data = {
 			...pageSyntaxVariations
 		};
+		console.log(data);
 		// main display page
-		qfil.deleteFile(DpodSiteBuilder.getPageComponentPathAndFileName(data.pascalNotation));
+		const page1ToDelete = DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal);
+		console.log(page1ToDelete);
+		qfil.deleteFile(page1ToDelete);
 
 		// stylesheet
-		qfil.deleteFile(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pascalNotation));
+		qfil.deleteFile(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pagePascal));
 
 		// make modifications in the Site.tsx file
 		// const systemDynamicFile = new DynamicFile('../components/Site.tsx');
