@@ -24,7 +24,7 @@ app.get('/sqliteTest', (req: any, res: any) => {
 		.catch((error: any) => console.log(error));
 });
 
-app.get('/jsonManager', (req: any, res: any) => {
+app.get('/jsonReadWrite', (req: any, res: any) => {
 	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
 		const data = JSON.parse(rawData);
 		res.send({
