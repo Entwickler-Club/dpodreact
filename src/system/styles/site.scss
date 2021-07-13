@@ -35,45 +35,48 @@ body {
 		}
 	}
 	.app_site {
-		h1.siteTitle {
-			margin: 0 0 10px 20px;
-		}
+		.topHeader {
+			display: flex;
+			h1.siteTitle {
+				margin: 0 0 10px 20px;
+			}
+			.menuToggle {
+				margin: 8px 0 0 12px;
+				.toggle {
+					display: inline-block;
+					cursor: pointer;
+				}
+				.toggle_input {
+					display: none;
+				}
+				.toggle_fill {
+					position: relative;
+					width: 40px;
+					height: 20px;
+					border-radius: 20px;
+					background-color: #dddddd;
+					transition: background-color 0.2s;
+				}
+				.toggle_input:checked ~ .toggle_fill {
+					background: #a1a1a1;
+				}
 
-		nav {
-			.toogle {
-				display: inline-block;
-				cursor: pointer;
-			}
-			.toggle_input {
-				display: none;
-			}
-			.toggle_fill {
-				position: relative;
-				width: 40px;
-				height: 20px;
-				border-radius: 20px;
-				background-color: #dddddd;
-				transition: background-color 0.2s;
-			}
-			.toggle_input:checked ~ .toggle_fill {
-				background: #a1a1a1;
-			}
+				.toggle_fill::after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 20px;
+					width: 20px;
+					background-color: #ffffff;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+					border-radius: 20px;
+					transition: transform 0.2s;
+				}
 
-			.toggle_fill::after {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 20px;
-				width: 20px;
-				background-color: #ffffff;
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-				border-radius: 20px;
-				transition: transform 0.2s;
-			}
-
-			.toggle_input:checked ~ .toggle_fill::after {
-				transform: translateX(20px);
+				.toggle_input:checked ~ .toggle_fill::after {
+					transform: translateX(20px);
+				}
 			}
 		}
 
@@ -86,12 +89,11 @@ body {
 			min-height: basic.$basicLayoutHeight;
 		}
 
-		nav > ul {
-			display: flex;
-			margin: 0 0 0 20px;
-
-			li {
-				margin-right: 10px;
+		nav {
+			margin: 0 20px;
+			span {
+				margin: 0 13px 5px 0;
+				display: inline-block;
 			}
 			a {
 				color: #333;
