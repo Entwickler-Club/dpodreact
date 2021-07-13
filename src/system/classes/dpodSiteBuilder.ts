@@ -46,21 +46,19 @@ class DpodSiteBuilder {
 		const data = {
 			...pageSyntaxVariations
 		};
-		console.log(data);
-		// main display page
-		const page1ToDelete = DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal);
-		console.log(page1ToDelete);
-		qfil.deleteFile(page1ToDelete);
 
-		// stylesheet
+		// delete main display page
+		qfil.deleteFile(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
+
+		// delete stylesheet
 		qfil.deleteFile(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pagePascal));
 
 		// make modifications in the Site.tsx file
-		// const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		// systemDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', data.pageCamel, `import Page${data.pagePascal} from './Page${data.pagePascal}';`);
-		// systemDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', data.pageCamel, `<li><Link to='/${data.pageCamel}'>${pageTitle}</Link></li>`);
-		// systemDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', data.pageCamel, `<Route path='/${data.pageCamel}'><Page${data.pagePascal} /></Route>`);
-		// systemDynamicFile.save();
+		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
+		systemDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', data.pageCamel);
+		systemDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', data.pageCamel);
+		systemDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', data.pageCamel);
+		systemDynamicFile.save();
 	}
 
 	static log(line: string) {
