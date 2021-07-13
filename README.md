@@ -10,6 +10,11 @@ This is a framework build on top of create-react-app which enables you to quickl
 - you will see in your browser a site like this:
 <img src="dev/github/graphics/firstScreen.png">
 
+## Current Features
+
+- You can immediately create and delete pages with the Create Page and Delete Page menu items.
+- View the showcase pages to see various examples features that can be built into the site.
+
 ## Datapod Command Line Interface
 
 - get help: `npm run dpod`
