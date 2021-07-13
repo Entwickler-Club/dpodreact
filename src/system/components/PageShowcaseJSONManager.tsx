@@ -21,7 +21,7 @@ function PageShowcaseJSONManager() {
 				<ul>
 					{records.map((record: any) => (
 						<>
-							<li>{record.id} - {record.message}</li>
+							<li>{record.id} - {record.title}</li>
 						</>
 					))}
 				</ul>
