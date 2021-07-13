@@ -49,7 +49,7 @@ class DpodSiteBuilder {
 		qfil.deleteFile(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
 
 		// delete stylesheet
-		qfil.deleteFile(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pagePascal));
+		qfil.deleteFile(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
 
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
