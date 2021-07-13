@@ -1,0 +1,8 @@
+{
+    "name": "Isaac",
+    "server": {
+        "name": "Apache in root",
+        "whenSetup": "2020-01-01",
+        "location": "external"
+    }
+}
