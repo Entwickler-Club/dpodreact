@@ -3,12 +3,8 @@ import '../styles/createPage.scss';
 
 function PageCreatePage() {
 	const [pageTitle, setPageTitle] = useState('');
-	const [records, setRecords] = useState<any[]>([]);
-	useEffect(() => {
-		// console.log(records);
-	}, []);
 	const createPage = () => {
-		setPageTitle('changed');
+		setPageTitle('');
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -16,7 +12,6 @@ function PageCreatePage() {
 		};
 		fetch('http://localhost:5001/createPage', requestOptions)
 			.then(response => response.json());
-			// .then((data: any) => setRecords([...data.records]));
 	}
 
 	const onPageTitleChange = (event: any) => {

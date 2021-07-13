@@ -2,7 +2,6 @@ import TextFileBuilder from './textFileBuilder';
 import * as qstr from '../qtools/qstr';
 import * as qfil from '../qtools/qfil';
 import DynamicFile from './dynamicFile';
-import { createLogicalAnd } from 'typescript';
 
 class DpodSiteBuilder {
 
@@ -18,7 +17,6 @@ class DpodSiteBuilder {
 
 	static createPage(pageTitle: string) {
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
-		console.log(pageSyntaxVariations);
 		const data = {
 			...pageSyntaxVariations
 		};

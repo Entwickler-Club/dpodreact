@@ -35,8 +35,6 @@ app.post('/createPage', (req: any, res: any) => {
 app.post('/deletePage', (req: any, res: any) => {
 	const {pageTitle} = req.body;
 	DpodSiteBuilder.deletePage(pageTitle);
-	console.log('ok');
-	console.log('delete page ' + pageTitle);
 	res.status(204).json({
 		success: true,
 		pageTitle

@@ -8,7 +8,6 @@ function PageShowcaseCreatePage() {
 		console.log(records);
 	}, []);
 	const createPage = () => {
-		setPageTitle('changed');
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

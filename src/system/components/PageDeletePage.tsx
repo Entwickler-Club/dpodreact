@@ -3,20 +3,15 @@ import '../styles/deletePage.scss';
 
 function PageDeletePage() {
 	const [pageTitle, setPageTitle] = useState('');
-	const [records, setRecords] = useState<any[]>([]);
-	useEffect(() => {
-		console.log(records);
-	}, []);
 	const deletePage = () => {
-		setPageTitle('changed');
+		setPageTitle('');
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ pageTitle })
 		};
 		fetch('http://localhost:5001/deletePage', requestOptions)
-			.then(response => response.json())
-			.then((data: any) => setRecords([...data.records]));
+			.then(response => response.json());
 	}
 
 	const onPageTitleChange = (event: any) => {

@@ -29,7 +29,6 @@ class TextFileBuilder {
 	buildNow(pathAndFileName: string) {
 		this.parseTheContent();
 		fs.writeFileSync(pathAndFileName, this.parsedContent);
-		this.log(`The page "${pathAndFileName}" was created.`);
 	}
 
 	log(line: string) {
