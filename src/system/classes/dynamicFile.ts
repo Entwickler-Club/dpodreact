@@ -67,10 +67,6 @@ class DynamicFile {
 		return dynamicCodeAreaObjects;
 	}
 
-	// import PageShowcaseLodash from './PageShowcaseLodash'; // ::showcaseLodash
-	// get "showcaseLodash"
-	// <li><Link to='/showcaseLodash'>Showcase: Lodash</Link></li> {/* ::showcaseLodash */}
-	// get "showcaseLodash"
 	getChunkIdCodeFromLine(dynamicCodeAreaObject: any, line: string) {
 		const searchMarker = dynamicCodeAreaObject.markerPrefix + '::';
 		const parts = qstr.breakIntoParts(line, searchMarker);

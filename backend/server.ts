@@ -1,8 +1,7 @@
-export { };
-
-const express = require('express');
 import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
+export { };
+const express = require('express');
 const cors = require('cors');
 
 const app = express();
@@ -36,7 +35,6 @@ app.post('/createPage', (req: any, res: any) => {
 app.post('/deletePage', (req: any, res: any) => {
 	const {pageTitle} = req.body;
 	DpodSiteBuilder.deletePage(pageTitle);
-	console.log('delete page ' + pageTitle);
 	res.status(204).json({
 		success: true,
 		pageTitle
