@@ -25,26 +25,12 @@ app.get('/sqliteTest', (req: any, res: any) => {
 });
 
 app.get('/jsonManager', (req: any, res: any) => {
-	// fs.readFile('./src/system/data/json/itemType_pageItems_nnn.json', 'utf-8', (err: any, rawData: any) => {
-	// fs.readFile('itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
-	fs.readFile('./test.json', 'utf-8', (err: any, rawData: any) => {
+	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
 		const data = JSON.parse(rawData);
 		res.send({
 			records: data
 		});
 	});
-	// res.send({
-	// 	records: [
-	// 		{
-	// 			id: 1,
-	// 			message: 'test message'
-	// 		},
-	// 		{
-	// 			id: 2,
-	// 			message: 'test message2'
-	// 		}
-	// 	]
-	// });
 });
 
 app.post('/createPage', (req: any, res: any) => {
