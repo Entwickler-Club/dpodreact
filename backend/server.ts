@@ -23,8 +23,23 @@ app.get('/sqliteTest', (req: any, res: any) => {
 		.catch((error: any) => console.log(error));
 });
 
+app.get('/jsonManager', (req: any, res: any) => {
+	res.send({
+		records: [
+			{
+				id: 1,
+				message: 'test message'
+			},
+			{
+				id: 2,
+				message: 'test message2'
+			}
+		]
+	});
+});
+
 app.post('/createPage', (req: any, res: any) => {
-	const {pageTitle} = req.body;
+	const { pageTitle } = req.body;
 	DpodSiteBuilder.createPage(pageTitle);
 	res.status(201).json({
 		success: true,
@@ -33,7 +48,7 @@ app.post('/createPage', (req: any, res: any) => {
 });
 
 app.post('/deletePage', (req: any, res: any) => {
-	const {pageTitle} = req.body;
+	const { pageTitle } = req.body;
 	DpodSiteBuilder.deletePage(pageTitle);
 	res.status(204).json({
 		success: true,
