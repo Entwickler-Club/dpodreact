@@ -46,11 +46,11 @@ function Site() {
 					<span><Link to='/deletePage'>Delete Page</Link></span>{/* ::deletePage */}
 					{isShowing && (
 						<>
-							{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
-							<span><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></span> {/* ::showcaseCounterUsingState */}
-							<span><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></span>{/* ::showcaseTypeScriptClasses */}
-							<span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
-							<span><Link to='/showcaseSQLiteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSQLiteReader */}
+{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
+<span><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></span> {/* ::showcaseCounterUsingState */}
+<span><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></span>{/* ::showcaseTypeScriptClasses */}
+<span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
+<span><Link to='/showcaseSQLiteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSQLiteReader */}
 						</>
 					)}
 				</nav>
@@ -62,11 +62,11 @@ function Site() {
 						</Route>
 						<Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
 						<Route path='/deletePage'><PageDeletePage /></Route>{/* ::deletePage */}
-						{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
-						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
-						<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
-						<Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
-						<Route path='/showcaseSQLiteReader'><PageShowcaseSQLiteReader /></Route>{/* ::showcaseSQLiteReader */}
+{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
+<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
+<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
+<Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
+<Route path='/showcaseSQLiteReader'><PageShowcaseSQLiteReader /></Route>{/* ::showcaseSQLiteReader */}
 					</Switch>
 				</section>
 			</div>
@@ -74,4 +74,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;
