@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import '../styles/showcaseJSONReadWrite.scss';
+import * as config from '../config'; 
+
+const backendPort = config.getBackendPort();
+
 
 function PageShowcaseJSONReadWrite() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
-		fetch('http://localhost:5001/jsonReadWrite')
+		fetch(`http://localhost:${backendPort}/jsonReadWrite`)
 			.then(response => response.json())
 			.then((data: any) => {
 				setRecords([...data.records]);
