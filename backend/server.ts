@@ -53,4 +53,5 @@ app.post('/deletePage', (req: any, res: any) => {
 });
 
 app.listen(port, () => {
+	console.log(`backend listening on port ${port}...`);
 });

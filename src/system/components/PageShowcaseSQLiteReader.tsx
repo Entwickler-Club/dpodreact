@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import '../styles/showcaseSQLiteReader.scss';
+import * as config from '../config'; 
+
+const backendPort = config.getBackendPort();
 
 function PageShowcaseSQLiteReader() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
-		fetch('http://localhost:5001/sqliteTest')
+		fetch(`http://localhost:${backendPort}/sqliteTest`)
 			.then(response => response.json())
 			.then((data: any) => {
 				setRecords([...data.records]);
