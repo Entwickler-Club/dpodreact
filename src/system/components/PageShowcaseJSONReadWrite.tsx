@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react';
-import '../styles/showcaseSQLiteReader.scss';
+import '../styles/showcaseJSONReadWrite.scss';
 import * as config from '../config'; 
 
 const backendPort = config.getBackendPort();
 
-function PageShowcaseSQLiteReader() {
+
+function PageShowcaseJSONReadWrite() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/sqliteTest`)
+		fetch(`http://localhost:${backendPort}/jsonReadWrite`)
 			.then(response => response.json())
 			.then((data: any) => {
 				setRecords([...data.records]);
 			});
 	}, []);
 
-
 	return (
-		<div className="page page_showcaseSQLiteReader">
-			<h2 className="title">Showcase: SQLite Reader</h2>
-			<p className="description">An info page that displays showcase: SQLite reader.</p>
+		<div className="page page_showcaseJSONReadWrite">
+			<h2 className="title">Showcase: JSON Manager</h2>
+			<p className="description">A page that reads and and writes to JSON files via the backend.</p>
 			<div className="recordArea">
 				<ul>
 					{records.map((record: any) => (
 						<>
-							<li>{record.id} - {record.message}</li>
+							<li>{record.id} - {record.title}</li>
 						</>
 					))}
 				</ul>
@@ -33,4 +33,4 @@ function PageShowcaseSQLiteReader() {
 	)
 }
 
-export default PageShowcaseSQLiteReader;
+export default PageShowcaseJSONReadWrite;

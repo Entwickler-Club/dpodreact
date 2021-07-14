@@ -12,6 +12,7 @@ import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';
 import PageShowcaseSQLiteReader from './PageShowcaseSQLiteReader';// ::showcaseSQLiteReader
 import PageCreatePage from './PageCreatePage';// ::createPage
 import PageDeletePage from './PageDeletePage';// ::deletePage
+import PageShowcaseJSONReadWrite from './PageShowcaseJSONReadWrite';// ::showcaseJSONReadWrite
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -51,6 +52,7 @@ function Site() {
 <span><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></span>{/* ::showcaseTypeScriptClasses */}
 <span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
 <span><Link to='/showcaseSQLiteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSQLiteReader */}
+<span><Link to='/showcaseJSONReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJSONReadWrite */}
 						</>
 					)}
 				</nav>
@@ -67,6 +69,7 @@ function Site() {
 <Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
 <Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
 <Route path='/showcaseSQLiteReader'><PageShowcaseSQLiteReader /></Route>{/* ::showcaseSQLiteReader */}
+<Route path='/showcaseJSONReadWrite'><PageShowcaseJSONReadWrite /></Route>{/* ::showcaseJSONReadWrite */}
 					</Switch>
 				</section>
 			</div>
