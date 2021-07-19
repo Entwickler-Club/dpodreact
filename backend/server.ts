@@ -34,6 +34,14 @@ app.get('/jsonReadWrite', (req: any, res: any) => {
 	});
 });
 
+app.post('/jsonReadWrite', (req: any, res: any) => {
+	const { records } = req.body;
+	console.log('in post json');
+	res.status(201).json({
+		success: true
+	});
+});
+
 app.post('/createPage', (req: any, res: any) => {
 	const { pageTitle } = req.body;
 	DpodSiteBuilder.createPage(pageTitle);

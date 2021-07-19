@@ -16,10 +16,23 @@ function PageShowcaseJSONReadWrite() {
 			});
 	}, []);
 
+	const saveData = () => {
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ records })
+		};
+		fetch(`http://localhost:${backendPort}/jsonReadWrite`, requestOptions)
+			.then(response => response.json());
+	}
+
 	return (
 		<div className="page page_showcaseJSONReadWrite">
 			<h2 className="title">Showcase: JSON Manager</h2>
 			<p className="description">A page that reads and and writes to JSON files via the backend.</p>
+			<div className="controlPanel">
+				<button className="saveDate" type="button" onClick={() => saveData()}>Save Data</button>
+			</div>
 			<div className="recordArea">
 				<ul>
 					{records.map((record: any) => (
