@@ -36,9 +36,11 @@ app.get('/jsonReadWrite', (req: any, res: any) => {
 
 app.post('/jsonReadWrite', (req: any, res: any) => {
 	const { records } = req.body;
-	console.log('in post json');
-	res.status(201).json({
-		success: true
+	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err:any) => {
+		if (err) throw err;
+		res.status(201).json({
+			success: true
+		});
 	});
 });
 
