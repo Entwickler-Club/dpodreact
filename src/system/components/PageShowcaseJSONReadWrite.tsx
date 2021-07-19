@@ -17,6 +17,8 @@ function PageShowcaseJSONReadWrite() {
 	}, []);
 
 	const saveData = () => {
+		// (records[0])['menu'] = 'nnn';
+		records.splice(0,1);
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
