@@ -1,7 +1,7 @@
 const fs = require('fs');
 import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
-import * as config from '../src/system/config'; 
+import * as config from '../src/system/config';
 export { };
 const express = require('express');
 const cors = require('cors');
@@ -30,6 +30,16 @@ app.get('/jsonReadWrite', (req: any, res: any) => {
 		const data = JSON.parse(rawData);
 		res.send({
 			records: data
+		});
+	});
+});
+
+app.post('/jsonReadWrite', (req: any, res: any) => {
+	const { records } = req.body;
+	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err:any) => {
+		if (err) throw err;
+		res.status(201).json({
+			success: true
 		});
 	});
 });

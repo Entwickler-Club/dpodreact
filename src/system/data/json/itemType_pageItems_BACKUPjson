@@ -1,5 +1,20 @@
 [
     {
+        "accessGroups": "loggedInUsers,loggedOutUsers",
+        "description": "",
+        "displayOrder": 10,
+        "holdMenu": "main",
+        "id": 8,
+        "idCode": "home",
+        "kind": "system",
+        "menu": "main",
+        "subsite": "core",
+        "systemWhenCreated": "",
+        "systemWhoCreated": "",
+        "title": "Home",
+        "type": "html"
+    },
+    {
         "accessGroups": "developers",
         "description": "",
         "displayOrder": 20,
@@ -22,7 +37,7 @@
         "id": 10,
         "idCode": "login",
         "kind": "system",
-        "menu": "CHANGED",
+        "menu": "hide",
         "subsite": "core",
         "systemWhenCreated": "",
         "systemWhoCreated": "",
