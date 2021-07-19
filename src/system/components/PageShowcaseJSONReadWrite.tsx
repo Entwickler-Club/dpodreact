@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/showcaseJSONReadWrite.scss';
-import * as config from '../config'; 
+import * as config from '../config';
 
 const backendPort = config.getBackendPort();
 
@@ -17,8 +17,14 @@ function PageShowcaseJSONReadWrite() {
 	}, []);
 
 	const saveData = () => {
-		// (records[0])['menu'] = 'nnn';
-		records.splice(0,1);
+		// records.splice(0,1);
+		setRecords([...records.map((m: any) => {
+			if (m.id === 10) {
+				m.menu = 'CHANGED';
+			}
+			return m;
+		})]);
+
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

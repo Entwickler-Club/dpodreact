@@ -22,7 +22,7 @@
         "id": 10,
         "idCode": "login",
         "kind": "system",
-        "menu": "hide",
+        "menu": "CHANGED",
         "subsite": "core",
         "systemWhenCreated": "",
         "systemWhoCreated": "",
