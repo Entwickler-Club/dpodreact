@@ -1,7 +1,13 @@
 class PageItems {
 
-    constructor(loadCode: string) {
+    loadCode: string;
 
+    constructor(loadCode: string) {
+        this.loadCode = loadCode;
+    }
+
+    displayForDebugging(): void {
+        console.log(`loadCode: "${this.loadCode}"`);
     }
 }
 
