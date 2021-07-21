@@ -1,14 +1,1 @@
-- update Ubuntu
-    - sudo apt-get clean
-    - sudo apt-get upgrade -y
-    - sudo apt-get update
-    - sudo apt-get autoremove
-    - sudo apt-get dist-upgrade
-- linux 
-    - manjaro
-- deutscher Philosoph
-    - Richard David Precht 
-        - https://www.youtube.com/watch?v=Qfh1l9CSMrA
-        - https://de.wikipedia.org/wiki/Deutscher_Michel 
-- https://en.wikipedia.org/wiki/Haskell_Curry
 
