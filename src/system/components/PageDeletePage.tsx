@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/deletePage.scss';
+import * as config from '../config';
+
+const backendPort = config.getBackendPort();
 
 function PageDeletePage() {
 	const [pageTitle, setPageTitle] = useState('');
@@ -10,7 +13,7 @@ function PageDeletePage() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ pageTitle })
 		};
-		fetch('http://localhost:5001/deletePage', requestOptions)
+		fetch(`http://localhost:${backendPort}/deletePage`, requestOptions)
 			.then(response => response.json());
 	}
 

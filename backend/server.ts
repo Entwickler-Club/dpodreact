@@ -1,8 +1,9 @@
-const fs = require('fs');
 import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 import * as config from '../src/system/config';
-export { };
+
+const fs = require('fs');
+export {};
 const express = require('express');
 const cors = require('cors');
 
@@ -36,7 +37,7 @@ app.get('/jsonReadWrite', (req: any, res: any) => {
 
 app.post('/jsonReadWrite', (req: any, res: any) => {
 	const { records } = req.body;
-	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err:any) => {
+	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err: any) => {
 		if (err) throw err;
 		res.status(201).json({
 			success: true
