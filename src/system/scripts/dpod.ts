@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 // fixes VSCode variable-checking in other files (ts2451)
-export {};
+export { };
 
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import PageItems from '../itemTypes/pageItems';
@@ -11,12 +11,14 @@ console.log('===================================================================
 console.log('DATAPOD COMMAND LINE INTERFACE');
 console.log('===========================================================================');
 if (argv._[0] === 'createPage') {
-	const { pageTitle } = argv;
-	DpodSiteBuilder.createPage(pageTitle);
+    const { pageTitle } = argv;
+    DpodSiteBuilder.createPage(pageTitle);
 } else if (argv._[0] === 'testItems') {
-    const pageItems = new PageItems('all');
+    const pageItems = new PageItems();
+    pageItems.loadRecords((records: any) => {
+        console.log(records.length);
+    });
     // pageItems.displayInTerminal();
-    pageItems.displayForDebugging();
 } else {
     // npm run d01
     // npm run d01 -- help

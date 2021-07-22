@@ -34,9 +34,12 @@
             - fileName
                 - test.json 
             - pathAndFileName
-                - "src\data\test.json" 
+                - "src/data/test.json" 
+            - anchoredPathAndFileName
+                - "./src/data/test.json"
             - absolutePathAndFileName
                 - "C:\apps\dpodreact\src\data\test.json"
+                - linux: ...
             - directory
                 - "src\data"
             - path

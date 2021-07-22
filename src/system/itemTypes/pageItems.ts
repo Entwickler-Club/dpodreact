@@ -4,8 +4,8 @@ class PageItems extends Items {
 
     itemTypeIdCode: string = 'pageItems';
 
-    constructor(loadCode: string) {
-        super(loadCode)
+    constructor() {
+        super();
         this.initialize();
     }
 

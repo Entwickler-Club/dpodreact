@@ -1,21 +1,30 @@
+const fs = require('fs');
+
 class Items {
 
     itemTypeIdCode = '';
-    loadCode: string;
+    records: any[] = [];
     // TODO: dataSource: IDataSource = null;
     jsonPathAndFileName: string = ''; // e.g. src/system/data/json/itemType_pageItems.json
 
-    constructor(loadCode: string) {
-        this.loadCode = loadCode;
+    constructor() {
+        this.initialize();
     }
 
     initialize() {
-        this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}`;
+        this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`;
+    }
+
+    loadRecords(callback: any) {
+        fs.readFile(`./${this.jsonPathAndFileName}`, 'utf-8', (err: any, rawData: any) => {
+            const records = JSON.parse(rawData);
+            callback(records);
+        });
     }
 
     displayForDebugging(): void {
         console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
-        console.log(`loadCode: "${this.loadCode}"`);
+        console.log(`records: ${this.records.length}`);
     }
 }
 
