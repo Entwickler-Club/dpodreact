@@ -1,7 +1,7 @@
 ### implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
 
-- .. all imports for item classes for extends
-
+- x all imports for item classes for extends
+- .. load data from json file into plural object 
 
 - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
     - x build the four classes
@@ -28,6 +28,19 @@
 - dpod
     - documentation
         - loadCode
+        - file names
+            - extension
+                - 'json'
+            - fileName
+                - test.json 
+            - pathAndFileName
+                - "src\data\test.json" 
+            - absolutePathAndFileName
+                - "C:\apps\dpodreact\src\data\test.json"
+            - directory
+                - "src\data"
+            - path
+                - "src\data\"
 
 - remember
     - go back: CTRL-ALT-(-)
