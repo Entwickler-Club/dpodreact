@@ -15,6 +15,7 @@ if (argv._[0] === 'createPage') {
 	DpodSiteBuilder.createPage(pageTitle);
 } else if (argv._[0] === 'testItems') {
     const pageItems = new PageItems('all');
+    // pageItems.displayInTerminal();
     pageItems.displayForDebugging();
 } else {
     // npm run d01
