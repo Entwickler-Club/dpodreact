@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 // fixes VSCode variable-checking in other files (ts2451)
-export {};
-
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import PageItems from '../itemTypes/pageItems';
+
+export {};
 
 const argv = require('minimist')(process.argv.slice(2));
 

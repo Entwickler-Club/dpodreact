@@ -26,6 +26,17 @@ app.get('/sqliteTest', (req: any, res: any) => {
 		.catch((error: any) => console.log(error));
 });
 
+app.get('/newsapi', (req: any, res: any) => {
+
+	const NewsAPI = require('newsapi');
+	const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
+	newsapi.v2.topHeadlines({
+		language: 'de'
+	}).then((data: any) => {
+		res.send(data);
+	});
+});
+
 app.get('/jsonReadWrite', (req: any, res: any) => {
 	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
 		const data = JSON.parse(rawData);
