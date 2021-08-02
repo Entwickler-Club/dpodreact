@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../styles/showcaseNewsApi.scss';
 import * as config from '../config';
+import Loader from "react-loader-spinner";
 
 const backendPort = config.getBackendPort();
 
@@ -38,7 +39,13 @@ function PageShowcaseNewsApi() {
 					</ul>
 				)}
 				{articles.length === 1 && (
-					<div>Loading...</div>
+					<Loader
+						type="Circles"
+						color="#aaa"
+						height={70}
+						width={70}
+						timeout={2000} 
+					/>
 				)}
 			</div>
 		</div>
