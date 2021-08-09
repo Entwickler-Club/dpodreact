@@ -1,5 +1,8 @@
 ### implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
 
+- .. create MVC controller on backend
+    - 
+
 - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
     - x build the four classes
     - .. load plurals with loadCode, singles with id
