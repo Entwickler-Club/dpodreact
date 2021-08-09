@@ -2,7 +2,7 @@
 
 - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
     - x build the four classes
-    - .. load plurals with loadCoad, singles with id
+    - .. load plurals with loadCode, singles with id
 
     - .. make button on JSON-read/write page: [Show PageItems]
         - backend: const pageItems = new PageItems('all');
@@ -24,6 +24,6 @@
     - 
 
 
-- remember
+- shortcuts
     - go back: CTRL-ALT-(-)
     - go forward: CTRL-SHIFT-(-) 
