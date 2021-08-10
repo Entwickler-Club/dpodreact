@@ -1,7 +1,9 @@
-class PageItem {
+import Item from './item';
+
+class PageItem extends Item {
 
     constructor(id: number) {
-
+        super(id);
     }
 }
 

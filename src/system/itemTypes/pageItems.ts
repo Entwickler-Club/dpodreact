@@ -1,14 +1,15 @@
-class PageItems {
+import Items from './items';
 
-    loadCode: string;
+class PageItems extends Items {
 
-    constructor(loadCode: string) {
-        this.loadCode = loadCode;
+    itemTypeIdCode: string = 'pageItems';
+
+    constructor() {
+        super();
+        this.initialize();
     }
 
-    displayForDebugging(): void {
-        console.log(`loadCode: "${this.loadCode}"`);
-    }
+
 }
 
 export default PageItems;
