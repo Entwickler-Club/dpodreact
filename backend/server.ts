@@ -31,7 +31,8 @@ app.get('/newsapi', (req: any, res: any) => {
 	const NewsAPI = require('newsapi');
 	const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
 	newsapi.v2.topHeadlines({
-		language: 'de'
+		language: 'de',
+		q: 'crypto'
 	}).then((data: any) => {
 		res.send(data);
 	});

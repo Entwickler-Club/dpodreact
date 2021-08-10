@@ -21,7 +21,7 @@ function PageShowcaseJSONReadWrite() {
 		setRecords([...records.map((m: any) => {
 			if (m.id === 10) {
 				m.menu = 'CHANGED';
-				m.title += '--added';
+				m.title += '--added222';
 			}
 			return m;
 		})]);
