@@ -1,6 +1,17 @@
-### implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
+
+- .. change all to import
+- 
+
+- .. controller manager
+    - .. copy from dpn
+
+- create page option: [] JSON Data Source
 
 
+===========================
+
+
+- implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
 - x all imports for item classes for extends
 - .. load data from json file into plural object 
 

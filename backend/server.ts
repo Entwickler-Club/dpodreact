@@ -7,6 +7,8 @@ export {};
 const express = require('express');
 const cors = require('cors');
 
+console.log('server');
+
 const app = express();
 const port = config.getBackendPort();
 
