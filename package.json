@@ -23,7 +23,8 @@
 		"web-vitals": "^1.1.2"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start_original": "react-scripts start",
+		"start": "./dev/scripts/appstart.sh",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"dpod": "./node_modules/.bin/ts-node --skip-project src/system/scripts/dpod.ts",
