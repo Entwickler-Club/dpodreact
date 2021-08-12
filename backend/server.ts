@@ -1,13 +1,12 @@
 import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 import * as config from '../src/system/config';
+import fs from 'fs';
 
-const fs = require('fs');
 export {};
 const express = require('express');
 const cors = require('cors');
 
-console.log('server');
 
 const app = express();
 const port = config.getBackendPort();

@@ -1,11 +1,7 @@
-
-- .. change all to import
-- 
-
 - .. controller manager
     - .. copy from dpn
 
-- create page option: [] JSON Data Source
+- create page option: [x] JSON Data Source
 
 
 ===========================
