@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import '../styles/showcaseJSONReadWrite.scss';
+import '../styles/showcaseJsonReadWrite.scss';
 import * as config from '../config';
 
 const backendPort = config.getBackendPort();
 
 
-function PageShowcaseJSONReadWrite() {
+function PageShowcaseJsonReadWrite() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
@@ -36,7 +36,7 @@ function PageShowcaseJSONReadWrite() {
 	}
 
 	return (
-		<div className="page page_showcaseJSONReadWrite">
+		<div className="page page_showcaseJsonReadWrite">
 			<h2 className="title">Showcase: JSON Manager</h2>
 			<p className="description">A page that reads and and writes to JSON files via the backend.</p>
 			<div className="controlPanel">
@@ -55,4 +55,4 @@ function PageShowcaseJSONReadWrite() {
 	)
 }
 
-export default PageShowcaseJSONReadWrite;
+export default PageShowcaseJsonReadWrite;

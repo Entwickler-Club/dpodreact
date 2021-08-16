@@ -12,7 +12,7 @@ import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';
 import PageShowcaseSQLiteReader from './PageShowcaseSQLiteReader';// ::showcaseSQLiteReader
 import PageCreatePage from './PageCreatePage';// ::createPage
 import PageDeletePage from './PageDeletePage';// ::deletePage
-import PageShowcaseJSONReadWrite from './PageShowcaseJSONReadWrite';// ::showcaseJSONReadWrite
+import PageShowcaseJsonReadWrite from './PageShowcaseJsonReadWrite';// ::showcaseJsonReadWrite
 import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 
 function Site() {
@@ -53,7 +53,7 @@ function Site() {
 <span><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></span>{/* ::showcaseTypeScriptClasses */}
 <span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
 <span><Link to='/showcaseSQLiteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSQLiteReader */}
-<span><Link to='/showcaseJSONReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJSONReadWrite */}
+<span><Link to='/showcaseJsonReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJsonReadWrite */}
 <span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
 						</>
 					)}
@@ -71,7 +71,7 @@ function Site() {
 <Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
 <Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
 <Route path='/showcaseSQLiteReader'><PageShowcaseSQLiteReader /></Route>{/* ::showcaseSQLiteReader */}
-<Route path='/showcaseJSONReadWrite'><PageShowcaseJSONReadWrite /></Route>{/* ::showcaseJSONReadWrite */}
+<Route path='/showcaseJsonReadWrite'><PageShowcaseJsonReadWrite /></Route>{/* ::showcaseJsonReadWrite */}
 <Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
 					</Switch>
 				</section>
@@ -80,4 +80,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;

@@ -2,6 +2,8 @@ import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 import * as config from '../src/system/config';
 import fs from 'fs';
+import * as qstr from '../src/system/qtools/qstr';
+// const controllerFactory = require('../src/system/factories/controllerFactory');
 
 export {};
 const express = require('express');
@@ -13,6 +15,13 @@ const port = config.getBackendPort();
 
 app.use(cors());
 app.use(express.json());
+
+// app.post('/controller*', function (request, response) {
+// 	const controllerIdCode = qstr.chopLeft(request.path, '/');
+// 	const controller = controllerFactory.instantiate(controllerIdCode, request, response);
+// 	controller.process();
+// });
+
 
 app.get('/sqliteTest', (req: any, res: any) => {
 
