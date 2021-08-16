@@ -1,3 +1,0 @@
-// import Controller from '../system/controllers/controller';
-// //DYNAMIC_CODE_AREA:loadClasses
-// const ControllerShowcaseFormAndAjaxControls = require('../systemControllers/controllerShowcaseFormAndAjaxControls'); //:pageShowcaseFormAndAjaxControls
