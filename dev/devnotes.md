@@ -1,5 +1,11 @@
 - .. controller manager
-    - .. copy from dpn
+    - x "controller is processing"
+	- .. build json controller so it sends correct response
+	- move all controllers from server.ts to controllers
+	- create page:
+		- page with SASS file
+		- page with SASS file and controller
+		- page with SASS file, controller, and JSON data file
 
 - create page option: [x] JSON Data Source
 
