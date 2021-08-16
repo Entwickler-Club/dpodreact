@@ -9,7 +9,7 @@ function PageShowcaseJsonReadWrite() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/controllerJsonReadWrite`, { 
+		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, {
 			method: 'POST',
 		}).then(response => response.json())
 			.then((data: any) => {

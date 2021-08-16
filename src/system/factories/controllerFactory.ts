@@ -7,7 +7,7 @@ export const instantiate = (controllerIdCode: string, request: any, response: an
 		case 'controller':
 			return new Controller(request, response);
 		//DYNAMIC_CODE_AREA:switchBlock,2
-		case 'controllerShowcaseFormAndAjaxControls': //:pageShowcaseFormAndAjaxControls
+		case 'controllerShowcaseJsonReadWrite': //:pageShowcaseFormAndAjaxControls
 			return new ControllerShowcaseJsonReadWrite(request, response);
     }
 }
