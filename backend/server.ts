@@ -22,6 +22,14 @@ app.post('/controller*', function (request, response) {
 	controller.process();
 });
 
+// app.get('/jsonReadWrite', (req: any, res: any) => {
+// 	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
+// 		const data = JSON.parse(rawData);
+// 		res.send({
+// 			records: data
+// 		});
+// 	});
+// });
 
 app.get('/sqliteTest', (req: any, res: any) => {
 
@@ -48,14 +56,6 @@ app.get('/newsapi', (req: any, res: any) => {
 	});
 });
 
-app.get('/jsonReadWrite', (req: any, res: any) => {
-	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
-		const data = JSON.parse(rawData);
-		res.send({
-			records: data
-		});
-	});
-});
 
 app.post('/jsonReadWrite', (req: any, res: any) => {
 	const { records } = req.body;
