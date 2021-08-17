@@ -15,7 +15,7 @@ class Controller {
     }
 
     process() {
-        // this[this.actionMethodName]();
+        (this as any)[this.actionMethodName]();
         console.log(this.actionMethodName);
         // app.post('/controllerShowcaseJsonReadWrite', (req: any, res: any) => {
         // 	const {action} = req.body;
@@ -26,6 +26,10 @@ class Controller {
         // 		});
         // 	});
         // });
+    }
+
+    action_loadPageData() {
+        console.log('in loadPageData');
     }
 }
 
