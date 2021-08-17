@@ -16,19 +16,33 @@ const port = config.getBackendPort();
 app.use(cors());
 app.use(express.json());
 
-app.post('/controller*', function (request: any, response: any) {
-	const controllerIdCode = qstr.chopLeft(request.path, '/');
-	const controller = instantiate(controllerIdCode, request, response);
-	if (controller !== undefined) {
-		controller.process();
-	}
-});
+// app.post('/controller*', function (request: any, response: any) {
+// 	const controllerIdCode = qstr.chopLeft(request.path, '/');
+// 	const controller = instantiate(controllerIdCode, request, response);
+// 	if (controller !== undefined) {
+// 		controller.process();
+// 	}
+// });
 
-app.get('/jsonReadWrite', (req: any, res: any) => {
+app.post('/controllerShowcaseJsonReadWrite', (req: any, res: any) => {
+	const {action} = req.body;
+	console.log(action);
 	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
 		const data = JSON.parse(rawData);
 		res.send({
 			records: data
+		});
+	});
+});
+
+app.post('/jsonReadWrite', (req: any, res: any) => {
+	const { records } = req.body;
+	const { action } = req.body;
+	console.log(action);
+	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err: any) => {
+		if (err) throw err;
+		res.status(201).json({
+			success: true
 		});
 	});
 });
@@ -58,16 +72,6 @@ app.get('/newsapi', (req: any, res: any) => {
 	});
 });
 
-
-app.post('/jsonReadWrite', (req: any, res: any) => {
-	const { records } = req.body;
-	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err: any) => {
-		if (err) throw err;
-		res.status(201).json({
-			success: true
-		});
-	});
-});
 
 app.post('/createPage', (req: any, res: any) => {
 	const { pageTitle } = req.body;

@@ -9,9 +9,11 @@ function PageShowcaseJsonReadWrite() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
-		// fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, {
-		fetch(`http://localhost:${backendPort}/jsonReadWrite`, {
-			method: 'GET',
+		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, {
+		// fetch(`http://localhost:${backendPort}/jsonReadWrite`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ records, action: '333' })
 		}).then(response => response.json())
 			.then((data: any) => {
 				setRecords([...data.records]);
@@ -31,7 +33,7 @@ function PageShowcaseJsonReadWrite() {
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ records })
+			body: JSON.stringify({ records, action: '222' })
 		};
 		fetch(`http://localhost:${backendPort}/jsonReadWrite`, requestOptions)
 			.then(response => response.json());
