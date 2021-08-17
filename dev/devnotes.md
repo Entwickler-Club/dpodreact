@@ -1,9 +1,6 @@
 - .. controller manager
-    - x "controller is processing"
-	- .. build json controller so it sends correct response
-        - .. send and show action
-        gt
-	- move all controllers from server.ts to controllers
+	- .. move all controllers in server.ts to controllers
+    - fix: change name of scss file to page...
 	- create page:
 		- page with SASS file
 		- page with SASS file and controller
