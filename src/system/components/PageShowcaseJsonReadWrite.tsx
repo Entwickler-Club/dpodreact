@@ -23,7 +23,6 @@ function PageShowcaseJsonReadWrite() {
 	}, []);
 
 	const saveData = () => {
-		// records.splice(0,1);
 		setRecords([...records.map((m: any) => {
 			if (m.id === 10) {
 				m.menu = 'CHANGED';
@@ -35,9 +34,9 @@ function PageShowcaseJsonReadWrite() {
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ records, action: '222' })
+			body: JSON.stringify({ records, action: 'saveRecords' })
 		};
-		fetch(`http://localhost:${backendPort}/jsonReadWrite`, requestOptions)
+		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, requestOptions)
 			.then(response => response.json());
 	}
 

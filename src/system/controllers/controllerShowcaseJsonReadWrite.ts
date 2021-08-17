@@ -16,6 +16,16 @@ class ControllerShowcaseJsonReadWrite extends Controller {
 		});
 	}
 
+	action_saveRecords() {
+		const { records } = this.request.body;
+		fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err: any) => {
+			if (err) throw err;
+			this.response.status(201).json({
+				success: true
+			});
+		});
+	}
+
 }
 
 export default ControllerShowcaseJsonReadWrite;

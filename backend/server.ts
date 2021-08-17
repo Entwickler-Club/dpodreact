@@ -25,17 +25,6 @@ app.post('/controller*', function (request: any, response: any) {
 });
 
 
-app.post('/jsonReadWrite', (req: any, res: any) => {
-	const { records } = req.body;
-	const { action } = req.body;
-	console.log(action);
-	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err: any) => {
-		if (err) throw err;
-		res.status(201).json({
-			success: true
-		});
-	});
-});
 
 app.get('/sqliteTest', (req: any, res: any) => {
 
