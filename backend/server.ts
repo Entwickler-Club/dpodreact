@@ -16,24 +16,14 @@ const port = config.getBackendPort();
 app.use(cors());
 app.use(express.json());
 
-// app.post('/controller*', function (request: any, response: any) {
-// 	const controllerIdCode = qstr.chopLeft(request.path, '/');
-// 	const controller = instantiate(controllerIdCode, request, response);
-// 	if (controller !== undefined) {
-// 		controller.process();
-// 	}
-// });
-
-app.post('/controllerShowcaseJsonReadWrite', (req: any, res: any) => {
-	const {action} = req.body;
-	console.log(action);
-	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
-		const data = JSON.parse(rawData);
-		res.send({
-			records: data
-		});
-	});
+app.post('/controller*', function (request: any, response: any) {
+	const controllerIdCode = qstr.chopLeft(request.path, '/');
+	const controller = instantiate(controllerIdCode, request, response);
+	if (controller !== undefined) {
+		controller.process();
+	}
 });
+
 
 app.post('/jsonReadWrite', (req: any, res: any) => {
 	const { records } = req.body;
