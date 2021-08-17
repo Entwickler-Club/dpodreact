@@ -24,14 +24,14 @@ app.post('/controller*', function (request: any, response: any) {
 	}
 });
 
-// app.get('/jsonReadWrite', (req: any, res: any) => {
-// 	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
-// 		const data = JSON.parse(rawData);
-// 		res.send({
-// 			records: data
-// 		});
-// 	});
-// });
+app.get('/jsonReadWrite', (req: any, res: any) => {
+	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
+		const data = JSON.parse(rawData);
+		res.send({
+			records: data
+		});
+	});
+});
 
 app.get('/sqliteTest', (req: any, res: any) => {
 

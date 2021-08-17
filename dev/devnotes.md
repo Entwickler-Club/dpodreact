@@ -1,6 +1,8 @@
 - .. controller manager
     - x "controller is processing"
 	- .. build json controller so it sends correct response
+        - .. send and show action
+        
 	- move all controllers from server.ts to controllers
 	- create page:
 		- page with SASS file

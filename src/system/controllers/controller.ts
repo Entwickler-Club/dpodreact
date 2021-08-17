@@ -11,7 +11,7 @@ class Controller {
     }
 
     process() {
-        console.log('controller is processing');
+        console.log('controller is processing222');
     }
 }
 
