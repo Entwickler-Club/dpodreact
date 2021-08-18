@@ -1,4 +1,3 @@
-import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 import * as config from '../src/system/config';
 import fs from 'fs';
@@ -24,23 +23,7 @@ app.post('/controller*', function (request: any, response: any) {
 	}
 });
 
-
-
-app.get('/sqliteTest', (req: any, res: any) => {
-
-	const sqliteManager = new SqliteManager('./src/system/data/main.sqlite');
-
-	sqliteManager.getRecordsWithSql(`SELECT * FROM messages`)
-		.then((records) => {
-			res.send({
-				records
-			});
-		})
-		.catch((error: any) => console.log(error));
-});
-
 app.get('/newsapi', (req: any, res: any) => {
-
 	const NewsAPI = require('newsapi');
 	const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
 	newsapi.v2.topHeadlines({

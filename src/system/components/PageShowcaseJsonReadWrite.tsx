@@ -14,7 +14,7 @@ function PageShowcaseJsonReadWrite() {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				action: 'loadPageData',
-				records
+				records //TODO: remove?
 			})
 		}).then(response => response.json())
 			.then((data: any) => {
