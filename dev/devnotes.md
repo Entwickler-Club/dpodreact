@@ -1,5 +1,8 @@
 - .. controller manager
 	- .. move all controllers in server.ts to controllers
+        - .. newsapi
+        - createPage
+        - deletePage
     - fix: change name of scss file to page...
 	- create page:
 		- page with SASS file
