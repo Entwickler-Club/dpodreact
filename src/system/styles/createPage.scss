@@ -1,19 +1,44 @@
-.page_createPage {
-    .message {
-        font-style: italic;
-    }
-	.pageTitle {
-		width: 300px;
-		margin: 0 0 0 5px;
-	}
-    .submitButton {
-        margin: 0 0 0 8px;
-    }
+$rowBorderColor: #bbb;
 
-    div.row {
-        margin: 0 0 20px 0;
-    }
-    div.radioChoice {
-        margin: 0 0 8px 0;
-    }
+.page_createPage {
+	form {
+		width: 500px;
+		div.row {
+			margin: 0 0 20px 0;
+			.rowLabel {
+				font-variant: small-caps;
+				font-size: 0.8rem;
+				color: #333;
+				margin-left: 5px;
+			}
+			.submitButton {
+				margin: 0 0 0 8px;
+			}
+
+			div.radioChoice {
+				margin: 0 0 8px 0;
+				label {
+				cursor: pointer;
+				}
+			}
+			fieldset {
+				border: 1px solid $rowBorderColor;
+				margin-left: 5px;
+				padding: 5px;
+				font-size: 0.9rem;
+			}
+		}
+		div.dataType_line {
+			.rowLabel {
+				display: block;
+				margin-bottom: 5px;
+			}
+			input {
+				width: 490px; // TODO: calculate
+				margin: 0 0 0 5px;
+				border: 1px solid $rowBorderColor;
+				font-size: 1rem;
+			}
+		}
+	}
 }

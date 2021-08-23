@@ -37,33 +37,36 @@ function PageCreatePage() {
 			<h2 className="title">Create Page</h2>
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
-				<div className="row">
-					<label htmlFor="pageTitle">Page Title: </label>
-					<input className="pageTitle" type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
+				<div className="row dataType_line">
+					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
+					<input type="text" value={pageTitle} onChange={onPageTitleChange} />
 				</div>
 				<div className="row">
-					<div className="radioChoice">
-						<label>
-							<input type="radio" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
-							page with SASS file
-						</label>
-					</div>
-					<div className="radioChoice">
-						<label>
-							<input type="radio" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
-							page with SASS file and controller
-						</label>
-					</div>
-					<div className="radioChoice">
-						<label>
-							<input type="radio" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
-							page with SASS file, controller and JSON file
-						</label>
-					</div>
+					<fieldset>
+						<legend className="rowLabel">Kind of Page</legend>
+						<div className="radioChoice">
+							<label>
+								<input type="radio" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
+								page with SASS file
+							</label>
+						</div>
+						<div className="radioChoice">
+							<label>
+								<input type="radio" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
+								page with SASS file and controller
+							</label>
+						</div>
+						<div className="radioChoice">
+							<label>
+								<input type="radio" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
+								page with SASS file, controller and JSON file
+							</label>
+						</div>
+					</fieldset>
 				</div>
 				<div className="row">
 					<div className="row">
-						<button className="submitButton" type="button" onClick={() => createPage()}>Submit</button>
+						<button className="submitButton" type="button" onClick={() => createPage()}>Create Page</button>
 					</div>
 				</div>
 			</form>
