@@ -1,13 +1,16 @@
+- .. create page:
+    - .. make menu
+    - page with SASS file
+    - page with SASS file and controller
+    - page with SASS file, controller, and JSON data file
+    
 - .. controller manager
 	- .. move all controllers in server.ts to controllers
+        - .. first make 
         - .. newsapi
         - createPage
         - deletePage
     - fix: change name of scss file to page...
-	- create page:
-		- page with SASS file
-		- page with SASS file and controller
-		- page with SASS file, controller, and JSON data file
 
 - create page option: [x] JSON Data Source
 

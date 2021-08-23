@@ -1,2 +1,2 @@
-npm run start_original
+npm run start2
 npm run backend
