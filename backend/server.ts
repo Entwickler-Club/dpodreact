@@ -36,8 +36,8 @@ app.get('/newsapi', (req: any, res: any) => {
 
 
 app.post('/createPage', (req: any, res: any) => {
-	const { pageTitle } = req.body;
-	DpodSiteBuilder.createPage(pageTitle);
+	const { pageTitle, pageKindIdCode } = req.body;
+	DpodSiteBuilder.createPage(pageTitle, pageKindIdCode);
 	res.status(201).json({
 		success: true,
 		pageTitle

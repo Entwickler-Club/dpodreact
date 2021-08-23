@@ -14,12 +14,11 @@ function PageCreatePage() {
 	// }, []);
 
 	const createPage = () => {
-		console.log('front');
 		setPageTitle('');
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ pageTitle })
+			body: JSON.stringify({ pageTitle, pageKindIdCode })
 		};
 		fetch(`http://localhost:${backendPort}/createPage`, requestOptions)
 			.then(response => response.json());
@@ -45,19 +44,19 @@ function PageCreatePage() {
 				<div className="row">
 					<div className="radioChoice">
 						<label>
-							<input type="radio" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onClick={e => onPageKindIdCodeChange(e)} />
+							<input type="radio" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 							page with SASS file
 						</label>
 					</div>
 					<div className="radioChoice">
 						<label>
-							<input type="radio" value="pageWithSassFileAndController" name="pageKindIdCode" onClick={e => onPageKindIdCodeChange(e)} />
+							<input type="radio" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 							page with SASS file and controller
 						</label>
 					</div>
 					<div className="radioChoice">
 						<label>
-							<input type="radio" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onClick={e => onPageKindIdCodeChange(e)} />
+							<input type="radio" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 							page with SASS file, controller and JSON file
 						</label>
 					</div>

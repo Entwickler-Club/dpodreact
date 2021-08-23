@@ -1,3 +1,3 @@
 export const getBackendPort = () => {
-    return 6009;
+    return 3009;
 }
