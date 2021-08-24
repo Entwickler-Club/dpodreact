@@ -15,7 +15,8 @@ class DpodSiteBuilder {
 		return `src/system/styles/${pascalNotation}.scss`;
 	}
 
-	static createPage(pageTitle: string) {
+	static createPage(pageTitle: string, pageKindIdCode: string = '') {
+		console.log(`PAGE KIND: ${pageKindIdCode}`);
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
 		const data = {
 			...pageSyntaxVariations

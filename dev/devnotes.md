@@ -1,5 +1,21 @@
+- .. merge and create et_feat_createPageWithOptions
+- send back errors for two non-supported pages
+
+
+
+- .. create page:
+    - .. make menu
+    - page with SASS file
+    - page with SASS file and controller
+    - page with SASS file, controller, and JSON data file
+    
 - .. controller manager
-    - .. copy from dpn
+	- .. move all controllers in server.ts to controllers
+        - .. first make 
+        - .. newsapi
+        - createPage
+        - deletePage
+    - fix: change name of scss file to page...
 
 - create page option: [x] JSON Data Source
 
@@ -60,3 +76,14 @@
 - shortcuts
     - go back: CTRL-ALT-(-)
     - go forward: CTRL-SHIFT-(-) 
+
+
+
+- todo
+    - .. fix sqlite page
+
+
+- https://copilot.github.com/
+- fireship youtuber
+- superbase
+- https://www.youtube.com/watch?v=4duqI8WyfqEhttps://copilot.github.com/

@@ -1,9 +1,10 @@
-import SqliteManager from '../src/system/classes/sqliteManager';
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 import * as config from '../src/system/config';
 import fs from 'fs';
+import * as qstr from '../src/system/qtools/qstr';
+import { instantiate } from '../src/system/factories/controllerFactory';
 
-export {};
+export { };
 const express = require('express');
 const cors = require('cors');
 
@@ -14,21 +15,15 @@ const port = config.getBackendPort();
 app.use(cors());
 app.use(express.json());
 
-app.get('/sqliteTest', (req: any, res: any) => {
-
-	const sqliteManager = new SqliteManager('./src/system/data/main.sqlite');
-
-	sqliteManager.getRecordsWithSql(`SELECT * FROM messages`)
-		.then((records) => {
-			res.send({
-				records
-			});
-		})
-		.catch((error: any) => console.log(error));
+app.post('/controller*', function (request: any, response: any) {
+	const controllerIdCode = qstr.chopLeft(request.path, '/');
+	const controller = instantiate(controllerIdCode, request, response);
+	if (controller !== undefined) {
+		controller.process();
+	}
 });
 
 app.get('/newsapi', (req: any, res: any) => {
-
 	const NewsAPI = require('newsapi');
 	const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
 	newsapi.v2.topHeadlines({
@@ -39,28 +34,10 @@ app.get('/newsapi', (req: any, res: any) => {
 	});
 });
 
-app.get('/jsonReadWrite', (req: any, res: any) => {
-	fs.readFile('./src/system/data/json/itemType_pageItems.json', 'utf-8', (err: any, rawData: any) => {
-		const data = JSON.parse(rawData);
-		res.send({
-			records: data
-		});
-	});
-});
-
-app.post('/jsonReadWrite', (req: any, res: any) => {
-	const { records } = req.body;
-	fs.writeFile('./src/system/data/json/itemType_pageItems.json', JSON.stringify(records), (err: any) => {
-		if (err) throw err;
-		res.status(201).json({
-			success: true
-		});
-	});
-});
 
 app.post('/createPage', (req: any, res: any) => {
-	const { pageTitle } = req.body;
-	DpodSiteBuilder.createPage(pageTitle);
+	const { pageTitle, pageKindIdCode } = req.body;
+	DpodSiteBuilder.createPage(pageTitle, pageKindIdCode);
 	res.status(201).json({
 		success: true,
 		pageTitle

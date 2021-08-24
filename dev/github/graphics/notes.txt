@@ -1,8 +1,0 @@
-- todo
-    - .. fix sqlite page
-
-
-- https://copilot.github.com/
-- fireship youtuber
-- superbase
-- https://www.youtube.com/watch?v=4duqI8WyfqEhttps://copilot.github.com/

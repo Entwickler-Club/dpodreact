@@ -1,23 +1,28 @@
 import { useState, useEffect } from 'react';
-import '../styles/showcaseJSONReadWrite.scss';
+import '../styles/showcaseJsonReadWrite.scss';
 import * as config from '../config';
 
 const backendPort = config.getBackendPort();
 
 
-function PageShowcaseJSONReadWrite() {
+function PageShowcaseJsonReadWrite() {
 
 	const [records, setRecords] = useState([{}]);
 	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/jsonReadWrite`)
-			.then(response => response.json())
+		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				action: 'loadPageData',
+				records //TODO: remove?
+			})
+		}).then(response => response.json())
 			.then((data: any) => {
 				setRecords([...data.records]);
 			});
 	}, []);
 
 	const saveData = () => {
-		// records.splice(0,1);
 		setRecords([...records.map((m: any) => {
 			if (m.id === 10) {
 				m.menu = 'CHANGED';
@@ -29,14 +34,14 @@ function PageShowcaseJSONReadWrite() {
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ records })
+			body: JSON.stringify({ records, action: 'saveRecords' })
 		};
-		fetch(`http://localhost:${backendPort}/jsonReadWrite`, requestOptions)
+		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, requestOptions)
 			.then(response => response.json());
 	}
 
 	return (
-		<div className="page page_showcaseJSONReadWrite">
+		<div className="page page_showcaseJsonReadWrite">
 			<h2 className="title">Showcase: JSON Manager</h2>
 			<p className="description">A page that reads and and writes to JSON files via the backend.</p>
 			<div className="controlPanel">
@@ -55,4 +60,4 @@ function PageShowcaseJSONReadWrite() {
 	)
 }
 
-export default PageShowcaseJSONReadWrite;
+export default PageShowcaseJsonReadWrite;
