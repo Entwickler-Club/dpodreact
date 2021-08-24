@@ -1,3 +1,8 @@
+- .. merge and create et_feat_createPageWithOptions
+- send back errors for two non-supported pages
+
+
+
 - .. create page:
     - .. make menu
     - page with SASS file
@@ -71,3 +76,14 @@
 - shortcuts
     - go back: CTRL-ALT-(-)
     - go forward: CTRL-SHIFT-(-) 
+
+
+
+- todo
+    - .. fix sqlite page
+
+
+- https://copilot.github.com/
+- fireship youtuber
+- superbase
+- https://www.youtube.com/watch?v=4duqI8WyfqEhttps://copilot.github.com/
