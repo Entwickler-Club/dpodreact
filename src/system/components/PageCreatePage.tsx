@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/createPage.scss';
 import * as config from '../config';
+import * as qstr from '../qtools/qstr';
 
 const backendPort = config.getBackendPort();
 
@@ -13,15 +14,17 @@ function PageCreatePage() {
 	// 	setPageTitle('pageWithSassFile');
 	// }, []);
 
-	const createPage = (e:any) => {
+	const createPage = (e: any) => {
 		e.preventDefault();
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ pageTitle, pageKindIdCode })
-		};
-		fetch(`http://localhost:${backendPort}/createPage`, requestOptions)
-			.then(response => response.json());
+		if (!qstr.isEmpty(pageTitle)) {
+			const requestOptions = {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ pageTitle, pageKindIdCode })
+			};
+			fetch(`http://localhost:${backendPort}/createPage`, requestOptions)
+				.then(response => response.json());
+		}
 	}
 
 	const onPageTitleChange = (e: any) => {
@@ -39,7 +42,7 @@ function PageCreatePage() {
 			<form>
 				<div className="row dataType_line">
 					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
-					<input type="text" value={pageTitle} onChange={onPageTitleChange} />
+					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
 				</div>
 				<div className="row">
 					<fieldset>
