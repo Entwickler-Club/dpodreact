@@ -13,8 +13,8 @@ function PageCreatePage() {
 	// 	setPageTitle('pageWithSassFile');
 	// }, []);
 
-	const createPage = () => {
-		setPageTitle('');
+	const createPage = (e:any) => {
+		e.preventDefault();
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -66,7 +66,7 @@ function PageCreatePage() {
 				</div>
 				<div className="row">
 					<div className="row">
-						<button className="submitButton" type="button" onClick={() => createPage()}>Create Page</button>
+						<button className="submitButton" onClick={e => createPage(e)}>Create Page</button>
 					</div>
 				</div>
 			</form>
