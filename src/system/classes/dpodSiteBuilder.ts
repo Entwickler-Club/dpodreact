@@ -2,6 +2,7 @@ import TextFileBuilder from './textFileBuilder';
 import * as qstr from '../qtools/qstr';
 import * as qfil from '../qtools/qfil';
 import DynamicFile from './dynamicFile';
+import { Switch } from 'react-router-dom';
 
 class DpodSiteBuilder {
 
@@ -16,28 +17,38 @@ class DpodSiteBuilder {
 	}
 
 	static createPage(pageTitle: string, pageKindIdCode: string = '') {
-		console.log(`PAGE KIND: ${pageKindIdCode}`);
-		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
-		const data = {
-			...pageSyntaxVariations
-		};
-		// main display page
-		const textFileBuilder = new TextFileBuilder('newPageComponent');
-		textFileBuilder.data = data;
-		textFileBuilder.buildNow(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
 
-		// stylesheet
-		const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
-		textFileBuilderStylesheet.data = data;
-		// TODO: create enums on data
-		textFileBuilderStylesheet.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
+		switch (pageKindIdCode) {
+			case 'pageWithSassFile':
+				const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
+				const data = {
+					...pageSyntaxVariations
+				};
+				// main display page
+				const textFileBuilder = new TextFileBuilder('newPageComponent');
+				textFileBuilder.data = data;
+				textFileBuilder.buildNow(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
 
-		// make modifications in the Site.tsx file
-		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', data.pageCamel, `import Page${data.pagePascal} from './Page${data.pagePascal}';`);
-		systemDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', data.pageCamel, `<span><Link to='/${data.pageCamel}'>${pageTitle}</Link></span>`);
-		systemDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', data.pageCamel, `<Route path='/${data.pageCamel}'><Page${data.pagePascal} /></Route>`);
-		systemDynamicFile.save();
+				// stylesheet
+				const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
+				textFileBuilderStylesheet.data = data;
+				// TODO: create enums on data
+				textFileBuilderStylesheet.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
+
+				// make modifications in the Site.tsx file
+				const systemDynamicFile = new DynamicFile('../components/Site.tsx');
+				systemDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', data.pageCamel, `import Page${data.pagePascal} from './Page${data.pagePascal}';`);
+				systemDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', data.pageCamel, `<span><Link to='/${data.pageCamel}'>${pageTitle}</Link></span>`);
+				systemDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', data.pageCamel, `<Route path='/${data.pageCamel}'><Page${data.pagePascal} /></Route>`);
+				systemDynamicFile.save();
+				break;
+			case 'pageWithSassFileAndController':
+				console.log('pageWithSassFileAndController not found');
+				break;
+			case 'pageWithSassFileControllerAndJsonFile':
+				console.log('pageWithSassFileControllerAndJsonFile not found');
+				break;
+		}
 	}
 
 	static deletePage(pageTitle: string) {
