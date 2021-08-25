@@ -16,7 +16,7 @@ class DpodSiteBuilder {
 		return `src/system/styles/${pascalNotation}.scss`;
 	}
 
-	static createPage(pageTitle: string, pageKindIdCode: string = '') {
+	static createPage(pageTitle: string, pageKindIdCode: string = '', info:any) {
 
 		switch (pageKindIdCode) {
 			case 'pageWithSassFile':
@@ -43,10 +43,10 @@ class DpodSiteBuilder {
 				systemDynamicFile.save();
 				break;
 			case 'pageWithSassFileAndController':
-				console.log('pageWithSassFileAndController not found');
+				info.error = 'pageWithSassFileAndController not found';
 				break;
 			case 'pageWithSassFileControllerAndJsonFile':
-				console.log('pageWithSassFileControllerAndJsonFile not found');
+				info.error = 'pageWithSassFileControllerAndJsonFile not found';
 				break;
 		}
 	}

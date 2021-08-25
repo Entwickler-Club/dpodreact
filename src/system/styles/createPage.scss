@@ -3,6 +3,14 @@ $rowBorderColor: #bbb;
 .page_createPage {
 	form {
 		width: 500px;
+		div.message {
+			background-color: rgb(255, 242, 126);
+			padding: 10px;
+			margin: 0 0 10px 0;
+			border: 1px solid rgb(212, 195, 40);
+			border-radius: 5px;
+			cursor:pointer;
+		}
 		div.row {
 			margin: 0 0 20px 0;
 			.rowLabel {

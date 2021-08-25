@@ -7,6 +7,7 @@ const backendPort = config.getBackendPort();
 
 function PageCreatePage() {
 	const [pageTitle, setPageTitle] = useState('');
+	const [message, setMessage] = useState('');
 	const [pageKindIdCode, setPageKindIdCode] = useState('pageWithSassFile');
 
 	// useEffect(() => {
@@ -23,7 +24,11 @@ function PageCreatePage() {
 				body: JSON.stringify({ pageTitle, pageKindIdCode })
 			};
 			fetch(`http://localhost:${backendPort}/createPage`, requestOptions)
-				.then(response => response.json());
+				.then(response => {
+					response.json().then((data) => {
+						setMessage(data.info.error);
+					});
+				});
 		}
 	}
 
@@ -35,11 +40,18 @@ function PageCreatePage() {
 		setPageKindIdCode(e.target.value);
 	}
 
+	const closeMessage = () => {
+		setMessage('');
+	}
+
 	return (
 		<div className="page page_createPage">
-			<h2 className="title">Create Page</h2>
+			<h2 className="title">Create Page</h2> 
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
+				{message !== '' && (
+					<div className="message" onClick={() => closeMessage()}>{message}</div>
+				)}
 				<div className="row dataType_line">
 					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
 					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
