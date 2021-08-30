@@ -13,7 +13,7 @@ console.log('DATAPOD COMMAND LINE INTERFACE');
 console.log('===========================================================================');
 if (argv._[0] === 'createPage') {
     const { pageTitle } = argv;
-    DpodSiteBuilder.createPage(pageTitle, '', {});
+    // DpodSiteBuilder.createPage(pageTitle, '', {});
 } else if (argv._[0] === 'testItems') {
     const pageItems = new PageItems();
     pageItems.loadRecords((records: any) => {

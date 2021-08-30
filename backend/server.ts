@@ -38,23 +38,22 @@ app.get('/newsapi', (req: any, res: any) => {
 app.post('/createPage', (req: any, res: any) => {
 	const { pageTitle, pageKindIdCode } = req.body;
 	const info = {};
-	console.log('nnn');
-	DpodSiteBuilder.createPage(pageTitle, pageKindIdCode, info);
-	console.log(info);
+	const dpodSiteBuilder = new DpodSiteBuilder(pageTitle, pageKindIdCode, info);
+	dpodSiteBuilder.createPage();
 	res.status(201).json({
 		success: true,
 		pageTitle,
-		info
+		dpodSiteBuilder.getInfo()
 	});
 });
 
 app.post('/deletePage', (req: any, res: any) => {
-	const { pageTitle } = req.body;
-	DpodSiteBuilder.deletePage(pageTitle);
-	res.status(204).json({
-		success: true,
-		pageTitle
-	});
+	// const { pageTitle } = req.body;
+	// DpodSiteBuilder.deletePage(pageTitle);
+	// res.status(204).json({
+	// 	success: true,
+	// 	pageTitle
+	// });
 });
 
 app.listen(port, () => {
