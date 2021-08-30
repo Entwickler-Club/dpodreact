@@ -216,13 +216,10 @@ export const trimBeginningLinesOfBlanks = (lines: string[]) => {
 	});
 	return newLines;
 }
-
 export const encodeHtmlForDisplay = (html: string) => {
-	let r = html;
-	r = qstr.replaceAll(r, '>', '&gt;');
-	r = qstr.replaceAll(r, '<', '&lt;');
-	return r;
+	return String(html).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
 
 export const getNumberOfPrecedingTabs = (text: string, forceRealTabs = false) => {
 	let tempText = text;
@@ -750,4 +747,12 @@ export const isArray = (obj: any) => {
 	} else {
 		return false;
 	}
+}
+
+export const smartPlural = (number: number, singularNoun: string, pluralNoun: string = '') => {
+	let r = '';
+	if (pluralNoun === '') pluralNoun = singularNoun + 's';
+	r += number + ' ';
+	r += number === 1 ? singularNoun : pluralNoun;
+	return r;
 }
