@@ -15,6 +15,7 @@ function PageCreatePage() {
 	// 	setPageTitle('pageWithSassFile');
 	// }, []);
 
+
 	const createPage = (e: any) => {
 		e.preventDefault();
 		if (!qstr.isEmpty(pageTitle)) {
@@ -23,14 +24,29 @@ function PageCreatePage() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ pageTitle, pageKindIdCode })
 			};
-			fetch(`http://localhost:${backendPort}/createPage`, requestOptions)
-				.then(response => {
-					response.json().then((data) => {
-						setMessage(data.info.error);
-					});
-				});
+
+			const url = `http://localhost:${backendPort}/createPage`;
+
+			// Promise
+			// fetch(url, requestOptions)
+			// 	.then(response => {
+			// 		response.json().then((data) => {
+			// 			setMessage(data.info.error);
+			// 		});
+			// 	});
+
+			// async/await
+			const asyncCreatePage = async () => {
+				const res = await fetch(url, requestOptions);
+				const data = await res.json();
+				setMessage(data.info.error);
+			};
+
+			asyncCreatePage();
+
 		}
 	}
+
 
 	const onPageTitleChange = (e: any) => {
 		setPageTitle(e.target.value);
@@ -46,7 +62,7 @@ function PageCreatePage() {
 
 	return (
 		<div className="page page_createPage">
-			<h2 className="title">Create Page</h2> 
+			<h2 className="title">Create Page</h2>
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
 				{message !== '' && (
