@@ -1,3 +1,6 @@
+- .. notes error
+    - .. if no title
+
 - x merge and create et_feat_createPageWithOptions
 - .. form colors
 - send back errors for two non-supported pages

@@ -10,6 +10,10 @@ $rowBorderColor: #bbb;
 			border: 1px solid rgb(212, 195, 40);
 			border-radius: 5px;
 			cursor:pointer;
+			code {
+				font-family: 'Courier New', Courier, monospace;
+				color: brown;
+			}
 		}
 		div.row {
 			margin: 0 0 20px 0;

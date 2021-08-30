@@ -18,7 +18,9 @@ function PageCreatePage() {
 
 	const createPage = (e: any) => {
 		e.preventDefault();
-		if (!qstr.isEmpty(pageTitle)) {
+		if (qstr.isEmpty(pageTitle)) {
+			setMessage('Page title cannot be empty. Please type in a page title, e.g. <code>Quarterly Reports</code>');
+			} else {
 			const requestOptions = {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -66,7 +68,7 @@ function PageCreatePage() {
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
 				{message !== '' && (
-					<div className="message" onClick={() => closeMessage()}>{message}</div>
+					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{__html: message}}></div>
 				)}
 				<div className="row dataType_line">
 					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
