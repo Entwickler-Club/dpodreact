@@ -20,7 +20,7 @@ function PageCreatePage() {
 		e.preventDefault();
 		if (qstr.isEmpty(pageTitle)) {
 			setMessage('Page title cannot be empty. Please type in a page title, e.g. <code>Quarterly Reports</code>');
-			} else {
+		} else {
 			const requestOptions = {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -29,19 +29,12 @@ function PageCreatePage() {
 
 			const url = `http://localhost:${backendPort}/createPage`;
 
-			// Promise
-			// fetch(url, requestOptions)
-			// 	.then(response => {
-			// 		response.json().then((data) => {
-			// 			setMessage(data.info.error);
-			// 		});
-			// 	});
-
-			// async/await
 			const asyncCreatePage = async () => {
 				const res = await fetch(url, requestOptions);
 				const data = await res.json();
-				setMessage(data.info.error);
+				if (data.info.error) {
+					setMessage(data.info.error);
+				}
 			};
 
 			asyncCreatePage();
@@ -68,7 +61,7 @@ function PageCreatePage() {
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
 				{message !== '' && (
-					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{__html: message}}></div>
+					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
 				)}
 				<div className="row dataType_line">
 					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>

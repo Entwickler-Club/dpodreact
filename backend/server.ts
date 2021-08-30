@@ -43,7 +43,7 @@ app.post('/createPage', (req: any, res: any) => {
 	res.status(201).json({
 		success: true,
 		pageTitle,
-		dpodSiteBuilder.getInfo()
+		info: dpodSiteBuilder.getInfo()
 	});
 });
 
