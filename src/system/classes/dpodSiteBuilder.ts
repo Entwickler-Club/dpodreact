@@ -9,7 +9,7 @@ class DpodSiteBuilder {
 	private pageKindIdCode: string = '';
 	private info: any = {};
 
-	constructor(pageTitle: string, pageKindIdCode: string = '', info:any) {
+	constructor(pageTitle: string, pageKindIdCode: string = '', info:any = {}) {
 		this.pageTitle = pageTitle;
 		this.pageKindIdCode = pageKindIdCode;
 		this.info = info;

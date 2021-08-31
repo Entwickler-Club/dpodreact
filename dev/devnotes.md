@@ -1,9 +1,11 @@
+- .. delete page
+
 - .. create page:
     - .. dpodSiteBuild: first convert to non-static class
 
 
 
-    
+
     - .. page with SASS file and controller
         - create page with SASS file as
     - page with SASS file, controller, and JSON data file
@@ -72,7 +74,7 @@
             - path
                 - "src\data\"
 
-- shortcuts
+- shortcuts Ubuntu
     - go back: CTRL-ALT-(-)
     - go forward: CTRL-SHIFT-(-) 
 

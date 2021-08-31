@@ -48,12 +48,13 @@ app.post('/createPage', (req: any, res: any) => {
 });
 
 app.post('/deletePage', (req: any, res: any) => {
-	// const { pageTitle } = req.body;
-	// DpodSiteBuilder.deletePage(pageTitle);
-	// res.status(204).json({
-	// 	success: true,
-	// 	pageTitle
-	// });
+	const { pageTitle } = req.body;
+	const dpodSiteBuilder = new DpodSiteBuilder(pageTitle);
+	dpodSiteBuilder.deletePage(pageTitle);
+	res.status(204).json({
+		success: true,
+		pageTitle
+	});
 });
 
 app.listen(port, () => {
