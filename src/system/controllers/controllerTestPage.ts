@@ -1,6 +1,7 @@
 import Controller from './controller';
+import fs from 'fs';
 
-class Controller@@pagePascal extends Controller {
+class ControllerTestPage extends Controller {
 
 	constructor(request: any, response: any) {
 		super(request, response);
@@ -14,4 +15,4 @@ class Controller@@pagePascal extends Controller {
 
 }
 
-export default Controller@@pagePascal;
+export default ControllerTestPage;
