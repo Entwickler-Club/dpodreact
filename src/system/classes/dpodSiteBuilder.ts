@@ -63,7 +63,7 @@ class DpodSiteBuilder {
 				// component
 				const textFileBuilderController = new TextFileBuilder('newPageController');
 				textFileBuilderController.data = this.data;
-				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pageCamel));
+				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
 				break;
 			case 'pageWithSassFileControllerAndJsonFile':
 				this.info.error = 'pageWithSassFileControllerAndJsonFile not found';
