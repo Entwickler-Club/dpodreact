@@ -8,6 +8,7 @@ import ControllerTest333 from '../controllers/controllerTest333';// ::test333
 import ControllerTest444 from '../controllers/controllerTest444';// ::test444
 import ControllerTest555 from '../controllers/controllerTest555';// ::test555
 import ControllerTest666 from '../controllers/controllerTest666';// ::test666
+import ControllerTest777 from '../controllers/controllerTest777';// ::test777
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -28,6 +29,8 @@ case 'controllerTest555':// ::test555
 return new ControllerTest555(request, response);
 case 'controllerTest666':// ::test666
 return new ControllerTest666(request, response);
+case 'controllerTest777':// ::test777
+return new ControllerTest777(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}
