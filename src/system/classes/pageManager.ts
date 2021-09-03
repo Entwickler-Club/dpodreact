@@ -1,8 +1,28 @@
+import * as config from '../config';
+const backendPort = config.getBackendPort();
+
 class PageManager {
-	static getPageData() {
-		return {
-			message: 'works'
-		};
+	async fetchPageDataFromController() {
+		return new Promise(resolve => {
+			fetch(`http://localhost:${backendPort}/controllerTestPage444`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					action: 'loadPageData'
+				})
+			}).then(response => response.json())
+				.then((pageData: any) => {
+					resolve(pageData);
+				});
+		});
+	}
+	static async getPageData() : Promise<any> {
+		return new Promise(resolve => {
+			const pm = new PageManager();
+			(async () => {
+				resolve(await pm.fetchPageDataFromController());
+			})();
+		})
 	}
 }
 
