@@ -20,7 +20,6 @@ import PageTest333 from './PageTest333';// ::test333
 import PageTest444 from './PageTest444';// ::test444
 import PageTest555 from './PageTest555';// ::test555
 import PageTest666 from './PageTest666';// ::test666
-import PageTest777 from './PageTest777';// ::test777
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -68,7 +67,6 @@ function Site() {
 <span><Link to='/test444'>Test 444</Link></span>{/* ::test444 */}
 <span><Link to='/test555'>Test 555</Link></span>{/* ::test555 */}
 <span><Link to='/test666'>Test 666</Link></span>{/* ::test666 */}
-<span><Link to='/test777'>Test 777</Link></span>{/* ::test777 */}
 						</>
 					)}
 				</nav>
@@ -93,7 +91,6 @@ function Site() {
 <Route path='/test444'><PageTest444 /></Route>{/* ::test444 */}
 <Route path='/test555'><PageTest555 /></Route>{/* ::test555 */}
 <Route path='/test666'><PageTest666 /></Route>{/* ::test666 */}
-<Route path='/test777'><PageTest777 /></Route>{/* ::test777 */}
 					</Switch>
 				</section>
 			</div>
