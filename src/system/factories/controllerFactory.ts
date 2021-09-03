@@ -1,5 +1,5 @@
 import Controller from '../controllers/controller';
-//DYNAMIC_CODE_AREA:loadClasses
+// DYNAMIC_CODE_AREA: loadClasses
 import ControllerShowcaseJsonReadWrite from '../controllers/controllerShowcaseJsonReadWrite'; // ::showcaseJsonReadWrite
 import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSqliteReader'; // ::showcaseSqliteReader
 
