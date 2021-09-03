@@ -14,11 +14,6 @@ import PageCreatePage from './PageCreatePage';// ::createPage
 import PageDeletePage from './PageDeletePage';// ::deletePage
 import PageShowcaseJsonReadWrite from './PageShowcaseJsonReadWrite';// ::showcaseJsonReadWrite
 import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
-import PageTest111 from './PageTest111';// ::test111
-import PageTest222 from './PageTest222';// ::test222
-import PageTest333 from './PageTest333';// ::test333
-import PageTest444 from './PageTest444';// ::test444
-import PageTest555 from './PageTest555';// ::test555
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -60,11 +55,6 @@ function Site() {
 <span><Link to='/showcaseSqliteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSqliteReader */}
 <span><Link to='/showcaseJsonReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJsonReadWrite */}
 <span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
-<span><Link to='/test111'>Test 111</Link></span>{/* ::test111 */}
-<span><Link to='/test222'>Test 222</Link></span>{/* ::test222 */}
-<span><Link to='/test333'>Test 333</Link></span>{/* ::test333 */}
-<span><Link to='/test444'>Test 444</Link></span>{/* ::test444 */}
-<span><Link to='/test555'>Test 555</Link></span>{/* ::test555 */}
 						</>
 					)}
 				</nav>
@@ -83,11 +73,6 @@ function Site() {
 <Route path='/showcaseSqliteReader'><PageShowcaseSqliteReader /></Route>{/* ::showcaseSqliteReader */}
 <Route path='/showcaseJsonReadWrite'><PageShowcaseJsonReadWrite /></Route>{/* ::showcaseJsonReadWrite */}
 <Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
-<Route path='/test111'><PageTest111 /></Route>{/* ::test111 */}
-<Route path='/test222'><PageTest222 /></Route>{/* ::test222 */}
-<Route path='/test333'><PageTest333 /></Route>{/* ::test333 */}
-<Route path='/test444'><PageTest444 /></Route>{/* ::test444 */}
-<Route path='/test555'><PageTest555 /></Route>{/* ::test555 */}
 					</Switch>
 				</section>
 			</div>
