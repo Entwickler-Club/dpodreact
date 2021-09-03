@@ -9,7 +9,6 @@ function PageTest111() {
 	
 	useEffect(() => {
 		PageManager.loadDataFromController('test111').then(data => {
-			console.log(data);
 			setMessage(data.pageDataFromJson.message); 
 			});
 	}, []);
