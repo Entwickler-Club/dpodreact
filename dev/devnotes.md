@@ -1,4 +1,4 @@
-- .. make test444 read from controller
+- .. refactor loading code of 444 into PageManager
 
 
 - make 444 changes dynamic
@@ -78,6 +78,9 @@
                 - "src\data"
             - path
                 - "src\data\"
+		- conventions
+			- names of files
+				- only components are first-letter capitalized
 
 - shortcuts Ubuntu
     - go back: CTRL-ALT-(-)

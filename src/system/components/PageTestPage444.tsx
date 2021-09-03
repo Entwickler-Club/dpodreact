@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/testPage444.scss';
+import PageManager from '../classes/pageManager';
 import * as config from '../config';
 
 const backendPort = config.getBackendPort();
@@ -8,6 +9,8 @@ const backendPort = config.getBackendPort();
 function PageTestPage444() {
 	const [message, setMessage] = useState('');
 	useEffect(() => {
+		const pageData = PageManager.getPageData();
+		console.log(pageData);
 		fetch(`http://localhost:${backendPort}/controllerTestPage444`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -16,7 +19,6 @@ function PageTestPage444() {
 			})
 		}).then(response => response.json())
 			.then((pageData: any) => {
-				console.log(pageData);
 				setMessage(pageData.message);
 			});
 	}, []);
