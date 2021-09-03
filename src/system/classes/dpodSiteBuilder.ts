@@ -36,6 +36,27 @@ class DpodSiteBuilder {
 		return `../factories/controllerFactory.ts`;
 	}
 
+	buildBaseControllerFunctionality(pageId: string) {
+		const controllerTemplateIdCode = `newPage${pageId}Controller`;
+
+		// build controller
+		const textFileBuilderController = new TextFileBuilder(controllerTemplateIdCode);
+		textFileBuilderController.data = this.data;
+		textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
+
+		// make modifications in the controllerFactory.ts file
+		const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
+		controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadClasses', this.data.pageCamel, `import Controller${this.data.pagePascal} from '../controllers/controller${this.data.pagePascal}';`);
+		controllerFactoryDynamicFile.addCodeChunkToCodeArea('switchBlock', this.data.pageCamel,
+			[
+				`case 'controller${this.data.pagePascal}':`,
+				`return new Controller${this.data.pagePascal}(request, response);`
+			]
+		);
+		controllerFactoryDynamicFile.save();
+
+	}
+
 	buildBasePageFunctionality(pageId: string) {
 		const componentTemplateIdCode = `newPage${pageId}Component`;
 		const styleshheetTemplateIdCode = `newPage${pageId}Stylesheet`;
@@ -69,25 +90,11 @@ class DpodSiteBuilder {
 				break;
 			case 'pageWithSassFileAndController':
 				this.buildBasePageFunctionality('2');
-
-				// build controller
-				const textFileBuilderController = new TextFileBuilder('newPage2Controller');
-				textFileBuilderController.data = this.data;
-				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
-
-				// make modifications in the controllerFactory.ts file
-				const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
-				controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadClasses', this.data.pageCamel, `import Controller${this.data.pagePascal} from '../controllers/controller${this.data.pagePascal}';`);
-				controllerFactoryDynamicFile.addCodeChunkToCodeArea('switchBlock', this.data.pageCamel,
-					[
-						`case 'controller${this.data.pagePascal}':`,
-						`return new Controller${this.data.pagePascal}(request, response);`
-					]
-				);
-				controllerFactoryDynamicFile.save();
+				this.buildBaseControllerFunctionality('2');
 				break;
 			case 'pageWithSassFileControllerAndJsonFile':
-				this.info.error = 'pageWithSassFileControllerAndJsonFile not found';
+				this.buildBasePageFunctionality('3');
+				this.buildBaseControllerFunctionality('3');
 				break;
 		}
 	}
