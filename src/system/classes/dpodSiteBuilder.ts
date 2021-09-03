@@ -33,7 +33,7 @@ class DpodSiteBuilder {
 	}
 
 	buildBasePageFunctionality(pageId: string) {
-		const componentTemplateIdCode = `newPage${pageId}Component`; 
+		const componentTemplateIdCode = `newPage${pageId}Component`;
 		const styleshheetTemplateIdCode = `newPage${pageId}Stylesheet`;
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(this.pageTitle, 'page');
 		this.data = {
@@ -113,9 +113,9 @@ class DpodSiteBuilder {
 		siteDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', this.data.pageCamel);
 		siteDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', this.data.pageCamel);
 		siteDynamicFile.save();
-		
+
 		// delete entries made in the controller factory
-				const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
+		const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
 		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('loadClasses', this.data.pageCamel);
 		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('switchBlock', this.data.pageCamel);
 		controllerFactoryDynamicFile.save();
