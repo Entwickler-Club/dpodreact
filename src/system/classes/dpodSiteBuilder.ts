@@ -128,9 +128,6 @@ class DpodSiteBuilder {
 		// delete controller (if there is one)
 		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
-		// delete JSON file (if there is one)
-		qfil.deleteFile(this.getJsonDataPathAndFileName(this.data.pageCamel));
-
 		// delete entries made in the Site.tsx file
 		const siteDynamicFile = new DynamicFile(this.getSitePathAndFileName());
 		siteDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', this.data.pageCamel);
@@ -143,6 +140,9 @@ class DpodSiteBuilder {
 		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('loadClasses', this.data.pageCamel);
 		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('switchBlock', this.data.pageCamel);
 		controllerFactoryDynamicFile.save();
+
+		// delete JSON file (if there is one)
+		qfil.deleteFile(this.getJsonDataPathAndFileName(this.data.pageCamel));
 	}
 
 	log(line: string) {
