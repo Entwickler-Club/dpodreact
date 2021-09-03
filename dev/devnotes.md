@@ -1,7 +1,4 @@
-- .. refactor loading code of 444 into PageManager
-
-
-- make 444 changes dynamic
+- .. make 444 changes dynamic
 
 
 - delete page: delete controller entries
