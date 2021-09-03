@@ -1,5 +1,3 @@
-- .. delete page: delete entries in controller factory
-- delete all test pages
 - make third create option
 - create texts for create page
 - delete page: 
