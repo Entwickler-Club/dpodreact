@@ -1,9 +1,4 @@
-- .. make third create option
-	- x create dummy site Test 111 with json file
-	- ..  make Test 111 dynamic
-
-
-- create texts for create page
+- .. create texts for create page
 - delete page: 
 	- nice format from create page
 	- delete controller entries
