@@ -45,11 +45,11 @@ class DpodSiteBuilder {
 		textFileBuilderStylesheet.buildNow(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
 
 		// make modifications in the Site.tsx file
-		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', this.data.pageCamel, `import Page${this.data.pagePascal} from './Page${this.data.pagePascal}';`);
-		systemDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', this.data.pageCamel, `<span><Link to='/${this.data.pageCamel}'>${this.pageTitle}</Link></span>`);
-		systemDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', this.data.pageCamel, `<Route path='/${this.data.pageCamel}'><Page${this.data.pagePascal} /></Route>`);
-		systemDynamicFile.save();
+		const siteDynamicFile = new DynamicFile('../components/Site.tsx');
+		siteDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', this.data.pageCamel, `import Page${this.data.pagePascal} from './Page${this.data.pagePascal}';`);
+		siteDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', this.data.pageCamel, `<span><Link to='/${this.data.pageCamel}'>${this.pageTitle}</Link></span>`);
+		siteDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', this.data.pageCamel, `<Route path='/${this.data.pageCamel}'><Page${this.data.pagePascal} /></Route>`);
+		siteDynamicFile.save();
 	}
 
 	createPage() {
@@ -64,6 +64,13 @@ class DpodSiteBuilder {
 				const textFileBuilderController = new TextFileBuilder('newPageController');
 				textFileBuilderController.data = this.data;
 				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
+
+				// make modifications in the controllerFactory.ts file
+				const controllerFactoryDynamicFile = new DynamicFile('../factories/controllerFactory.ts');
+				controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', this.data.pageCamel, `import Page${this.data.pagePascal} from './Page${this.data.pagePascal}';`);
+				controllerFactoryDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', this.data.pageCamel, `<span><Link to='/${this.data.pageCamel}'>${this.pageTitle}</Link></span>`);
+				controllerFactoryDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', this.data.pageCamel, `<Route path='/${this.data.pageCamel}'><Page${this.data.pagePascal} /></Route>`);
+				controllerFactoryDynamicFile.save();
 				break;
 			case 'pageWithSassFileControllerAndJsonFile':
 				this.info.error = 'pageWithSassFileControllerAndJsonFile not found';

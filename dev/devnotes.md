@@ -1,4 +1,7 @@
-- create page: make controller entries 
+- .. create page: make controller entries in controller factory
+
+
+
 - delete page: delete controller entries
 
 

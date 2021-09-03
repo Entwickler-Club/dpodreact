@@ -1,7 +1,7 @@
 import Controller from '../controllers/controller';
 //DYNAMIC_CODE_AREA:loadClasses
-import ControllerShowcaseJsonReadWrite from '../controllers/controllerShowcaseJsonReadWrite';
-import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSqliteReader';
+import ControllerShowcaseJsonReadWrite from '../controllers/controllerShowcaseJsonReadWrite'; // ::showcaseJsonReadWrite
+import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSqliteReader'; // ::showcaseSqliteReader
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
