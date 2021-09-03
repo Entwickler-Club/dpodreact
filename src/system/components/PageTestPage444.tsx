@@ -5,11 +5,12 @@ import PageManager from '../classes/pageManager';
 
 function PageTestPage444() {
 	const [message, setMessage] = useState('');
+	const [status, setStatus] = useState('');
 	useEffect(() => {
-		(async () => {
-			const pageData = await PageManager.getPageData();
-			setMessage(pageData.message);
-		})();
+		PageManager.loadDataFromController().then(data => {
+			setMessage(data.message);
+			setStatus(data.status);
+			});
 	}, []);
 
 	return (
@@ -17,6 +18,7 @@ function PageTestPage444() {
 			<h2 className="title">Test Page 444</h2>
 			<p className="description">An info page that displays test page 444.</p>
 			<p className="message">{message}</p>
+			<p>status: {status}</p>
 		</div>
 	)
 }

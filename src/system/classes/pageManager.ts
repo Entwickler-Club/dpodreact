@@ -16,7 +16,7 @@ class PageManager {
 				});
 		});
 	}
-	static async getPageData() : Promise<any> {
+	static async loadDataFromController() : Promise<any> {
 		return new Promise(resolve => {
 			const pm = new PageManager();
 			(async () => {
