@@ -8,9 +8,12 @@ class Controller@@pagePascal extends Controller {
 	}
 
 	action_loadPageData() {
-        this.response.send({
-           message: 'Welcome to this page.' 
-        });
+		fs.readFile('./src/system/data/json/pageData_@@pageCamel.json', 'utf-8', (err: any, res: any) => {
+			const data = JSON.parse(res);
+			this.response.send({
+				pageDataFromJson: data
+			});
+		});
 	}
 
 }

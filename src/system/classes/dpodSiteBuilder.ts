@@ -95,6 +95,12 @@ class DpodSiteBuilder {
 			case 'pageWithSassFileControllerAndJsonFile':
 				this.buildBasePageFunctionality('3');
 				this.buildBaseControllerFunctionality('3');
+
+				//create JSON file
+				const textFileBuilderJsonDataFile = new TextFileBuilder('newPage3Json');
+				textFileBuilderJsonDataFile.data = this.data;
+				//src\system\data\json\pageData_test111.json
+				textFileBuilderJsonDataFile.buildNow(`src/system/data/json/pageData_${this.data.pageCamel}.json`);
 				break;
 		}
 	}

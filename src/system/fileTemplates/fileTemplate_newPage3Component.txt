@@ -9,7 +9,7 @@ function Page@@pagePascal() {
 	
 	useEffect(() => {
 		PageManager.loadDataFromController('@@pageCamel').then(data => {
-			setMessage(data.message);
+			setMessage(data.pageDataFromJson.message); 
 			});
 	}, []);
 
