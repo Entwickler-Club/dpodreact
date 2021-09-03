@@ -1,4 +1,4 @@
-- make third create option
+- .. make third create option
 - create texts for create page
 - delete page: 
 	- nice format from create page
