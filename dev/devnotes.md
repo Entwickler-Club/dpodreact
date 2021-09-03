@@ -1,6 +1,3 @@
-- .. fix 777
-
-
 - .. make third create option
 - create texts for create page
 - delete page: 
