@@ -1,6 +1,6 @@
 - .. make third create option
-	- .. create dummy site Test 111 with json file
-	- make Test 111 dynamic
+	- x create dummy site Test 111 with json file
+	- ..  make Test 111 dynamic
 
 
 - create texts for create page
