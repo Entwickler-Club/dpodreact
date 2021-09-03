@@ -67,9 +67,7 @@ class DpodSiteBuilder {
 
 				// make modifications in the controllerFactory.ts file
 				const controllerFactoryDynamicFile = new DynamicFile('../factories/controllerFactory.ts');
-				controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', this.data.pageCamel, `import Page${this.data.pagePascal} from './Page${this.data.pagePascal}';`);
-				controllerFactoryDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', this.data.pageCamel, `<span><Link to='/${this.data.pageCamel}'>${this.pageTitle}</Link></span>`);
-				controllerFactoryDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', this.data.pageCamel, `<Route path='/${this.data.pageCamel}'><Page${this.data.pagePascal} /></Route>`);
+				controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadClasses', this.data.pageCamel, `import Controller${this.data.pagePascal} from '../controllers/controller${this.data.pagePascal}';`);
 				controllerFactoryDynamicFile.save();
 				break;
 			case 'pageWithSassFileControllerAndJsonFile':
