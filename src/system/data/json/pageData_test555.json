@@ -1,0 +1,9 @@
+{
+	"message": "Welcome to this page from JSON.",
+	"reports": [
+		"Report aaa001",
+		"Report 002",
+		"Report 003",
+		"Report 004"
+	]
+}
