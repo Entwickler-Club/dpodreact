@@ -2,7 +2,6 @@ import Controller from '../controllers/controller';
 // DYNAMIC_CODE_AREA: loadClasses
 import ControllerShowcaseJsonReadWrite from '../controllers/controllerShowcaseJsonReadWrite'; // ::showcaseJsonReadWrite
 import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSqliteReader'; // ::showcaseSqliteReader
-import ControllerTestPage666 from '../controllers/controllerTestPage666';// ::testPage666
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -11,8 +10,6 @@ export const instantiate = (controllerIdCode: string, request: any, response: an
 		// DYNAMIC_CODE_AREA: switchBlock,2
 		case 'controllerShowcaseJsonReadWrite': //:showcaseJsonReadWrite// ::
 			return new ControllerShowcaseJsonReadWrite(request, response);
-		case 'controllerTestPage666':// ::testPage666
-			return new ControllerTestPage666(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}
