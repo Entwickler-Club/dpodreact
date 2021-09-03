@@ -62,6 +62,10 @@
 - dpod
     - documentation
         - loadCode
+		- paths
+			- absolutePath
+			- relativePath
+			- locationRelativePath: '../qtools/qstr.ts'
         - file names
             - extension
                 - 'json'

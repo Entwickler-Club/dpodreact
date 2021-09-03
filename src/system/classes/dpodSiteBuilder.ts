@@ -28,8 +28,12 @@ class DpodSiteBuilder {
 		return `src/system/controllers/controller${pascalNotation}.ts`;
 	}
 
+	getSitePathAndFileName() {
+		return '../components/Site.tsx';
+	}
+
 	getContollerFactoryPathAndFileName() {
-		return `src/system/factories/controllerFactory.ts`;
+		return `../factories/controllerFactory.ts`;
 	}
 
 	buildBasePageFunctionality(pageId: string) {
@@ -51,7 +55,7 @@ class DpodSiteBuilder {
 		textFileBuilderStylesheet.buildNow(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
 
 		// make modifications in the Site.tsx file
-		const siteDynamicFile = new DynamicFile('../components/Site.tsx');
+		const siteDynamicFile = new DynamicFile(this.getSitePathAndFileName());
 		siteDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', this.data.pageCamel, `import Page${this.data.pagePascal} from './Page${this.data.pagePascal}';`);
 		siteDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', this.data.pageCamel, `<span><Link to='/${this.data.pageCamel}'>${this.pageTitle}</Link></span>`);
 		siteDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', this.data.pageCamel, `<Route path='/${this.data.pageCamel}'><Page${this.data.pagePascal} /></Route>`);
@@ -108,7 +112,7 @@ class DpodSiteBuilder {
 		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
 		// delete entries made in the Site.tsx file
-		const siteDynamicFile = new DynamicFile('../components/Site.tsx');
+		const siteDynamicFile = new DynamicFile(this.getSitePathAndFileName());
 		siteDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', this.data.pageCamel);
 		siteDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', this.data.pageCamel);
 		siteDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', this.data.pageCamel);
