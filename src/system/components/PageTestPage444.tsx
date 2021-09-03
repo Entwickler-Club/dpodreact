@@ -7,7 +7,7 @@ function PageTestPage444() {
 	const [message, setMessage] = useState('');
 	const [status, setStatus] = useState('');
 	useEffect(() => {
-		PageManager.loadDataFromController().then(data => {
+		PageManager.loadDataFromController('testPage444').then(data => {
 			setMessage(data.message);
 			setStatus(data.status);
 			});
