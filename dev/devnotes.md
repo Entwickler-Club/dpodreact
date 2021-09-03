@@ -1,12 +1,15 @@
-- .. merge and create et_feat_createPageWithOptions
-- send back errors for two non-supported pages
+- .. create texts for create page
+- delete page: 
+	- nice format from create page
+	- delete controller entries
 
 
+	
+- finish #2 with controller and
 
-- .. create page:
-    - .. make menu
-    - page with SASS file
-    - page with SASS file and controller
+
+    - .. page with SASS file and controller
+        - create page with SASS file as
     - page with SASS file, controller, and JSON data file
     
 - .. controller manager
@@ -21,7 +24,9 @@
 
 
 ===========================
-
+- future features
+	- API Displayer
+		- input API and it will be displayed on page
 
 - implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
 - x all imports for item classes for extends
@@ -56,6 +61,10 @@
 - dpod
     - documentation
         - loadCode
+		- paths
+			- absolutePath
+			- relativePath
+			- locationRelativePath: '../qtools/qstr.ts'
         - file names
             - extension
                 - 'json'
@@ -72,8 +81,11 @@
                 - "src\data"
             - path
                 - "src\data\"
+		- conventions
+			- names of files
+				- only components are first-letter capitalized
 
-- shortcuts
+- shortcuts Ubuntu
     - go back: CTRL-ALT-(-)
     - go forward: CTRL-SHIFT-(-) 
 

@@ -7,6 +7,7 @@ const backendPort = config.getBackendPort();
 
 function PageCreatePage() {
 	const [pageTitle, setPageTitle] = useState('');
+	const [message, setMessage] = useState('');
 	const [pageKindIdCode, setPageKindIdCode] = useState('pageWithSassFile');
 
 	// useEffect(() => {
@@ -14,18 +15,33 @@ function PageCreatePage() {
 	// 	setPageTitle('pageWithSassFile');
 	// }, []);
 
+
 	const createPage = (e: any) => {
 		e.preventDefault();
-		if (!qstr.isEmpty(pageTitle)) {
+		if (qstr.isEmpty(pageTitle)) {
+			setMessage('Page title cannot be empty. Please type in a page title, e.g. <code>Quarterly Reports</code>');
+		} else {
 			const requestOptions = {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ pageTitle, pageKindIdCode })
 			};
-			fetch(`http://localhost:${backendPort}/createPage`, requestOptions)
-				.then(response => response.json());
+
+			const url = `http://localhost:${backendPort}/createPage`;
+
+			const asyncCreatePage = async () => {
+				const res = await fetch(url, requestOptions);
+				const data = await res.json();
+				if (data.info.error) {
+					setMessage(data.info.error);
+				}
+			};
+
+			asyncCreatePage();
+
 		}
 	}
+
 
 	const onPageTitleChange = (e: any) => {
 		setPageTitle(e.target.value);
@@ -35,11 +51,18 @@ function PageCreatePage() {
 		setPageKindIdCode(e.target.value);
 	}
 
+	const closeMessage = () => {
+		setMessage('');
+	}
+
 	return (
 		<div className="page page_createPage">
 			<h2 className="title">Create Page</h2>
 			<p className="description">This page creates a fully functioning page for this website.</p>
 			<form>
+				{message !== '' && (
+					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
+				)}
 				<div className="row dataType_line">
 					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
 					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />

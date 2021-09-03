@@ -216,7 +216,7 @@ class DynamicFile {
 		return null;
 	}
 
-	addCodeChunkToCodeArea(codeAreaIdCode: string, codeChunkIdCode: string, lineOrLines: string) {
+	addCodeChunkToCodeArea(codeAreaIdCode: string, codeChunkIdCode: string, lineOrLines: string|string[]) {
 		let lines = null;
 		if (qstr.isArray(lineOrLines)) {
 			lines = lineOrLines;

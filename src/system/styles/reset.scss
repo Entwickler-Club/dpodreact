@@ -122,3 +122,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+// override Firefox form focus-colors
+input[type='checkbox']:checked {-webkit-filter: grayscale(100%);}
+input[type='radio']:checked {-webkit-filter: grayscale(100%);}
+input[type='text']:focus, button:focus {
+	// border: 9px solid red;
+	outline: 0px;
+	background-color: #eee;
+	// -webkit-filter: grayscale(100%);
+	
+}

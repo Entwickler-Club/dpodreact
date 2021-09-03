@@ -5,62 +5,147 @@ import DynamicFile from './dynamicFile';
 
 class DpodSiteBuilder {
 
-	// TODO: convert from static class to object class
+	private pageTitle: string = '';
+	private pageKindIdCode: string = '';
+	private info: any = {};
+	private data: any = {};
 
-	static getPageComponentPathAndFileName(pascalNotation: string) {
+	constructor(pageTitle: string, pageKindIdCode: string = '', info: any = {}) {
+		this.pageTitle = pageTitle;
+		this.pageKindIdCode = pageKindIdCode;
+		this.info = info;
+	}
+
+	getPageComponentPathAndFileName(pascalNotation: string) {
 		return `src/system/components/Page${pascalNotation}.tsx`;
 	}
 
-	static getPageStylesheetPathAndFileName(pascalNotation: string) {
+	getPageStylesheetPathAndFileName(pascalNotation: string) {
 		return `src/system/styles/${pascalNotation}.scss`;
 	}
 
-	static createPage(pageTitle: string, pageKindIdCode: string = '') {
-		console.log(`PAGE KIND: ${pageKindIdCode}`);
-		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
-		const data = {
+	getPageContollerPathAndFileName(pascalNotation: string) {
+		return `src/system/controllers/controller${pascalNotation}.ts`;
+	}
+
+	getSitePathAndFileName() {
+		return '../components/Site.tsx';
+	}
+
+	getContollerFactoryPathAndFileName() {
+		return `../factories/controllerFactory.ts`;
+	}
+
+	getJsonDataPathAndFileName(camelNotation: string) {
+		return `src/system/data/json/pageData_${camelNotation}.json`;
+	}
+
+	buildBaseControllerFunctionality(pageId: string) {
+		const controllerTemplateIdCode = `newPage${pageId}Controller`;
+
+		// build controller
+		const textFileBuilderController = new TextFileBuilder(controllerTemplateIdCode);
+		textFileBuilderController.data = this.data;
+		textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
+
+		// make modifications in the controllerFactory.ts file
+		const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
+		controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadClasses', this.data.pageCamel, `import Controller${this.data.pagePascal} from '../controllers/controller${this.data.pagePascal}';`);
+		controllerFactoryDynamicFile.addCodeChunkToCodeArea('switchBlock', this.data.pageCamel,
+			[
+				`case 'controller${this.data.pagePascal}':`,
+				`return new Controller${this.data.pagePascal}(request, response);`
+			]
+		);
+		controllerFactoryDynamicFile.save();
+
+	}
+
+	buildBasePageFunctionality(pageId: string) {
+		const componentTemplateIdCode = `newPage${pageId}Component`;
+		const styleshheetTemplateIdCode = `newPage${pageId}Stylesheet`;
+		const pageSyntaxVariations = qstr.getTermSyntaxVariations(this.pageTitle, 'page');
+		this.data = {
 			...pageSyntaxVariations
 		};
 		// main display page
-		const textFileBuilder = new TextFileBuilder('newPageComponent');
-		textFileBuilder.data = data;
-		textFileBuilder.buildNow(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
+		const textFileBuilder = new TextFileBuilder(componentTemplateIdCode);
+		textFileBuilder.data = this.data;
+		textFileBuilder.buildNow(this.getPageComponentPathAndFileName(this.data.pagePascal));
 
 		// stylesheet
-		const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
-		textFileBuilderStylesheet.data = data;
+		const textFileBuilderStylesheet = new TextFileBuilder(styleshheetTemplateIdCode);
+		textFileBuilderStylesheet.data = this.data;
 		// TODO: create enums on data
-		textFileBuilderStylesheet.buildNow(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
+		textFileBuilderStylesheet.buildNow(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
 
 		// make modifications in the Site.tsx file
-		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		systemDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', data.pageCamel, `import Page${data.pagePascal} from './Page${data.pagePascal}';`);
-		systemDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', data.pageCamel, `<span><Link to='/${data.pageCamel}'>${pageTitle}</Link></span>`);
-		systemDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', data.pageCamel, `<Route path='/${data.pageCamel}'><Page${data.pagePascal} /></Route>`);
-		systemDynamicFile.save();
+		const siteDynamicFile = new DynamicFile(this.getSitePathAndFileName());
+		siteDynamicFile.addCodeChunkToCodeArea('loadPageComponentLines', this.data.pageCamel, `import Page${this.data.pagePascal} from './Page${this.data.pagePascal}';`);
+		siteDynamicFile.addCodeChunkToCodeArea('linkPageComponentLines', this.data.pageCamel, `<span><Link to='/${this.data.pageCamel}'>${this.pageTitle}</Link></span>`);
+		siteDynamicFile.addCodeChunkToCodeArea('routePageComponentLines', this.data.pageCamel, `<Route path='/${this.data.pageCamel}'><Page${this.data.pagePascal} /></Route>`);
+		siteDynamicFile.save();
 	}
 
-	static deletePage(pageTitle: string) {
+	createPage() {
+		switch (this.pageKindIdCode) {
+			case 'pageWithSassFile':
+				this.buildBasePageFunctionality('1');
+				break;
+			case 'pageWithSassFileAndController':
+				this.buildBasePageFunctionality('2');
+				this.buildBaseControllerFunctionality('2');
+				break;
+			case 'pageWithSassFileControllerAndJsonFile':
+				this.buildBasePageFunctionality('3');
+				this.buildBaseControllerFunctionality('3');
+
+				//create JSON file
+				const textFileBuilderJsonDataFile = new TextFileBuilder('newPage3Json');
+				textFileBuilderJsonDataFile.data = this.data;
+				//src\system\data\json\pageData_test111.json
+				textFileBuilderJsonDataFile.buildNow(this.getJsonDataPathAndFileName(this.data.pageCamel));
+				break;
+		}
+	}
+
+	getInfo() {
+		return this.info;
+	}
+
+	deletePage(pageTitle: string) {
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
-		const data = {
+		this.data = {
 			...pageSyntaxVariations
 		};
 
 		// delete main display page
-		qfil.deleteFile(DpodSiteBuilder.getPageComponentPathAndFileName(data.pagePascal));
+		qfil.deleteFile(this.getPageComponentPathAndFileName(this.data.pagePascal));
 
 		// delete stylesheet
-		qfil.deleteFile(DpodSiteBuilder.getPageStylesheetPathAndFileName(data.pageCamel));
+		qfil.deleteFile(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
 
-		// make modifications in the Site.tsx file
-		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		systemDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', data.pageCamel);
-		systemDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', data.pageCamel);
-		systemDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', data.pageCamel);
-		systemDynamicFile.save();
+		// delete controller (if there is one)
+		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
+
+		// delete entries made in the Site.tsx file
+		const siteDynamicFile = new DynamicFile(this.getSitePathAndFileName());
+		siteDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', this.data.pageCamel);
+		siteDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', this.data.pageCamel);
+		siteDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', this.data.pageCamel);
+		siteDynamicFile.save();
+
+		// delete entries made in the controller factory
+		const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
+		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('loadClasses', this.data.pageCamel);
+		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('switchBlock', this.data.pageCamel);
+		controllerFactoryDynamicFile.save();
+
+		// delete JSON file (if there is one)
+		qfil.deleteFile(this.getJsonDataPathAndFileName(this.data.pageCamel));
 	}
 
-	static log(line: string) {
+	log(line: string) {
 		// eslint-disable-next-line no-console
 		console.log(`>>> ${line}`);
 	}

@@ -37,16 +37,20 @@ app.get('/newsapi', (req: any, res: any) => {
 
 app.post('/createPage', (req: any, res: any) => {
 	const { pageTitle, pageKindIdCode } = req.body;
-	DpodSiteBuilder.createPage(pageTitle, pageKindIdCode);
+	const info = {};
+	const dpodSiteBuilder = new DpodSiteBuilder(pageTitle, pageKindIdCode, info);
+	dpodSiteBuilder.createPage();
 	res.status(201).json({
 		success: true,
-		pageTitle
+		pageTitle,
+		info: dpodSiteBuilder.getInfo()
 	});
 });
 
 app.post('/deletePage', (req: any, res: any) => {
 	const { pageTitle } = req.body;
-	DpodSiteBuilder.deletePage(pageTitle);
+	const dpodSiteBuilder = new DpodSiteBuilder(pageTitle);
+	dpodSiteBuilder.deletePage(pageTitle);
 	res.status(204).json({
 		success: true,
 		pageTitle
