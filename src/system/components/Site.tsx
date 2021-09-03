@@ -16,6 +16,7 @@ import PageShowcaseJsonReadWrite from './PageShowcaseJsonReadWrite';// ::showcas
 import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 import PageTestPage444 from './PageTestPage444';// ::testPage444
 import PageTestPage555 from './PageTestPage555';// ::testPage555
+import PageTestPage666 from './PageTestPage666';// ::testPage666
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -59,6 +60,7 @@ function Site() {
 <span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
 <span><Link to='/testPage444'>Test Page 444</Link></span>{/* ::testPage444 */}
 <span><Link to='/testPage555'>Test Page 555</Link></span>{/* ::testPage555 */}
+<span><Link to='/testPage666'>Test Page 666</Link></span>{/* ::testPage666 */}
 						</>
 					)}
 				</nav>
@@ -79,6 +81,7 @@ function Site() {
 <Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
 <Route path='/testPage444'><PageTestPage444 /></Route>{/* ::testPage444 */}
 <Route path='/testPage555'><PageTestPage555 /></Route>{/* ::testPage555 */}
+<Route path='/testPage666'><PageTestPage666 /></Route>{/* ::testPage666 */}
 					</Switch>
 				</section>
 			</div>

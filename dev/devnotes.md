@@ -1,7 +1,10 @@
-- .. make 444 changes dynamic
-
-
-- delete page: delete controller entries
+- .. delete page: delete entries in controller factory
+- delete all test pages
+- make third create option
+- create texts for create page
+- delete page: 
+	- nice format from create page
+	- delete controller entries
 
 
 	
