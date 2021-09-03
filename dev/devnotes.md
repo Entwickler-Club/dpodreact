@@ -1,5 +1,5 @@
-- .. delete page
-	- .. delete controller as well
+- create page: make controller entries 
+- delete page: delete controller entries
 
 
 	

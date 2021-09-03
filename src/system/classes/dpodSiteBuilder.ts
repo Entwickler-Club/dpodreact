@@ -88,7 +88,6 @@ class DpodSiteBuilder {
 		qfil.deleteFile(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
 
 		// delete controller (if there is one)
-		console.log(this.getPageContollerPathAndFileName(this.data.pagePascal));
 		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
 		// make modifications in the Site.tsx file

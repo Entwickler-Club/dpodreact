@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
 import fs from 'fs';
 
