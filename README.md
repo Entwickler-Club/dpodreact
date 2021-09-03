@@ -14,6 +14,7 @@ This is a framework build on top of create-react-app which enables you to quickl
 
 - You can immediately create and delete pages with the Create Page and Delete Page menu items.
 - View the showcase pages to see various examples features that can be built into the site.
+- You can create three different types of pages.
 
 ## Datapod Command Line Interface
 
