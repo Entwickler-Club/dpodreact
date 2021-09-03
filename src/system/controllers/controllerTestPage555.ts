@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
 
-class Controller@@pagePascal extends Controller {
+class ControllerTestPage555 extends Controller {
 
 	constructor(request: any, response: any) {
 		super(request, response);
@@ -9,10 +9,10 @@ class Controller@@pagePascal extends Controller {
 
 	action_loadPageData() {
         this.response.send({
-           message: 'Welcome to this page.' 
+           message: 'test message' 
         });
 	}
 
 }
 
-export default Controller@@pagePascal;
+export default ControllerTestPage555;

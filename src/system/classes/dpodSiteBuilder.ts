@@ -29,8 +29,8 @@ class DpodSiteBuilder {
 	}
 
 	buildBasePageFunctionality(pageId: string) {
-		const componentTemplateIdCode = 'newPage1Component'; 
-		const styleshheetTemplateIdCode = 'newPage1Stylesheet';
+		const componentTemplateIdCode = `newPage${pageId}Component`; 
+		const styleshheetTemplateIdCode = `newPage${pageId}Stylesheet`;
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(this.pageTitle, 'page');
 		this.data = {
 			...pageSyntaxVariations
