@@ -28,18 +28,20 @@ class DpodSiteBuilder {
 		return `src/system/controllers/controller${pascalNotation}.ts`;
 	}
 
-	buildBasePageFunctionality() {
+	buildBasePageFunctionality(pageId: string) {
+		const componentTemplateIdCode = 'newPage1Component'; 
+		const styleshheetTemplateIdCode = 'newPage1Stylesheet';
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(this.pageTitle, 'page');
 		this.data = {
 			...pageSyntaxVariations
 		};
 		// main display page
-		const textFileBuilder = new TextFileBuilder('newPageComponent');
+		const textFileBuilder = new TextFileBuilder(componentTemplateIdCode);
 		textFileBuilder.data = this.data;
 		textFileBuilder.buildNow(this.getPageComponentPathAndFileName(this.data.pagePascal));
 
 		// stylesheet
-		const textFileBuilderStylesheet = new TextFileBuilder('newPageComponentStylesheet');
+		const textFileBuilderStylesheet = new TextFileBuilder(styleshheetTemplateIdCode);
 		textFileBuilderStylesheet.data = this.data;
 		// TODO: create enums on data
 		textFileBuilderStylesheet.buildNow(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
@@ -55,13 +57,13 @@ class DpodSiteBuilder {
 	createPage() {
 		switch (this.pageKindIdCode) {
 			case 'pageWithSassFile':
-				this.buildBasePageFunctionality();
+				this.buildBasePageFunctionality('1');
 				break;
 			case 'pageWithSassFileAndController':
-				this.buildBasePageFunctionality();
+				this.buildBasePageFunctionality('2');
 
 				// build controller
-				const textFileBuilderController = new TextFileBuilder('newPageController');
+				const textFileBuilderController = new TextFileBuilder('newPage2Controller');
 				textFileBuilderController.data = this.data;
 				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
