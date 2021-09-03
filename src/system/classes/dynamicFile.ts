@@ -204,7 +204,6 @@ class DynamicFile {
 
 	save() {
 		const lines = this.getLinesWithUpdatedCodeAreas();
-		console.log(lines);
 		qfil.createFileWithLines(this.absolutePathAndFileName, lines);
 	}
 
