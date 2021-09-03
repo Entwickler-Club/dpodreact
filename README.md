@@ -6,7 +6,8 @@ This is a framework build on top of create-react-app which enables you to quickl
 
 - clone repository
 - `npm install`
-- `npm start`
+- `npm run start2`
+- `npm run backend`
 - you will see in your browser a site like this:
 <img src="dev/github/graphics/firstScreen.png">
 
