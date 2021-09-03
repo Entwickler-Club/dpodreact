@@ -7,10 +7,10 @@ export const instantiate = (controllerIdCode: string, request: any, response: an
 	switch (controllerIdCode) {
 		case 'controller':
 			return new Controller(request, response);
-		//DYNAMIC_CODE_AREA:switchBlock,2
-		case 'controllerShowcaseJsonReadWrite': //:pageShowcaseJsonReadWrite
+		// DYNAMIC_CODE_AREA: switchBlock,2
+		case 'controllerShowcaseJsonReadWrite': //:showcaseJsonReadWrite
 			return new ControllerShowcaseJsonReadWrite(request, response);
-		case 'controllerShowcaseSqliteReader': //:pageShowcaseSqliteReader
+		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
     }
 }

@@ -68,6 +68,12 @@ class DpodSiteBuilder {
 				// make modifications in the controllerFactory.ts file
 				const controllerFactoryDynamicFile = new DynamicFile('../factories/controllerFactory.ts');
 				controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadClasses', this.data.pageCamel, `import Controller${this.data.pagePascal} from '../controllers/controller${this.data.pagePascal}';`);
+				controllerFactoryDynamicFile.addCodeChunkToCodeArea('switchBlock', this.data.pageCamel,
+					[
+						`case 'controller${this.data.pagePascal}':`,
+						`return new Controller${this.data.pagePascal}(request, response);`
+					]
+				);
 				controllerFactoryDynamicFile.save();
 				break;
 			case 'pageWithSassFileControllerAndJsonFile':
