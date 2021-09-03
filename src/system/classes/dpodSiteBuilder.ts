@@ -36,6 +36,10 @@ class DpodSiteBuilder {
 		return `../factories/controllerFactory.ts`;
 	}
 
+	getJsonDataPathAndFileName(camelNotation: string) {
+		return `src/system/data/json/pageData_${camelNotation}.json`;
+	}
+
 	buildBaseControllerFunctionality(pageId: string) {
 		const controllerTemplateIdCode = `newPage${pageId}Controller`;
 
@@ -100,7 +104,7 @@ class DpodSiteBuilder {
 				const textFileBuilderJsonDataFile = new TextFileBuilder('newPage3Json');
 				textFileBuilderJsonDataFile.data = this.data;
 				//src\system\data\json\pageData_test111.json
-				textFileBuilderJsonDataFile.buildNow(`src/system/data/json/pageData_${this.data.pageCamel}.json`);
+				textFileBuilderJsonDataFile.buildNow(this.getJsonDataPathAndFileName(this.data.pageCamel));
 				break;
 		}
 	}
@@ -123,6 +127,9 @@ class DpodSiteBuilder {
 
 		// delete controller (if there is one)
 		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
+
+		// delete JSON file (if there is one)
+		qfil.deleteFile(this.getJsonDataPathAndFileName(this.data.pageCamel));
 
 		// delete entries made in the Site.tsx file
 		const siteDynamicFile = new DynamicFile(this.getSitePathAndFileName());
