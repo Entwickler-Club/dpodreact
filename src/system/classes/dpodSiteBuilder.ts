@@ -28,6 +28,10 @@ class DpodSiteBuilder {
 		return `src/system/controllers/controller${pascalNotation}.ts`;
 	}
 
+	getContollerFactoryPathAndFileName() {
+		return `src/system/factories/controllerFactory.ts`;
+	}
+
 	buildBasePageFunctionality(pageId: string) {
 		const componentTemplateIdCode = `newPage${pageId}Component`; 
 		const styleshheetTemplateIdCode = `newPage${pageId}Stylesheet`;
@@ -68,7 +72,7 @@ class DpodSiteBuilder {
 				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
 				// make modifications in the controllerFactory.ts file
-				const controllerFactoryDynamicFile = new DynamicFile('../factories/controllerFactory.ts');
+				const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
 				controllerFactoryDynamicFile.addCodeChunkToCodeArea('loadClasses', this.data.pageCamel, `import Controller${this.data.pagePascal} from '../controllers/controller${this.data.pagePascal}';`);
 				controllerFactoryDynamicFile.addCodeChunkToCodeArea('switchBlock', this.data.pageCamel,
 					[
@@ -103,12 +107,18 @@ class DpodSiteBuilder {
 		// delete controller (if there is one)
 		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
-		// make modifications in the Site.tsx file
-		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		systemDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', this.data.pageCamel);
-		systemDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', this.data.pageCamel);
-		systemDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', this.data.pageCamel);
-		systemDynamicFile.save();
+		// delete entries made in the Site.tsx file
+		const siteDynamicFile = new DynamicFile('../components/Site.tsx');
+		siteDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', this.data.pageCamel);
+		siteDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', this.data.pageCamel);
+		siteDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', this.data.pageCamel);
+		siteDynamicFile.save();
+		
+		// delete entries made in the controller factory
+				const controllerFactoryDynamicFile = new DynamicFile(this.getContollerFactoryPathAndFileName());
+		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('loadClasses', this.data.pageCamel);
+		controllerFactoryDynamicFile.deleteCodeChunkFromCodeArea('switchBlock', this.data.pageCamel);
+		controllerFactoryDynamicFile.save();
 	}
 
 	log(line: string) {
