@@ -1,4 +1,8 @@
 - .. make third create option
+	- .. create dummy site Test 111 with json file
+	- make Test 111 dynamic
+
+
 - create texts for create page
 - delete page: 
 	- nice format from create page
@@ -25,7 +29,9 @@
 
 
 ===========================
-
+- future features
+	- API Displayer
+		- input API and it will be displayed on page
 
 - implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
 - x all imports for item classes for extends
