@@ -1,9 +1,9 @@
 - .. delete page
-
-- .. create page:
-    - .. dpodSiteBuild: first convert to non-static class
+	- .. delete controller as well
 
 
+	
+- finish #2 with controller and
 
 
     - .. page with SASS file and controller

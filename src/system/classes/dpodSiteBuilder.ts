@@ -60,7 +60,7 @@ class DpodSiteBuilder {
 			case 'pageWithSassFileAndController':
 				this.buildBasePageFunctionality();
 
-				// component
+				// build controller
 				const textFileBuilderController = new TextFileBuilder('newPageController');
 				textFileBuilderController.data = this.data;
 				textFileBuilderController.buildNow(this.getPageContollerPathAndFileName(this.data.pagePascal));
@@ -77,21 +77,25 @@ class DpodSiteBuilder {
 
 	deletePage(pageTitle: string) {
 		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
-		const data = {
+		this.data = {
 			...pageSyntaxVariations
 		};
 
 		// delete main display page
-		qfil.deleteFile(this.getPageComponentPathAndFileName(data.pagePascal));
+		qfil.deleteFile(this.getPageComponentPathAndFileName(this.data.pagePascal));
 
 		// delete stylesheet
-		qfil.deleteFile(this.getPageStylesheetPathAndFileName(data.pageCamel));
+		qfil.deleteFile(this.getPageStylesheetPathAndFileName(this.data.pageCamel));
+
+		// delete controller (if there is one)
+		console.log(this.getPageContollerPathAndFileName(this.data.pagePascal));
+		qfil.deleteFile(this.getPageContollerPathAndFileName(this.data.pagePascal));
 
 		// make modifications in the Site.tsx file
 		const systemDynamicFile = new DynamicFile('../components/Site.tsx');
-		systemDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', data.pageCamel);
-		systemDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', data.pageCamel);
-		systemDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', data.pageCamel);
+		systemDynamicFile.deleteCodeChunkFromCodeArea('loadPageComponentLines', this.data.pageCamel);
+		systemDynamicFile.deleteCodeChunkFromCodeArea('linkPageComponentLines', this.data.pageCamel);
+		systemDynamicFile.deleteCodeChunkFromCodeArea('routePageComponentLines', this.data.pageCamel);
 		systemDynamicFile.save();
 	}
 
