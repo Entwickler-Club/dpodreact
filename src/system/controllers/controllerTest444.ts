@@ -2,14 +2,14 @@
 import Controller from './controller';
 import fs from 'fs';
 
-class Controller@@pagePascal extends Controller {
+class ControllerTest444 extends Controller {
 
 	constructor(request: any, response: any) {
 		super(request, response);
 	}
 
 	action_loadPageData() {
-		fs.readFile('./src/system/data/json/pageData_@@pageCamel.json', 'utf-8', (err: any, res: any) => {
+		fs.readFile('./src/system/data/json/pageData_test444.json', 'utf-8', (err: any, res: any) => {
 			const data = JSON.parse(res);
 			this.response.send({
 				pageDataFromJson: data
@@ -19,4 +19,4 @@ class Controller@@pagePascal extends Controller {
 
 }
 
-export default Controller@@pagePascal;
+export default ControllerTest444;

@@ -17,6 +17,7 @@ import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 import PageTest111 from './PageTest111';// ::test111
 import PageTest222 from './PageTest222';// ::test222
 import PageTest333 from './PageTest333';// ::test333
+import PageTest444 from './PageTest444';// ::test444
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -61,6 +62,7 @@ function Site() {
 <span><Link to='/test111'>Test 111</Link></span>{/* ::test111 */}
 <span><Link to='/test222'>Test 222</Link></span>{/* ::test222 */}
 <span><Link to='/test333'>Test 333</Link></span>{/* ::test333 */}
+<span><Link to='/test444'>Test 444</Link></span>{/* ::test444 */}
 						</>
 					)}
 				</nav>
@@ -82,6 +84,7 @@ function Site() {
 <Route path='/test111'><PageTest111 /></Route>{/* ::test111 */}
 <Route path='/test222'><PageTest222 /></Route>{/* ::test222 */}
 <Route path='/test333'><PageTest333 /></Route>{/* ::test333 */}
+<Route path='/test444'><PageTest444 /></Route>{/* ::test444 */}
 					</Switch>
 				</section>
 			</div>
