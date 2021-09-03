@@ -1,5 +1,7 @@
-- .. create page: make controller entries in controller factory
+- .. make test444 read from controller
 
+
+- make 444 changes dynamic
 
 
 - delete page: delete controller entries
