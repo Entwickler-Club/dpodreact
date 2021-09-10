@@ -66,7 +66,7 @@ function PageCreatePage() {
 				<div className="field dataType_line">
 					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
 					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
-					<div className="example">e.g. <code>Quarterly Reports</code> or <code>Showcase: Map and Set</code></div>
+					<div className="example">e.g. <code>Quarterly Reports</code></div>
 				</div>
 				<div className="field dataType_choice field_dataType_choice_radioButtons">
 					<fieldset>
@@ -75,7 +75,7 @@ function PageCreatePage() {
 							<label>
 								<input type="radio" className="radioControl" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 								<span className="title">page with SASS file</span>
-								<span className="description">for simple pages that need no backend controller, don't load data from the backend, or that fetch data via the front end</span>
+								<span className="description">for simple pages that need no backend controller, don't load data from the backend, or that fetch data via the frontend</span>
 							</label>
 						</div>
 						<div className="radioChoice">
