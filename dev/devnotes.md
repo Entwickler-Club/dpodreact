@@ -24,6 +24,8 @@
 
 
 ===========================
+- future todos
+	- put code for api news in environment, and add instructions how to get one
 - future features
 	- API Displayer
 		- input API and it will be displayed on page
