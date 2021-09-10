@@ -1,4 +1,4 @@
-$rowBorderColor: #bbb;
+$fieldBorderColor: #bbb;
 
 .page_createPage {
 	form {
@@ -12,12 +12,12 @@ $rowBorderColor: #bbb;
 			cursor:pointer;
 			code {
 				font-family: 'Courier New', Courier, monospace;
-				color: brown;
+				color: bfieldn;
 			}
 		}
-		div.row {
+		div.field {
 			margin: 0 0 20px 0;
-			.rowLabel {
+			.fieldLabel {
 				font-variant: small-caps;
 				font-size: 0.8rem;
 				color: #333;
@@ -34,21 +34,21 @@ $rowBorderColor: #bbb;
 				}
 			}
 			fieldset {
-				border: 1px solid $rowBorderColor;
+				border: 1px solid $fieldBorderColor;
 				margin-left: 5px;
 				padding: 5px;
 				font-size: 0.9rem;
 			}
 		}
 		div.dataType_line {
-			.rowLabel {
+			.fieldLabel {
 				display: block;
 				margin-bottom: 5px;
 			}
 			input {
 				width: 490px; // TODO: calculate
 				margin: 0 0 0 5px;
-				border: 1px solid $rowBorderColor;
+				border: 1px solid $fieldBorderColor;
 				font-size: 1rem;
 			}
 		}

@@ -63,13 +63,13 @@ function PageCreatePage() {
 				{message !== '' && (
 					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
 				)}
-				<div className="row dataType_line">
+				<div className="field dataType_line">
 					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
 					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
 				</div>
-				<div className="row">
+				<div className="field">
 					<fieldset>
-						<legend className="rowLabel">Kind of Page</legend>
+						<legend className="fieldLabel">Kind of Page</legend>
 						<div className="radioChoice">
 							<label>
 								<input type="radio" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
