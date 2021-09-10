@@ -64,28 +64,31 @@ function PageCreatePage() {
 					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
 				)}
 				<div className="field dataType_line">
-					<label htmlFor="pageTitle" className="rowLabel">Page Title</label>
+					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
 					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
 				</div>
-				<div className="field">
+				<div className="field dataType_choice field_dataType_choice_radioButtons">
 					<fieldset>
 						<legend className="fieldLabel">Kind of Page</legend>
 						<div className="radioChoice">
 							<label>
-								<input type="radio" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
-								page with SASS file
+								<input type="radio" className="radioControl" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
+								<span className="title">page with SASS file</span>
+								<span className="description">for simple pages that have no backend data or when you fetch data from the front end</span>
 							</label>
 						</div>
 						<div className="radioChoice">
 							<label>
-								<input type="radio" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
-								page with SASS file and controller
+								<input type="radio" className="radioControl" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
+								<span className="title">page with SASS file and controller</span>
+								<span className="description">nnn</span>
 							</label>
 						</div>
 						<div className="radioChoice">
 							<label>
-								<input type="radio" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
-								page with SASS file, controller and JSON file
+								<input type="radio" className="radioControl" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
+								<span className="title">page with SASS file, controller and JSON file</span>
+								<span className="description">nnn</span>
 							</label>
 						</div>
 					</fieldset>

@@ -9,9 +9,9 @@ $fieldBorderColor: #bbb;
 			margin: 0 0 10px 0;
 			border: 1px solid rgb(212, 195, 40);
 			border-radius: 5px;
-			cursor:pointer;
+			cursor: pointer;
 			code {
-				font-family: 'Courier New', Courier, monospace;
+				font-family: "Courier New", Courier, monospace;
 				color: bfieldn;
 			}
 		}
@@ -29,8 +29,25 @@ $fieldBorderColor: #bbb;
 
 			div.radioChoice {
 				margin: 0 0 8px 0;
+				display: flex;
+				align-items: flex-start;
+				.radioControl {
+					margin: 0 10px 0 0;
+				}
 				label {
-				cursor: pointer;
+					cursor: pointer;
+					margin: 1px 0 0 4px;
+					text-indent: -20px;
+					line-height: 1.4rem;
+					.title {
+						font-weight: bold;
+					}
+					.description {
+						font-style: italic;
+						&::before {
+							content: " - ";
+						}
+					}
 				}
 			}
 			fieldset {
@@ -39,6 +56,9 @@ $fieldBorderColor: #bbb;
 				padding: 5px;
 				font-size: 0.9rem;
 			}
+		}
+		.field_dataType_choice_radioButtons fieldset {
+			padding: 10px 30px 10px 30px !important;
 		}
 		div.dataType_line {
 			.fieldLabel {
