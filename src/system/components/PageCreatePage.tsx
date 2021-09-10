@@ -74,21 +74,21 @@ function PageCreatePage() {
 							<label>
 								<input type="radio" className="radioControl" checked={pageKindIdCode === 'pageWithSassFile'} value="pageWithSassFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 								<span className="title">page with SASS file</span>
-								<span className="description">for simple pages that have no backend data or when you fetch data from the front end</span>
+								<span className="description">for simple pages that need no backend controller, don't load data from the backend, or that fetch data via the front end</span>
 							</label>
 						</div>
 						<div className="radioChoice">
 							<label>
 								<input type="radio" className="radioControl" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 								<span className="title">page with SASS file and controller</span>
-								<span className="description">nnn</span>
+								<span className="description">for pages for which you need a backend controller to get data from your local system (for a local website app) or if you need to access a local database, etc.</span>
 							</label>
 						</div>
 						<div className="radioChoice">
 							<label>
 								<input type="radio" className="radioControl" value="pageWithSassFileControllerAndJsonFile" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 								<span className="title">page with SASS file, controller and JSON file</span>
-								<span className="description">nnn</span>
+								<span className="description">for a page that will get its data from a local JSON file, good for local website apps where you modify the content of a JSON file which is then displayed on the page, or perhaps a JSON file that is exported from a database table, etc.</span>
 							</label>
 						</div>
 					</fieldset>
