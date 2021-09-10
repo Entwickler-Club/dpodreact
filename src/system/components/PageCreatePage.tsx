@@ -58,14 +58,15 @@ function PageCreatePage() {
 	return (
 		<div className="page page_createPage">
 			<h2 className="title">Create Page</h2>
-			<p className="description">This page creates a fully functioning page for this website.</p>
-			<form>
+			<p className="description">Easily add a fully functioning page to this website</p>
+			<form className="dpodFormGeneric">
 				{message !== '' && (
 					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
 				)}
 				<div className="field dataType_line">
 					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
 					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
+					<div className="example">e.g. <code>Quarterly Reports</code> or <code>Showcase: Map and Set</code></div>
 				</div>
 				<div className="field dataType_choice field_dataType_choice_radioButtons">
 					<fieldset>
@@ -81,7 +82,7 @@ function PageCreatePage() {
 							<label>
 								<input type="radio" className="radioControl" value="pageWithSassFileAndController" name="pageKindIdCode" onChange={e => onPageKindIdCodeChange(e)} />
 								<span className="title">page with SASS file and controller</span>
-								<span className="description">for pages for which you need a backend controller to get data from your local system (for a local website app) or if you need to access a local database, etc.</span>
+								<span className="description">for pages for which you need a backend controller, e.g. to get data from your local system (for a local website app) or if you need to access a local database, etc.</span>
 							</label>
 						</div>
 						<div className="radioChoice">
@@ -93,10 +94,8 @@ function PageCreatePage() {
 						</div>
 					</fieldset>
 				</div>
-				<div className="row">
-					<div className="row">
+				<div className="buttonArea">
 						<button className="submitButton" onClick={e => createPage(e)}>Create Page</button>
-					</div>
 				</div>
 			</form>
 		</div>

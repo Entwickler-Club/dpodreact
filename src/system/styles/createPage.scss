@@ -1,8 +1,19 @@
 $fieldBorderColor: #bbb;
 
 .page_createPage {
-	form {
+	form.dpodFormGeneric {
 		width: 500px;
+		.example {
+			font-size: 0.8rem;
+			color: rgb(179, 84, 84);
+			margin: 3px 0 0 8px;
+		}
+		code {
+			font-family: 'Courier New', Courier, monospace;
+			background-color: #eee;
+			color: brown;
+			font-weight: bold;
+		}
 		div.message {
 			background-color: rgb(255, 242, 126);
 			padding: 10px;
@@ -55,6 +66,14 @@ $fieldBorderColor: #bbb;
 				margin-left: 5px;
 				padding: 5px;
 				font-size: 0.9rem;
+				position: relative;
+				legend {
+					position: absolute;
+					top: -8px;
+					left: 5px;
+					background-color: white;
+					padding: 0 5px !important;
+				}
 			}
 		}
 		.field_dataType_choice_radioButtons fieldset {
@@ -70,6 +89,13 @@ $fieldBorderColor: #bbb;
 				margin: 0 0 0 5px;
 				border: 1px solid $fieldBorderColor;
 				font-size: 1rem;
+			}
+		}
+		.buttonArea {
+			padding: 0 0 0 5px;
+			.submitButton {
+				font-size: .9rem;
+				padding: 4px;
 			}
 		}
 	}
