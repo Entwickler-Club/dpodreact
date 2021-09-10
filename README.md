@@ -1,6 +1,6 @@
 # Datapod for React
 
-This is a framework build on top of create-react-app which enables you to quickly build data-driven sites.
+This is a framework which extends create-react-app to enables you to quickly build data-driven sites.
 
 ## Setup
 
