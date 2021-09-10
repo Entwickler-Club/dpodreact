@@ -14,6 +14,9 @@ This is a framework build on top of create-react-app which enables you to quickl
 ## Current Features
 
 - You can immediately create and delete pages with the Create Page and Delete Page menu items.
+
+![grafik](https://user-images.githubusercontent.com/446574/132846921-1add6434-33bc-4e78-a1d1-f17c9987a808.png)
+
 - View the showcase pages to see various examples features that can be built into the site.
 - You can create three different types of pages.
 
