@@ -1,25 +1,20 @@
 - delete page: 
-     - .. make dummy dropdown, style it
-
-
-				<div className="field dataType_line">
-					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
-					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
-					<div className="example">e.g. <code>Quarterly Reports</code></div>
-				</div>
-
-
-
-
-        - make scss for form: form.dpodFormGeneric
     - build dpod.getPageItems()
-        - 
-	- delete controller entries
+        - use data from this to fill dropdown in delete page
+- move all controller code from server.js to controllers
 
-	
+
+
+
+
+
+
+
+
+
+
+
 - finish #2 with controller and
-
-
     - .. page with SASS file and controller
         - create page with SASS file as
     - page with SASS file, controller, and JSON data file
