@@ -31,12 +31,6 @@ function PageDeletePage() {
 		<div className="page page_deletePage">
 			<h2 className="title">Delete Page</h2>
 			<p className="description">This page deletes a page from this website.</p>
-			<form>
-				<label htmlFor="pageTitle">Page to delete: </label>
-				<input className="pageTitle" type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
-				<button className="submitButton" type="button" onClick={() => deletePage()}>Submit</button>
-			</form>
-
 			<form className="dpodFormGeneric">
 				{message !== '' && (
 					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
@@ -47,7 +41,7 @@ function PageDeletePage() {
 					<div className="example">e.g. <code>Quarterly Reports</code></div>
 				</div>
 				<div className="buttonArea">
-						<button className="submitButton" onClick={e => deletePage()}>Create Page</button>
+						<button className="submitButton" onClick={e => deletePage()}>Delete Page</button>
 				</div>
 			</form>
 		</div>
