@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import '../styles/deletePage.scss';
+import '../styles/dpodFormGeneric.scss';
 import * as config from '../config';
 
 const backendPort = config.getBackendPort();
 
 function PageDeletePage() {
+	const [message, setMessage] = useState('');
 	const [pageTitle, setPageTitle] = useState('');
 	const deletePage = () => {
 		setPageTitle('');
@@ -21,14 +23,26 @@ function PageDeletePage() {
 		setPageTitle(event.target.value);
 	}
 
+	const closeMessage = () => {
+		setMessage('');
+	}
+
 	return (
 		<div className="page page_deletePage">
 			<h2 className="title">Delete Page</h2>
 			<p className="description">This page deletes a page from this website.</p>
-			<form>
-				<label htmlFor="pageTitle">Page to delete: </label>
-				<input className="pageTitle" type="text" value={pageTitle} onChange={onPageTitleChange} id="pageTitle" />
-				<button className="submitButton" type="button" onClick={() => deletePage()}>Submit</button>
+			<form className="dpodFormGeneric">
+				{message !== '' && (
+					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
+				)}
+				<div className="field dataType_line">
+					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
+					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
+					<div className="example">e.g. <code>Quarterly Reports</code></div>
+				</div>
+				<div className="buttonArea">
+						<button className="submitButton" onClick={e => deletePage()}>Delete Page</button>
+				</div>
 			</form>
 		</div>
 	)
