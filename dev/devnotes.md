@@ -1,11 +1,10 @@
 - delete page: 
-	- branch
-    - nice format from create page
+    - .. nice format from create page
         - make dummy dropdown, style it
+        - make scss for form: form.dpodFormGeneric
     - build dpod.getPageItems()
         - 
 	- delete controller entries
-
 
 	
 - finish #2 with controller and

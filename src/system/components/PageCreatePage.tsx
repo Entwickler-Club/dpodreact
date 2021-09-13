@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/createPage.scss';
+import '../styles/dpodFormGeneric.scss';
 import * as config from '../config';
 import * as qstr from '../qtools/qstr';
 
@@ -9,12 +10,6 @@ function PageCreatePage() {
 	const [pageTitle, setPageTitle] = useState('');
 	const [message, setMessage] = useState('');
 	const [pageKindIdCode, setPageKindIdCode] = useState('pageWithSassFile');
-
-	// useEffect(() => {
-	// 	console.log('in effect');
-	// 	setPageTitle('pageWithSassFile');
-	// }, []);
-
 
 	const createPage = (e: any) => {
 		e.preventDefault();
@@ -41,7 +36,6 @@ function PageCreatePage() {
 
 		}
 	}
-
 
 	const onPageTitleChange = (e: any) => {
 		setPageTitle(e.target.value);
