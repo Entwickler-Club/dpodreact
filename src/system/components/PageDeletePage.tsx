@@ -20,6 +20,7 @@ function PageDeletePage() {
 	}
 
 	const onPageTitleChange = (event: any) => {
+		console.log(event.target.value);
 		setPageTitle(event.target.value);
 	}
 
@@ -37,7 +38,7 @@ function PageDeletePage() {
 				)}
 				<div className="field dataType_choice field_dataType_choice_dropdown">
 					<label htmlFor="pageTitle" className="fieldLabel">Page to Delete</label>
-					<select>
+					<select onChange={e => onPageTitleChange(e)}>
 						<option value="test111">Test 111</option>
 						<option value="test222">Test 222</option>
 						<option value="test333">Test 333</option>
