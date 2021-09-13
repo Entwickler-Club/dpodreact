@@ -9,7 +9,7 @@ function PageDeletePage() {
 	const [message, setMessage] = useState('');
 	const [pageTitle, setPageTitle] = useState('');
 	const deletePage = () => {
-		setPageTitle('');
+		console.log('about to delete ' + pageTitle);
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -20,7 +20,6 @@ function PageDeletePage() {
 	}
 
 	const onPageTitleChange = (event: any) => {
-		console.log(event.target.value);
 		setPageTitle(event.target.value);
 	}
 
@@ -45,7 +44,7 @@ function PageDeletePage() {
 					</select>
 				</div>
 				<div className="buttonArea">
-					<button className="submitButton" onClick={e => deletePage()}>Delete Page</button>
+					<button className="submitButton" type="button" onClick={e => deletePage()}>Delete Page</button>
 				</div>
 			</form>
 		</div>
