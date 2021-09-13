@@ -1,6 +1,9 @@
-- .. create texts for create page
 - delete page: 
-	- nice format from create page
+	- branch
+    - nice format from create page
+        - make dummy dropdown, style it
+    - build dpod.getPageItems()
+        - 
 	- delete controller entries
 
 
