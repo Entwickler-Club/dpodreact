@@ -1,6 +1,16 @@
 - delete page: 
-    - .. nice format from create page
-        - make dummy dropdown, style it
+     - .. make dummy dropdown, style it
+
+
+				<div className="field dataType_line">
+					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
+					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
+					<div className="example">e.g. <code>Quarterly Reports</code></div>
+				</div>
+
+
+
+
         - make scss for form: form.dpodFormGeneric
     - build dpod.getPageItems()
         - 

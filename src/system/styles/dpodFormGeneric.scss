@@ -33,9 +33,6 @@ form.dpodFormGeneric {
             color: #333;
             margin-left: 5px;
         }
-        .submitButton {
-            margin: 0 0 0 8px;
-        }
 
         div.radioChoice {
             margin: 0 0 8px 0;
@@ -77,6 +74,18 @@ form.dpodFormGeneric {
     }
     .field_dataType_choice_radioButtons fieldset {
         padding: 10px 30px 10px 30px !important;
+    }
+    div.field_dataType_choice_dropdown {
+        .fieldLabel {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select {
+            // width: 490px; // TODO: calculate
+            margin: 0 0 0 5px;
+            border: 1px solid $fieldBorderColor;
+            font-size: 1rem;
+        }
     }
     div.dataType_line {
         .fieldLabel {
