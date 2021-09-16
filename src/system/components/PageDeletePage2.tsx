@@ -15,7 +15,7 @@ function PageDeletePage2() {
 
 	return (
 		<div className="page page_deletePage2">
-			<h2 className="title">Delete Page2</h2>
+			{/* <h2 className="title">Delete Page2</h2>
 			<p className="description">This page deletes a page from this website.</p>
 			<form className="dpodFormGeneric">
 				{message !== '' && (
@@ -32,7 +32,7 @@ function PageDeletePage2() {
 				<div className="buttonArea">
 					<button className="submitButton" type="button" onClick={e => deletePage()}>Delete Page</button>
 				</div>
-			</form>
+			</form> */}
 		</div>
 	)
 }
