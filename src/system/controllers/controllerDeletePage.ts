@@ -18,8 +18,8 @@ class ControllerDeletePage extends Controller {
 				title: 'Test 222'
 			},
 			{
-				idCode: 'createPage',
-				title: 'Create Page'
+				idCode: 'showcaseNewsApi',
+				title: 'Showcase News API'
 			}
 		];
 	}
@@ -33,7 +33,6 @@ class ControllerDeletePage extends Controller {
 
 	action_deletePage() {
 		const { deletePageIdCode } = this.requestData;
-		const deletePageTitle = this.pageItems.find(m => m.idCode === deletePageIdCode).title; 
 		const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
 		dpodSiteBuilder.deletePage();
 		this.response.send({
