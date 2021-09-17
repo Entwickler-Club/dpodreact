@@ -3,7 +3,7 @@ import * as qstr from '../qtools/qstr';
 const backendPort = config.getBackendPort();
 
 class PageManager {
-	
+
 	private pageIdCode = '';
 	private pageIdCodePascal = '';
 	private backendBaseUrlPath = '';
@@ -32,6 +32,13 @@ class PageManager {
 				.then((responseData: any) => {
 					resolve(responseData);
 				});
+		});
+	}
+
+	async loadPageData(additionalData = {}): Promise<any> {
+		return new Promise(resolve => {
+			const responseData = this.callAction('loadPageData', additionalData);
+			resolve(responseData);
 		});
 	}
 }
