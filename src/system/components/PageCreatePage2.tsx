@@ -35,7 +35,7 @@ function PageCreatePage2() {
 			if (data.info.error) {
 				setMessage(data.info.error);
 			} else {
-				setMessage(message);
+				setMessage(data.message);
 			}
 		});
 	}
