@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import Controller from './controller';
+import * as qstr from '../qtools/qstr';
 
 class ControllerDeletePage2 extends Controller {
 
@@ -10,16 +11,17 @@ class ControllerDeletePage2 extends Controller {
 
 	action_loadPageData() {
 		this.response.send({
-			message: 'in loadPageData action'
+			message: ''
 		});
 	}
 
 	action_deletePage() {
 		const { deletePageIdCode } = this.requestData;
+		const deletePageTitle = qstr.forceTitleNotation(deletePageIdCode);
 		const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
 		dpodSiteBuilder.deletePage(deletePageIdCode);
 		this.response.send({
-			message: `in deletePage action, will delete page ${deletePageIdCode}`
+			message: `Deleted page ${deletePageTitle}.`
 		});
 	}
 

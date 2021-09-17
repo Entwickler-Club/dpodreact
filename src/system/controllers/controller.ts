@@ -10,7 +10,6 @@ class Controller {
 		this.request = request;
 		this.response = response;
 		this.requestData = this.request.body;
-		console.log(this.requestData);
 		this.action = this.requestData.action;
 		this.actionMethodName = 'action_' + this.action;
 	}
