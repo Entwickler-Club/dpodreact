@@ -10,12 +10,15 @@ function Page@@pagePascal() {
 	const [config, setConfig] = useState<any>({});
 	const pm = new PageManager(pageIdCode);
 
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setMessage(data.pageDataFromJson.message); 
+		setReports(data.pageDataFromJson.reports);
+		setConfig(data.pageDataFromJson.config);
+	}
+
 	useEffect(() => {
-		pm.callAction('loadPageData').then((data: any) => {
-			setMessage(data.pageDataFromJson.message); 
-			setReports(data.pageDataFromJson.reports);
-			setConfig(data.pageDataFromJson.config);
-		});
+		loadPageData();
 	}, []);
 	
 	return (
