@@ -20,7 +20,7 @@ function PageShowcaseJsonReadWrite() {
 		loadPageData();
 	}, []);
 
-	const saveData = () => {
+	const saveData = async () => {
 		setRecords([...records.map((m: any) => {
 			if (m.id === 10) {
 				m.menu = 'CHANGED';
@@ -29,13 +29,10 @@ function PageShowcaseJsonReadWrite() {
 			return m;
 		})]);
 
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ records, action: 'saveRecords' })
-		};
-		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, requestOptions)
-			.then(response => response.json());
+		const data = await pm.callAction('saveRecords', { records });
+		if (!data.success) {
+			throw new Error('fetch failed');
+		}
 	}
 
 	return (
