@@ -32,16 +32,15 @@ function PageCreatePage() {
 		setCreatePageKindIdCode(e.target.value);
 	}
 
-	const createPage = (e: any) => {
+	const createPage = async (e: any) => {
 		e.preventDefault();
-		pm.callAction('createPage', { createPageTitle, createPageKindIdCode }).then(data => {
-			if (data.info.error) {
-				setMessage(data.info.error);
-			} else {
-				setMessage(data.message);
-			}
-		});
-		setCreatePageTitle('');
+		const data = await pm.callAction('createPage', { createPageTitle, createPageKindIdCode });
+		setMessage(data.message);
+		if (data.info.error) {
+			setMessage(data.info.error);
+		} else {
+			setMessage(data.message);
+		}
 	}
 
 	return (
