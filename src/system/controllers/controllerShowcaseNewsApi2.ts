@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
+const NewsAPI = require('newsapi');
 
 class ControllerShowcaseNewsApi2 extends Controller {
 
@@ -8,11 +9,13 @@ class ControllerShowcaseNewsApi2 extends Controller {
 	}
 
 	action_loadPageData() {
-        this.response.send({
-           message: 'Welcome to this page.' 
-        });
+		const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
+		newsapi.v2.topHeadlines({
+			language: 'de'
+		}).then((data: any) => {
+			this.response.send({ ...data });
+		});
 	}
-
 }
 
 export default ControllerShowcaseNewsApi2;
