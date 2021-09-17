@@ -22,7 +22,7 @@ class ControllerDeletePage2 extends Controller {
 				idCode: 'deletePage3',
 				title: 'Delete Page 3'
 			}
-		]
+		];
 	}
 
 	action_loadPageData() {
@@ -34,11 +34,11 @@ class ControllerDeletePage2 extends Controller {
 
 	action_deletePage() {
 		const { deletePageIdCode } = this.requestData;
-		const deletePageTitle = qstr.forceTitleNotation(deletePageIdCode);
-		// const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
-		// dpodSiteBuilder.deletePage();
+		const deletePageTitle = this.pageItems.find(m => m.idCode === deletePageIdCode).title; 
+		const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
+		dpodSiteBuilder.deletePage();
 		this.response.send({
-			message: `Deleted page ${deletePageTitle}.`
+			message: `Deleted page: ${deletePageTitle}`
 		});
 	}
 
