@@ -2,7 +2,7 @@
 import Controller from './controller';
 const NewsAPI = require('newsapi');
 
-class ControllerShowcaseNewsApi2 extends Controller {
+class ControllerShowcaseNewsApi extends Controller {
 
 	constructor(request: any, response: any) {
 		super(request, response);
@@ -18,4 +18,4 @@ class ControllerShowcaseNewsApi2 extends Controller {
 	}
 }
 
-export default ControllerShowcaseNewsApi2;
+export default ControllerShowcaseNewsApi;

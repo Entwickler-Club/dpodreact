@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/showcaseNewsApi2.scss';
+import '../styles/showcaseNewsApi.scss';
 import PageManager from '../classes/pageManager';
 import Loader from "react-loader-spinner";
 
-function PageShowcaseNewsApi2() {
-	const pageIdCode = 'showcaseNewsApi2';
+function PageShowcaseNewsApi() {
+	const pageIdCode = 'showcaseNewsApi';
 	const [articles, setArticles] = useState([{}]);
 	const pm = new PageManager(pageIdCode);
 
@@ -24,7 +24,7 @@ function PageShowcaseNewsApi2() {
 	}
 
 	return (
-		<div className="page page_showcaseNewsApi2">
+		<div className="page page_showcaseNewsApi">
 			<h2 className="title">Showcase: News API</h2>
 			<p className="description">This page that displays news from the News API.</p>
 			<div className="articleArea">
@@ -51,4 +51,4 @@ function PageShowcaseNewsApi2() {
 	)
 }
 
-export default PageShowcaseNewsApi2;
+export default PageShowcaseNewsApi;
