@@ -1,3 +1,4 @@
+- .. fix create page for second two
 - .. move all controller code from server.js to controllers
 	- .. create page
 	- news page

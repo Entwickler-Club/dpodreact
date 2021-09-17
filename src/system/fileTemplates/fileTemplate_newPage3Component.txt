@@ -4,19 +4,19 @@ import '../styles/@@pageCamel.scss';
 import PageManager from '../classes/pageManager';
 
 function Page@@pagePascal() {
-	
+	const pageIdCode = '@@pageCamel';
 	const [message, setMessage] = useState('');
 	const [reports, setReports] = useState([]);
 	const [config, setConfig] = useState<any>({});
-	
+
 	useEffect(() => {
-		PageManager.loadDataFromController('@@pageCamel').then(data => {
+		pm.callAction('loadPageData').then((data: any) => {
 			setMessage(data.pageDataFromJson.message); 
 			setReports(data.pageDataFromJson.reports);
 			setConfig(data.pageDataFromJson.config);
-			});
+		});
 	}, []);
-
+	
 	return (
 		<div className="page page_@@pageCamel">
 			<h2 className="title">@@pageTitle</h2>

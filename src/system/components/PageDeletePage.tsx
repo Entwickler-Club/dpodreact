@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 import '../styles/deletePage.scss';
 import PageManager from '../classes/pageManager';
 
-const pageIdCode = 'deletePage';
-
 function PageDeletePage() {
+	const pageIdCode = 'deletePage';
 	const [message, setMessage] = useState('');
 	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
 	const [pageItems, setPageItems] = useState<any[]>([]);
