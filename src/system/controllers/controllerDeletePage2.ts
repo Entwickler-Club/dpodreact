@@ -14,8 +14,9 @@ class ControllerDeletePage2 extends Controller {
 	}
 
 	action_deletePage() {
+		const { deletePageIdCode } = this.requestData;
         this.response.send({
-           message: 'in deletePage action' 
+           message: `in deletePage action, will delete page ${deletePageIdCode}` 
         });
 	}
 

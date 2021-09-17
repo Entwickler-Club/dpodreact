@@ -10,7 +10,6 @@ function PageDeletePage2() {
 	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
 	const pm = new PageManager(pageIdCode);
 
-
 	useEffect(() => {
 		pm.callAction('loadPageData').then(data => {
 			setMessage(data.message);
