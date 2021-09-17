@@ -8,6 +8,7 @@ function Page@@pagePascal() {
 	const [message, setMessage] = useState('');
 	const [reports, setReports] = useState([]);
 	const [config, setConfig] = useState<any>({});
+	const pm = new PageManager(pageIdCode);
 
 	useEffect(() => {
 		pm.callAction('loadPageData').then((data: any) => {

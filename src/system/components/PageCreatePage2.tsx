@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/@@pageCamel.scss';
+import '../styles/createPage2.scss';
 import PageManager from '../classes/pageManager';
 
-function Page@@pagePascal() {
-	const pageIdCode = '@@pageCamel';
+function PageCreatePage2() {
+	const pageIdCode = 'createPage2';
 	const [message, setMessage] = useState('');
 	const pm = new PageManager(pageIdCode);
 	
@@ -15,12 +15,12 @@ function Page@@pagePascal() {
 	}, []);
 
 	return (
-		<div className="page page_@@pageCamel">
-			<h2 className="title">@@pageTitle</h2>
-			<p className="description">An info page that displays @@pageText.</p>	
+		<div className="page page_createPage2">
+			<h2 className="title">Create Page2</h2>
+			<p className="description">An info page that displays create page2.</p>	
 			<p className="message">{message}</p>
 		</div>
 	)
 }
 
-export default Page@@pagePascal;
+export default PageCreatePage2;

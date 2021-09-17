@@ -8,7 +8,6 @@ function PageDeletePage() {
 	const [message, setMessage] = useState('');
 	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
 	const [pageItems, setPageItems] = useState<any[]>([]);
-
 	const pm = new PageManager(pageIdCode);
 
 	useEffect(() => {
