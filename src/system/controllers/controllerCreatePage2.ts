@@ -15,6 +15,7 @@ class ControllerCreatePage2 extends Controller {
 	}
 
 	action_createPage() {
+		console.log('here')
 		const { createPageTitle, createPageKindIdCode } = this.requestData;
 		const dpodSiteBuilder = new DpodSiteBuilder(createPageTitle, createPageKindIdCode);
 		dpodSiteBuilder.createPage();

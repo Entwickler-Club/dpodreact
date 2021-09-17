@@ -29,7 +29,8 @@ function PageCreatePage2() {
 		setCreatePageKindIdCode(e.target.value);
 	}
 
-	const createPage = () => {
+	const createPage = (e:any) => {
+		e.preventDefault();
 		pm.callAction('createPage', { createPageTitle, createPageKindIdCode }).then(data => {
 			if (data.info.error) {
 				setMessage(data.info.error);
@@ -77,7 +78,7 @@ function PageCreatePage2() {
 					</fieldset>
 				</div>
 				<div className="buttonArea">
-					<button className="submitButton" onClick={() => createPage}>Create Page</button>
+					<button className="submitButton" onClick={createPage}>Create Page</button>
 				</div>
 			</form>
 		</div>
