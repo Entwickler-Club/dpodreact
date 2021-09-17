@@ -1,6 +1,5 @@
 import DpodSiteBuilder from '../src/system/classes/dpodSiteBuilder';
 import * as config from '../src/system/config';
-import fs from 'fs';
 import * as qstr from '../src/system/qtools/qstr';
 import { instantiate } from '../src/system/factories/controllerFactory';
 
@@ -44,16 +43,6 @@ app.post('/createPage', (req: any, res: any) => {
 		success: true,
 		pageTitle,
 		info: dpodSiteBuilder.getInfo()
-	});
-});
-
-app.post('/deletePage', (req: any, res: any) => {
-	const { pageTitle } = req.body;
-	const dpodSiteBuilder = new DpodSiteBuilder(pageTitle);
-	dpodSiteBuilder.deletePage(pageTitle);
-	res.status(204).json({
-		success: true,
-		pageTitle
 	});
 });
 
