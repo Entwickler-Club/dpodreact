@@ -4,18 +4,37 @@ import '../styles/deletePage2.scss';
 import PageManager from '../classes/pageManager';
 
 function PageDeletePage2() {
-	
 	const [message, setMessage] = useState('');
-	
+	const [pageIdCode, setPageIdCode] = useState('');
+	const pageManager = new PageManager(pageIdCode);
+
 	useEffect(() => {
-		PageManager.loadDataFromController('deletePage2').then(data => {
+		pageManager.loadDataFromController('deletePage2').then(data => {
 			setMessage(data.message);
-			});
+		});
 	}, []);
+
+	const deletePage = () => {
+		const requestOptions = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ pageIdCode })
+		};
+		fetch(`${pageManager.getBackendBaseUrlPath()}deletePage`, requestOptions)
+			.then(response => response.json());
+	}
+
+	const onPageIdCodeChange = (event: any) => {
+		setPageIdCode(event.target.value);
+	}
+
+	const closeMessage = () => {
+		setMessage('');
+	}
 
 	return (
 		<div className="page page_deletePage2">
-			{/* <h2 className="title">Delete Page2</h2>
+			<h2 className="title">Delete Page2</h2>
 			<p className="description">This page deletes a page from this website.</p>
 			<form className="dpodFormGeneric">
 				{message !== '' && (
@@ -23,7 +42,7 @@ function PageDeletePage2() {
 				)}
 				<div className="field dataType_choice field_dataType_choice_dropdown">
 					<label htmlFor="pageTitle" className="fieldLabel">Page to Delete</label>
-					<select onChange={e => onPageTitleChange(e)}>
+					<select onChange={e => onPageIdCodeChange(e)}>
 						<option value="test111">Test 111</option>
 						<option value="test222">Test 222</option>
 						<option value="test333">Test 333</option>
@@ -32,7 +51,7 @@ function PageDeletePage2() {
 				<div className="buttonArea">
 					<button className="submitButton" type="button" onClick={e => deletePage()}>Delete Page</button>
 				</div>
-			</form> */}
+			</form>
 		</div>
 	)
 }

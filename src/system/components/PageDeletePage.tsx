@@ -9,7 +9,6 @@ function PageDeletePage() {
 	const [message, setMessage] = useState('');
 	const [pageTitle, setPageTitle] = useState('');
 	const deletePage = () => {
-		console.log('about to delete ' + pageTitle);
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
