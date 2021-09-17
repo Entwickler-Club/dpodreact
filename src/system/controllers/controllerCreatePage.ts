@@ -2,7 +2,7 @@
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import Controller from './controller';
 
-class ControllerCreatePage2 extends Controller {
+class ControllerCreatePage extends Controller {
 
 	constructor(request: any, response: any) {
 		super(request, response);
@@ -26,4 +26,4 @@ class ControllerCreatePage2 extends Controller {
 	}
 }
 
-export default ControllerCreatePage2;
+export default ControllerCreatePage;

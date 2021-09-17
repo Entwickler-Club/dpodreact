@@ -13,7 +13,7 @@ import PageShowcaseSqliteReader from './PageShowcaseSqliteReader';// ::showcaseS
 import PageShowcaseJsonReadWrite from './PageShowcaseJsonReadWrite';// ::showcaseJsonReadWrite
 import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 import PageDeletePage from './PageDeletePage';// ::deletePage
-import PageCreatePage2 from './PageCreatePage2';// ::createPage2
+import PageCreatePage from './PageCreatePage';// ::createPage
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -54,7 +54,7 @@ function Site() {
 <span><Link to='/showcaseJsonReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJsonReadWrite */}
 <span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
 <span><Link to='/deletePage'>Delete Page</Link></span>{/* ::deletePage */}
-<span><Link to='/createPage2'>Create Page2</Link></span>{/* ::createPage2 */}
+<span><Link to='/createPage'>Create Page</Link></span>{/* ::createPage */}
 						</>
 					)}
 				</nav>
@@ -72,7 +72,7 @@ function Site() {
 <Route path='/showcaseJsonReadWrite'><PageShowcaseJsonReadWrite /></Route>{/* ::showcaseJsonReadWrite */}
 <Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
 <Route path='/deletePage'><PageDeletePage /></Route>{/* ::deletePage */}
-<Route path='/createPage2'><PageCreatePage2 /></Route>{/* ::createPage2 */}
+<Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
 					</Switch>
 				</section>
 			</div>
@@ -80,4 +80,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;

@@ -3,7 +3,7 @@ import Controller from '../controllers/controller';
 import ControllerShowcaseJsonReadWrite from '../controllers/controllerShowcaseJsonReadWrite'; // ::showcaseJsonReadWrite
 import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSqliteReader'; // ::showcaseSqliteReader
 import ControllerDeletePage from '../controllers/controllerDeletePage';// ::deletePage
-import ControllerCreatePage2 from '../controllers/controllerCreatePage2';// ::createPage2
+import ControllerCreatePage from '../controllers/controllerCreatePage';// ::createPage
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -14,8 +14,8 @@ case 'controllerShowcaseJsonReadWrite': //:showcaseJsonReadWrite// ::
 return new ControllerShowcaseJsonReadWrite(request, response);
 case 'controllerDeletePage':// ::deletePage
 return new ControllerDeletePage(request, response);
-case 'controllerCreatePage2':// ::createPage2
-return new ControllerCreatePage2(request, response);
+case 'controllerCreatePage':// ::createPage
+return new ControllerCreatePage(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

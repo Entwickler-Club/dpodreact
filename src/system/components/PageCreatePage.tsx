@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/createPage2.scss';
+import '../styles/createPage.scss';
 import '../styles/dpodFormGeneric.scss';
 import PageManager from '../classes/pageManager';
 
-function PageCreatePage2() {
-	const pageIdCode = 'createPage2';
+function PageCreatePage() {
+	const pageIdCode = 'createPage';
 	const [createPageTitle, setCreatePageTitle] = useState('');
 	const [createPageKindIdCode, setCreatePageKindIdCode] = useState('pageWithSassFile');
 	const [message, setMessage] = useState('');
@@ -42,8 +42,8 @@ function PageCreatePage2() {
 	}
 
 	return (
-		<div className="page page_createPage2">
-			<h2 className="title">Create Page2</h2>
+		<div className="page page_createPage">
+			<h2 className="title">Create Page</h2>
 			<p className="description">Add a page to this website</p>
 			<form className="dpodFormGeneric">
 				{message !== '' && (
@@ -88,4 +88,4 @@ function PageCreatePage2() {
 	)
 }
 
-export default PageCreatePage2;
+export default PageCreatePage;
