@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import Controller from './controller';
-import * as qstr from '../qtools/qstr';
 
-class ControllerDeletePage2 extends Controller {
+class ControllerDeletePage extends Controller {
 
 	private pageItems: any[] = [];
 
@@ -45,4 +44,4 @@ class ControllerDeletePage2 extends Controller {
 
 }
 
-export default ControllerDeletePage2;
+export default ControllerDeletePage;

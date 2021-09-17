@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/deletePage2.scss';
+import '../styles/deletePage.scss';
 import PageManager from '../classes/pageManager';
 
-const pageIdCode = 'deletePage2';
+const pageIdCode = 'deletePage';
 
-function PageDeletePage2() {
+function PageDeletePage() {
 	const [message, setMessage] = useState('');
 	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
 	const [pageItems, setPageItems] = useState<any[]>([]);
@@ -35,9 +35,9 @@ function PageDeletePage2() {
 	}
 
 	return (
-		<div className="page page_deletePage2">
+		<div className="page page_deletePage">
 			<h2 className="title">Delete Page2</h2>
-			<p className="description">This page deletes a page from this website.</p>
+			<p className="description">Delete a page from this website</p>
 			<form className="dpodFormGeneric">
 				{message !== '' && (
 					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
@@ -60,4 +60,4 @@ function PageDeletePage2() {
 	)
 }
 
-export default PageDeletePage2;
+export default PageDeletePage;

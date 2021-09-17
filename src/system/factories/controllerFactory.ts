@@ -2,7 +2,7 @@ import Controller from '../controllers/controller';
 // DYNAMIC_CODE_AREA: loadClasses
 import ControllerShowcaseJsonReadWrite from '../controllers/controllerShowcaseJsonReadWrite'; // ::showcaseJsonReadWrite
 import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSqliteReader'; // ::showcaseSqliteReader
-import ControllerDeletePage2 from '../controllers/controllerDeletePage2';// ::deletePage2
+import ControllerDeletePage from '../controllers/controllerDeletePage';// ::deletePage
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -11,8 +11,8 @@ export const instantiate = (controllerIdCode: string, request: any, response: an
 // DYNAMIC_CODE_AREA: switchBlock,2
 case 'controllerShowcaseJsonReadWrite': //:showcaseJsonReadWrite// ::
 return new ControllerShowcaseJsonReadWrite(request, response);
-case 'controllerDeletePage2':// ::deletePage2
-return new ControllerDeletePage2(request, response);
+case 'controllerDeletePage':// ::deletePage
+return new ControllerDeletePage(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

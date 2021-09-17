@@ -1,14 +1,11 @@
-- delete page: 
-    - .. get data from backend
-        - .. combine deletePage into deletePage2
-			- .. get deletePge2 to work again
-				- .. make click do something, then put into pageManager
+- .. delete page with backend and dynamic: 
+	- .. rename page2
     - build dpod.getPageItems()
         - use data from this to fill dropdown in delete page
 - move all controller code from server.js to controllers
 
 
-
+- styles with "page"
 
 
 
