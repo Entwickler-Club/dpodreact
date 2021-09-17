@@ -18,7 +18,7 @@ function PageDeletePage2() {
 
 	
 	const deletePage = () => {
-		pageManager.callControllerAction('deletePage').then(data => {
+		pageManager.callControllerAction('deletePage', { test: 999}).then(data => {
 			setMessage(data.message);
 		});
 	}
