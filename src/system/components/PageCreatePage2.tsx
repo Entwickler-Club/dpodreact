@@ -34,6 +34,8 @@ function PageCreatePage2() {
 		pm.callAction('createPage', { createPageTitle, createPageKindIdCode }).then(data => {
 			if (data.info.error) {
 				setMessage(data.info.error);
+			} else {
+				setMessage(message);
 			}
 		});
 	}
