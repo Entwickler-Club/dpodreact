@@ -1,7 +1,6 @@
-- .. fix create page for second two
 - .. move all controller code from server.js to controllers
-	- .. create page
-	- news page
+	- .. news page
+
 - .. delete page with backend and dynamic: 
 	- .. make delete page dynamic
     	- .. build dpod.getPageItems()
