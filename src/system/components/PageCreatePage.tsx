@@ -11,10 +11,13 @@ function PageCreatePage() {
 	const [message, setMessage] = useState('');
 	const pm = new PageManager(pageIdCode);
 
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setMessage(data.message);
+	}
+
 	useEffect(() => {
-		pm.callAction('loadPageData').then((data: any) => {
-			setMessage(data.message);
-		});
+		loadPageData();
 	}, []);
 
 	const closeMessage = () => {
@@ -29,16 +32,15 @@ function PageCreatePage() {
 		setCreatePageKindIdCode(e.target.value);
 	}
 
-	const createPage = (e:any) => {
+	const createPage = async (e: any) => {
 		e.preventDefault();
-		pm.callAction('createPage', { createPageTitle, createPageKindIdCode }).then(data => {
-			if (data.info.error) {
-				setMessage(data.info.error);
-			} else {
-				setMessage(data.message);
-			}
-		});
-		setCreatePageTitle('');
+		const data = await pm.callAction('createPage', { createPageTitle, createPageKindIdCode });
+		setMessage(data.message);
+		if (data.info.error) {
+			setMessage(data.info.error);
+		} else {
+			setMessage(data.message);
+		}
 	}
 
 	return (

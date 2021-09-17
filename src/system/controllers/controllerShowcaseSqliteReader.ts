@@ -3,22 +3,16 @@ import SqliteManager from '../classes/sqliteManager';
 
 class ControllerShowcaseSqliteReader extends Controller {
 
-	constructor(request: any, response: any) {
-		super(request, response);
-	}
-
-	action_loadPageData() {
+	async action_loadPageData() {
 		const sqliteManager = new SqliteManager('./src/system/data/main.sqlite');
-		sqliteManager.getRecordsWithSql(`SELECT * FROM messages`)
-			.then((records: any) => {
-				this.response.send({
-					records
-				});
-			})
-			.catch((error: any) => console.log(error));
+		const records = await sqliteManager.getRecordsWithSql(`SELECT * FROM messages`);
+		try {
+			this.response.send({ records });
+		}
+		catch (e:any) {
+			throw new Error(e.message);
+		}
 	}
-
-
 }
 
 export default ControllerShowcaseSqliteReader;

@@ -8,13 +8,12 @@ class ControllerShowcaseNewsApi extends Controller {
 		super(request, response);
 	}
 
-	action_loadPageData() {
+	async action_loadPageData() {
 		const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
-		newsapi.v2.topHeadlines({
+		const data = await newsapi.v2.topHeadlines({
 			language: 'de'
-		}).then((data: any) => {
-			this.response.send({ ...data });
 		});
+			this.response.send({ ...data });
 	}
 }
 

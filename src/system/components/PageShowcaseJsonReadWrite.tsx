@@ -1,29 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/showcaseJsonReadWrite.scss';
-import * as config from '../config';
-
-const backendPort = config.getBackendPort();
-
+import PageManager from '../classes/pageManager';
 
 function PageShowcaseJsonReadWrite() {
-
+	const pageIdCode = 'showcaseJsonReadWrite';
 	const [records, setRecords] = useState([{}]);
+	const pm = new PageManager(pageIdCode);
+
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setRecords([...data.records]);
+	}
+
 	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				action: 'loadPageData',
-				records //TODO: remove?
-			})
-		}).then(response => response.json())
-			.then((data: any) => {
-				setRecords([...data.records]);
-			});
+		loadPageData();
 	}, []);
 
-	const saveData = () => {
+	const saveData = async () => {
 		setRecords([...records.map((m: any) => {
 			if (m.id === 10) {
 				m.menu = 'CHANGED';
@@ -32,13 +26,10 @@ function PageShowcaseJsonReadWrite() {
 			return m;
 		})]);
 
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ records, action: 'saveRecords' })
-		};
-		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, requestOptions)
-			.then(response => response.json());
+		const data = await pm.callAction('saveRecords', { records });
+		if (!data.success) {
+			throw new Error('fetch failed');
+		}
 	}
 
 	return (
@@ -50,10 +41,10 @@ function PageShowcaseJsonReadWrite() {
 			</div>
 			<div className="recordArea">
 				<ul>
-					{records.map((record: any) => (
-						<>
+					{records.map((record: any, index: number) => (
+						<div key={index}>
 							<li>{record.id} - {record.title}</li>
-						</>
+						</div>
 					))}
 				</ul>
 			</div>

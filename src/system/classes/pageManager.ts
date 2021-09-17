@@ -3,7 +3,7 @@ import * as qstr from '../qtools/qstr';
 const backendPort = config.getBackendPort();
 
 class PageManager {
-	
+
 	private pageIdCode = '';
 	private pageIdCodePascal = '';
 	private backendBaseUrlPath = '';
@@ -24,14 +24,21 @@ class PageManager {
 		};
 		const requestData = Object.assign(baseData, additionalData);
 		return new Promise(resolve => {
-			fetch(`${this.backendBaseUrlPath}controller${this.pageIdCodePascal}`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(requestData)
-			}).then(response => response.json())
-				.then((responseData: any) => {
-					resolve(responseData);
+			(async () => {
+				const response = await fetch(`${this.backendBaseUrlPath}controller${this.pageIdCodePascal}`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(requestData)
 				});
+				const data = response.json();
+				resolve(data);
+			})();
+		});
+	}
+
+	async loadPageData(additionalData = {}): Promise<any> {
+		return new Promise(resolve => {
+			resolve(this.callAction('loadPageData', additionalData));
 		});
 	}
 }

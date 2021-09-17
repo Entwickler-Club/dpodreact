@@ -1,25 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/showcaseSqliteReader.scss';
-import * as config from '../config'; 
-
-const backendPort = config.getBackendPort();
+import PageManager from '../classes/pageManager';
 
 function PageShowcaseSqliteReader() {
-
+	const pageIdCode = 'showcaseSqliteReader';
 	const [records, setRecords] = useState([{}]);
-	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/controllerShowcaseSqliteReader`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				action: 'loadPageData'
-			})
-		}).then(response => response.json())
-			.then((data: any) => {
-				setRecords([...data.records]);
-			});
-	}, []);
+	const pm = new PageManager(pageIdCode);
 
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setRecords([...data.records]);
+	}
+
+	useEffect(() => {
+		loadPageData();
+	}, []);
 
 	return (
 		<div className="page page_showcaseSqliteReader">
@@ -27,10 +23,8 @@ function PageShowcaseSqliteReader() {
 			<p className="description">An info page that displays showcase: SQLite reader.</p>
 			<div className="recordArea">
 				<ul>
-					{records.map((record: any) => (
-						<>
-							<li>{record.id} - {record.message}</li>
-						</>
+					{records.map((record: any, index: number) => (
+						<li key={index}>{record.id} - {record.message}</li>
 					))}
 				</ul>
 			</div>

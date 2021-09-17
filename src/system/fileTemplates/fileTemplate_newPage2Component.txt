@@ -8,10 +8,13 @@ function Page@@pagePascal() {
 	const [message, setMessage] = useState('');
 	const pm = new PageManager(pageIdCode);
 	
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setMessage(data.message);
+	}
+
 	useEffect(() => {
-		pm.callAction('loadPageData').then((data: any) => {
-			setMessage(data.message);
-		});
+		loadPageData();
 	}, []);
 
 	return (

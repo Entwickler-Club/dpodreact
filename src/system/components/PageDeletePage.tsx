@@ -11,18 +11,19 @@ function PageDeletePage() {
 	const [pageItems, setPageItems] = useState<any[]>([]);
 	const pm = new PageManager(pageIdCode);
 
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setMessage(data.message);
+		setPageItems([...data.pageItems]);
+	}
+
 	useEffect(() => {
-		pm.callAction('loadPageData').then((data: any) => {
-			setMessage(data.message);
-			setPageItems([...data.pageItems]);
-		});
+		loadPageData();
 	}, []);
 
-
-	const deletePage = () => {
-		pm.callAction('deletePage', { deletePageIdCode }).then(data => {
-			setMessage(data.message);
-		});
+	const deletePage = async () => {
+		const data = await pm.callAction('deletePage', { deletePageIdCode });
+		setMessage(data.message);
 	}
 
 	const onPageIdCodeChange = (event: any) => {
