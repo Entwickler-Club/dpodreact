@@ -18,27 +18,19 @@ class PageManager {
 		return this.backendBaseUrlPath;
 	}
 
-	async fetchPageDataFromController() {
+	async callControllerAction(action: string): Promise<any> {
 		return new Promise(resolve => {
 			fetch(`${this.backendBaseUrlPath}controller${this.pageIdCodePascal}`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					action: 'loadPageData'
+					action
 				})
 			}).then(response => response.json())
-				.then((pageData: any) => {
-					resolve(pageData);
+				.then((data: any) => {
+					resolve(data);
 				});
 		});
-	}
-
-	async callControllerAction(action: string): Promise<any> {
-		return new Promise(resolve => {
-			(async () => {
-				resolve(await this.fetchPageDataFromController());
-			})();
-		})
 	}
 }
 

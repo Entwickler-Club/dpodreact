@@ -16,7 +16,14 @@ function PageDeletePage2() {
 		});
 	}, []);
 
+	
 	const deletePage = () => {
+		pageManager.callControllerAction('deletePage').then(data => {
+			setMessage(data.message);
+		});
+	}
+
+	const deletePageOLD = () => {
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },

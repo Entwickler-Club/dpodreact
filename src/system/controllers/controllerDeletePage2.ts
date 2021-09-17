@@ -9,7 +9,13 @@ class ControllerDeletePage2 extends Controller {
 
 	action_loadPageData() {
         this.response.send({
-           message: 'ksjfkdf' 
+           message: 'in loadPageData action' 
+        });
+	}
+
+	action_deletePage() {
+        this.response.send({
+           message: 'in deletePage action' 
         });
 	}
 
