@@ -11,7 +11,6 @@ import PageShowcaseTypeScriptClasses from './PageShowcaseTypeScriptClasses';// :
 import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';// ::showcaseJavaScriptComponent
 import PageShowcaseSqliteReader from './PageShowcaseSqliteReader';// ::showcaseSqliteReader
 import PageShowcaseJsonReadWrite from './PageShowcaseJsonReadWrite';// ::showcaseJsonReadWrite
-import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 import PageDeletePage from './PageDeletePage';// ::deletePage
 import PageCreatePage from './PageCreatePage';// ::createPage
 import PageShowcaseNewsApi2 from './PageShowcaseNewsApi2';// ::showcaseNewsApi2
@@ -55,7 +54,6 @@ function Site() {
 <span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
 <span><Link to='/showcaseSqliteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSqliteReader */}
 <span><Link to='/showcaseJsonReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJsonReadWrite */}
-<span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
 <span><Link to='/showcaseNewsApi2'>Showcase News Api2</Link></span>{/* ::showcaseNewsApi2 */}
 						</>
 					)}
@@ -72,7 +70,6 @@ function Site() {
 <Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
 <Route path='/showcaseSqliteReader'><PageShowcaseSqliteReader /></Route>{/* ::showcaseSqliteReader */}
 <Route path='/showcaseJsonReadWrite'><PageShowcaseJsonReadWrite /></Route>{/* ::showcaseJsonReadWrite */}
-<Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
 <Route path='/deletePage'><PageDeletePage /></Route>{/* ::deletePage */}
 <Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
 <Route path='/showcaseNewsApi2'><PageShowcaseNewsApi2 /></Route>{/* ::showcaseNewsApi2 */}
