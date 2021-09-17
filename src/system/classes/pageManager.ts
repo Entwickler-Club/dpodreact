@@ -37,8 +37,7 @@ class PageManager {
 
 	async loadPageData(additionalData = {}): Promise<any> {
 		return new Promise(resolve => {
-			const responseData = this.callAction('loadPageData', additionalData);
-			resolve(responseData);
+			resolve(this.callAction('loadPageData', additionalData));
 		});
 	}
 }
