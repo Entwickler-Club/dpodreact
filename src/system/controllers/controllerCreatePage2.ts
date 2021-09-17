@@ -19,7 +19,7 @@ class ControllerCreatePage2 extends Controller {
 		const dpodSiteBuilder = new DpodSiteBuilder(createPageTitle, createPageKindIdCode);
 		dpodSiteBuilder.createPage();
 		this.response.send({
-			message: `Created page: ${createPageTitle}`,
+			message: '', 
 			createPageTitle,
 			info: dpodSiteBuilder.getInfo()
 		});

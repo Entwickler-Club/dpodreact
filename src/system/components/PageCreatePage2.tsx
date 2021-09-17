@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/createPage2.scss';
+import '../styles/dpodFormGeneric.scss';
 import PageManager from '../classes/pageManager';
-import * as qstr from '../qtools/qstr';
 
 function PageCreatePage2() {
 	const pageIdCode = 'createPage2';
@@ -38,6 +38,7 @@ function PageCreatePage2() {
 				setMessage(data.message);
 			}
 		});
+		setCreatePageTitle('');
 	}
 
 	return (
