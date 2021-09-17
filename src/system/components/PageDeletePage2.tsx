@@ -3,13 +3,15 @@ import { useState, useEffect } from 'react';
 import '../styles/deletePage2.scss';
 import PageManager from '../classes/pageManager';
 
+const pageIdCode = 'deletePage2';
+
 function PageDeletePage2() {
 	const [message, setMessage] = useState('');
-	const [pageIdCode, setPageIdCode] = useState('');
+	const [toDeletePageIdCode, setToDeletePageIdCode] = useState('');
 	const pageManager = new PageManager(pageIdCode);
 
 	useEffect(() => {
-		pageManager.loadDataFromController('deletePage2').then(data => {
+		pageManager.callControllerAction('loadPageData').then(data => {
 			setMessage(data.message);
 		});
 	}, []);
@@ -18,14 +20,14 @@ function PageDeletePage2() {
 		const requestOptions = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ pageIdCode })
+			body: JSON.stringify({ toDeletePageIdCode })
 		};
 		fetch(`${pageManager.getBackendBaseUrlPath()}deletePage`, requestOptions)
 			.then(response => response.json());
 	}
 
 	const onPageIdCodeChange = (event: any) => {
-		setPageIdCode(event.target.value);
+		setToDeletePageIdCode(event.target.value);
 	}
 
 	const closeMessage = () => {

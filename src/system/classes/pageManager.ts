@@ -33,21 +33,10 @@ class PageManager {
 		});
 	}
 
-	// TODO: remove
-	static async loadDataFromController(pageIdCode: string): Promise<any> {
+	async callControllerAction(action: string): Promise<any> {
 		return new Promise(resolve => {
-			const pm = new PageManager(pageIdCode);
 			(async () => {
-				resolve(await pm.fetchPageDataFromController());
-			})();
-		})
-	}
-
-	async loadDataFromController(pageIdCode: string): Promise<any> {
-		return new Promise(resolve => {
-			const pm = new PageManager(pageIdCode);
-			(async () => {
-				resolve(await pm.fetchPageDataFromController());
+				resolve(await this.fetchPageDataFromController());
 			})();
 		})
 	}
