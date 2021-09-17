@@ -12,7 +12,7 @@ function PageDeletePage() {
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
-		const data = await pm.callAction('loadPageData');
+		const data = await pm.loadPageData();
 		setMessage(data.message);
 		setPageItems([...data.pageItems]);
 	}

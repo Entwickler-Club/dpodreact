@@ -9,10 +9,13 @@ function PageShowcaseNewsApi() {
 	const [articles, setArticles] = useState([{}]);
 	const pm = new PageManager(pageIdCode);
 
-	useEffect(() => {
-		pm.callAction('loadPageData').then((data: any) => {
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
 			setArticles([...data.articles]);
-		});
+	}
+
+	useEffect(() => {
+		loadPageData();
 	}, []);
 
 	const fixDate = (dateTime: string) => {
