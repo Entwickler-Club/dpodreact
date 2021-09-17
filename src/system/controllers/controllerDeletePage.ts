@@ -40,8 +40,6 @@ class ControllerDeletePage extends Controller {
 			message: `Deleted page: ${deletePageTitle}`
 		});
 	}
-
-
 }
 
 export default ControllerDeletePage;

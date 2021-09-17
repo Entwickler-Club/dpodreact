@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
+import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import Controller from './controller';
 
 class ControllerCreatePage2 extends Controller {
@@ -13,6 +14,14 @@ class ControllerCreatePage2 extends Controller {
         });
 	}
 
+	action_createPage() {
+		const { createPageTitle, createPageKindIdCode } = this.requestData;
+		const dpodSiteBuilder = new DpodSiteBuilder(createPageTitle, createPageKindIdCode);
+		dpodSiteBuilder.createPage();
+		this.response.send({
+			message: `Created page: ${createPageTitle}`
+		});
+	}
 }
 
 export default ControllerCreatePage2;
