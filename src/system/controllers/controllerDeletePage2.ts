@@ -5,12 +5,11 @@ import * as qstr from '../qtools/qstr';
 
 class ControllerDeletePage2 extends Controller {
 
+	private pageItems: any[] = [];
+
 	constructor(request: any, response: any) {
 		super(request, response);
-	}
-
-	action_loadPageData() {
-		const pageItems = [
+		this.pageItems = [
 			{
 				idCode: 'test111',
 				title: 'Test 111'
@@ -24,17 +23,20 @@ class ControllerDeletePage2 extends Controller {
 				title: 'Delete Page 3'
 			}
 		]
+	}
+
+	action_loadPageData() {
 		this.response.send({
 			message: '',
-			pageItems
+			pageItems: this.pageItems
 		});
 	}
 
 	action_deletePage() {
 		const { deletePageIdCode } = this.requestData;
 		const deletePageTitle = qstr.forceTitleNotation(deletePageIdCode);
-		const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
-		dpodSiteBuilder.deletePage(deletePageIdCode);
+		// const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
+		// dpodSiteBuilder.deletePage();
 		this.response.send({
 			message: `Deleted page ${deletePageTitle}.`
 		});

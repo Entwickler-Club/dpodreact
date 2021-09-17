@@ -113,8 +113,8 @@ class DpodSiteBuilder {
 		return this.info;
 	}
 
-	deletePage(pageTitle: string) {
-		const pageSyntaxVariations = qstr.getTermSyntaxVariations(pageTitle, 'page');
+	deletePage() {
+		const pageSyntaxVariations = qstr.getTermSyntaxVariations(this.pageTitle, 'page');
 		this.data = {
 			...pageSyntaxVariations
 		};
