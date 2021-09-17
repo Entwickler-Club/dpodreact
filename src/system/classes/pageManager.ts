@@ -18,14 +18,16 @@ class PageManager {
 		return this.backendBaseUrlPath;
 	}
 
-	async callControllerAction(action: string, requestData = {}): Promise<any> {
+	async callAction(action: string, additionalData = {}): Promise<any> {
+		const baseData = {
+			action
+		};
+		const requestData = Object.assign(baseData, additionalData);
 		return new Promise(resolve => {
 			fetch(`${this.backendBaseUrlPath}controller${this.pageIdCodePascal}`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					action
-				})
+				body: JSON.stringify(requestData)
 			}).then(response => response.json())
 				.then((responseData: any) => {
 					resolve(responseData);

@@ -7,34 +7,25 @@ const pageIdCode = 'deletePage2';
 
 function PageDeletePage2() {
 	const [message, setMessage] = useState('');
-	const [toDeletePageIdCode, setToDeletePageIdCode] = useState('');
-	const pageManager = new PageManager(pageIdCode);
+	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
+	const pm = new PageManager(pageIdCode);
+
 
 	useEffect(() => {
-		pageManager.callControllerAction('loadPageData').then(data => {
+		pm.callAction('loadPageData').then(data => {
 			setMessage(data.message);
 		});
 	}, []);
 
-	
+
 	const deletePage = () => {
-		pageManager.callControllerAction('deletePage', { test: 999}).then(data => {
+		pm.callAction('deletePage', { deletePageIdCode }).then(data => {
 			setMessage(data.message);
 		});
 	}
 
-	const deletePageOLD = () => {
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ toDeletePageIdCode })
-		};
-		fetch(`${pageManager.getBackendBaseUrlPath()}deletePage`, requestOptions)
-			.then(response => response.json());
-	}
-
 	const onPageIdCodeChange = (event: any) => {
-		setToDeletePageIdCode(event.target.value);
+		setDeletePageIdCode(event.target.value);
 	}
 
 	const closeMessage = () => {
@@ -51,7 +42,7 @@ function PageDeletePage2() {
 				)}
 				<div className="field dataType_choice field_dataType_choice_dropdown">
 					<label htmlFor="pageTitle" className="fieldLabel">Page to Delete</label>
-					<select onChange={e => onPageIdCodeChange(e)}>
+					<select value={deletePageIdCode} onChange={e => onPageIdCodeChange(e)}>
 						<option value="test111">Test 111</option>
 						<option value="test222">Test 222</option>
 						<option value="test333">Test 333</option>
