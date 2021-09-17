@@ -10,8 +10,23 @@ class ControllerDeletePage2 extends Controller {
 	}
 
 	action_loadPageData() {
+		const pageItems = [
+			{
+				idCode: 'test111',
+				title: 'Test 111'
+			},
+			{
+				idCode: 'test222',
+				title: 'Test 222'
+			},
+			{
+				idCode: 'deletePage3',
+				title: 'Delete Page 3'
+			}
+		]
 		this.response.send({
-			message: ''
+			message: '',
+			pageItems
 		});
 	}
 

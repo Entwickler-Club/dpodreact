@@ -8,11 +8,14 @@ const pageIdCode = 'deletePage2';
 function PageDeletePage2() {
 	const [message, setMessage] = useState('');
 	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
+	const [pageItems, setPageItems] = useState<any[]>([]);
+
 	const pm = new PageManager(pageIdCode);
 
 	useEffect(() => {
-		pm.callAction('loadPageData').then(data => {
+		pm.callAction('loadPageData').then((data: any) => {
 			setMessage(data.message);
+			setPageItems([...data.pageItems]);
 		});
 	}, []);
 
@@ -42,9 +45,11 @@ function PageDeletePage2() {
 				<div className="field dataType_choice field_dataType_choice_dropdown">
 					<label htmlFor="pageTitle" className="fieldLabel">Page to Delete</label>
 					<select value={deletePageIdCode} onChange={e => onPageIdCodeChange(e)}>
-						<option value="test111">Test 111</option>
-						<option value="test222">Test 222</option>
-						<option value="test333">Test 333</option>
+						{pageItems.map((pageItem, index) => {
+							return (
+								<option value={pageItem.idCode}>{pageItem.title}</option>
+							)
+						})}
 					</select>
 				</div>
 				<div className="buttonArea">
