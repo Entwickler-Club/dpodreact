@@ -18,17 +18,6 @@ app.post('/controller*', function (request: any, response: any) {
 	}
 });
 
-app.get('/newsapi', (req: any, res: any) => {
-	const NewsAPI = require('newsapi');
-	const newsapi = new NewsAPI('34c534a3b60d46ed81a257c952fbb3da');
-	newsapi.v2.topHeadlines({
-		language: 'de'
-	}).then((data: any) => {
-		console.log(data);
-		res.send(data);
-	});
-});
-
 app.listen(port, () => {
 	console.log(`backend listening on port ${port}...`);
 });

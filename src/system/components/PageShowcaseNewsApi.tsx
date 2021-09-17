@@ -1,19 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/showcaseNewsApi.scss';
-import * as config from '../config';
+import PageManager from '../classes/pageManager';
 import Loader from "react-loader-spinner";
 
-const backendPort = config.getBackendPort();
-
 function PageShowcaseNewsApi() {
-
+	const pageIdCode = 'showcaseNewsApi';
 	const [articles, setArticles] = useState([{}]);
+	const pm = new PageManager(pageIdCode);
+
 	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/newsapi`)
-			.then(response => response.json())
-			.then((data: any) => {
-				setArticles([...data.articles]);
-			});
+		pm.callAction('loadPageData').then((data: any) => {
+			setArticles([...data.articles]);
+		});
 	}, []);
 
 	const fixDate = (dateTime: string) => {
@@ -31,10 +30,10 @@ function PageShowcaseNewsApi() {
 			<div className="articleArea">
 				{articles.length > 1 && (
 					<ul>
-						{articles.map((article: any) => (
-							<>
+						{articles.map((article: any, index: number) => (
+							<div key={index}>
 								<li>{fixDate(article.publishedAt)} - <a href={article.url}>{article.title}</a></li>
-							</>
+							</div>
 						))}
 					</ul>
 				)}
@@ -44,7 +43,7 @@ function PageShowcaseNewsApi() {
 						color="#aaa"
 						height={70}
 						width={70}
-						timeout={2000} 
+						timeout={2000}
 					/>
 				)}
 			</div>
