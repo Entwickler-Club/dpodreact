@@ -19,8 +19,8 @@ class ControllerDeletePage2 extends Controller {
 				title: 'Test 222'
 			},
 			{
-				idCode: 'deletePage3',
-				title: 'Delete Page 3'
+				idCode: 'deletePage',
+				title: 'Delete Page'
 			}
 		];
 	}
