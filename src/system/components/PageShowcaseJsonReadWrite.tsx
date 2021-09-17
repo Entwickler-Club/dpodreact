@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/showcaseJsonReadWrite.scss';
-import * as config from '../config';
 import PageManager from '../classes/pageManager';
-
-const backendPort = config.getBackendPort();
 
 function PageShowcaseJsonReadWrite() {
 	const pageIdCode = 'showcaseJsonReadWrite';

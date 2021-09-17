@@ -3,10 +3,6 @@ import SqliteManager from '../classes/sqliteManager';
 
 class ControllerShowcaseSqliteReader extends Controller {
 
-	constructor(request: any, response: any) {
-		super(request, response);
-	}
-
 	action_loadPageData() {
 		const sqliteManager = new SqliteManager('./src/system/data/main.sqlite');
 		sqliteManager.getRecordsWithSql(`SELECT * FROM messages`)
