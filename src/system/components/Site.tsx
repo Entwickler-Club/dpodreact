@@ -11,7 +11,6 @@ import PageShowcaseTypeScriptClasses from './PageShowcaseTypeScriptClasses';// :
 import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';// ::showcaseJavaScriptComponent
 import PageShowcaseSqliteReader from './PageShowcaseSqliteReader';// ::showcaseSqliteReader
 import PageCreatePage from './PageCreatePage';// ::createPage
-import PageDeletePage from './PageDeletePage';// ::deletePage
 import PageShowcaseJsonReadWrite from './PageShowcaseJsonReadWrite';// ::showcaseJsonReadWrite
 import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 import PageDeletePage2 from './PageDeletePage2';// ::deletePage2
@@ -46,7 +45,6 @@ function Site() {
 						<Link to='/'>Home</Link>
 					</span>
 					<span><Link to='/createPage'>Create Page</Link></span>{/* ::createPage */}
-					<span><Link to='/deletePage'>Delete Page</Link></span>{/* ::deletePage */}
 					{isShowing && (
 						<>
 {/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
@@ -67,7 +65,6 @@ function Site() {
 							<PageHome />
 						</Route>
 						<Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
-						<Route path='/deletePage'><PageDeletePage /></Route>{/* ::deletePage */}
 {/* DYNAMIC_JSX_AREA: routePageComponentLines */}
 <Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
 <Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
@@ -83,4 +80,4 @@ function Site() {
 	);
 }
 
-export default Site;
+export default Site;
