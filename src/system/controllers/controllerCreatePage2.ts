@@ -10,7 +10,7 @@ class ControllerCreatePage2 extends Controller {
 
 	action_loadPageData() {
         this.response.send({
-           message: 'Welcome to this page.' 
+           message: '' 
         });
 	}
 
