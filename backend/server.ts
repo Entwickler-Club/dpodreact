@@ -2,11 +2,8 @@ import * as config from '../src/system/config';
 import * as qstr from '../src/system/qtools/qstr';
 import { instantiate } from '../src/system/factories/controllerFactory';
 
-export { };
 const express = require('express');
 const cors = require('cors');
-
-
 const app = express();
 const port = config.getBackendPort();
 
