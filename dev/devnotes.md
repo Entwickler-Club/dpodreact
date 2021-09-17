@@ -1,12 +1,12 @@
+- .. move all controller code from server.js to controllers
+	- .. create page
+	- news page
 - .. delete page with backend and dynamic: 
-	- .. rename page2
-    - build dpod.getPageItems()
+	- .. make delete page dynamic
+    	- .. build dpod.getPageItems()
         - use data from this to fill dropdown in delete page
-- move all controller code from server.js to controllers
-
-
 - styles with "page"
-
+- streamline setup and dev/publish distinction
 
 
 
