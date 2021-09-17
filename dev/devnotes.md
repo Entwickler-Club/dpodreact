@@ -1,6 +1,7 @@
 - delete page: 
     - .. get data from backend
-        - .. create new delete page with backend
+        - .. combine deletePage into deletePage2
+			- .. get deletePge2 to work again
     - build dpod.getPageItems()
         - use data from this to fill dropdown in delete page
 - move all controller code from server.js to controllers
