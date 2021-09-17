@@ -6,33 +6,33 @@ class PageManager {
 	
 	private pageIdCode = '';
 	private pageIdCodePascal = '';
+	private backendBaseUrlPath = '';
 
 	constructor(pageIdCode: string) {
 		this.pageIdCode = pageIdCode;
 		this.pageIdCodePascal = qstr.forcePascalNotation(this.pageIdCode);
+		this.backendBaseUrlPath = `http://localhost:${backendPort}/`;
 	}
 
-	async fetchPageDataFromController() {
+	getBackendBaseUrlPath() {
+		return this.backendBaseUrlPath;
+	}
+
+	async callAction(action: string, additionalData = {}): Promise<any> {
+		const baseData = {
+			action
+		};
+		const requestData = Object.assign(baseData, additionalData);
 		return new Promise(resolve => {
-			fetch(`http://localhost:${backendPort}/controller${this.pageIdCodePascal}`, {
+			fetch(`${this.backendBaseUrlPath}controller${this.pageIdCodePascal}`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					action: 'loadPageData'
-				})
+				body: JSON.stringify(requestData)
 			}).then(response => response.json())
-				.then((pageData: any) => {
-					resolve(pageData);
+				.then((responseData: any) => {
+					resolve(responseData);
 				});
 		});
-	}
-	static async loadDataFromController(pageIdCode: string): Promise<any> {
-		return new Promise(resolve => {
-			const pm = new PageManager(pageIdCode);
-			(async () => {
-				resolve(await pm.fetchPageDataFromController());
-			})();
-		})
 	}
 }
 

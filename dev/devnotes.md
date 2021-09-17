@@ -1,15 +1,22 @@
-- delete page: 
-    - .. nice format from create page
-        - make dummy dropdown, style it
-        - make scss for form: form.dpodFormGeneric
-    - build dpod.getPageItems()
-        - 
-	- delete controller entries
+- .. fix create page for second two
+- .. move all controller code from server.js to controllers
+	- .. create page
+	- news page
+- .. delete page with backend and dynamic: 
+	- .. make delete page dynamic
+    	- .. build dpod.getPageItems()
+        - use data from this to fill dropdown in delete page
+- styles with "page"
+- streamline setup and dev/publish distinction
 
-	
+
+
+
+
+
+
+
 - finish #2 with controller and
-
-
     - .. page with SASS file and controller
         - create page with SASS file as
     - page with SASS file, controller, and JSON data file

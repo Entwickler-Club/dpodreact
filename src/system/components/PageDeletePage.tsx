@@ -1,26 +1,32 @@
-import { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
 import '../styles/deletePage.scss';
 import '../styles/dpodFormGeneric.scss';
-import * as config from '../config';
-
-const backendPort = config.getBackendPort();
+import PageManager from '../classes/pageManager';
 
 function PageDeletePage() {
+	const pageIdCode = 'deletePage';
 	const [message, setMessage] = useState('');
-	const [pageTitle, setPageTitle] = useState('');
+	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
+	const [pageItems, setPageItems] = useState<any[]>([]);
+	const pm = new PageManager(pageIdCode);
+
+	useEffect(() => {
+		pm.callAction('loadPageData').then((data: any) => {
+			setMessage(data.message);
+			setPageItems([...data.pageItems]);
+		});
+	}, []);
+
+
 	const deletePage = () => {
-		setPageTitle('');
-		const requestOptions = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ pageTitle })
-		};
-		fetch(`http://localhost:${backendPort}/deletePage`, requestOptions)
-			.then(response => response.json());
+		pm.callAction('deletePage', { deletePageIdCode }).then(data => {
+			setMessage(data.message);
+		});
 	}
 
-	const onPageTitleChange = (event: any) => {
-		setPageTitle(event.target.value);
+	const onPageIdCodeChange = (event: any) => {
+		setDeletePageIdCode(event.target.value);
 	}
 
 	const closeMessage = () => {
@@ -30,18 +36,23 @@ function PageDeletePage() {
 	return (
 		<div className="page page_deletePage">
 			<h2 className="title">Delete Page</h2>
-			<p className="description">This page deletes a page from this website.</p>
+			<p className="description">Delete a page from this website</p>
 			<form className="dpodFormGeneric">
 				{message !== '' && (
 					<div className="message" onClick={() => closeMessage()} dangerouslySetInnerHTML={{ __html: message }}></div>
 				)}
-				<div className="field dataType_line">
-					<label htmlFor="pageTitle" className="fieldLabel">Page Title</label>
-					<input type="text" autoFocus value={pageTitle} onChange={onPageTitleChange} />
-					<div className="example">e.g. <code>Quarterly Reports</code></div>
+				<div className="field dataType_choice field_dataType_choice_dropdown">
+					<label htmlFor="pageTitle" className="fieldLabel">Page to Delete</label>
+					<select value={deletePageIdCode} onChange={e => onPageIdCodeChange(e)}>
+						{pageItems.map((pageItem, index) => {
+							return (
+								<option value={pageItem.idCode}>{pageItem.title}</option>
+							)
+						})}
+					</select>
 				</div>
 				<div className="buttonArea">
-						<button className="submitButton" onClick={e => deletePage()}>Delete Page</button>
+					<button className="submitButton" type="button" onClick={e => deletePage()}>Delete Page</button>
 				</div>
 			</form>
 		</div>

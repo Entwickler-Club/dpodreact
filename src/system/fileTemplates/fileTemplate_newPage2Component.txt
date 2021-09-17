@@ -4,13 +4,14 @@ import '../styles/@@pageCamel.scss';
 import PageManager from '../classes/pageManager';
 
 function Page@@pagePascal() {
-	
+	const pageIdCode = '@@pageCamel';
 	const [message, setMessage] = useState('');
+	const pm = new PageManager(pageIdCode);
 	
 	useEffect(() => {
-		PageManager.loadDataFromController('@@pageCamel').then(data => {
+		pm.callAction('loadPageData').then((data: any) => {
 			setMessage(data.message);
-			});
+		});
 	}, []);
 
 	return (
