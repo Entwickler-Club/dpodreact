@@ -36,7 +36,7 @@ function PageDeletePage() {
 
 	return (
 		<div className="page page_deletePage">
-			<h2 className="title">Delete Page2</h2>
+			<h2 className="title">Delete Page</h2>
 			<p className="description">Delete a page from this website</p>
 			<form className="dpodFormGeneric">
 				{message !== '' && (
