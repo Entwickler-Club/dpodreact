@@ -30,7 +30,7 @@ function PageCreatePage2() {
 	}
 
 	const createPage = () => {
-		pm.callAction('deletePage', { createPageTitle, createPageKindIdCode }).then(data => {
+		pm.callAction('createPage', { createPageTitle, createPageKindIdCode }).then(data => {
 			if (data.info.error) {
 				setMessage(data.info.error);
 			}
