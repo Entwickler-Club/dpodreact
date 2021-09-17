@@ -2,25 +2,22 @@
 import { useState, useEffect } from 'react';
 import '../styles/showcaseJsonReadWrite.scss';
 import * as config from '../config';
+import PageManager from '../classes/pageManager';
 
 const backendPort = config.getBackendPort();
 
-
 function PageShowcaseJsonReadWrite() {
-
+	const pageIdCode = 'showcaseJsonReadWrite';
 	const [records, setRecords] = useState([{}]);
+	const pm = new PageManager(pageIdCode);
+
+	const loadPageData = async () => {
+		const data = await pm.loadPageData();
+		setRecords([...data.records]);
+	}
+
 	useEffect(() => {
-		fetch(`http://localhost:${backendPort}/controllerShowcaseJsonReadWrite`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				action: 'loadPageData',
-				records //TODO: remove?
-			})
-		}).then(response => response.json())
-			.then((data: any) => {
-				setRecords([...data.records]);
-			});
+		loadPageData();
 	}, []);
 
 	const saveData = () => {
@@ -50,10 +47,10 @@ function PageShowcaseJsonReadWrite() {
 			</div>
 			<div className="recordArea">
 				<ul>
-					{records.map((record: any) => (
-						<>
+					{records.map((record: any, index: number) => (
+						<div key={index}>
 							<li>{record.id} - {record.title}</li>
-						</>
+						</div>
 					))}
 				</ul>
 			</div>
