@@ -9,9 +9,9 @@ class ControllerCreatePage2 extends Controller {
 	}
 
 	action_loadPageData() {
-        this.response.send({
-           message: '' 
-        });
+		this.response.send({
+			message: ''
+		});
 	}
 
 	action_createPage() {
@@ -20,7 +20,9 @@ class ControllerCreatePage2 extends Controller {
 		const dpodSiteBuilder = new DpodSiteBuilder(createPageTitle, createPageKindIdCode);
 		dpodSiteBuilder.createPage();
 		this.response.send({
-			message: `Created page: ${createPageTitle}`
+			message: `Created page: ${createPageTitle}`,
+			createPageTitle,
+			info: dpodSiteBuilder.getInfo()
 		});
 	}
 }
