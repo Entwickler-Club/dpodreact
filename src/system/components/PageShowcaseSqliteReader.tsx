@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/showcaseSqliteReader.scss';
+import '../styles/page_showcaseSqliteReader.scss';
 import PageManager from '../classes/pageManager';
 
 function PageShowcaseSqliteReader() {
@@ -22,11 +22,9 @@ function PageShowcaseSqliteReader() {
 			<h2 className="title">Showcase: SQLite Reader</h2>
 			<p className="description">An info page that displays showcase: SQLite reader.</p>
 			<div className="recordArea">
-				<ul>
 					{records.map((record: any, index: number) => (
-						<li key={index}>{record.id} - {record.message}</li>
+						<p key={index}>{record.id} - {record.message}</p>
 					))}
-				</ul>
 			</div>
 		</div>
 	)

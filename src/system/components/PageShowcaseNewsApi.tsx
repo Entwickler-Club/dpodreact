@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/showcaseNewsApi.scss';
+import '../styles/page_showcaseNewsApi.scss';
 import PageManager from '../classes/pageManager';
 import Loader from "react-loader-spinner";
 
@@ -29,7 +29,7 @@ function PageShowcaseNewsApi() {
 	return (
 		<div className="page page_showcaseNewsApi">
 			<h2 className="title">Showcase: News API</h2>
-			<p className="description">This page that displays news from the News API.</p>
+			<p className="description">This page that displays news from the News API</p>
 			<div className="articleArea">
 				{articles.length > 1 && (
 					<ul>

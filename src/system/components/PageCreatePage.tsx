@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/createPage.scss';
+import '../styles/page_createPage.scss';
 import '../styles/dpodFormGeneric.scss';
 import PageManager from '../classes/pageManager';
 

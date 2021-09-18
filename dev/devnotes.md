@@ -1,8 +1,5 @@
-- .. delete page with backend and dynamic: 
-	- .. make delete page dynamic
-    	- .. build dpod.getPageItems()
-        - use data from this to fill dropdown in delete page
-- styles with "page"
+- ..styles with "page"
+
 - streamline setup and dev/publish distinction
 
 
