@@ -1,6 +1,3 @@
-- .. move all controller code from server.js to controllers
-	- .. news page
-
 - .. delete page with backend and dynamic: 
 	- .. make delete page dynamic
     	- .. build dpod.getPageItems()
