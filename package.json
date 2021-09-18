@@ -23,14 +23,14 @@
 		"web-vitals": "^1.1.2"
 	},
 	"scripts": {
-		"start2": "react-scripts start",
-		"start": "./dev/scripts/appstart.sh",
+		"start": "react-scripts start",
+		"backend": "./node_modules/.bin/nodemon",
+		"startOLD": "./dev/scripts/appstart.sh",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"dpod": "./node_modules/.bin/ts-node --skip-project src/system/scripts/dpod.ts",
 		"backend_old": "./node_modules/.bin/ts-node --skip-project backend/server.ts",
 		"backend_node": "./node_modules/.bin/ts-node --skip-project backend/server.ts",
-		"backend": "./node_modules/.bin/nodemon",
 		"kill-all-branches": "git for-each-ref --format '%(refname:short)' refs/heads | grep -v \"dev\\|master\\|main\" | xargs git branch -D"
 	},
 	"eslintConfig": {
