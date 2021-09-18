@@ -40,11 +40,9 @@ function PageShowcaseJsonReadWrite() {
 				<button className="saveDate" type="button" onClick={() => saveData()}>Save Data</button>
 			</div>
 			<div className="recordArea">
-				<ul>
 					{records.map((record: any, index: number) => (
-						<li key={index}>{record.id} - {record.title}</li>
+						<p key={index}>{record.id} - {record.title}</p>
 					))}
-				</ul>
 			</div>
 		</div>
 	)

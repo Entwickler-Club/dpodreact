@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/showcaseTypeScriptClasses.scss';
+import '../styles/page_showcaseTypeScriptClasses.scss';
 
 interface IMessageManager {
 	title: string;
