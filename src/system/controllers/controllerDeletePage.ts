@@ -2,10 +2,11 @@
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import Controller from './controller';
 import * as dpod from '../dataLayer/dpod';
+import { IPageItem } from '../dataLayer/interfaces';
 
 class ControllerDeletePage extends Controller {
 
-	private pageItems: any[] = [];
+	private pageItems: IPageItem[] = [];
 
 	constructor(request: any, response: any) {
 		super(request, response);

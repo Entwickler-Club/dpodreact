@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import '../styles/deletePage.scss';
 import '../styles/dpodFormGeneric.scss';
 import PageManager from '../classes/pageManager';
+import { IPageItem } from '../dataLayer/interfaces';
 
 function PageDeletePage() {
 	const pageIdCode = 'deletePage';
 	const [message, setMessage] = useState('');
 	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
-	const [pageItems, setPageItems] = useState<any[]>([]);
+	const [pageItems, setPageItems] = useState<IPageItem[]>([]);
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
