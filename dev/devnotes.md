@@ -76,7 +76,9 @@
             - extension
                 - 'json'
             - fileName
-                - test.json 
+                - test.json
+			- baseFileName
+				- test 
             - pathAndFileName
                 - "src/data/test.json" 
             - anchoredPathAndFileName
