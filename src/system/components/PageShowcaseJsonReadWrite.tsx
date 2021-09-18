@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/showcaseJsonReadWrite.scss';
+import '../styles/page_showcaseJsonReadWrite.scss';
 import PageManager from '../classes/pageManager';
 
 function PageShowcaseJsonReadWrite() {
@@ -42,9 +42,7 @@ function PageShowcaseJsonReadWrite() {
 			<div className="recordArea">
 				<ul>
 					{records.map((record: any, index: number) => (
-						<div key={index}>
-							<li>{record.id} - {record.title}</li>
-						</div>
+						<li key={index}>{record.id} - {record.title}</li>
 					))}
 				</ul>
 			</div>

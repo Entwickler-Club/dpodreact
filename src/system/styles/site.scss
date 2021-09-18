@@ -1,4 +1,4 @@
-@use 'partials/variables' as basic;
+@use "partials/variables" as basic;
 
 html {
 	font-size: basic.$basicFontSize;
@@ -35,10 +35,17 @@ body {
 		}
 		code {
 			background-color: #eee;
-			font-family: 'Courier New', Courier, monospace;
+			font-family: "Courier New", Courier, monospace;
 		}
 		p {
 			line-height: 1.2rem;
+		}
+		ul {
+			margin-left: 20px;
+			li {
+				line-height: 1.3rem;
+				list-style: disc;
+			}
 		}
 	}
 	.app_site {

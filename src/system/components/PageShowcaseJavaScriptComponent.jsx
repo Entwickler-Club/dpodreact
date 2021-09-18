@@ -1,4 +1,4 @@
-import '../styles/showcaseJavaScriptComponent.scss';
+import '../styles/page_showcaseJavaScriptComponent.scss';
 
 function PageShowcaseJavaScriptComponent() {
 
