@@ -86,18 +86,22 @@ export const deleteFile = function (pathAndFileName: string) {
 	}
 }
 
-export function getFilesInDirectory(directory: string) {
-	return [
-		'PageCreatePage.tsx',
-		'PageDeletePage.tsx',
-		'PageShowcaseCounterUsingState.tsx'
-	];
-}
-
 // PageShowcaseRegexExamples.tsx --> PageShowcaseRegexExamples
-export function getBaseFileName(fileName: string): string {
+export const getBaseFileName = (fileName: string): string => {
 	const parts = qstr.breakIntoParts(fileName, '.');
 	parts.pop();
 	return parts.join('.');
 }
 
+export const getFileNamesInDirectory = (directory: string) => {
+    const fileNames: string[] = [];
+    if (fs.existsSync(directory)) {
+        fs.readdirSync(directory).forEach((fileName: string) =>  {
+            var relativePathAndFileName = directory + "/" + fileName;
+            if (!fs.lstatSync(relativePathAndFileName).isDirectory()) {
+                fileNames.push(fileName);
+            }
+        });
+    }
+    return fileNames;
+}
