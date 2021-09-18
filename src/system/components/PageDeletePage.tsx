@@ -29,6 +29,7 @@ function PageDeletePage() {
 	const deletePage = async () => {
 		const data = await pm.callAction('deletePage', { deletePageIdCode });
 		setMessage(data.message);
+		setPageItems([...data.pageItems]);
 	}
 
 	const onPageIdCodeChange = (event: any) => {

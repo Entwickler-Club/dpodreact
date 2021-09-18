@@ -26,7 +26,8 @@ class ControllerDeletePage extends Controller {
 		const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
 		dpodSiteBuilder.deletePage();
 		this.response.send({
-			message: '', 
+			message: '',
+			pageItems: dpod.getPageItems()
 		});
 	}
 }
