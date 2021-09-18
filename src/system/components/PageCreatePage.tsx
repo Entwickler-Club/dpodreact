@@ -41,6 +41,7 @@ function PageCreatePage() {
 		} else {
 			setMessage(data.message);
 		}
+		setCreatePageTitle('');
 	}
 
 	return (

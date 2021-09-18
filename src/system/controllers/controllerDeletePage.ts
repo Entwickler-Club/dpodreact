@@ -1,27 +1,16 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import Controller from './controller';
+import * as dpod from '../dataLayer/dpod';
+import { IPageItem } from '../dataLayer/interfaces';
 
 class ControllerDeletePage extends Controller {
 
-	private pageItems: any[] = [];
+	private pageItems: IPageItem[] = [];
 
 	constructor(request: any, response: any) {
 		super(request, response);
-		this.pageItems = [
-			{
-				idCode: 'test111',
-				title: 'Test 111'
-			},
-			{
-				idCode: 'test222',
-				title: 'Test 222'
-			},
-			{
-				idCode: 'showcaseNewsApi',
-				title: 'Showcase News API'
-			}
-		];
+		this.pageItems = dpod.getPageItems();
 	}
 
 	action_loadPageData() {
@@ -36,7 +25,8 @@ class ControllerDeletePage extends Controller {
 		const dpodSiteBuilder = new DpodSiteBuilder(deletePageIdCode);
 		dpodSiteBuilder.deletePage();
 		this.response.send({
-			message: '', 
+			message: '',
+			pageItems: dpod.getPageItems()
 		});
 	}
 }
