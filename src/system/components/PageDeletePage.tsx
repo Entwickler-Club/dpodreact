@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/deletePage.scss';
+import '../styles/page_deletePage.scss';
 import '../styles/dpodFormGeneric.scss';
 import PageManager from '../classes/pageManager';
 import { IPageItem } from '../dataLayer/interfaces';

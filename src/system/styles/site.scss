@@ -33,6 +33,13 @@ body {
 			border-bottom: 1px solid #ccc;
 			display: inline-block;
 		}
+		code {
+			background-color: #eee;
+			font-family: 'Courier New', Courier, monospace;
+		}
+		p {
+			line-height: 1.2rem;
+		}
 	}
 	.app_site {
 		.topHeader {

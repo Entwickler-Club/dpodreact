@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/pageShowcaseCounterUsingState.scss';
+import '../styles/page_showcaseCounterUsingState.scss';
 
 function PageShowcaseCounterUsingState() {
 	const [count, setCount] = useState(0);
