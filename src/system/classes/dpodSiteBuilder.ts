@@ -20,8 +20,8 @@ class DpodSiteBuilder {
 		return `src/system/components/Page${pascalNotation}.tsx`;
 	}
 
-	getPageStylesheetPathAndFileName(pascalNotation: string) {
-		return `src/system/styles/${pascalNotation}.scss`;
+	getPageStylesheetPathAndFileName(camelNotation: string) {
+		return `src/system/styles/page_${camelNotation}.scss`;
 	}
 
 	getPageContollerPathAndFileName(pascalNotation: string) {

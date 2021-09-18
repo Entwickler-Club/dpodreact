@@ -1,4 +1,4 @@
-import '../styles/@@pageCamel.scss';
+import '../styles/page_@@pageCamel.scss';
 
 function Page@@pagePascal() {
 

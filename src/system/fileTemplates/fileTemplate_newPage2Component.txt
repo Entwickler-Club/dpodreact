@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/@@pageCamel.scss';
+import '../styles/page_@@pageCamel.scss';
 import PageManager from '../classes/pageManager';
 
 function Page@@pagePascal() {
