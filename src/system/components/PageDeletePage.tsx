@@ -8,14 +8,18 @@ import { IPageItem } from '../dataLayer/interfaces';
 function PageDeletePage() {
 	const pageIdCode = 'deletePage';
 	const [message, setMessage] = useState('');
-	const [deletePageIdCode, setDeletePageIdCode] = useState('test111');
+	const [deletePageIdCode, setDeletePageIdCode] = useState('');
 	const [pageItems, setPageItems] = useState<IPageItem[]>([]);
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		setMessage(data.message);
-		setPageItems([...data.pageItems]);
+		const { message, pageItems }: { message: string, pageItems: IPageItem[] } = data;
+		setMessage(message);
+		setPageItems([...pageItems]);
+		if (pageItems.length > 0) {
+			setDeletePageIdCode(pageItems[0].idCode);
+		}
 	}
 
 	useEffect(() => {
