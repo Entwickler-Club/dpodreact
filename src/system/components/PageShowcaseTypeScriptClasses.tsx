@@ -39,7 +39,7 @@ function PageShowcaseTypeScriptClasses() {
 	return (
 		<div className="page page_showcaseTypeScriptClasses">
 			<h2 className="title">Showcase: TypeScript Classes</h2>
-			<p className="description">An info page that displays how to use TypeScript classes with interfaces.</p>
+			<p className="description">An info page that displays how to use TypeScript classes with interfaces</p>
 			<p>The message from the message manager is <span className="message">{message}</span>.</p>
 			<button onClick={() => changeValue()}>Change value</button>
 		</div>

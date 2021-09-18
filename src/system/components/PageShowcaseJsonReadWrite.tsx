@@ -35,7 +35,7 @@ function PageShowcaseJsonReadWrite() {
 	return (
 		<div className="page page_showcaseJsonReadWrite">
 			<h2 className="title">Showcase: JSON Manager</h2>
-			<p className="description">A page that reads and and writes to JSON files via the backend.</p>
+			<p className="description">A page that reads and and writes to JSON files via the backend</p>
 			<div className="controlPanel">
 				<button className="saveDate" type="button" onClick={() => saveData()}>Save Data</button>
 			</div>
