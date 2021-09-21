@@ -1,28 +1,13 @@
-- ..styles with "page"
-
-- streamline setup and dev/publish distinction
-
-
+- .. make datapod site with dev/publish distinction, and streamline installation with video and have versions at dpodreact.netlify.app
+	- .. make dpodreact.netlify.app with simple zip download
+	
 
 
 
 
 
 
-- finish #2 with controller and
-    - .. page with SASS file and controller
-        - create page with SASS file as
-    - page with SASS file, controller, and JSON data file
-    
-- .. controller manager
-	- .. move all controllers in server.ts to controllers
-        - .. first make 
-        - .. newsapi
-        - createPage
-        - deletePage
-    - fix: change name of scss file to page...
 
-- create page option: [x] JSON Data Source
 
 
 ===========================
