@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
-import { IShowcaseReport} from '../dataLayer/interfaces';
+import { IShowcaseReport } from '../dataLayer/interfaces';
 import * as dpod from '../dataLayer/dpod';
 
 class ControllerShowcaseManageItemTypes extends Controller {
@@ -13,9 +13,9 @@ class ControllerShowcaseManageItemTypes extends Controller {
 	}
 
 	action_loadPageData() {
-        this.response.send({
+		this.response.send({
 			showcaseReports: this.showcaseReports
-        });
+		});
 	}
 
 }
