@@ -53,6 +53,13 @@ body {
 			display: flex;
 			h1.siteTitle {
 				margin: 0 0 10px 20px;
+				.version {
+					color: brown;
+					position: relative; 
+					top: .4rem; 
+					left: 4px;
+					font-size: 45%;
+				}
 			}
 			.menuToggle {
 				margin: 8px 0 0 12px;
