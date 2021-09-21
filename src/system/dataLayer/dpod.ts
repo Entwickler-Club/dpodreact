@@ -1,5 +1,5 @@
 import './interfaces';
-import { IPageItem } from './interfaces';
+import { IPageItem, IShowcaseReport } from './interfaces';
 import * as qfil from '../qtools/qfil';
 import * as qstr from '../qtools/qstr';
 
@@ -28,4 +28,24 @@ export const getPageItems = (): IPageItem[] => {
 		}
 	});
 	return pageItems;
+}
+
+
+export const getShowcaseReports = (): IShowcaseReport[] => {
+	return [
+		{
+			id: 1,
+			title: "Showcase #1",
+			description: "desc 1",
+			systemWhenCreated: '2021-09-21 10:00:02',
+			systemWhoCreated: 'admin'
+		},
+		{
+			id: 2,
+			title: "Showcase #2",
+			description: "desc 2",
+			systemWhenCreated: '2021-09-21 10:00:02',
+			systemWhoCreated: 'admin'
+		}
+	]
 }

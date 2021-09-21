@@ -5,12 +5,12 @@ import PageManager from '../classes/pageManager';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
-	const [message, setMessage] = useState('');
+	const [showcaseReports, setShowcaseReports] = useState([]);
 	const pm = new PageManager(pageIdCode);
 	
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		setMessage(data.message);
+		setShowcaseReports(data.showcaseReports);
 	}
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ function PageShowcaseManageItemTypes() {
 		<div className="page page_showcaseManageItemTypes">
 			<h2 className="title">Showcase: Manage Item Types</h2>
 			<p className="description">An info page that displays showcase manage item types</p>	
-			<p className="message">{message}</p>
+			<p className="message">{showcaseReports.length}</p>
 		</div>
 	)
 }
