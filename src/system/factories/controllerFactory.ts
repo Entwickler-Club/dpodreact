@@ -5,6 +5,7 @@ import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSql
 import ControllerDeletePage from '../controllers/controllerDeletePage';// ::deletePage
 import ControllerCreatePage from '../controllers/controllerCreatePage';// ::createPage
 import ControllerShowcaseNewsApi from '../controllers/controllerShowcaseNewsApi';// ::showcaseNewsApi
+import ControllerShowcaseManageItemTypes from '../controllers/controllerShowcaseManageItemTypes';// ::showcaseManageItemTypes
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -19,6 +20,8 @@ case 'controllerCreatePage':// ::createPage
 return new ControllerCreatePage(request, response);
 case 'controllerShowcaseNewsApi':// ::showcaseNewsApi
 return new ControllerShowcaseNewsApi(request, response);
+case 'controllerShowcaseManageItemTypes':// ::showcaseManageItemTypes
+return new ControllerShowcaseManageItemTypes(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

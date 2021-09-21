@@ -9,9 +9,11 @@
                     - all
                     - menu = main
 
-- dpod setup site process
-- dpod site build process
-    - randomize port
+- various todos
+    - dpod setup site process
+    - dpod site build process
+        - randomize port
+    - fix all browser index errors
 
 - make datapod site with dev/publish distinction, and streamline installation with video and have versions at dpodreact.netlify.app
 	
