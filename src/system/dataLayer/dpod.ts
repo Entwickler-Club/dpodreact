@@ -32,6 +32,9 @@ export const getPageItems = (): IPageItem[] => {
 
 
 export const getShowcaseReports = (): IShowcaseReport[] => {
+	// const showcaseReports = new ShowcaseReports();
+	// const showcaseReports = new ShowcaseReports('menu = "main" orderBy systemWhenCreated.desc');
+	// return showcaseReports;
 	return [
 		{
 			id: 1,
