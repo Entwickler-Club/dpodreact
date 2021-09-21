@@ -1,5 +1,19 @@
-- .. make datapod site with dev/publish distinction, and streamline installation with video and have versions at dpodreact.netlify.app
-	- .. make dpodreact.netlify.app with simple zip download
+- itemTypes
+    - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
+        - .. load plurals with loadCode, singles with id
+        - .. make button on JSON-read/write page: [Show PageItems]
+            - backend: const pageItems = new PageItems('all');
+                - send as: pageItems->outputAsJson()
+                - show on frontend
+                - build buttons for various loadCodes
+                    - all
+                    - menu = main
+
+- dpod setup site process
+- dpod site build process
+    - randomize port
+
+- make datapod site with dev/publish distinction, and streamline installation with video and have versions at dpodreact.netlify.app
 	
 
 
@@ -18,24 +32,8 @@
 		- input API and it will be displayed on page
 
 - implement itemtypes for pageItems and save from Showcase: Read/Write JSON 
-- x all imports for item classes for extends
 - .. load data from json file into plural object 
 
-- .. create MVC controller on backend
-    - 
-
-
-- .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
-    - x build the four classes
-    - .. load plurals with loadCode, singles with id
-
-    - .. make button on JSON-read/write page: [Show PageItems]
-        - backend: const pageItems = new PageItems('all');
-            - send as: pageItems->outputAsJson()
-            - show on frontend
-            - build buttons for various loadCodes
-                - all
-                - menu = main
     
 - items
     - load()
@@ -47,6 +45,9 @@
 - DpodDataManager
     - save()
     - 
+
+
+
 - dpod
     - documentation
         - loadCode
