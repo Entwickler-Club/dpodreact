@@ -2,10 +2,9 @@ const fs = require('fs');
 
 class Items {
 
-    itemTypeIdCode = '';
-    records: any[] = [];
-    // TODO: dataSource: IDataSource = null;
-    jsonPathAndFileName: string = ''; // e.g. src/system/data/json/itemType_pageItems.json
+    protected items: any[] = [];
+    protected itemTypeIdCode = '';
+    protected jsonPathAndFileName: string = ''; 
 
     constructor() {
         this.initialize();
@@ -22,10 +21,26 @@ class Items {
         });
     }
 
-    displayForDebugging(): void {
+    debug(): void {
         console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
-        console.log(`records: ${this.records.length}`);
+        console.log(`number of items: ${this.items.length}`);
     }
+
+    fillWithObjectArray<T>(itemObjects: T[], callback: any) {
+        itemObjects.forEach((itemObject: T) => {
+            const item = callback();
+            item.fillWithObject(itemObject);
+            this.items.push(item);
+        })
+    }
+
+    getItems<T>(): T[] {
+        return this.items;
+    }
+
+	getItemObjects() {
+        return this.items.map(item => item.getItemObject());
+	}
 }
 
 export default Items;

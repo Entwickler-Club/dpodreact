@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
-import { IShowcaseReport } from '../dataLayer/interfaces';
+import ShowcaseReports from '../itemTypes/showcaseReports';
 import * as dpod from '../dataLayer/dpod';
 
 class ControllerShowcaseManageItemTypes extends Controller {
 
-	private showcaseReports: IShowcaseReport[] = [];
+	private showcaseReports: ShowcaseReports; 
 
 	constructor(request: any, response: any) {
 		super(request, response);
@@ -14,7 +14,7 @@ class ControllerShowcaseManageItemTypes extends Controller {
 
 	action_loadPageData() {
 		this.response.send({
-			showcaseReports: this.showcaseReports
+			showcaseReportObjects: this.showcaseReports.getItemObjects()
 		});
 	}
 
