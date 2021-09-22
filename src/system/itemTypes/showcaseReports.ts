@@ -14,7 +14,7 @@ class ShowcaseReports extends Items {
 
     static instantiateFromObjectArray(showcaseReportObjects: IShowcaseReport[]): ShowcaseReports {
         const showcaseReports = new ShowcaseReports();
-        showcaseReports.fillWithObjectArray(showcaseReportObjects, () => new ShowcaseReport());
+		showcaseReports.fillWithObjectArray<IShowcaseReport>(showcaseReportObjects, () => new ShowcaseReport());
         return showcaseReports;
     }
 }
