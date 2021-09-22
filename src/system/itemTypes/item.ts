@@ -18,6 +18,9 @@ class Item {
         return this.itemObject.systemWhoCreated;
     }
 
+    getItemObject() {
+        return this.itemObject;
+    }
 }
 
 export default Item;

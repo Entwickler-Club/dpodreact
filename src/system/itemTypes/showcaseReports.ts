@@ -21,13 +21,15 @@ class ShowcaseReports extends Items {
         })
     }
 
-    
-
     static instantiateFromObjectArray(showcaseReportObjects: IShowcaseReport[]): ShowcaseReports {
         const showcaseReports = new ShowcaseReports();
         showcaseReports.fillWithObjectArray(showcaseReportObjects);
         return showcaseReports;
     }
+
+	getItemObjects() {
+        return this.items.map(item => item.getItemObject());
+	}
 }
 
 export default ShowcaseReports;

@@ -59,6 +59,13 @@ export const getShowcaseReports = (): ShowcaseReports => {
 			description: "desc 3",
 			systemWhenCreated: '2021-09-21 10:00:02',
 			systemWhoCreated: 'admin'
+		},
+		{
+			id: 4,
+			title: "Showcase #4",
+			description: "desc 4",
+			systemWhenCreated: '2021-09-21 10:00:02',
+			systemWhoCreated: 'admin'
 		}
 	]
 	return ShowcaseReports.instantiateFromObjectArray(scrData);

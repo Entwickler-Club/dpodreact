@@ -15,7 +15,7 @@ class ControllerShowcaseManageItemTypes extends Controller {
 
 	action_loadPageData() {
 		this.response.send({
-			showcaseReports: this.showcaseReports
+			showcaseReports: this.showcaseReports.getItemObjects()
 		});
 	}
 
