@@ -58,18 +58,24 @@
     - documentation
         - loadCode
         - itemTypes
-            - pageItems
-                - pageItem is of type PageItem (class)
-                - pageItems is of type PageItems (class)
-                    - (has an internal array of pageItems)
-                - pageItemObject if of type IPageItem (interface)  
-                - pageItemObjects is of type IPageItem[] (interface) 
-            - ShowcaseReports
-                - showcaseReport is of type ShowcaseReport (class)
-                - showcaseReports is of type ShowcaseReports (class)
-                    - (has an internal array of showcaseReports)
-                - showcaseReportObject if of type IShowcaseReport (interface)  
-                - showcaseReportObjects is of type IShowcaseReport[] (interface) 
+            - guidelines 
+                - an itemType has only one internal data source: this.itemObject
+                    - there is no this.itemRecord
+                    - to get this.itemRecord, use this.getItemRecord which gets its data from this.itemObject
+                    - this.itemObject satisfies the interface e.g. IShowcaseReport
+            - nomenclature
+                - pageItems
+                    - pageItem is of type PageItem (class)
+                    - pageItems is of type PageItems (class)
+                        - (has an internal array of pageItems)
+                    - pageItemObject if of type IPageItem (interface)  
+                    - pageItemObjects is of type IPageItem[] (interface) 
+                - ShowcaseReports
+                    - showcaseReport is of type ShowcaseReport (class)
+                    - showcaseReports is of type ShowcaseReports (class)
+                        - (has an internal array of showcaseReports)
+                    - showcaseReportObject if of type IShowcaseReport (interface)  
+                    - showcaseReportObjects is of type IShowcaseReport[] (interface) 
 		- paths
 			- absolutePath
 			- relativePath
