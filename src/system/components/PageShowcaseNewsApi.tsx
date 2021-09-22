@@ -46,7 +46,6 @@ function PageShowcaseNewsApi() {
 						color="#aaa"
 						height={70}
 						width={70}
-						timeout={2000}
 					/>
 				)}
 			</div>

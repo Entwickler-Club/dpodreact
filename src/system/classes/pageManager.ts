@@ -30,7 +30,7 @@ class PageManager {
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(requestData)
 				});
-				const data = response.json();
+				const data = await response.json();
 				resolve(data);
 			})();
 		});
