@@ -4,19 +4,19 @@ import ShowcaseReport from './showcaseReport';
 import { IShowcaseReport } from '../dataLayer/interfaces';
 
 class ShowcaseReports extends Items {
-    protected items: ShowcaseReport[] = [];
-    protected itemTypeIdCode: string = 'showcaseReports';
+	protected items: ShowcaseReport[] = [];
+	protected itemTypeIdCode: string = 'showcaseReports';
 
-    constructor() {
-        super();
-        this.initialize();
-    }
+	constructor() {
+		super();
+		this.initialize();
+	}
 
-    static instantiateFromObjectArray(showcaseReportObjects: IShowcaseReport[]): ShowcaseReports {
-        const showcaseReports = new ShowcaseReports();
+	static instantiateFromObjectArray(showcaseReportObjects: IShowcaseReport[]): ShowcaseReports {
+		const showcaseReports = new ShowcaseReports();
 		showcaseReports.fillWithObjectArray<IShowcaseReport>(showcaseReportObjects, () => new ShowcaseReport());
-        return showcaseReports;
-    }
+		return showcaseReports;
+	}
 }
 
 export default ShowcaseReports;
