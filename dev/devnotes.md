@@ -1,4 +1,8 @@
-- itemTypes
+- .. itemTypes
+    - .. build code in to put data back to .json file
+
+
+    
     - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
         - .. load plurals with loadCode, singles with id
         - .. make button on JSON-read/write page: [Show PageItems]
@@ -53,6 +57,19 @@
 - dpod
     - documentation
         - loadCode
+        - itemTypes
+            - pageItems
+                - pageItem is of type PageItem (class)
+                - pageItems is of type PageItems (class)
+                    - (has an internal array of pageItems)
+                - pageItemObject if of type IPageItem (interface)  
+                - pageItemObjects is of type IPageItem[] (interface) 
+            - ShowcaseReports
+                - showcaseReport is of type ShowcaseReport (class)
+                - showcaseReports is of type ShowcaseReports (class)
+                    - (has an internal array of showcaseReports)
+                - showcaseReportObject if of type IShowcaseReport (interface)  
+                - showcaseReportObjects is of type IShowcaseReport[] (interface) 
 		- paths
 			- absolutePath
 			- relativePath

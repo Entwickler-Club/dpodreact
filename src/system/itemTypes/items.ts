@@ -2,10 +2,10 @@ const fs = require('fs');
 
 class Items {
 
-    itemTypeIdCode = '';
-    records: any[] = [];
+    protected itemTypeIdCode = '';
+    protected records: any[] = [];
     // TODO: dataSource: IDataSource = null;
-    jsonPathAndFileName: string = ''; // e.g. src/system/data/json/itemType_pageItems.json
+    protected jsonPathAndFileName: string = ''; // e.g. src/system/data/json/itemType_pageItems.json
 
     constructor() {
         this.initialize();
