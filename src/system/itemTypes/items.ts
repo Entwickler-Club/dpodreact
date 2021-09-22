@@ -2,9 +2,9 @@ const fs = require('fs');
 
 class Items {
 
+    protected items: any[] = [];
     protected itemTypeIdCode = '';
-    // TODO: dataSource: IDataSource = null;
-    protected jsonPathAndFileName: string = ''; // e.g. src/system/data/json/itemType_pageItems.json
+    protected jsonPathAndFileName: string = ''; 
 
     constructor() {
         this.initialize();
@@ -23,6 +23,7 @@ class Items {
 
     debug(): void {
         console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
+        console.log(`number of items: ${this.items.length}`);
     }
 }
 

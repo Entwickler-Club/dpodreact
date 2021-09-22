@@ -4,7 +4,7 @@ import ShowcaseReport from './showcaseReport';
 import { IShowcaseReport } from '../dataLayer/interfaces';
 
 class ShowcaseReports extends Items {
-    private items: IShowcaseReport[] = [];
+    protected items: ShowcaseReport[] = [];
     protected itemTypeIdCode: string = 'showcaseReports';
 
     constructor() {
@@ -17,6 +17,7 @@ class ShowcaseReports extends Items {
         itemObjects.forEach((itemObject: IShowcaseReport) => {
             const item = new ShowcaseReport();
             item.fillWithObject(itemObject);
+            this.items.push(item);
         })
     }
 
