@@ -4,7 +4,6 @@ import ShowcaseReport from './showcaseReport';
 import { IShowcaseReport } from '../dataLayer/interfaces';
 
 class ShowcaseReports extends Items {
-
     private items: IShowcaseReport[] = [];
     protected itemTypeIdCode: string = 'showcaseReports';
 
@@ -26,7 +25,6 @@ class ShowcaseReports extends Items {
         showcaseReports.fillWithObjectArray(showcaseReportObjects);
         return showcaseReports;
     }
-
 }
 
 export default ShowcaseReports;

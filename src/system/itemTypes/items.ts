@@ -3,7 +3,6 @@ const fs = require('fs');
 class Items {
 
     protected itemTypeIdCode = '';
-    protected records: any[] = [];
     // TODO: dataSource: IDataSource = null;
     protected jsonPathAndFileName: string = ''; // e.g. src/system/data/json/itemType_pageItems.json
 
@@ -22,9 +21,8 @@ class Items {
         });
     }
 
-    displayForDebugging(): void {
+    debug(): void {
         console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
-        console.log(`records: ${this.records.length}`);
     }
 }
 
