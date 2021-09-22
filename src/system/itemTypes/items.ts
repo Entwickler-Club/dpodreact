@@ -25,6 +25,15 @@ class Items {
         console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
         console.log(`number of items: ${this.items.length}`);
     }
+
+    fillWithObjectArray<T>(itemObjects: T[], callback: any) {
+        itemObjects.forEach((itemObject: T) => {
+            const item = callback();
+            item.fillWithObject(itemObject);
+            this.items.push(item);
+        })
+    }
+
 }
 
 export default Items;

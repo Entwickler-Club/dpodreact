@@ -12,18 +12,9 @@ class ShowcaseReports extends Items {
         this.initialize();
     }
 
-    // TODO: turn into generic method in Items`
-    fillWithObjectArray(itemObjects: IShowcaseReport[]) {
-        itemObjects.forEach((itemObject: IShowcaseReport) => {
-            const item = new ShowcaseReport();
-            item.fillWithObject(itemObject);
-            this.items.push(item);
-        })
-    }
-
     static instantiateFromObjectArray(showcaseReportObjects: IShowcaseReport[]): ShowcaseReports {
         const showcaseReports = new ShowcaseReports();
-        showcaseReports.fillWithObjectArray(showcaseReportObjects);
+        showcaseReports.fillWithObjectArray(showcaseReportObjects, () => new ShowcaseReport());
         return showcaseReports;
     }
 
