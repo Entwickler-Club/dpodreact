@@ -17,10 +17,6 @@ class ShowcaseReports extends Items {
         showcaseReports.fillWithObjectArray(showcaseReportObjects, () => new ShowcaseReport());
         return showcaseReports;
     }
-
-	getItemObjects() {
-        return this.items.map(item => item.getItemObject());
-	}
 }
 
 export default ShowcaseReports;

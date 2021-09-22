@@ -1,4 +1,5 @@
 - .. itemTypes
+    - .. use itemtype classes on frontend
     - .. build code in to put data back to .json file
 
 

@@ -34,6 +34,13 @@ class Items {
         })
     }
 
+    getItems<T>(): T[] {
+        return this.items;
+    }
+
+	getItemObjects() {
+        return this.items.map(item => item.getItemObject());
+	}
 }
 
 export default Items;

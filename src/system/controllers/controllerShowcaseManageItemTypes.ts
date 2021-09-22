@@ -10,12 +10,11 @@ class ControllerShowcaseManageItemTypes extends Controller {
 	constructor(request: any, response: any) {
 		super(request, response);
 		this.showcaseReports = dpod.getShowcaseReports();
-		this.showcaseReports.debug();
 	}
 
 	action_loadPageData() {
 		this.response.send({
-			showcaseReports: this.showcaseReports.getItemObjects()
+			showcaseReportObjects: this.showcaseReports.getItemObjects()
 		});
 	}
 

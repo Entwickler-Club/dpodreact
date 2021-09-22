@@ -19,6 +19,14 @@ class ShowcaseReport extends Item {
         this.itemObject = itemObject;
     }
 
+    displayAsHtml() {
+        return `
+        <div>
+        This is a Showcase Report
+        </div>
+        `;
+    }
+
 }
 
 export default ShowcaseReport;
