@@ -16,6 +16,7 @@ import PageDeletePage from './PageDeletePage';// ::deletePage
 import PageCreatePage from './PageCreatePage';// ::createPage
 import PageShowcaseNewsApi from './PageShowcaseNewsApi';// ::showcaseNewsApi
 import PageShowcaseManageItemTypes from './PageShowcaseManageItemTypes';// ::showcaseManageItemTypes
+import PageShowcaseUseToggle from './PageShowcaseUseToggle';// ::showcaseUseToggle
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -51,14 +52,15 @@ function Site() {
 							{/* DYNAMIC_JSX_AREA: linkPageComponentLines */}
 							<span><Link to='/createPage'>Create Page</Link></span>{/* ::createPage */}
 							<span><Link to='/deletePage'>Delete Page</Link></span>{/* ::deletePage */}
-							<span><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></span> {/* ::showcaseCounterUsingState */}
-							<span><Link to='/showcaseCounterUsingReducer'>Showcase: Counter Using Reducer</Link></span>{/* ::showcaseCounterUsingReducer */}
+							<span><Link to='/showcaseCounterUsingState'>Showcase: Counter Using useState()</Link></span> {/* ::showcaseCounterUsingState */}
+							<span><Link to='/showcaseCounterUsingReducer'>Showcase: Counter Using useReducer()</Link></span>{/* ::showcaseCounterUsingReducer */}
 							<span><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></span>{/* ::showcaseTypeScriptClasses */}
 							<span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
 							<span><Link to='/showcaseSqliteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSqliteReader */}
 							<span><Link to='/showcaseJsonReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJsonReadWrite */}
 							<span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
 							<span><Link to='/showcaseManageItemTypes'>Showcase: Manage Item Types</Link></span>{/* ::showcaseManageItemTypes */}
+							<span><Link to='/showcaseUseToggle'>Showcase: useToggle()</Link></span>{/* ::showcaseUseToggle */}
 						</>
 					)}
 				</nav>
@@ -79,6 +81,7 @@ function Site() {
 						<Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
 						<Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
 						<Route path='/showcaseManageItemTypes'><PageShowcaseManageItemTypes /></Route>{/* ::showcaseManageItemTypes */}
+						<Route path='/showcaseUseToggle'><PageShowcaseUseToggle /></Route>{/* ::showcaseUseToggle */}
 					</Switch>
 				</section>
 			</div>

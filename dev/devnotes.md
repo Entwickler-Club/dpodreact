@@ -23,6 +23,7 @@
     - dpod site build process
         - randomize port
     - fix all browser index errors
+	- fix page naming, allow colon for e.g. Showcase
 
 - make datapod site with dev/publish distinction, and streamline installation with video and have versions at dpodreact.netlify.app
 	

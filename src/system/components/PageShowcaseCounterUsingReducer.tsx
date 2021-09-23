@@ -27,13 +27,17 @@ function PageShowcaseCounterUsingReducer() {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	return (
 		<div className="page page_showcaseCounterUsingReducer">
-			<div className="countArea">
-				<div>Count: {state.count}</div>
-				<div>Last Action: {state.lastAction}</div>
-			</div>
-			<div className="buttonArea">
-				<button onClick={() => dispatch({ type: 'decrement' })}>-</button>
-				<button onClick={() => dispatch({ type: 'increment' })}>+</button>
+			<h2 className="title">Showcase: Counter Using useReducer()</h2>
+			<p className="description">This shows how to use useReducer to change state</p>
+			<div className="page page_showcaseCounterUsingReducer">
+				<div className="countArea">
+					<div>Count: {state.count}</div>
+					<div>Last Action: {state.lastAction}</div>
+				</div>
+				<div className="buttonArea">
+					<button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+					<button onClick={() => dispatch({ type: 'increment' })}>+</button>
+				</div>
 			</div>
 		</div>
 	);
