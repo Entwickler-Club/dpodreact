@@ -1,6 +1,7 @@
 - v0.00.02
 	- ItemTypes work on backend and frontend (manually)
 	- added: PageShowcaseCounterUsingReducer() {
+	- added: useToggle showcase 
  	
 - .. itemTypes
     - .. use itemtype classes on frontend
