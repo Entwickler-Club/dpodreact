@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../styles/page_showcaseCounterUsingState.scss';
 
 function PageShowcaseCounterUsingState() {
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(11);
 
 	const incrementCountHandler = () => {
 		setCount(prevCount => prevCount + 1);

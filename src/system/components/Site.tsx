@@ -30,7 +30,7 @@ function Site() {
 			<div className='app_site'>
 				<div className="topHeader">
 					<h1 className='siteTitle'>Datapod for React<span className="version">Version 0.00.02</span></h1>
-					{/* <div className='menuToggle'>
+					<div className='menuToggle'>
 						<label htmlFor='myToggle' className='toggle'>
 							<input
 								className='toggle_input'
@@ -41,7 +41,7 @@ function Site() {
 							/>
 							<div className='toggle_fill'></div>
 						</label>
-					</div> */}
+					</div>
 				</div>
 				<nav>
 					<span>
