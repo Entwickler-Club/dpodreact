@@ -7,6 +7,7 @@ import PageHome from '../../custom/components/PageHome';
 
 // DYNAMIC_CODE_AREA: loadPageComponentLines
 import PageShowcaseCounterUsingState from './PageShowcaseCounterUsingState'; // ::showcaseCounterUsingState
+import PageShowcaseCounterUsingReducer from './PageShowcaseCounterUsingReducer';// ::showcaseCounterUsingReducer
 import PageShowcaseTypeScriptClasses from './PageShowcaseTypeScriptClasses';// ::showcaseTypeScriptClasses
 import PageShowcaseJavaScriptComponent from './PageShowcaseJavaScriptComponent';// ::showcaseJavaScriptComponent
 import PageShowcaseSqliteReader from './PageShowcaseSqliteReader';// ::showcaseSqliteReader
@@ -51,6 +52,7 @@ function Site() {
 							<span><Link to='/createPage'>Create Page</Link></span>{/* ::createPage */}
 							<span><Link to='/deletePage'>Delete Page</Link></span>{/* ::deletePage */}
 							<span><Link to='/showcaseCounterUsingState'>Showcase: Counter Using State</Link></span> {/* ::showcaseCounterUsingState */}
+							<span><Link to='/showcaseCounterUsingReducer'>Showcase: Counter Using Reducer</Link></span>{/* ::showcaseCounterUsingReducer */}
 							<span><Link to='/showcaseTypeScriptClasses'>Showcase: TypeScript Classes</Link></span>{/* ::showcaseTypeScriptClasses */}
 							<span><Link to='/showcaseJavaScriptComponent'>Showcase: JavaScript Component</Link></span>{/* ::showcaseJavaScriptComponent */}
 							<span><Link to='/showcaseSqliteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSqliteReader */}
@@ -68,6 +70,7 @@ function Site() {
 						</Route>
 						{/* DYNAMIC_JSX_AREA: routePageComponentLines */}
 						<Route path='/showcaseCounterUsingState'><PageShowcaseCounterUsingState /></Route> {/* ::showcaseCounterUsingState */}
+						<Route path='/showcaseCounterUsingReducer'><PageShowcaseCounterUsingReducer /></Route>{/* ::showcaseCounterUsingReducer */}
 						<Route path='/showcaseTypeScriptClasses'><PageShowcaseTypeScriptClasses /></Route>{/* ::showcaseTypeScriptClasses */}
 						<Route path='/showcaseJavaScriptComponent'><PageShowcaseJavaScriptComponent /></Route>{/* ::showcaseJavaScriptComponent */}
 						<Route path='/showcaseSqliteReader'><PageShowcaseSqliteReader /></Route>{/* ::showcaseSqliteReader */}

@@ -1,7 +1,7 @@
 - v0.00.02
 	- ItemTypes work on backend and frontend (manually)
-
-	
+	- added: PageShowcaseCounterUsingReducer() {
+ 	
 - .. itemTypes
     - .. use itemtype classes on frontend
     - .. build code in to put data back to .json file
