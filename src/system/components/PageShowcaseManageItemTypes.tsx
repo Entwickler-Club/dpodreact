@@ -4,7 +4,7 @@ import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
-import ShowcaseReportComponent from './ShowcaseReportComponent';
+import {ShowcaseReportComponent,  ShowcaseReportKind } from './ShowcaseReportComponents';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
@@ -29,7 +29,10 @@ function PageShowcaseManageItemTypes() {
 				{showcaseReports.getItems<ShowcaseReport>().map((showcaseReport, index) => {
 					return (
 						<div key={index}>
-							<ShowcaseReportComponent item={showcaseReport}/>
+							<ShowcaseReportComponent item={showcaseReport} kind={ShowcaseReportKind.display}/>
+							<ShowcaseReportComponent item={showcaseReport} kind={ShowcaseReportKind.displayAndEdit}/>
+							<ShowcaseReportComponent item={showcaseReport} kind={ShowcaseReportKind.list}/>
+							<hr/>
 						</div>
 					)
 				})}
