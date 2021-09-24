@@ -37,36 +37,9 @@ export const getPageItems = (): IPageItem[] => {
 	return pageItems;
 }
 
-export const getShowcaseReports = (): ShowcaseReports => {
-	const scrData = [
-		{
-			id: 1,
-			title: "Showcase #1",
-			description: "desc 1",
-			systemWhenCreated: '2021-09-21 10:00:02',
-			systemWhoCreated: 'admin'
-		},
-		{
-			id: 2,
-			title: "Showcase #2",
-			description: "desc 2",
-			systemWhenCreated: '2021-09-21 10:00:02',
-			systemWhoCreated: 'admin'
-		},
-		{
-			id: 3,
-			title: "Showcase #3",
-			description: "desc 3",
-			systemWhenCreated: '2021-09-21 10:00:02',
-			systemWhoCreated: 'admin'
-		},
-		{
-			id: 4,
-			title: "Showcase #4",
-			description: "desc 4",
-			systemWhenCreated: '2021-09-21 10:00:02',
-			systemWhoCreated: 'admin'
-		}
-	]
-	return ShowcaseReports.instantiateFromObjectArray(scrData);
+export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
+	return new Promise((resolve) => {
+		const showcaseReports = new ShowcaseReports(dql);
+		resolve(showcaseReports);
+	});
 }

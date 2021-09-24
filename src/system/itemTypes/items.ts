@@ -5,19 +5,21 @@ class Items {
     protected items: any[] = [];
     protected itemTypeIdCode = '';
     protected jsonPathAndFileName: string = ''; 
+	protected dql: string = '';
 
-    constructor() {
+    constructor(dql: string) {
         this.initialize();
+		this.dql = dql;
     }
 
     initialize() {
-        this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`;
+        this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`; 
     }
 
-    loadRecords(callback: any) {
+    getObjectArrayFromJsonFile(callback: any) {
         fs.readFile(`./${this.jsonPathAndFileName}`, 'utf-8', (err: any, rawData: any) => {
-            const records = JSON.parse(rawData);
-            callback(records);
+            const objectArray = JSON.parse(rawData);
+            callback(objectArray);
         });
     }
 
@@ -26,7 +28,7 @@ class Items {
         console.log(`number of items: ${this.items.length}`);
     }
 
-    fillWithObjectArray<T>(itemObjects: T[], callback: any) {
+    infuseWithObjectArray<T>(itemObjects: T[], callback: any) {
         itemObjects.forEach((itemObject: T) => {
             const item = callback();
             item.fillWithObject(itemObject);

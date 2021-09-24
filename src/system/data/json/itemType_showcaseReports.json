@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"title": "Showcase JSON #1",
+		"description": "desc 1",
+		"systemWhenCreated": "2021-09-21 10:00:02",
+		"systemWhoCreated": "admin"
+	},
+	{
+		"id": 2,
+		"title": "Showcase JSON #2",
+		"description": "desc 2",
+		"systemWhenCreated": "2021-09-21 10:00:02",
+		"systemWhoCreated": "admin"
+	},
+	{
+		"id": 3,
+		"title": "Showcase JSON #3",
+		"description": "desc 3",
+		"systemWhenCreated": "2021-09-21 10:00:02",
+		"systemWhoCreated": "admin"
+	}
+]

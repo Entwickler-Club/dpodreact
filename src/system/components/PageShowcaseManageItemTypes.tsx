@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
-import { IShowcaseReport } from '../dataLayer/interfaces';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 
@@ -28,8 +27,8 @@ function PageShowcaseManageItemTypes() {
 			<div>
 				{showcaseReports.getItems<ShowcaseReport>().map((showcaseReport) => {
 					return (
-						<div dangerouslySetInnerHTML={{__html:showcaseReport.displayAsHtml()}}>
-						</div>
+						<p dangerouslySetInnerHTML={{__html:showcaseReport.displayAsHtml()}}>
+						</p>
 					)
 				})}
 			</div>

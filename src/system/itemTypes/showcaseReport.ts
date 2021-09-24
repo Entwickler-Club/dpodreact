@@ -1,6 +1,5 @@
 import { IShowcaseReport } from '../dataLayer/interfaces';
 import Item from './item';
-import ShowcaseReports from './showcaseReports';
 
 class ShowcaseReport extends Item {
     constructor() {
@@ -22,7 +21,7 @@ class ShowcaseReport extends Item {
     displayAsHtml() {
         return `
         <div>
-        This is a Showcase Report
+        This is a Showcase Report: "${this.get_title()}"
         </div>
         `;
     }

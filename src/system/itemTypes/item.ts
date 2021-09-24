@@ -3,7 +3,6 @@ class Item {
     protected itemObject: any = {};
 
     constructor() {
-
     }
 
     get_id() {
