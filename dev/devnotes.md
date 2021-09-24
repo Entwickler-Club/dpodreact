@@ -2,13 +2,13 @@
 	- ItemTypes work on backend and frontend (manually)
 	- added: PageShowcaseCounterUsingReducer() {
 	- added: useToggle showcase 
- 	
+	- devnotes: added notes on versioning
+===================================================================================================
+- .. see if DisplayItem works as component
 - .. itemTypes
     - .. use itemtype classes on frontend
     - .. build code in to put data back to .json file
 
-
-    
     - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
         - .. load plurals with loadCode, singles with id
         - .. make button on JSON-read/write page: [Show PageItems]
@@ -20,6 +20,7 @@
                     - menu = main
 
 - various todos
+	- tasks
     - dpod setup site process
     - dpod site build process
         - randomize port
@@ -83,6 +84,8 @@
                         - (has an internal array of showcaseReports)
                     - showcaseReportObject if of type IShowcaseReport (interface)  
                     - showcaseReportObjects is of type IShowcaseReport[] (interface) 
+				- infuse prefix
+					- to fill the itemType with data, e.g. infuseWithObjectArray
 		- paths
 			- absolutePath
 			- relativePath
@@ -123,3 +126,59 @@
 - fireship youtuber
 - superbase
 - https://www.youtube.com/watch?v=4duqI8WyfqEhttps://copilot.github.com/
+
+- versioning numbers
+	- semver (semantic versioning)
+		- https://semver.org
+		- syntax
+			- MAJOR version when you make incompatible API changes,
+			- MINOR version when you add functionality in a backwards compatible manner, and
+			- PATCH version when you make backwards compatible bug fixes.
+		- examples
+			- 0.00.00
+			- 0.01.00
+	- odd/even to indicate unstable/stable
+		- https://stackoverflow.com/questions/1266411/which-open-source-projects-use-odd-unstable-even-stable-style-of-versioning
+			- The linux kernel dropped that practice with the start of the 2.6 kernel in 2003 (i.e. 2.4 was the last stable with a corresponding 2.5 development branch). 
+			- Many open source projects did use this, but most have changed to other methods.
+			- Ruby does not use this scheme anymore since 1.9 (which is stable)
+			- IMHO, all releases should be relatively stable.
+	- various
+		- when doing a simple lexicographic string compare, "1.10" sorts before "1.8",  
+	- Jeff Atwood: https://blog.codinghorror.com/whats-in-a-version-number-anyway/
+		- use build numbers (.NET)
+			- 0.00.00.000
+		- include date in version
+			- 2021-09-24 0.00.00
+	- Datapod Versioning:
+		- names:
+			- 2021-09-24 - 0.00.00 - Create/delete pages have basic functionality
+			- 2021-12-24 - 1.21.00 - Added three new DataTypes: Natural Numbers, Whole Numbers, Decimals
+			- 2021-12-24 - 1.21.01 - Fixed spelling erros on setup
+		- files:
+			- 2021-09-24-0000000-firstPublicVersion.zip	
+			- 2021-12-24-0012100-threeDataTypes.zip
+			- 2021-12-24-0012101-fixedSpelling.zip
+		- notes
+			- I don't have build numbers so won't include these in the version
+		- limitations
+			- only 100 minor and minor versions possible before you are forced to move to a new version
+				- 2.99.04
+				- rationale: forces you to create new major and minor versions
+			- FIXED: only 9 major versions possible before sorting issue breaks, e.g.
+				- 9.23.02
+				- 10.00.00 no longer sorts
+				- rationale: before this point, you:
+					- will have moved to a different project
+					- can give the project a new name and restart the versioning, e.g. Road Runner 1.00.00
+					- can just continue on with 10.00.00 and 
+				- FIX: title is 3.11.02 but file idCode is 0031102
+					- this allows e.g. 10.02.00 which is then sorts and aligns:
+						- 0031102
+						- 0100200
+		- advantages
+			- date-vers-note.zip 
+				- sortable
+				- reverse processable (can get date and version back out)
+				- has virtually no time limit: will work till version 999.99.99
+			- major/minor/patch format is quite standard

@@ -2,9 +2,9 @@
 import { useState, useEffect } from 'react';
 import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
-import { IShowcaseReport } from '../dataLayer/interfaces';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
+import { ShowcaseReportsMain, ShowcaseReportMain, ShowcaseReportMainKind, ShowcaseReportList, ShowcaseReportsMainKind } from './ShowcaseReportComponents';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
@@ -13,7 +13,7 @@ function PageShowcaseManageItemTypes() {
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		const showcaseReports = ShowcaseReports.instantiateFromObjectArray(data.showcaseReportObjects); 
+		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects(data.showcaseReportObjects);
 		setShowcaseReports(showcaseReports);
 	}
 
@@ -25,14 +25,25 @@ function PageShowcaseManageItemTypes() {
 		<div className="page page_showcaseManageItemTypes">
 			<h2 className="title">Showcase: Manage Item Types</h2>
 			<p className="description">An info page that displays showcase manage item types</p>
-			<div>
-				{showcaseReports.getItems<ShowcaseReport>().map((showcaseReport) => {
-					return (
-						<div dangerouslySetInnerHTML={{__html:showcaseReport.displayAsHtml()}}>
-						</div>
-					)
-				})}
-			</div>
+			<section>
+				<h3>Singular components</h3>
+				<div>
+					{showcaseReports.getItems<ShowcaseReport>().map((showcaseReport, index) => {
+						return (
+							<div key={index}>
+								<ShowcaseReportMain item={showcaseReport} kind={ShowcaseReportMainKind.display} />
+								<ShowcaseReportMain item={showcaseReport} kind={ShowcaseReportMainKind.displayAndEdit} />
+								<ShowcaseReportList item={showcaseReport} />
+								<hr />
+							</div>
+						)
+					})}
+				</div>
+			</section>
+			<section>
+				<h3>Plural components</h3>
+				<ShowcaseReportsMain items={showcaseReports} kind={ShowcaseReportsMainKind.displayAndEdit} />
+			</section>
 		</div>
 	)
 }

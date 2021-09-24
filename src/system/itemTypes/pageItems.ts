@@ -4,8 +4,8 @@ class PageItems extends Items {
 
     itemTypeIdCode: string = 'pageItems';
 
-    constructor() {
-        super();
+	constructor(dql: string = '') {
+		super(dql);
         this.initialize();
     }
 

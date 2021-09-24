@@ -1,22 +1,33 @@
 import Items from './items';
 import ShowcaseReport from './showcaseReport';
-
 import { IShowcaseReport } from '../dataLayer/interfaces';
 
 class ShowcaseReports extends Items {
 	protected items: ShowcaseReport[] = [];
-	protected itemTypeIdCode: string = 'showcaseReports';
+	protected itemTypeIdCode: string = '';
 
-	constructor() {
-		super();
+	constructor(dql: string = '') {
+		super(dql);
+		this.itemTypeIdCode = 'showcaseReports';
 		this.initialize();
 	}
 
-	static instantiateFromObjectArray(showcaseReportObjects: IShowcaseReport[]): ShowcaseReports {
-		const showcaseReports = new ShowcaseReports();
-		showcaseReports.fillWithObjectArray<IShowcaseReport>(showcaseReportObjects, () => new ShowcaseReport());
-		return showcaseReports;
+	getAsItemObjects() {
+		return this.itemObjects;
 	}
+
+	static async instantiateFromItemObjects(itemObjects: IShowcaseReport[]): Promise<ShowcaseReports> {
+		return new Promise(resolve => {
+			const showcaseReports = new ShowcaseReports();
+			(async () => {
+				await showcaseReports.infuseWithItemObjects<IShowcaseReport>(itemObjects, () => {
+					return new ShowcaseReport();
+				});
+				resolve(showcaseReports);
+			})();
+		})
+	}
+
 }
 
 export default ShowcaseReports;
