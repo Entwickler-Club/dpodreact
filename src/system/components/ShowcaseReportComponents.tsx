@@ -1,28 +1,35 @@
 import ShowcaseReport from '../itemTypes/showcaseReport';
 
-interface IShowcaseReportComponentProps {
+// === SINGULAR: MAIN COMPONENT ======================================
+
+interface IShowcaseReportMainComponentProps {
 	item: ShowcaseReport;
-	kind: ShowcaseReportKind;
+	kind: ShowcaseReportMainComponentKind;
 }
 
-export enum ShowcaseReportKind {
+export enum ShowcaseReportMainComponentKind {
 	display,
 	displayAndEdit,
 	list
 }
 
-export const ShowcaseReportComponent = (props: IShowcaseReportComponentProps) => {
+export const ShowcaseReportMainComponent = (props: IShowcaseReportMainComponentProps) => {
 	const showcaseReport = props.item;
 	const kind = props.kind
+	return (
+		<div>Display: {showcaseReport.get_title()} {kind === ShowcaseReportMainComponentKind.displayAndEdit && <span>[EDIT]</span>}</div>
+	)
+}
 
-	switch (kind) {
-		case ShowcaseReportKind.list:
-			return (
-				<div>List: {showcaseReport.get_title()}</div>
-			)
-		default:
-			return (
-				<div>Display: {showcaseReport.get_title()} {kind === ShowcaseReportKind.displayAndEdit && <span>[EDIT]</span>}</div>
-			)
-	}
+// === SINGULAR: LIST COMPONENT ======================================
+
+interface IShowcaseReportListComponentProps {
+	item: ShowcaseReport;
+}
+
+export const ShowcaseReportListComponent = (props: IShowcaseReportListComponentProps) => {
+	const showcaseReport = props.item;
+	return (
+		<div>List: {showcaseReport.get_title()}</div>
+	)
 }

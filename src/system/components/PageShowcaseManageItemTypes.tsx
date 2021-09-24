@@ -4,7 +4,7 @@ import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
-import {ShowcaseReportComponent,  ShowcaseReportKind } from './ShowcaseReportComponents';
+import {ShowcaseReportMainComponent,  ShowcaseReportMainComponentKind, ShowcaseReportListComponent } from './ShowcaseReportComponents';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
