@@ -3,7 +3,8 @@
 	- added: PageShowcaseCounterUsingReducer() {
 	- added: useToggle showcase 
 	- devnotes: added notes on versioning
- 	
+===================================================================================================
+- .. see if DisplayItem works as component
 - .. itemTypes
     - .. use itemtype classes on frontend
     - .. build code in to put data back to .json file

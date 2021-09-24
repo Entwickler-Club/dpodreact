@@ -27,6 +27,7 @@ class ShowcaseReports extends Items {
 			})();
 		})
 	}
+
 }
 
 export default ShowcaseReports;
