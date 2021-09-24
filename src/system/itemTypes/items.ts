@@ -2,46 +2,57 @@ const fs = require('fs');
 
 class Items {
 
-    protected items: any[] = [];
-    protected itemTypeIdCode = '';
-    protected jsonPathAndFileName: string = ''; 
+	protected itemObjects: any = [];
+	protected items: any[] = [];
+	protected itemTypeIdCode = '';
+	protected jsonPathAndFileName: string = '';
 	protected dql: string = '';
 
-    constructor(dql: string) {
-        this.initialize();
-		this.dql = dql;
-    }
+	constructor(dql: string = '') {
+		this.dql = dql === '' ? 'all' : dql;
+	}
 
-    initialize() {
-        this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`; 
-    }
+	initialize() {
+		this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`;
+	}
 
-    getObjectArrayFromJsonFile(callback: any) {
-        fs.readFile(`./${this.jsonPathAndFileName}`, 'utf-8', (err: any, rawData: any) => {
-            const objectArray = JSON.parse(rawData);
-            callback(objectArray);
-        });
-    }
+	async infuseWithData() {
+		return new Promise(resolve => {
+			(async () => {
+				this.itemObjects = await this.getItemObjectsFromJsonFile();
+				resolve(true);
+			})();
+		});
+	}
 
-    debug(): void {
-        console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
-        console.log(`number of items: ${this.items.length}`);
-    }
+	getItemObjectsFromJsonFile(): Promise<any> {
+		return new Promise(resolve => {
+			fs.readFile(`./${this.jsonPathAndFileName}`, 'utf-8', (err: any, rawData: any) => {
+				const itemObjects = JSON.parse(rawData);
+				resolve(itemObjects);
+			});
+		})
+	}
 
-    infuseWithObjectArray<T>(itemObjects: T[], callback: any) {
-        itemObjects.forEach((itemObject: T) => {
-            const item = callback();
-            item.fillWithObject(itemObject);
-            this.items.push(item);
-        })
-    }
+	debug(): void {
+		console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
+		console.log(`number of items: ${this.items.length}`);
+	}
 
-    getItems<T>(): T[] {
-        return this.items;
-    }
+	infuseWithItemObjects<T>(itemObjects: T[], callback: any) {
+		itemObjects.forEach((itemObject: T) => {
+			const item = callback();
+			item.fillWithObject(itemObject);
+			this.items.push(item);
+		})
+	}
+
+	getItems<T>(): T[] {
+		return this.items;
+	}
 
 	getItemObjects() {
-        return this.items.map(item => item.getItemObject());
+		return this.items.map(item => item.getItemObject());
 	}
 }
 

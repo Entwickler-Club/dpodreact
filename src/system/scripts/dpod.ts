@@ -1,6 +1,8 @@
+export { };
 /* eslint-disable no-console */
 // fixes VSCode variable-checking in other files (ts2451)
-export { };
+
+/*
 import DpodSiteBuilder from '../classes/dpodSiteBuilder';
 import PageItems from '../itemTypes/pageItems';
 
@@ -27,3 +29,4 @@ if (argv._[0] === 'createPage') {
     console.log('create page \t\t\t\t\tnpm run dpod -- createPage --pageTitle "Monthly Reports"');
     console.log('test items \t\t\t\t\tnpm run dpod -- testItems');
 }
+*/

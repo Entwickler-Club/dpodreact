@@ -12,7 +12,9 @@ function PageShowcaseManageItemTypes() {
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		const showcaseReports = ShowcaseReports.instantiateFromObjectArray(data.showcaseReportObjects); 
+		console.log(data.showcaseReportObjects);
+		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects(data.showcaseReportObjects); 
+		showcaseReports.debug();
 		setShowcaseReports(showcaseReports);
 	}
 

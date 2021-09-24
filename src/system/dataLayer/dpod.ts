@@ -38,8 +38,11 @@ export const getPageItems = (): IPageItem[] => {
 }
 
 export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
-	return new Promise((resolve) => {
+	return new Promise(resolve => {
 		const showcaseReports = new ShowcaseReports(dql);
-		resolve(showcaseReports);
+		(async () => {
+			await showcaseReports.infuseWithData();
+			resolve(showcaseReports);
+		})();
 	});
 }

@@ -12,7 +12,7 @@ class ControllerShowcaseManageItemTypes extends Controller {
 		(async () => {
 			const showcaseReports = await dpod.getShowcaseReports();
 			this.response.send({
-				showcaseReportObjects: showcaseReports.getAsObjectArray()
+				showcaseReportObjects: showcaseReports.getAsItemObjects()
 			});
 
 		})();
