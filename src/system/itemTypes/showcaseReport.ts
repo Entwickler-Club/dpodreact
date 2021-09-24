@@ -2,9 +2,6 @@ import { IShowcaseReport } from '../dataLayer/interfaces';
 import Item from './item';
 
 class ShowcaseReport extends Item {
-    constructor() {
-        super();
-    }
 
     get_title() {
         return this.itemObject.title;

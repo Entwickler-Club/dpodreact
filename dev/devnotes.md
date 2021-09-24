@@ -8,39 +8,6 @@
     - .. use itemtype classes on frontend
     - .. build code in to put data back to .json file
 
-----------------------------------
-		resolve([
-			{
-				id: 1,
-				title: "Showcase #1",
-				description: "desc 1",
-				systemWhenCreated: '2021-09-21 10:00:02',
-				systemWhoCreated: 'admin'
-		},
-			{
-				id: 2,
-				title: "Showcase #2",
-				description: "desc 2",
-				systemWhenCreated: '2021-09-21 10:00:02',
-				systemWhoCreated: 'admin'
-		},
-			{
-				id: 3,
-				title: "Showcase #3",
-				description: "desc 3",
-				systemWhenCreated: '2021-09-21 10:00:02',
-				systemWhoCreated: 'admin'
-		},
-			{
-				id: 4,
-				title: "Showcase #4",
-				description: "desc 4",
-				systemWhenCreated: '2021-09-21 10:00:02',
-				systemWhoCreated: 'admin'
-		}
-		]);
-----------------------------------
-    
     - .. build basic item.ts, items.ts, pageItems.ts, pageItem.ts
         - .. load plurals with loadCode, singles with id
         - .. make button on JSON-read/write page: [Show PageItems]
@@ -52,6 +19,7 @@
                     - menu = main
 
 - various todos
+	- tasks
     - dpod setup site process
     - dpod site build process
         - randomize port

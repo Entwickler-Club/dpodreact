@@ -19,9 +19,12 @@ class ShowcaseReports extends Items {
 	static async instantiateFromItemObjects(itemObjects: IShowcaseReport[]): Promise<ShowcaseReports> {
 		return new Promise(resolve => {
 			const showcaseReports = new ShowcaseReports();
-			showcaseReports.infuseWithItemObjects(itemObjects, () => {
+			(async () => {
+				await showcaseReports.infuseWithItemObjects<IShowcaseReport>(itemObjects, () => {
+					return new ShowcaseReport();
+				});
 				resolve(showcaseReports);
-			});
+			})();
 		})
 	}
 }

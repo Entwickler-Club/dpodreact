@@ -39,18 +39,21 @@ class Items {
 		console.log(`number of items: ${this.items.length}`);
 	}
 
-	infuseWithItemObjects<T>(itemObjects: T[], callback: any) {
-		itemObjects.forEach((itemObject: T) => {
-			const item = callback();
-			item.fillWithObject(itemObject);
-			this.items.push(item);
+	infuseWithItemObjects<T>(itemObjects: T[], callback:any ) {
+		return new Promise(resolve => {
+			itemObjects.forEach((itemObject: T) => {
+				const item = callback();
+				item.fillWithObject(itemObject);
+				this.items.push(item);
+			});
+			resolve(itemObjects);
 		})
 	}
 
 	getItems<T>(): T[] {
 		return this.items;
 	}
-
+ 
 	getItemObjects() {
 		return this.items.map(item => item.getItemObject());
 	}
