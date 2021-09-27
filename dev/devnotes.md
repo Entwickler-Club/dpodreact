@@ -3,7 +3,23 @@
 	- added: PageShowcaseCounterUsingReducer() {
 	- added: useToggle showcase 
 	- devnotes: added notes on versioning
+	- qstr.escapeHtml()
 ===================================================================================================
+- .. display all singular/plural display components
+	- .. *** find solution for component per file:
+		- ComponentDisplayShowcaseReport
+		- ComponentDisplayAndEditShowcaseReport
+		- ComponentListShowcaseReport
+		- ComponentDisplayShowcaseReports
+		- ComponentDisplayAndEditShowcaseReports
+		- ComponentListShowcaseReports
+
+
+- .. enable save to itemtypeO
+
+
+
+
 - .. see if DisplayItem works as component
 - .. itemTypes
     - .. use itemtype classes on frontend

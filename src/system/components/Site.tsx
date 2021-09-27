@@ -29,7 +29,7 @@ function Site() {
 		<Router>
 			<div className='app_site'>
 				<div className="topHeader">
-					<h1 className='siteTitle'>Datapod for React<span className="version">Version 0.00.02</span></h1>
+					<h1 className='siteTitle'>Datapod for React<span className="version">Version 0.02.00</span></h1>
 					<div className='menuToggle'>
 						<label htmlFor='myToggle' className='toggle'>
 							<input
