@@ -189,28 +189,8 @@
 ADD
 ===================
 
-const escapeHTML = (text) => {
-    var tagsToReplace = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;'
-    };
-    return text.replace(/[&<>]/g, function(tag) {
-        return tagsToReplace[tag] || tag;
-    });
-};
 
 
-const parseText = (text) => {
-	let r = text;
-	r = escapeHTML(r);
-	r = r.replaceAll('\r\n', '<br/>');
-	r = r.replaceAll('\t', '&nbsp;&nbsp;&nbsp;&nbsp;');
-	r = r.replaceAll(/`(.*?)`/gm, '<code>$1</code>');
-	r = r.replaceAll(/\*\*(.*?)\*\*/gm, '<b>$1</b>');
-	r = r.replaceAll(/\*(.*?)\*/gm, '<i>$1</i>');
-	return r;
-}
 
 
 
