@@ -183,3 +183,34 @@
 				- reverse processable (can get date and version back out)
 				- has virtually no time limit: will work till version 999.99.99
 			- major/minor/patch format is quite standard
+
+
+
+ADD
+===================
+
+const escapeHTML = (text) => {
+    var tagsToReplace = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return text.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
+
+const parseText = (text) => {
+	let r = text;
+	r = escapeHTML(r);
+	r = r.replaceAll('\r\n', '<br/>');
+	r = r.replaceAll('\t', '&nbsp;&nbsp;&nbsp;&nbsp;');
+	r = r.replaceAll(/`(.*?)`/gm, '<code>$1</code>');
+	r = r.replaceAll(/\*\*(.*?)\*\*/gm, '<b>$1</b>');
+	r = r.replaceAll(/\*(.*?)\*/gm, '<i>$1</i>');
+	return r;
+}
+
+
+
