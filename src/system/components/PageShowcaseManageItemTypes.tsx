@@ -19,8 +19,7 @@ function PageShowcaseManageItemTypes() {
 		showcaseReports.debug();
 		const firstItem = showcaseReports.getFirstItem<ShowcaseReport>();
 		setFirstItem(firstItem);
-		// setShowcaseReports(showcaseReports);
-		setShowcaseReports(new ShowcaseReports());
+		setShowcaseReports(showcaseReports);
 	}
 
 	useEffect(() => {
@@ -36,7 +35,6 @@ function PageShowcaseManageItemTypes() {
 				<ComponentDisplayShowcaseReport item={firstItem}/>
 				<h3>Plural Components</h3>
 				<ComponentDisplayShowcaseReports items={showcaseReports}/>
-				
 			</section>
 		</div>
 	)
