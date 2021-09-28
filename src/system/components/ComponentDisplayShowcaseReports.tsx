@@ -8,12 +8,23 @@ interface IComponentDisplayShowcaseReportsProps {
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportsProps) => {
     const showcaseReports = props.items;
-    showcaseReports.debug();
-    const showcaseReportsItemsArray = showcaseReports.getItems<ShowcaseReport[]>();
-
+    const showcaseReportsItemsArray = showcaseReports.getItems<ShowcaseReport>();
+    const item: ShowcaseReport = new ShowcaseReport(); //showcaseReportsItemsArray[0];
+    const tests = showcaseReportsItemsArray.map(m => m.get_title());
     return (
         <>
-        <div>test: {showcaseReportsItemsArray.length}</div>
+            <div>test:: {showcaseReportsItemsArray.length}</div>
+            {showcaseReportsItemsArray.map((showcaseReport: ShowcaseReport) => {
+                return (
+                    <div>{showcaseReport.get_title()}</div>
+                )
+            })}
+            {/* <div>{item.get_title()}</div> */}
+            {/* {showcaseReportsItemsArray.map((showcaseReport: ShowcaseReport) => {
+                return (
+                    <div>{showcaseReport.get</div>
+                )
+            })} */}
             {/* {showcaseReportsItemsArray.map((showcaseReport: ShowcaseReport, index: number) => {
                 return (
                     <div>nnn</div>

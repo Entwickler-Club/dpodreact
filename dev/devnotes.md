@@ -19,7 +19,7 @@
 - .. enable save to itemtype in DisplayAndEdit
 
 
-
+- make plural itemTypes iterable
 
 
 - .. see if DisplayItem works as component
