@@ -1,3 +1,4 @@
+import '../styles/dpodDisplayGeneric.scss';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 
 interface IComponentDisplayShowcaseReportProps {
@@ -12,7 +13,10 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 			<div className="field dataType_line">
 				<label className="fieldLabel">Title</label>
 				<div className="fieldData">{showcaseReport.get_title()}</div>
-				<div className="example">e.g.<code>Enter a title.</code></div>
+			</div>
+			<div className="field dataType_line">
+				<label className="fieldLabel">Description</label>
+				<div className="fieldData">{showcaseReport.get_description()}</div>
 			</div>
 		</div>
 	)
