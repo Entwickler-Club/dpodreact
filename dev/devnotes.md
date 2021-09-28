@@ -5,6 +5,13 @@
 	- devnotes: added notes on versioning
 	- qstr.escapeHtml()
 ===================================================================================================
+
+- make components (ShowReports) also edit, delete, etc
+- and enable grid view
+
+
+
+
 - .. display all singular/plural display components
 	- .. *** find solution for component per file:
 		- ComponentDisplayShowcaseReport
