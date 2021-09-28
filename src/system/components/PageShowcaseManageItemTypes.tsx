@@ -38,7 +38,6 @@ function PageShowcaseManageItemTypes() {
 				<ComponentDisplayShowcaseReport item={firstItem}/>
 				<h3>Plural Components</h3>
 				<ComponentDisplayShowcaseReports items={showcaseReports}/>
-=
 			</section>
 		</div>
 	)
