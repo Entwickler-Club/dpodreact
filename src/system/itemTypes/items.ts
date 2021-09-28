@@ -57,6 +57,10 @@ class Items {
 	getItemObjects() {
 		return this.items.map(item => item.getItemObject());
 	}
+
+	getFirstItem<T>(): T {
+		return this.items[0];
+	}
 }
 
 export default Items;

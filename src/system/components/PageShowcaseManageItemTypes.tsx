@@ -4,7 +4,7 @@ import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
-import { ShowcaseReportsMain, ShowcaseReportMain, ShowcaseReportMainKind, ShowcaseReportList, ShowcaseReportsMainKind } from './ShowcaseReportComponents';
+import ComponentDisplayShowcaseReport from '../components/ComponenDisplayShowcaseReport';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
@@ -14,6 +14,10 @@ function PageShowcaseManageItemTypes() {
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
 		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects(data.showcaseReportObjects);
+		showcaseReports.debug();
+		const firstItem = showcaseReports.getFirstItem<ShowcaseReport>();
+		firstItem.debug();
+		console.log(firstItem.get_title());
 		setShowcaseReports(showcaseReports);
 	}
 
@@ -27,22 +31,7 @@ function PageShowcaseManageItemTypes() {
 			<p className="description">An info page that displays showcase manage item types</p>
 			<section>
 				<h3>Singular components</h3>
-				<div>
-					{showcaseReports.getItems<ShowcaseReport>().map((showcaseReport, index) => {
-						return (
-							<div key={index}>
-								<ShowcaseReportMain item={showcaseReport} kind={ShowcaseReportMainKind.display} />
-								<ShowcaseReportMain item={showcaseReport} kind={ShowcaseReportMainKind.displayAndEdit} />
-								<ShowcaseReportList item={showcaseReport} />
-								<hr />
-							</div>
-						)
-					})}
-				</div>
-			</section>
-			<section>
-				<h3>Plural components</h3>
-				<ShowcaseReportsMain items={showcaseReports} kind={ShowcaseReportsMainKind.displayAndEdit} />
+				<ComponentDisplayShowcaseReport item={showcaseReports.getFirstItem()}/>
 			</section>
 		</div>
 	)

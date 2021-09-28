@@ -10,12 +10,14 @@
 		- ComponentDisplayShowcaseReport
 		- ComponentDisplayAndEditShowcaseReport
 		- ComponentListShowcaseReport
+
 		- ComponentDisplayShowcaseReports
 		- ComponentDisplayAndEditShowcaseReports
 		- ComponentListShowcaseReports
 
+- all pages to /pages
+- .. enable save to itemtype in DisplayAndEdit
 
-- .. enable save to itemtypeO
 
 
 

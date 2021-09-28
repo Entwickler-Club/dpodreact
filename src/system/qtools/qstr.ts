@@ -768,13 +768,14 @@ export const escapeHtml = (html: string) => {
     });
 };
 
-const parseMarkdownLite = (markdown: string) => {
-	let r = markdown;
-	r = qstr.escapeHtml(r);
-	r = r.replaceAll('\r\n', '<br/>');
-	r = r.replaceAll('\t', '&nbsp;&nbsp;&nbsp;&nbsp;');
-	r = r.replaceAll(/`(.*?)`/gm, '<code>$1</code>');
-	r = r.replaceAll(/\*\*(.*?)\*\*/gm, '<b>$1</b>');
-	r = r.replaceAll(/\*(.*?)\*/gm, '<i>$1</i>');
-	return r;
-}
+// TODO: fix replaceAll (es2021 error from TypeScript)
+// const parseMarkdownLite = (markdown: string) => {
+// 	let r = markdown;
+// 	r = qstr.escapeHtml(r);
+// 	r = r.replaceAll('\r\n', '<br/>');
+// 	r = r.replaceAll('\t', '&nbsp;&nbsp;&nbsp;&nbsp;');
+// 	r = r.replaceAll(/`(.*?)`/gm, '<code>$1</code>');
+// 	r = r.replaceAll(/\*\*(.*?)\*\*/gm, '<b>$1</b>');
+// 	r = r.replaceAll(/\*(.*?)\*/gm, '<i>$1</i>');
+// 	return r;
+// }
