@@ -21,6 +21,7 @@
 
 - make plural itemTypes iterable
 
+===================================================================================================
 
 - .. see if DisplayItem works as component
 - .. itemTypes
@@ -200,15 +201,6 @@
 				- sortable
 				- reverse processable (can get date and version back out)
 				- has virtually no time limit: will work till version 999.99.99
+
 			- major/minor/patch format is quite standard
-
-
-
-ADD
-===================
-
-
-
-
-
 

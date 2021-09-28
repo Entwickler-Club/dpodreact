@@ -7,6 +7,7 @@ import ShowcaseReport from '../itemTypes/showcaseReport';
 import ComponentDisplayShowcaseReport from '../components/ComponenDisplayShowcaseReport';
 import ComponentDisplayShowcaseReports from '../components/ComponentDisplayShowcaseReports'
 
+
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
 	const [showcaseReports, setShowcaseReports] = useState<ShowcaseReports>(new ShowcaseReports());
@@ -16,9 +17,11 @@ function PageShowcaseManageItemTypes() {
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
 		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects(data.showcaseReportObjects);
+
 		showcaseReports.debug();
 		const firstItem = showcaseReports.getFirstItem<ShowcaseReport>();
 		setFirstItem(firstItem);
+
 		setShowcaseReports(showcaseReports);
 	}
 
@@ -35,6 +38,7 @@ function PageShowcaseManageItemTypes() {
 				<ComponentDisplayShowcaseReport item={firstItem}/>
 				<h3>Plural Components</h3>
 				<ComponentDisplayShowcaseReports items={showcaseReports}/>
+=
 			</section>
 		</div>
 	)
