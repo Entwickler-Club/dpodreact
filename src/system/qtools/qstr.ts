@@ -756,3 +756,26 @@ export const smartPlural = (number: number, singularNoun: string, pluralNoun: st
 	r += number === 1 ? singularNoun : pluralNoun;
 	return r;
 }
+
+export const escapeHtml = (html: string) => {
+    const tagsToReplace: any = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return html.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
+// TODO: fix replaceAll (es2021 error from TypeScript)
+// const parseMarkdownLite = (markdown: string) => {
+// 	let r = markdown;
+// 	r = qstr.escapeHtml(r);
+// 	r = r.replaceAll('\r\n', '<br/>');
+// 	r = r.replaceAll('\t', '&nbsp;&nbsp;&nbsp;&nbsp;');
+// 	r = r.replaceAll(/`(.*?)`/gm, '<code>$1</code>');
+// 	r = r.replaceAll(/\*\*(.*?)\*\*/gm, '<b>$1</b>');
+// 	r = r.replaceAll(/\*(.*?)\*/gm, '<i>$1</i>');
+// 	return r;
+// }

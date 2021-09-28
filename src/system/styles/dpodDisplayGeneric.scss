@@ -1,0 +1,118 @@
+$fieldBorderColor: #bbb;
+
+div.item {
+    width: 500px;
+    border: 1px solid #aaa;
+    padding: 15px 25px 5px 20px;
+    background-color:#e2e2e2;
+    border-radius: 5px;
+    margin: 0 0 20px 0;
+    .example {
+        font-size: 0.8rem;
+        color: rgb(179, 84, 84);
+        margin: 3px 0 0 8px;
+    }
+    code {
+        font-family: "Courier New", Courier, monospace;
+        background-color: #eee;
+        color: brown;
+        font-weight: bold;
+    }
+    div.fieldData {
+        background-color: #f3f3f3;
+        padding: 3px;
+    }
+    div.message {
+        background-color: rgb(255, 242, 126);
+        padding: 10px;
+        margin: 0 0 10px 0;
+        border: 1px solid rgb(212, 195, 40);
+        border-radius: 5px;
+        cursor: pointer;
+        code {
+            font-family: "Courier New", Courier, monospace;
+            color: bfieldn;
+        }
+    }
+    div.field {
+        margin: 0 0 20px 0;
+        .fieldLabel {
+            font-variant: small-caps;
+            font-size: 0.8rem;
+            color: #333;
+            margin-left: 5px;
+        }
+
+        div.radioChoice {
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: flex-start;
+            .radioControl {
+                margin: 0 10px 0 0;
+            }
+            label {
+                cursor: pointer;
+                margin: 1px 0 0 4px;
+                text-indent: -20px;
+                line-height: 1.4rem;
+                .title {
+                    font-weight: bold;
+                }
+                .description {
+                    font-style: italic;
+                    &::before {
+                        content: " - ";
+                    }
+                }
+            }
+        }
+        fieldset {
+            border: 1px solid $fieldBorderColor;
+            margin-left: 5px;
+            padding: 5px;
+            font-size: 0.9rem;
+            position: relative;
+            legend {
+                position: absolute;
+                top: -8px;
+                left: 5px;
+                background-color: white;
+                padding: 0 5px !important;
+            }
+        }
+    }
+    .field_dataType_choice_radioButtons fieldset {
+        padding: 10px 30px 10px 30px !important;
+    }
+    div.field_dataType_choice_dropdown {
+        .fieldLabel {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select {
+            // width: 490px; // TODO: calculate
+            margin: 0 0 0 5px;
+            border: 1px solid $fieldBorderColor;
+            font-size: 1rem;
+        }
+    }
+    div.dataType_line {
+        .fieldLabel {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 490px; // TODO: calculate
+            margin: 0 0 0 5px;
+            border: 1px solid $fieldBorderColor;
+            font-size: 1rem;
+        }
+    }
+    .buttonArea {
+        padding: 0 0 0 5px;
+        .submitButton {
+            font-size: 0.9rem;
+            padding: 4px 10px;
+        }
+    }
+}

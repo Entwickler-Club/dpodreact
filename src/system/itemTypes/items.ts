@@ -39,6 +39,37 @@ class Items {
 		console.log(`number of items: ${this.items.length}`);
 	}
 
+	constructor(dql: string = '') {
+		this.dql = dql === '' ? 'all' : dql;
+	}
+
+	initialize() {
+		this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`;
+	}
+
+	async infuseWithData() {
+		return new Promise(resolve => {
+			(async () => {
+				this.itemObjects = await this.getItemObjectsFromJsonFile();
+				resolve(true);
+			})();
+		});
+	}
+
+	getItemObjectsFromJsonFile(): Promise<any> {
+		return new Promise(resolve => {
+			fs.readFile(`./${this.jsonPathAndFileName}`, 'utf-8', (err: any, rawData: any) => {
+				const itemObjects = JSON.parse(rawData);
+				resolve(itemObjects);
+			});
+		})
+	}
+
+	debug(): void {
+		console.log(`itemTypeIdCode: "${this.itemTypeIdCode}"`);
+		console.log(`number of items: ${this.items.length}`);
+	}
+
 	infuseWithItemObjects<T>(itemObjects: T[], callback:any ) {
 		return new Promise(resolve => {
 			itemObjects.forEach((itemObject: T) => {
@@ -56,6 +87,12 @@ class Items {
  
 	getItemObjects() {
 		return this.items.map(item => item.getItemObject());
+
+	}
+
+	getFirstItem<T>(): T {
+		return this.items[0];
+
 	}
 }
 

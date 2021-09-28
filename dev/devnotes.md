@@ -3,7 +3,26 @@
 	- added: PageShowcaseCounterUsingReducer() {
 	- added: useToggle showcase 
 	- devnotes: added notes on versioning
+	- qstr.escapeHtml()
 ===================================================================================================
+- .. display all singular/plural display components
+	- .. *** find solution for component per file:
+		- ComponentDisplayShowcaseReport
+		- ComponentDisplayAndEditShowcaseReport
+		- ComponentListShowcaseReport
+
+		- ComponentDisplayShowcaseReports
+		- ComponentDisplayAndEditShowcaseReports
+		- ComponentListShowcaseReports
+
+- all pages to /pages
+- .. enable save to itemtype in DisplayAndEdit
+
+
+- make plural itemTypes iterable
+
+===================================================================================================
+
 - .. see if DisplayItem works as component
 - .. itemTypes
     - .. use itemtype classes on frontend
@@ -26,6 +45,7 @@
         - randomize port
     - fix all browser index errors
 	- fix page naming, allow colon for e.g. Showcase
+	- add 404 page
 
 - make datapod site with dev/publish distinction, and streamline installation with video and have versions at dpodreact.netlify.app
 	
@@ -181,4 +201,6 @@
 				- sortable
 				- reverse processable (can get date and version back out)
 				- has virtually no time limit: will work till version 999.99.99
+
 			- major/minor/patch format is quite standard
+

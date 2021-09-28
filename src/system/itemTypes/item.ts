@@ -17,6 +17,10 @@ class Item {
     getItemObject() {
         return this.itemObject;
     }
+
+    debug() {
+        console.log('item exists');
+    }
 }
 
 export default Item;
