@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShowProvider } from './context/ShowContext.jsx';
-import Site from './system/components/Site';
+import Site from './system/Site';
 
 function App() {
 	return (
