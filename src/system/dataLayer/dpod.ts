@@ -6,7 +6,7 @@ import ShowcaseReports from '../itemTypes/showcaseReports';
 
 // TODO: replace with PageItems when ItemTypes are implemented
 export const getPageItems = (): IPageItem[] => {
-	const fileNames = qfil.getFileNamesInDirectory('src/system/components');
+	const fileNames = qfil.getFileNamesInDirectory('src/system/pages');
 	const rawPageItems: IPageItem[] = fileNames.map(fileName => {
 		let baseFileName = qfil.getBaseFileName(fileName);
 		baseFileName = qstr.chopLeft(baseFileName, 'Page');

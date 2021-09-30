@@ -17,7 +17,7 @@ class DpodSiteBuilder {
 	}
 
 	getPageComponentPathAndFileName(pascalNotation: string) {
-		return `src/system/components/Page${pascalNotation}.tsx`;
+		return `src/system/pages/Page${pascalNotation}.tsx`;
 	}
 
 	getPageStylesheetPathAndFileName(camelNotation: string) {
