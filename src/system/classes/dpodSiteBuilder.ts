@@ -29,7 +29,7 @@ class DpodSiteBuilder {
 	}
 
 	getSitePathAndFileName() {
-		return '../components/Site.tsx';
+		return '../Site.tsx';
 	}
 
 	getContollerFactoryPathAndFileName() {
