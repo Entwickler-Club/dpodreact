@@ -16,6 +16,7 @@ class ShowcaseReports extends Items {
 		return this.itemObjects;
 	}
 
+	// TODO: refactor this to use TypeScript generics and put back into Items
 	static async instantiateFromItemObjects(itemObjects: IShowcaseReport[]): Promise<ShowcaseReports> {
 		return new Promise(resolve => {
 			const showcaseReports = new ShowcaseReports();

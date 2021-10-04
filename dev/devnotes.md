@@ -5,9 +5,8 @@
 	- devnotes: added notes on versioning
 	- qstr.escapeHtml()
 ===================================================================================================
-- .. components/page
 
-
+- 
 - make components (ShowReports) also edit, delete, etc
 - and enable grid view
 
