@@ -11,6 +11,8 @@ function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
 	const [showcaseReports, setShowcaseReports] = useState<ShowcaseReports>(new ShowcaseReports());
 	const [firstItem, setFirstItem] = useState<ShowcaseReport>(new ShowcaseReport());
+	const [editable, setEditable] = useState<boolean>(false);
+
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
@@ -28,15 +30,22 @@ function PageShowcaseManageItemTypes() {
 		loadPageData();
 	}, []);
 
+	const toggleEditable = () => {
+		setEditable(!editable);
+	} 
+
 	return (
 		<div className="page page_showcaseManageItemTypes">
 			<h2 className="title">Showcase: Manage Item Types</h2>
 			<p className="description">An info page that displays showcase manage item types</p>
+			<section className="controlPanel">
+				<button onClick={toggleEditable}>Show Edit Buttons</button>
+			</section>
 			<section>
 				<h3>Singular Components</h3>
-				<ComponentDisplayShowcaseReport item={firstItem} />
+				<ComponentDisplayShowcaseReport item={firstItem} editable={editable} />
 				<h3>Plural Components</h3>
-				<ComponentDisplayShowcaseReports items={showcaseReports} />
+				<ComponentDisplayShowcaseReports items={showcaseReports} editable={editable} />
 			</section>
 		</div>
 	)

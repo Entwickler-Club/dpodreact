@@ -7,7 +7,8 @@
 ===================================================================================================
 
 - 
-- make components (ShowReports) also edit, delete, etc
+- .. make components (ShowReports) also edit, delete, etc
+	- .. make button switch
 - and enable grid view
 
 
