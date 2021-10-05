@@ -39,11 +39,11 @@ class Items {
 		console.log(`number of items: ${this.items.length}`);
 	}
 
-	static async instantiateFromItemObjects<T,U,V>(itemsType: {new(): T}, itemType: {new(): V},itemObjects: U[]): Promise<T> {
+	static async instantiateFromItemObjects<T,U,V>(itemsType: {new(): T}, itemType: {new(): U},itemObjects: V[]): Promise<T> {
 		return new Promise(resolve => {
 			const items = new itemsType();
 			(async () => {
-				await (items as unknown as Items).infuseWithItemObjects<U>(itemObjects, () => {
+				await (items as unknown as Items).infuseWithItemObjects<V>(itemObjects, () => {
 					return new itemType();
 				});
 				resolve(items);
