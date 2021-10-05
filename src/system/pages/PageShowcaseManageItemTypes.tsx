@@ -6,6 +6,7 @@ import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 import ComponentDisplayShowcaseReport from '../components/ComponenDisplayShowcaseReport';
 import ComponentDisplayShowcaseReports from '../components/ComponentDisplayShowcaseReports';
+import { IShowcaseReport } from '../dataLayer/interfaces';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
@@ -17,7 +18,7 @@ function PageShowcaseManageItemTypes() {
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects(data.showcaseReportObjects);
+		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, IShowcaseReport, ShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
 
 		showcaseReports.debug();
 		const firstItem = showcaseReports.getFirstItem<ShowcaseReport>();

@@ -17,18 +17,17 @@ class ShowcaseReports extends Items {
 	}
 
 	// TODO: refactor this to use TypeScript generics and put back into Items
-	static async instantiateFromItemObjects(itemObjects: IShowcaseReport[]): Promise<ShowcaseReports> {
+	static async instantiateFromItemObjects<T,U,V>(itemsType: {new(): T}, itemType: {new(): V},itemObjects: U[]): Promise<T> {
 		return new Promise(resolve => {
-			const showcaseReports = new ShowcaseReports();
+			const items = new itemsType();
 			(async () => {
-				await showcaseReports.infuseWithItemObjects<IShowcaseReport>(itemObjects, () => {
-					return new ShowcaseReport();
+				await (items as unknown as Items).infuseWithItemObjects<U>(itemObjects, () => {
+					return new itemType();
 				});
-				resolve(showcaseReports);
+				resolve(items);
 			})();
 		})
 	}
-
 }
 
 export default ShowcaseReports;
