@@ -1,6 +1,6 @@
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
-import ComponentDisplayShowcaseReport from './ComponenDisplayShowcaseReport';
+import ComponentDisplayShowcaseReport from './ComponentDisplayShowcaseReport';
 
 interface IComponentDisplayShowcaseReportsProps {
     items: ShowcaseReports;
@@ -16,9 +16,9 @@ export const ComponentDisplayShowcaseReports = (props: IComponentDisplayShowcase
 
     return (
         <>
-            {showcaseReportsItemsArray.map((showcaseReport: ShowcaseReport) => {
+            {showcaseReportsItemsArray.map((showcaseReport: ShowcaseReport, index) => {
                 return (
-                    <ComponentDisplayShowcaseReport item={showcaseReport} editable={editable} />
+                    <ComponentDisplayShowcaseReport key={index} item={showcaseReport} editable={editable} />
                 )
             })}
         </>

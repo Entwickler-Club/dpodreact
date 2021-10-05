@@ -4,7 +4,7 @@ import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
-import ComponentDisplayShowcaseReport from '../components/ComponenDisplayShowcaseReport';
+import ComponentDisplayShowcaseReport from '../components/ComponentDisplayShowcaseReport';
 import ComponentDisplayShowcaseReports from '../components/ComponentDisplayShowcaseReports';
 import { IShowcaseReport } from '../dataLayer/interfaces';
 
@@ -18,13 +18,12 @@ function PageShowcaseManageItemTypes() {
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
+		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
 
-		showcaseReports.debug();
-		const firstItem = showcaseReports.getFirstItem<ShowcaseReport>();
+		const firstItem = new ShowcaseReport();
 		setFirstItem(firstItem);
-
-		setShowcaseReports(showcaseReports);
+		firstItem.debug();
+		setShowcaseReports(initialShowcaseReports);
 	}
 
 	useEffect(() => {
@@ -33,7 +32,7 @@ function PageShowcaseManageItemTypes() {
 
 	const toggleEditable = () => {
 		setEditable(!editable);
-	} 
+	}
 
 	return (
 		<div className="page page_showcaseManageItemTypes">

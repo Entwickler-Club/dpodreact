@@ -8,12 +8,12 @@
 
 - gt
 - .. make components (ShowReports) also edit, delete, etc
-	- x make button switch
-	- .. edit button show fieldset
-		- .. attempt generic method again
+	- .. edit button show input fields and save button 
+
+
 - and enable grid view
 
-
+- make ComponentDisplay components generic
 
 
 - .. display all singular/plural display components

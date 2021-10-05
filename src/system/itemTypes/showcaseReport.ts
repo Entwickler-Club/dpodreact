@@ -3,6 +3,14 @@ import Item from './item';
 
 class ShowcaseReport extends Item {
 
+    constructor() {
+        super();
+        this.itemObject = {
+            title: 'DUMMY TITLE',
+            description: 'DUMMY DESCRIPTION'
+        }
+    }
+
     get_title() {
         return this.itemObject.title;
     }
@@ -23,6 +31,9 @@ class ShowcaseReport extends Item {
         `;
     }
 
+    debug() {
+        console.log(`title: ${this.get_title()}`);
+    }
 }
 
 export default ShowcaseReport;

@@ -39,7 +39,7 @@ class Items {
 		console.log(`number of items: ${this.items.length}`);
 	}
 
-	static async instantiateFromItemObjects<T,U,V>(itemsType: {new(): T}, itemType: {new(): U},itemObjects: V[]): Promise<T> {
+	static async instantiateFromItemObjects<T, U, V>(itemsType: { new(): T }, itemType: { new(): U }, itemObjects: V[]): Promise<T> {
 		return new Promise(resolve => {
 			const items = new itemsType();
 			(async () => {
@@ -51,7 +51,7 @@ class Items {
 		})
 	}
 
-	infuseWithItemObjects<T>(itemObjects: T[], callback:any ) {
+	infuseWithItemObjects<T>(itemObjects: T[], callback: any) {
 		return new Promise(resolve => {
 			itemObjects.forEach((itemObject: T) => {
 				const item = callback();
@@ -65,15 +65,16 @@ class Items {
 	getItems<T>(): T[] {
 		return this.items;
 	}
- 
+
 	getItemObjects() {
 		return this.items.map(item => item.getItemObject());
 
 	}
 
-	getFirstItem<T>(): T {
-		return this.items[0];
-
+	getFirstItem<T>(): Promise<T> {
+		return new Promise(resolve => {
+			resolve(this.items[0]);
+		})
 	}
 }
 

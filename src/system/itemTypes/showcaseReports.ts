@@ -1,6 +1,5 @@
 import Items from './items';
 import ShowcaseReport from './showcaseReport';
-import { IShowcaseReport } from '../dataLayer/interfaces';
 
 class ShowcaseReports extends Items {
 	protected items: ShowcaseReport[] = [];
