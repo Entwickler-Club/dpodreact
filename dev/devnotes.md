@@ -8,7 +8,9 @@
 
 - 
 - .. make components (ShowReports) also edit, delete, etc
-	- .. make button switch
+	- x make button switch
+	- .. edit button show fieldset
+		- .. attempt generic method again
 - and enable grid view
 
 
