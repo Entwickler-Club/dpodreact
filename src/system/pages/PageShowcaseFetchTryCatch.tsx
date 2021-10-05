@@ -12,7 +12,7 @@ function PageShowcaseFetchTryCatch() {
 		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();
-			setTemperature(data.main.temp);
+			setTemperature(data.main.temp)
 			setDisplayCity(city);
 		}
 	}
