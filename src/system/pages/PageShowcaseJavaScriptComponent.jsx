@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import ShowContext from '../../context/ShowContext.jsx';
 import '../styles/page_showcaseJavaScriptComponent.scss';
 
 function PageShowcaseJavaScriptComponent() {

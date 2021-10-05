@@ -18,6 +18,7 @@ import PageShowcaseNewsApi from './pages/PageShowcaseNewsApi';// ::showcaseNewsA
 import PageShowcaseManageItemTypes from './pages/PageShowcaseManageItemTypes';// ::showcaseManageItemTypes
 import PageShowcaseUseToggle from './pages/PageShowcaseUseToggle';// ::showcaseUseToggle
 import PageShowcaseClassInState from './pages/PageShowcaseClassInState';// ::showcaseClassInState
+import PageShowcaseFetchTryCatch from './pages/PageShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -63,6 +64,7 @@ function Site() {
 							<span><Link to='/showcaseManageItemTypes'>Showcase: Manage Item Types</Link></span>{/* ::showcaseManageItemTypes */}
 							<span><Link to='/showcaseUseToggle'>Showcase: useToggle()</Link></span>{/* ::showcaseUseToggle */}
 							<span><Link to='/showcaseClassInState'>Showcase Class In State</Link></span>{/* ::showcaseClassInState */}
+							<span><Link to='/showcaseFetchTryCatch'>Showcase: Fetch Try/Catch</Link></span>{/* ::showcaseFetchTryCatch */}
 						</>
 					)}
 				</nav>
@@ -85,6 +87,7 @@ function Site() {
 						<Route path='/showcaseManageItemTypes'><PageShowcaseManageItemTypes /></Route>{/* ::showcaseManageItemTypes */}
 						<Route path='/showcaseUseToggle'><PageShowcaseUseToggle /></Route>{/* ::showcaseUseToggle */}
 						<Route path='/showcaseClassInState'><PageShowcaseClassInState /></Route>{/* ::showcaseClassInState */}
+						<Route path='/showcaseFetchTryCatch'><PageShowcaseFetchTryCatch /></Route>{/* ::showcaseFetchTryCatch */}
 					</Switch>
 				</section>
 			</div>
