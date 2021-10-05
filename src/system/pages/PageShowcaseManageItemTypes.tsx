@@ -20,6 +20,7 @@ function PageShowcaseManageItemTypes() {
 		const data = await pm.loadPageData();
 		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
 
+		// const firstItem = new ShowcaseReport('id = 3');
 		const firstItem = new ShowcaseReport();
 		setFirstItem(firstItem);
 		firstItem.debug();

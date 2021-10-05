@@ -8,7 +8,7 @@
 
 - gt
 - .. make components (ShowReports) also edit, delete, etc
-	- .. edit button show input fields and save button 
+	- .. *** make dpod.getShowcaseReport()
 
 
 - and enable grid view
@@ -103,7 +103,7 @@
                     - to get this.itemRecord, use this.getItemRecord which gets its data from this.itemObject
                     - this.itemObject satisfies the interface e.g. IShowcaseReport
             - nomenclature
-                - pageItems
+                - PageItems
                     - pageItem is of type PageItem (class)
                     - pageItems is of type PageItems (class)
                         - (has an internal array of pageItems)
@@ -112,8 +112,9 @@
                 - ShowcaseReports
                     - showcaseReport is of type ShowcaseReport (class)
                     - showcaseReports is of type ShowcaseReports (class)
-                        - (has an internal array of showcaseReports)
+                        - (has an internal array of showcaseReport)
                     - showcaseReportObject if of type IShowcaseReport (interface)  
+						- (this is sent e.g. from backend to front end via JSON)
                     - showcaseReportObjects is of type IShowcaseReport[] (interface) 
 				- infuse prefix
 					- to fill the itemType with data, e.g. infuseWithObjectArray
