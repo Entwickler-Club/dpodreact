@@ -6,7 +6,7 @@
 	- qstr.escapeHtml()
 ===================================================================================================
 
-- 
+- gt
 - .. make components (ShowReports) also edit, delete, etc
 	- x make button switch
 	- .. edit button show fieldset

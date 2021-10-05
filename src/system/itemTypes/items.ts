@@ -39,6 +39,18 @@ class Items {
 		console.log(`number of items: ${this.items.length}`);
 	}
 
+	static async instantiateFromItemObjects<T,U,V>(itemsType: {new(): T}, itemType: {new(): V},itemObjects: U[]): Promise<T> {
+		return new Promise(resolve => {
+			const items = new itemsType();
+			(async () => {
+				await (items as unknown as Items).infuseWithItemObjects<U>(itemObjects, () => {
+					return new itemType();
+				});
+				resolve(items);
+			})();
+		})
+	}
+
 	infuseWithItemObjects<T>(itemObjects: T[], callback:any ) {
 		return new Promise(resolve => {
 			itemObjects.forEach((itemObject: T) => {
