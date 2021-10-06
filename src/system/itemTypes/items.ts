@@ -55,7 +55,7 @@ class Items {
 		return new Promise(resolve => {
 			itemObjects.forEach((itemObject: T) => {
 				const item = callback();
-				item.fillWithObject(itemObject);
+				item.infuseWithItemObject(itemObject);
 				this.items.push(item);
 			});
 			resolve(itemObjects);

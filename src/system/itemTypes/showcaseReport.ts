@@ -19,7 +19,7 @@ class ShowcaseReport extends Item {
         return this.itemObject.description;
     }
     
-    fillWithObject(itemObject: IShowcaseReport) {
+    infuseWithItemObject(itemObject: IShowcaseReport) {
         this.itemObject = itemObject;
     }
 
