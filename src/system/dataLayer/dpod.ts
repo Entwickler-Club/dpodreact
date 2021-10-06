@@ -3,6 +3,8 @@ import { IPageItem, IShowcaseReport } from './interfaces';
 import * as qfil from '../qtools/qfil';
 import * as qstr from '../qtools/qstr';
 import ShowcaseReports from '../itemTypes/showcaseReports';
+import ShowcaseReport from '../itemTypes/showcaseReport';
+import * as dpod from '../dataLayer/dpod';
 
 // TODO: replace with PageItems when ItemTypes are implemented
 export const getPageItems = (): IPageItem[] => {
@@ -43,6 +45,16 @@ export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
 		(async () => {
 			await showcaseReports.infuseWithData();
 			resolve(showcaseReports);
+		})();
+	});
+}
+
+// implement dql (currently always gets the first item -- for testing purposes)
+export const getShowcaseReport = (dql = ''): Promise<ShowcaseReport> => {
+	return new Promise(resolve => {
+		(async () => {
+			const showcaseReports = await dpod.getShowcaseReports();
+			resolve(showcaseReports.getFirstItem<ShowcaseReport>());
 		})();
 	});
 }

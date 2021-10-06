@@ -15,6 +15,9 @@
 
 - make ComponentDisplay components generic
 
+- vim
+	- goto definition and come back
+		- `gd`, CTRL-`o` 
 
 - .. display all singular/plural display components
 	- .. *** find solution for component per file:

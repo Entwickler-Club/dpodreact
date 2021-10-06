@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../styles/dpodDisplayGeneric.scss';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import showcaseReport from '../itemTypes/showcaseReport';
 
 interface IComponentDisplayShowcaseReportProps {
 	item: ShowcaseReport;
