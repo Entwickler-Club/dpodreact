@@ -1,3 +1,4 @@
+import ShowcaseReport from '../itemTypes/showcaseReport';
 const fs = require('fs');
 
 class Items {
@@ -71,10 +72,11 @@ class Items {
 
 	}
 
-	getFirstItem<T>(): Promise<T> {
-		return new Promise(resolve => {
+	getFirstItem<T>(itemType: { new(): T }): Promise<T> {
+		return new Promise((resolve, reject) => {
+			// resolve(new itemType());
 			resolve(this.items[0]);
-		})
+		});
 	}
 }
 

@@ -49,12 +49,22 @@ export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
 	});
 }
 
-// implement dql (currently always gets the first item -- for testing purposes)
+// TODO: implement dql (currently always gets the first item -- for testing purposes)
+// export const getShowcaseReportREAL = (dql = ''): Promise<ShowcaseReport> => {
+// 	return new Promise(resolve => {
+// 		(async () => {
+// 			const showcaseReports = await dpod.getShowcaseReports();
+// 			const showcaseReport = await showcaseReports.getFirstItem<ShowcaseReport>();
+// 			resolve(showcaseReport);
+// 		})();
+// 	});
+// }
 export const getShowcaseReport = (dql = ''): Promise<ShowcaseReport> => {
 	return new Promise(resolve => {
 		(async () => {
 			const showcaseReports = await dpod.getShowcaseReports();
-			resolve(showcaseReports.getFirstItem<ShowcaseReport>());
+			const showcaseReport = await showcaseReports.getFirstItem<ShowcaseReport>(ShowcaseReport);
+			resolve(new ShowcaseReport());
 		})();
 	});
 }
