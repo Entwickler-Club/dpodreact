@@ -33,9 +33,7 @@ class Item {
 	}
 
 	infuseWithItemObject<T>(itemObject: T) {
-		console.log(itemObject);
-		this.itemObject = { ...itemObject };
-		console.log(this.itemObject.title);
+		this.itemObject = itemObject;
 	}
 
 }
