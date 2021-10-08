@@ -60,11 +60,17 @@ export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
 // 	});
 // }
 export const getShowcaseReport = (dql = ''): Promise<ShowcaseReport> => {
-	console.log('in dpod');
+
+	// TODO: implement dql with DqlQueryProcessor()
+	// for now, allow only "id = <number>"
+	// e.g. "id = 43"
+	const strId = qstr.chopLeft(dql, 'id = ');
+	const id = Number(strId);
+
 	return new Promise(resolve => {
 		(async () => {
 			const showcaseReports = await dpod.getShowcaseReports();
-			const showcaseReport = await showcaseReports.getFirstItem<ShowcaseReport>(ShowcaseReport);
+			const showcaseReport = await showcaseReports.getItemWithId<ShowcaseReport>(ShowcaseReport, id);
 			resolve(showcaseReport);
 		})();
 	});

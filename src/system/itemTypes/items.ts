@@ -77,9 +77,16 @@ class Items {
 
 	}
 
-	getFirstItem<T>(itemType: { new(): T }): Promise<T> {
+	getItemWithIndex<T>(itemType: { new(): T }, index: number): Promise<T> {
 		return new Promise((resolve, reject) => {
-			resolve(this.items[0]);
+			resolve(this.items[index]);
+		});
+	}
+
+	getItemWithId<T>(itemType: { new(): T }, id: number): Promise<T> {
+		return new Promise((resolve, reject) => {
+			const item = this.items.find(item => item.get_id() === id);
+			resolve(item);
 		});
 	}
 

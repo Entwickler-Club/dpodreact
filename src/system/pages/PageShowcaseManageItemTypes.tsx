@@ -10,33 +10,17 @@ import { IShowcaseReport } from '../dataLayer/interfaces';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
+	const [showcaseReport, setShowcaseReport] = useState<ShowcaseReport>(new ShowcaseReport());
 	const [showcaseReports, setShowcaseReports] = useState<ShowcaseReports>(new ShowcaseReports());
-	const [firstItem, setFirstItem] = useState<ShowcaseReport>(new ShowcaseReport());
 	const [editable, setEditable] = useState<boolean>(false);
 
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
 		const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport, IShowcaseReport>(ShowcaseReport, data.showcaseReportItemObject);
-
-		console.log('frontend object is:');
-		console.log(data.showcaseReportItemObject);
-
-		// testing
-		// const showcaseReportItemObject: IShowcaseReport = {
-		// 	id: 999,
-		// 	title: 'title_defined_in_tsx',
-		// 	description: 'test ddd',
-		// 	systemWhoCreated: '',
-		// 	systemWhenCreated: '2021-10-08 10:36:02'
-		// };
-		// console.log('in TSX: ' + initialShowcaseReport.get_title());
-		// TODO: change setFirstItem to setShowcaseReport
-
-		// TODO: firstItem --> showcaseReport
-		setFirstItem(initialShowcaseReport);
+		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
+		setShowcaseReport(initialShowcaseReport);
 		setShowcaseReports(initialShowcaseReports);
 	}
 
@@ -57,7 +41,7 @@ function PageShowcaseManageItemTypes() {
 			</section>
 			<section>
 				<h3>Singular Components</h3>
-				<ComponentDisplayShowcaseReport item={firstItem} editable={editable} />
+				<ComponentDisplayShowcaseReport item={showcaseReport} editable={editable} />
 				<h3>Plural Components</h3>
 				<ComponentDisplayShowcaseReports items={showcaseReports} editable={editable} />
 			</section>
