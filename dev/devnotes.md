@@ -18,6 +18,7 @@
 - simplify
 		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
 
+- put a fade-in on every page to avoid quick-blink loading phenomenon
 
 - and enable grid view
 

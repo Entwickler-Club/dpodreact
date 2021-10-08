@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/dpodDisplayGeneric.scss';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import Loader from "react-loader-spinner";
 
 interface IComponentDisplayShowcaseReportProps {
 	item: ShowcaseReport;
@@ -10,22 +11,25 @@ interface IComponentDisplayShowcaseReportProps {
 }
 
 enum ComponentState {
+	Loading,
 	Viewing,
 	Editing,
 	Deleting
 }
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportProps) => {
-	const theTitle = props.item.get_title().toUpperCase();
-	// const theTitle = 'NNN'; // props.item.get_title();
-	console.log('in component: title = ' + theTitle);
-
-	// const [field_title, setField_title] = useState(props.item.get_title() + 'added');
-	const [field_title, setField_title] = useState(theTitle + 'added');
-	const [field_description, setField_description] = useState(props.item.get_description());
-	const [componentState, setComponentState] = useState(ComponentState.Viewing);
+	const [field_id, setField_id] = useState(0);
+	const [field_title, setField_title] = useState('');
+	const [field_description, setField_description] = useState('');
+	const [componentState, setComponentState] = useState(ComponentState.Loading);
 	const editable = props.editable === undefined ? false : props.editable;
 
+	useEffect(() => {
+		setField_id(props.item.get_id());
+		setField_title(props.item.get_title());
+		setField_description(props.item.get_description());
+		setComponentState(ComponentState.Viewing);
+	}, [props.item]);
 	const toggleEditState = () => {
 		if (componentState !== ComponentState.Editing) {
 			setComponentState(ComponentState.Editing)
@@ -42,8 +46,20 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 					<button><RiDeleteBin6Line /></button>
 				</div>
 			)}
+			{componentState === ComponentState.Loading && (
+				<Loader
+					type="Circles"
+					color="#aaa"
+					height={70}
+					width={70}
+				/>
+			)}
 			{componentState === ComponentState.Viewing && (
 				<>
+					<div className="field dataType_wholeNumber">
+						<label className="fieldLabel">ID</label>
+						<div className="fieldData">{field_id}</div>
+					</div>
 					<div className="field dataType_line">
 						<label className="fieldLabel">Title</label>
 						<div className="fieldData">{field_title}</div>

@@ -5,8 +5,8 @@ class ShowcaseReport extends Item {
     constructor() {
         super();
         this.itemObject = {
-            title: 'ttt',
-            description: 'ddd'
+            title: 'initial title',
+            description: 'initial description'
         }
     }
 
