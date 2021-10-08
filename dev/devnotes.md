@@ -8,6 +8,7 @@
 
 - .. make components (ShowReports) also edit, delete, etc
 	- .. in component: enable user to edit and delete with nice UX
+		- save changes to JSON file 
 
 
 - refactor
