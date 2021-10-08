@@ -15,13 +15,6 @@ class Item {
 	}
 
 	getItemObject() {
-		// return {
-		// 	id: 1,
-		// 	title: 'DUMMY FROM ITEM',
-		// 	description: 'This is the first description.',
-		// 	systemWhenCreated: '2021-09-21 10:00:02',
-		// 	systemWhoCreated: 'admin'
-		// };
 		return this.itemObject;
 	}
 
