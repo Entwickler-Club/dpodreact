@@ -1,4 +1,3 @@
-import ShowcaseReport from '../itemTypes/showcaseReport';
 const fs = require('fs');
 
 class Items {

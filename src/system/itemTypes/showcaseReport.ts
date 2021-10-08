@@ -1,4 +1,3 @@
-import { IShowcaseReport } from '../dataLayer/interfaces';
 import Item from './item';
 
 class ShowcaseReport extends Item {
@@ -6,7 +5,7 @@ class ShowcaseReport extends Item {
     constructor() {
         super();
         this.itemObject = {
-            title: 'DUMMY TITLE',
+            title: 'DUMMY TITLE2',
             description: 'DUMMY DESCRIPTION'
         }
     }
@@ -19,10 +18,6 @@ class ShowcaseReport extends Item {
         return this.itemObject.description;
     }
     
-    infuseWithItemObject(itemObject: IShowcaseReport) {
-        this.itemObject = itemObject;
-    }
-
     displayAsHtml() {
         return `
         <div>

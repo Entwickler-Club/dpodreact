@@ -21,6 +21,22 @@ class Item {
     debug() {
         console.log('item exists');
     }
+
+	static async instantiateFromItemObject<T,U>(itemType: { new(): T }, itemObject: U): Promise<T> {
+		return new Promise(resolve => {
+			const item = new itemType() as unknown as Item;
+			(async () => {
+				item.infuseWithItemObject<U>(itemObject);
+				resolve(item as unknown as T);
+			})();
+		})
+	}
+
+    infuseWithItemObject<T>(itemObject: T) {
+		console.log(itemObject);
+        this.itemObject = itemObject;
+    }
+
 }
 
 export default Item;

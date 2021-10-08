@@ -11,13 +11,19 @@
 	- .. *** make dpod.getShowcaseReport()
 
 
+- put back into item
+	- infuseWithItemObject
+- fix
+	- itemstype
+- simplify
+		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
+
+
 - and enable grid view
 
 - make ComponentDisplay components generic
 
 - vim
-	- goto definition and come back
-		- `gd`, CTRL-`o` 
 
 - .. display all singular/plural display components
 	- .. *** find solution for component per file:
