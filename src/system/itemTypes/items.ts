@@ -1,3 +1,4 @@
+import Item from './item';
 const fs = require('fs');
 
 class Items {
@@ -54,8 +55,8 @@ class Items {
 	infuseWithItemObjects<T>(itemObjects: T[], callback: any) {
 		return new Promise(resolve => {
 			itemObjects.forEach((itemObject: T) => {
-				const item = callback();
-				item.infuseWithItemObject(itemObject);
+				const item: Item = callback();
+				item.infuseWithItemObject<T>(itemObject);
 				this.items.push(item);
 			});
 			resolve(itemObjects);
