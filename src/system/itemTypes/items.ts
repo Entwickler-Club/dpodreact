@@ -78,6 +78,23 @@ class Items {
 			resolve(this.items[0]);
 		});
 	}
+
+	exportAsXml() {
+		// TODO: implement this
+	}
+
+	exportAsSqliteDatabase() {
+		// TODO: implement this
+	}
+
+	exportAsExcelFile() {
+		// TODO: implement this
+	}
+
+	exportAsDatapodDataFile() {
+		// TODO: implement this
+	}
+
 }
 
 export default Items;

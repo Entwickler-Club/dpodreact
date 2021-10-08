@@ -10,7 +10,7 @@
 - .. make components (ShowReports) also edit, delete, etc
 	- .. *** make dpod.getShowcaseReport()
 
-
+- fix all naming conventions: itemObject --> itemTypeObject
 - put back into item
 	- infuseWithItemObject
 - fix
@@ -120,14 +120,53 @@
                     - pageItemObject if of type IPageItem (interface)  
                     - pageItemObjects is of type IPageItem[] (interface) 
                 - ShowcaseReports
-                    - showcaseReport is of type ShowcaseReport (class)
-                    - showcaseReports is of type ShowcaseReports (class)
-                        - (has an internal array of showcaseReport)
+                    - showcaseReport is of type ShowcaseReport (singular class object)
+                    - showcaseReports is of type ShowcaseReports (plural class object)
+                        - (it has an internal array of singular showcaseReport class objects)
                     - showcaseReportObject if of type IShowcaseReport (interface)  
 						- (this is sent e.g. from backend to front end via JSON)
                     - showcaseReportObjects is of type IShowcaseReport[] (interface) 
 				- infuse prefix
 					- to fill the itemType with data, e.g. infuseWithObjectArray
+
+- Datapod itemType creation syntax
+	----------------------------------------
+	** Magazines
+	Title
+	Description;p
+	Number Of Pages;wn
+	First Date Of Publication;dt
+
+	** Employees
+	First Name;germanFirstName|englishFirstName
+	Last Name;lastName
+	City;city
+	----------------------------------------
+- Datapod data format
+	----------------------------------------
+	==magazine
+	New Yorker
+	This is askdfj slfkjsldfjsaldfjsdf.
+	45
+	2021-10-08 12:52:34
+	----------------------------------------
+- Datapod Script (Domain-Specific-Language)
+	----------------------------------------
+	ITEM(magazine) {
+		{title.toUpperCase().chopLeft('REPORT:')}
+		{description}
+	}
+	----------------------------------------
+
+
+
+
+
+
+
+
+
+
 		- paths
 			- absolutePath
 			- relativePath
