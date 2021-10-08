@@ -8,7 +8,13 @@
 
 - gt
 - .. make components (ShowReports) also edit, delete, etc
-	- .. *** make dpod.getShowcaseReport()
+	- .. tsx: get from backend
+
+
+- refactor
+	- itemsType --> itemTypes
+	
+
 
 - fix all naming conventions: itemObject --> itemTypeObject
 - put back into item

@@ -19,20 +19,23 @@ function PageShowcaseManageItemTypes() {
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
 		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
+		const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport, IShowcaseReport>(ShowcaseReport, data.showcaseReportItemObject);
 
+		console.log('frontend object is:');
+		console.log(data.showcaseReportItemObject);
 
 		// testing
-		const showcaseReportItemObject: IShowcaseReport = {
-			id: 999,
-			title: 'title_defined_in_tsx',
-			description: 'test ddd',
-			systemWhoCreated: '',
-			systemWhenCreated: '2021-10-08 10:36:02'
-		};
-		// const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport>(ShowcaseReport, data.showcaseReportObject);
-		const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport, IShowcaseReport>(ShowcaseReport, showcaseReportItemObject);
-		console.log('in TSX: ' + initialShowcaseReport.get_title());
+		// const showcaseReportItemObject: IShowcaseReport = {
+		// 	id: 999,
+		// 	title: 'title_defined_in_tsx',
+		// 	description: 'test ddd',
+		// 	systemWhoCreated: '',
+		// 	systemWhenCreated: '2021-10-08 10:36:02'
+		// };
+		// console.log('in TSX: ' + initialShowcaseReport.get_title());
 		// TODO: change setFirstItem to setShowcaseReport
+
+		// TODO: firstItem --> showcaseReport
 		setFirstItem(initialShowcaseReport);
 		setShowcaseReports(initialShowcaseReports);
 	}

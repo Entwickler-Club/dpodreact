@@ -17,10 +17,15 @@ class Items {
 		this.jsonPathAndFileName = `src/system/data/json/itemType_${this.itemTypeIdCode}.json`;
 	}
 
-	async infuseWithData() {
+	async infuseWithData<T,U>(itemType: { new(): T }) {
 		return new Promise(resolve => {
 			(async () => {
 				this.itemObjects = await this.getItemObjectsFromJsonFile();
+				this.itemObjects.forEach((itemTypeObject:U) => {
+					const item: T = new itemType();
+					(item as unknown as Item).infuseWithItemObject<U>(itemTypeObject);
+					this.items.push(item);
+				})
 				resolve(true);
 			})();
 		});
@@ -74,7 +79,6 @@ class Items {
 
 	getFirstItem<T>(itemType: { new(): T }): Promise<T> {
 		return new Promise((resolve, reject) => {
-			// resolve(new itemType());
 			resolve(this.items[0]);
 		});
 	}

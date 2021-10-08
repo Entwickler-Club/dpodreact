@@ -27,6 +27,8 @@ class ShowcaseReport extends Item {
     }
 
     debug() {
+		console.log('SHOWCASE REPORT:');
+		console.log(this.itemObject);
         console.log(`title: ${this.get_title()}`);
     }
 }

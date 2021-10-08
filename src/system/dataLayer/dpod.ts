@@ -43,7 +43,7 @@ export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
 	return new Promise(resolve => {
 		const showcaseReports = new ShowcaseReports(dql);
 		(async () => {
-			await showcaseReports.infuseWithData();
+			await showcaseReports.infuseWithData<ShowcaseReport, IShowcaseReport>(ShowcaseReport);
 			resolve(showcaseReports);
 		})();
 	});
@@ -60,11 +60,12 @@ export const getShowcaseReports = (dql = ''): Promise<ShowcaseReports> => {
 // 	});
 // }
 export const getShowcaseReport = (dql = ''): Promise<ShowcaseReport> => {
+	console.log('in dpod');
 	return new Promise(resolve => {
 		(async () => {
 			const showcaseReports = await dpod.getShowcaseReports();
 			const showcaseReport = await showcaseReports.getFirstItem<ShowcaseReport>(ShowcaseReport);
-			resolve(new ShowcaseReport());
+			resolve(showcaseReport);
 		})();
 	});
 }
