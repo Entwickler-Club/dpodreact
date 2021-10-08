@@ -24,14 +24,14 @@ function PageShowcaseManageItemTypes() {
 		// testing
 		const showcaseReportItemObject: IShowcaseReport = {
 			id: 999,
-			title: 'test ttt',
+			title: 'TITLE_DEFINED_IN_TSX',
 			description: 'test ddd',
 			systemWhoCreated: '',
 			systemWhenCreated: '2021-10-08 10:36:02'
 		};
 		// const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport>(ShowcaseReport, data.showcaseReportObject);
 		const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport, IShowcaseReport>(ShowcaseReport, showcaseReportItemObject);
-
+		console.log(initialShowcaseReport.get_title());
 		// TODO: change setFirstItem to setShowcaseReport
 		setFirstItem(initialShowcaseReport);
 		setShowcaseReports(initialShowcaseReports);

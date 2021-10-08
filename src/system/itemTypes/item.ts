@@ -1,28 +1,28 @@
 class Item {
 
-    protected itemObject: any = {};
+	protected itemObject: any = {};
 
-    get_id() {
-        return this.itemObject.id;
-    }
-    
-    get_systemWhenCreated() {
-        return this.itemObject.systemWhenCreated;
-    }
-    
-    get_systemWhoCreated() {
-        return this.itemObject.systemWhoCreated;
-    }
+	get_id() {
+		return this.itemObject.id;
+	}
 
-    getItemObject() {
-        return this.itemObject;
-    }
+	get_systemWhenCreated() {
+		return this.itemObject.systemWhenCreated;
+	}
 
-    debug() {
-        console.log('item exists');
-    }
+	get_systemWhoCreated() {
+		return this.itemObject.systemWhoCreated;
+	}
 
-	static async instantiateFromItemObject<T,U>(itemType: { new(): T }, itemObject: U): Promise<T> {
+	getItemObject() {
+		return this.itemObject;
+	}
+
+	debug() {
+		console.log('item exists');
+	}
+
+	static async instantiateFromItemObject<T, U>(itemType: { new(): T }, itemObject: U): Promise<T> {
 		return new Promise(resolve => {
 			const item = new itemType() as unknown as Item;
 			(async () => {
@@ -32,10 +32,11 @@ class Item {
 		})
 	}
 
-    infuseWithItemObject<T>(itemObject: T) {
+	infuseWithItemObject<T>(itemObject: T) {
 		console.log(itemObject);
-        this.itemObject = itemObject;
-    }
+		this.itemObject = { ...itemObject };
+		console.log(this.itemObject.title);
+	}
 
 }
 

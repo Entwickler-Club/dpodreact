@@ -16,7 +16,12 @@ enum ComponentState {
 }
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportProps) => {
-	const [field_title, setField_title] = useState(props.item.get_title());
+	const theTitle = props.item.get_title().toUpperCase();
+	// const theTitle = 'NNN'; // props.item.get_title();
+	console.log('in component: title = ' + theTitle);
+
+	// const [field_title, setField_title] = useState(props.item.get_title() + 'added');
+	const [field_title, setField_title] = useState(theTitle + 'added');
 	const [field_description, setField_description] = useState(props.item.get_description());
 	const [componentState, setComponentState] = useState(ComponentState.Viewing);
 	const editable = props.editable === undefined ? false : props.editable;
