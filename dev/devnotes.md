@@ -6,9 +6,8 @@
 	- qstr.escapeHtml()
 ===================================================================================================
 
-- gt
 - .. make components (ShowReports) also edit, delete, etc
-	- .. tsx: get from backend
+	- .. in component: enable user to edit and delete with nice UX
 
 
 - refactor
