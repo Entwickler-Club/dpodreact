@@ -1,0 +1,6 @@
+[
+    {
+        "importLine": "import { RiDeleteBin6Line } from 'react-icons/ri';",
+        "useLine": "<RiDeleteBin6Line/>"
+    }
+]

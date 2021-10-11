@@ -1,5 +1,6 @@
 import '../styles/page_showcaseReactIcons.scss';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import examples from '../data/json/page_reactIcons.json';
 
 function PageShowcaseReactIcons() {
 
@@ -14,14 +15,19 @@ function PageShowcaseReactIcons() {
 				<li><a target="_blank" href="https://onespace.netlify.app/howtos?id=373">small React-Icon howto</a></li>
 			</ul>
 			<h3>Examples</h3>
-			<div className="example">
-				<div className="icon">
-					<RiDeleteBin6Line />
-				</div>
-				<div className="info">
-					<p><code>import { RiDeleteBin6Line } from 'react-icons/ri';</code></p>
-				</div>
-			</div>
+			{examples.map((example, index) => {
+				return (
+					<div key={index} className="example">
+						<div className="icon">
+							<RiDeleteBin6Line />
+						</div>
+						<div className="info">
+							<p><code>{example.importLine}</code></p>
+							<p><code>{example.useLine}</code></p>
+						</div>
+					</div>
+				)
+			})}
 		</div>
 	)
 }
