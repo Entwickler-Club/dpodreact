@@ -36,14 +36,11 @@ function PageShowcaseManageItemTypes() {
 		<div className="page page_showcaseManageItemTypes">
 			<h2 className="title">Showcase: Manage Item Types</h2>
 			<p className="description">An info page that displays showcase manage item types</p>
-			<section className="controlPanel">
-				<button onClick={toggleEditable}>Show Edit Buttons</button>
-			</section>
 			<section>
 				<h3>Singular Components</h3>
-				<ComponentDisplayShowcaseReport item={showcaseReport} editable={editable} />
+				<ComponentDisplayShowcaseReport item={showcaseReport} />
 				<h3>Plural Components</h3>
-				<ComponentDisplayShowcaseReports items={showcaseReports} editable={editable} />
+				<ComponentDisplayShowcaseReports items={showcaseReports} />
 			</section>
 		</div>
 	)

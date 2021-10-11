@@ -7,6 +7,13 @@ div.item {
     background-color:#e2e2e2;
     border-radius: 5px;
     margin: 0 0 20px 0;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        h3 {
+            color: brown;
+        }
+    }
     .example {
         font-size: 0.8rem;
         color: rgb(179, 84, 84);

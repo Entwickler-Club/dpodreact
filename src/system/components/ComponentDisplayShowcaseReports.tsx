@@ -10,9 +10,7 @@ interface IComponentDisplayShowcaseReportsProps {
 export const ComponentDisplayShowcaseReports = (props: IComponentDisplayShowcaseReportsProps) => {
     const showcaseReports = props.items;
     const showcaseReportsItemsArray = showcaseReports.getItems<ShowcaseReport>();
-    // const item: ShowcaseReport = new ShowcaseReport(); //showcaseReportsItemsArray[0];
-    // const tests = showcaseReportsItemsArray.map(m => m.get_title());
-	const editable = props.editable === undefined ? false : props.editable;
+	const editable = props.editable === undefined ? true : props.editable;
 
     return (
         <>

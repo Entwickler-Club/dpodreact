@@ -23,7 +23,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	const [field_title, setField_title] = useState('');
 	const [field_description, setField_description] = useState('');
 	const [componentState, setComponentState] = useState(ComponentState.Loading);
-	const editable = props.editable === undefined ? false : props.editable;
+	const editable = props.editable === undefined ? true : props.editable;
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -44,12 +44,15 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	return (
 		<FadeIn>
 			<div className="item showcaseReportItem">
-				{editable && (
-					<div className="buttonPanel">
-						<button onClick={() => toggleEditState()}><GrEdit /></button>
-						<button><RiDeleteBin6Line /></button>
-					</div>
-				)}
+				<div className="header">
+					<h3>Showcase Report</h3>
+					{editable && (
+						<div className="buttonPanel">
+							<button onClick={() => toggleEditState()}><GrEdit /></button>
+							<button><RiDeleteBin6Line /></button>
+						</div>
+					)}
+				</div>
 				{componentState === ComponentState.Loading && (
 					<Loader
 						type="Circles"

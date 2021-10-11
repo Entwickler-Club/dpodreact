@@ -11,7 +11,7 @@ class ControllerShowcaseManageItemTypes extends Controller {
 	action_loadPageData() {
 		(async () => {
 			const showcaseReports = await dpod.getShowcaseReports();
-			const showcaseReport = await dpod.getShowcaseReport('id = 5');
+			const showcaseReport = await dpod.getShowcaseReport('id = 4');
 			this.response.send({
 				showcaseReportItemObject: showcaseReport.getItemObject(),
 				showcaseReportObjects: showcaseReports.getAsItemObjects()
