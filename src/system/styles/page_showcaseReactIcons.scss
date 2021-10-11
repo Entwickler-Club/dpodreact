@@ -1,0 +1,29 @@
+.page_showcaseReactIcons {
+    .message {
+        font-style: italic;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+    h3:not(:first-of-type) {
+        margin-top: 1rem;
+    }
+    li {
+        margin-top: .4rem;
+    }
+    code {
+        color: brown;
+    }
+    .example {
+        display: flex;
+        margin: 10px 0 0 20px;
+        background-color: #eee;
+        padding: 10px;
+        .icon {
+            font-size: 1.3rem;
+        }
+        .info {
+            margin-left: 10px;
+        }
+    }
+}
