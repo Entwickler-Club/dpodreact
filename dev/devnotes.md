@@ -4,11 +4,18 @@
 	- added: useToggle showcase 
 	- devnotes: added notes on versioning
 	- qstr.escapeHtml()
+	- added: Showcase: React-Icons
 ===================================================================================================
 
-- .. react-icon page
+- .. add icons from react-icon pages
+	- save button and
+	- save edit button
+	- delete button
+	- system fields button
+	- genericize for itemtype creation
 
 
+	
 
 - .. make components (ShowReports) also edit, delete, etc
 	- .. in component: enable user to edit and delete with nice UX

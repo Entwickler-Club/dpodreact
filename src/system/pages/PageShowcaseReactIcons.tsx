@@ -1,6 +1,9 @@
 import '../styles/page_showcaseReactIcons.scss';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 import examples from '../data/json/page_reactIcons.json';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { GrEdit } from 'react-icons/gr';
+import { FiSettings } from 'react-icons/fi';
+import { ImDatabase } from 'react-icons/im';
 
 function PageShowcaseReactIcons() {
 
@@ -15,19 +18,46 @@ function PageShowcaseReactIcons() {
 				<li><a target="_blank" href="https://onespace.netlify.app/howtos?id=373">small React-Icon howto</a></li>
 			</ul>
 			<h3>Examples</h3>
-			{examples.map((example, index) => {
-				return (
-					<div key={index} className="example">
-						<div className="icon">
-							<RiDeleteBin6Line />
-						</div>
-						<div className="info">
-							<p><code>{example.importLine}</code></p>
-							<p><code>{example.useLine}</code></p>
-						</div>
-					</div>
-				)
-			})}
+			<div className="example">
+				<div className="icon">
+					<RiDeleteBin6Line />
+				</div>
+				<div className="info">
+					<p><code>{examples[0].importLine}</code></p>
+					<p><code>{examples[0].useLine}</code></p>
+				</div>
+			</div>
+
+			<div className="example">
+				<div className="icon">
+					<GrEdit />
+				</div>
+				<div className="info">
+					<p><code>{examples[1].importLine}</code></p>
+					<p><code>{examples[1].useLine}</code></p>
+				</div>
+			</div>
+
+			<div className="example">
+				<div className="icon">
+					<FiSettings />
+				</div>
+				<div className="info">
+					<p><code>{examples[2].importLine}</code></p>
+					<p><code>{examples[2].useLine}</code></p>
+				</div>
+			</div>
+
+			<div className="example">
+				<div className="icon">
+					<ImDatabase />
+				</div>
+				<div className="info">
+					<p><code>{examples[3].importLine}</code></p>
+					<p><code>{examples[3].useLine}</code></p>
+				</div>
+			</div>
+
 		</div>
 	)
 }
