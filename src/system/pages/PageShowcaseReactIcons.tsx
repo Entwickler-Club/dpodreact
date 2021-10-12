@@ -7,6 +7,9 @@ import * as qstr from '../qtools/qstr';
 // import { ImDatabase } from 'react-icons/im';
 import * as GrIcons from 'react-icons/gr';
 import * as ImIcons from 'react-icons/im';
+import * as RiIcons from 'react-icons/ri';
+import * as FiIcons from 'react-icons/fi';
+import * as BsIcons from 'react-icons/bs';
 
 function PageShowcaseReactIcons() {
 
@@ -16,6 +19,12 @@ function PageShowcaseReactIcons() {
 				return React.createElement((GrIcons as any)[iconName]);
 			case 'im':
 				return React.createElement((ImIcons as any)[iconName]);
+			case 'ri':
+				return React.createElement((RiIcons as any)[iconName]);
+			case 'fi':
+				return React.createElement((FiIcons as any)[iconName]);
+			case 'bs':
+				return React.createElement((BsIcons as any)[iconName]);
 			default:
 				return null;
 		}
