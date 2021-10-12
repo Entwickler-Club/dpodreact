@@ -1,20 +1,3 @@
 [
-    {
-        "importLine": "import { RiDeleteBin6Line } from 'react-icons/ri';",
-        "useLine": "<RiDeleteBin6Line/>"
-    },
-    {
-        "importLine": "import { GrEdit } from 'react-icons/gr';",
-        "useLine": "<GrEdit/>"
-    },
-    {
-        "importLine": "import {FiSettings} from 'react-icons/ft';",
-        "useLine": "<FiSettings/>"
-    },
-    {
-        "importLine": "import { ImDatabase } from 'react-icons/im'",
-        "useLine": "<ImDatabase/>"
-    }
-
-
+    "gr;GrEdit;edit;pen, write, Stift, manage"
 ]

@@ -1,11 +1,21 @@
+import React from 'react';
 import '../styles/page_showcaseReactIcons.scss';
-import examples from '../data/json/page_reactIcons.json';
-import { RiDeleteBin6Line } from 'react-icons/ri';
+import iconDataLines from '../data/json/page_reactIcons.json';
 import { GrEdit } from 'react-icons/gr';
-import { FiSettings } from 'react-icons/fi';
-import { ImDatabase } from 'react-icons/im';
+import * as qstr from '../qtools/qstr';
+// import { RiDeleteBin6Line } from 'react-icons/ri';
+// import { FiSettings } from 'react-icons/fi';
+// import { ImDatabase } from 'react-icons/im';
+
+import * as GrIcons from 'react-icons/gr';
 
 function PageShowcaseReactIcons() {
+
+	iconDataLines.forEach((iconDataLine: string) => {
+		const [familyIdCode, iconName, title, keywords] = qstr.breakIntoParts(iconDataLine, ';');
+		console.log(iconName);
+	})
+	const icon = React.createElement((GrIcons as any)['GrEdit']);
 
 	return (
 		<div className="page page_showcaseReactIcons">
@@ -18,7 +28,7 @@ function PageShowcaseReactIcons() {
 				<li><a target="_blank" href="https://onespace.netlify.app/howtos?id=373">small React-Icon howto</a></li>
 			</ul>
 			<h3>Examples</h3>
-			<div className="example">
+			{/* <div className="example">
 				<div className="icon">
 					<RiDeleteBin6Line />
 				</div>
@@ -26,38 +36,7 @@ function PageShowcaseReactIcons() {
 					<p><code>{examples[0].importLine}</code></p>
 					<p><code>{examples[0].useLine}</code></p>
 				</div>
-			</div>
-
-			<div className="example">
-				<div className="icon">
-					<GrEdit />
-				</div>
-				<div className="info">
-					<p><code>{examples[1].importLine}</code></p>
-					<p><code>{examples[1].useLine}</code></p>
-				</div>
-			</div>
-
-			<div className="example">
-				<div className="icon">
-					<FiSettings />
-				</div>
-				<div className="info">
-					<p><code>{examples[2].importLine}</code></p>
-					<p><code>{examples[2].useLine}</code></p>
-				</div>
-			</div>
-
-			<div className="example">
-				<div className="icon">
-					<ImDatabase />
-				</div>
-				<div className="info">
-					<p><code>{examples[3].importLine}</code></p>
-					<p><code>{examples[3].useLine}</code></p>
-				</div>
-			</div>
-
+			</div> */}
 		</div>
 	)
 }

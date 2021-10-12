@@ -7,6 +7,28 @@
 	- added: Showcase: React-Icons
 ===================================================================================================
 
+
+- ..react-Icons
+
+
+            "importLine": "import { GrEdit } from 'react-icons/gr';",
+            "useLine": "<GrEdit/>"
+    {
+        
+        "importLine": "import { ImDatabase } from 'react-icons/im'",
+        "useLine": "<ImDatabase/>"
+    }
+        "importLine": "import { RiDeleteBin6Line } from 'react-icons/ri';",
+        "useLine": "<RiDeleteBin6Line/>"
+    },
+    {
+        "importLine": "import {FiSettings} from 'react-icons/ft';",
+        "useLine": "<FiSettings/>"
+    },
+    {
+
+
+
 - .. add icons from react-icon pages
 	- save button and
 	- save edit button
@@ -15,7 +37,7 @@
 	- genericize for itemtype creation
 
 
-	
+
 
 - .. make components (ShowReports) also edit, delete, etc
 	- .. in component: enable user to edit and delete with nice UX
