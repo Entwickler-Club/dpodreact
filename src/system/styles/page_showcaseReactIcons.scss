@@ -2,14 +2,17 @@
     .message {
         font-style: italic;
     }
+    ul {
+        margin: 0 0 0 40px !important;
+        li {
+            margin-top: 0.4rem;
+        }
+    }
     h3 {
         font-size: 1.3rem;
     }
     h3:not(:first-of-type) {
         margin-top: 1rem;
-    }
-    li {
-        margin-top: .4rem;
     }
     code {
         color: brown;
@@ -20,7 +23,7 @@
         background-color: #eee;
         padding: 10px;
         .icon {
-            font-size: 1.3rem;
+            // font-size: 1.3rem;
         }
         .info {
             margin-left: 10px;
@@ -28,5 +31,13 @@
                 margin-bottom: 4px;
             }
         }
+    }
+    .iconTitle {
+        font-weight: bold;
+    }
+    textarea.iconCode {
+        width: 400px;
+        height: 40px;
+        line-height: 1.2rem;
     }
 }

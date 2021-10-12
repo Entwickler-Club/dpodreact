@@ -11,8 +11,8 @@
 - ..react-Icons
 
 
-            "importLine": "import { GrEdit } from 'react-icons/gr';",
-            "useLine": "<GrEdit/>"
+            "importLine": "",
+            "useLine": ""
     {
         
         "importLine": "import { ImDatabase } from 'react-icons/im'",

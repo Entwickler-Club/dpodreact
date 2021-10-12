@@ -1,21 +1,30 @@
 import React from 'react';
 import '../styles/page_showcaseReactIcons.scss';
 import iconDataLines from '../data/json/page_reactIcons.json';
-import { GrEdit } from 'react-icons/gr';
 import * as qstr from '../qtools/qstr';
 // import { RiDeleteBin6Line } from 'react-icons/ri';
 // import { FiSettings } from 'react-icons/fi';
 // import { ImDatabase } from 'react-icons/im';
-
 import * as GrIcons from 'react-icons/gr';
 
 function PageShowcaseReactIcons() {
 
+	const iconExamples: any[] = [];
 	iconDataLines.forEach((iconDataLine: string) => {
 		const [familyIdCode, iconName, title, keywords] = qstr.breakIntoParts(iconDataLine, ';');
-		console.log(iconName);
+		const importLine = `import { ${iconName} } from 'react-icons/${familyIdCode}';`;
+		const usageLine = `<${iconName}/>`;
+		iconExamples.push({
+			familyIdCode,
+			iconName,
+			title,
+			icon: React.createElement((GrIcons as any)[iconName]),
+			keywords,
+			importLine,
+			usageLine,
+			iconCode: `${importLine}\r\n${usageLine}`
+		})
 	})
-	const icon = React.createElement((GrIcons as any)['GrEdit']);
 
 	return (
 		<div className="page page_showcaseReactIcons">
@@ -27,16 +36,22 @@ function PageShowcaseReactIcons() {
 				<li><a target="_blank" href="https://react-icons.github.io/react-icons/search?q=lightning">search for react-icons here</a> </li>
 				<li><a target="_blank" href="https://onespace.netlify.app/howtos?id=373">small React-Icon howto</a></li>
 			</ul>
-			<h3>Examples</h3>
-			{/* <div className="example">
-				<div className="icon">
-					<RiDeleteBin6Line />
-				</div>
-				<div className="info">
-					<p><code>{examples[0].importLine}</code></p>
-					<p><code>{examples[0].useLine}</code></p>
-				</div>
-			</div> */}
+			<h3>Useful Icons</h3>
+			{iconExamples.map((iconExample: any, index: number) => {
+				return (
+					<div className="example">
+						<div className="icon">
+							{iconExample.icon}
+						</div>
+						<div className="info">
+							<p className="iconTitle">{iconExample.title}</p>
+							<textarea className="iconCode">
+								{iconExample.iconCode}
+							</textarea>
+						</div>
+					</div>
+				)
+			})}
 		</div>
 	)
 }
