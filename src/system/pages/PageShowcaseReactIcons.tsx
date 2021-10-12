@@ -6,8 +6,20 @@ import * as qstr from '../qtools/qstr';
 // import { FiSettings } from 'react-icons/fi';
 // import { ImDatabase } from 'react-icons/im';
 import * as GrIcons from 'react-icons/gr';
+import * as ImIcons from 'react-icons/im';
 
 function PageShowcaseReactIcons() {
+
+	const getIcon = (familyIdCode: string, iconName: string) => {
+		switch (familyIdCode) {
+			case 'gr':
+				return React.createElement((GrIcons as any)[iconName]);
+			case 'im':
+				return React.createElement((ImIcons as any)[iconName]);
+			default:
+				return null;
+		}
+	}
 
 	const iconExamples: any[] = [];
 	iconDataLines.forEach((iconDataLine: string) => {
@@ -18,7 +30,7 @@ function PageShowcaseReactIcons() {
 			familyIdCode,
 			iconName,
 			title,
-			icon: React.createElement((GrIcons as any)[iconName]),
+			icon: getIcon(familyIdCode, iconName),
 			keywords,
 			importLine,
 			usageLine,

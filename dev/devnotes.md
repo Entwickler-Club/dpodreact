@@ -9,12 +9,6 @@
 
 
 - ..react-Icons
-
-
-            "importLine": "",
-            "useLine": ""
-    {
-        
         "importLine": "import { ImDatabase } from 'react-icons/im'",
         "useLine": "<ImDatabase/>"
     }
