@@ -24,6 +24,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	const [field_id, setField_id] = useState(0);
 	const [field_title, setField_title] = useState('');
 	const [field_description, setField_description] = useState('');
+	const [field_systemWhenCreated, setField_systemWhenCreated] = useState('');
 	const [showSystemInformation, setShowSystemInformation] = useState(false);
 	const [componentState, setComponentState] = useState(ComponentState.Loading);
 	const editable = props.editable === undefined ? true : props.editable;
@@ -33,6 +34,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 			setField_id(props.item.get_id());
 			setField_title(props.item.get_title());
 			setField_description(props.item.get_description());
+			setField_systemWhenCreated(props.item.get_systemWhenCreated());
 			setComponentState(ComponentState.Viewing);
 		}, 0);
 	}, [props.item]);
@@ -82,6 +84,12 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 							<label className="fieldLabel">Description</label>
 							<div className="fieldData">{field_description}</div>
 						</div>
+						{showSystemInformation && (
+							<div className="field dataType_wholeNumber systemInformation">
+								<label className="fieldLabel">System When Created</label>
+								<div className="fieldData">{field_systemWhenCreated}</div>
+							</div>
+						)}
 					</>
 				)}
 				{componentState === ComponentState.Editing && (
