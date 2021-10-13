@@ -1,4 +1,4 @@
-$fieldBorderColor: #bbb;
+$fieldBorderColor: #999;
 
 div.item {
     width: 500px;
@@ -15,9 +15,9 @@ div.item {
         border-bottom: 2px solid #aaa;
     }
     button.pressed {
-        background: #ccc;
-        border-left: 2px solid #aaa;
-        border-top: 2px solid #aaa;
+        background: #aaa;
+        border-left: 2px solid #777;
+        border-top: 2px solid #777;
         border-right: 2px solid #fff;
         border-bottom: 2px solid #fff;
     }
@@ -25,7 +25,7 @@ div.item {
         font-family: "Courier New", Courier, monospace;
         div.fieldData {
             background-color: #ccc;
-            color: #999;
+            color: #666;
             padding: 3px;
         }
         label.fieldLabel {
@@ -134,9 +134,13 @@ div.item {
         }
         input {
             width: 490px; // TODO: calculate
-            margin: 0 0 0 5px;
-            border: 1px solid $fieldBorderColor;
+            border: 2px solid $fieldBorderColor;
             font-size: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 3px;
+        }
+        input:focus {
+            background-color:#ccc; 
         }
     }
     .buttonArea {

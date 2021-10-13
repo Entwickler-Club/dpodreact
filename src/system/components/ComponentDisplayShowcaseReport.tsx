@@ -57,7 +57,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 					{editable && (
 						<div className="buttonPanel">
 							<button className={showSystemInformation ? 'pressed' : ''} onClick={() => setShowSystemInformation(!showSystemInformation)}><ImDatabase /></button>
-							<button onClick={() => toggleEditState()}><GrEdit /></button>
+							<button className={componentState === ComponentState.Editing ? 'pressed' : ''} onClick={() => toggleEditState()}><GrEdit /></button>
 							<button><RiDeleteBin6Line /></button>
 						</div>
 					)}
@@ -102,6 +102,12 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 				)}
 				{componentState === ComponentState.Editing && (
 					<>
+						{showSystemInformation && (
+							<div className="field dataType_wholeNumber systemInformation">
+								<label className="fieldLabel">ID</label>
+								<div className="fieldData">{field_id}</div>
+							</div>
+						)}
 						<div className="field dataType_line">
 							<label className="fieldLabel">Title</label>
 							<input type="text" value={field_title} onChange={(e) => setField_title(e.target.value)} />
@@ -110,6 +116,18 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 							<label className="fieldLabel">Description</label>
 							<input type="text" value={field_description} onChange={(e) => setField_description(e.target.value)} />
 						</div>
+						{showSystemInformation && (
+							<div className="field dataType_wholeNumber systemInformation">
+								<label className="fieldLabel">System When Created</label>
+								<div className="fieldData">{field_systemWhenCreated}</div>
+							</div>
+						)}
+						{showSystemInformation && (
+							<div className="field dataType_wholeNumber systemInformation">
+								<label className="fieldLabel">System Who Created</label>
+								<div className="fieldData">{field_systemWhoCreated}</div>
+							</div>
+						)}
 					</>
 				)}
 			</div>
