@@ -6,5 +6,6 @@
     "bs;BsArrowUp; up arrow; arrow, point",
     "bs;BsArrowDown; down arrow; arrow, point",
     "bs;BsArrowRight; right arrow; arrow, point",
-    "bs;BsArrowLeft; left arrow; arrow, point"
+    "bs;BsArrowLeft; left arrow; arrow, point",
+	"fi;FiAlertTriangle;warning; alert, triangle"
 ]
