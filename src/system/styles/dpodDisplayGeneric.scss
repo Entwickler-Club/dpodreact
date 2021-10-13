@@ -4,9 +4,20 @@ div.item {
     width: 500px;
     border: 1px solid #aaa;
     padding: 15px 25px 5px 20px;
-    background-color:#e2e2e2;
+    background-color: #e2e2e2;
     border-radius: 5px;
     margin: 0 0 20px 0;
+    div.systemInformation {
+        font-family: "Courier New", Courier, monospace;
+        div.fieldData {
+            background-color: #ccc;
+            color:#999; 
+            padding: 3px;
+        }
+        label.fieldLabel {
+            color: #999;
+        }
+    }
     .header {
         display: flex;
         justify-content: space-between;
@@ -46,8 +57,7 @@ div.item {
         .fieldLabel {
             font-variant: small-caps;
             font-size: 0.8rem;
-            color: #333;
-            margin-left: 5px;
+            color: rgb(66, 64, 64);
         }
 
         div.radioChoice {

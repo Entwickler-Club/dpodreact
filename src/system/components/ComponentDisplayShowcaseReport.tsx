@@ -3,6 +3,7 @@ import '../styles/dpodDisplayGeneric.scss';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import { ImDatabase } from 'react-icons/im';
 import Loader from "react-loader-spinner";
 import FadeIn from 'react-fade-in';
 
@@ -19,9 +20,11 @@ enum ComponentState {
 }
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportProps) => {
+
 	const [field_id, setField_id] = useState(0);
 	const [field_title, setField_title] = useState('');
 	const [field_description, setField_description] = useState('');
+	const [showSystemInformation, setShowSystemInformation] = useState(false);
 	const [componentState, setComponentState] = useState(ComponentState.Loading);
 	const editable = props.editable === undefined ? true : props.editable;
 
@@ -33,6 +36,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 			setComponentState(ComponentState.Viewing);
 		}, 0);
 	}, [props.item]);
+
 	const toggleEditState = () => {
 		if (componentState !== ComponentState.Editing) {
 			setComponentState(ComponentState.Editing)
@@ -48,6 +52,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 					<h3>Showcase Report</h3>
 					{editable && (
 						<div className="buttonPanel">
+							<button onClick={() => setShowSystemInformation(!showSystemInformation)}><ImDatabase /></button>
 							<button onClick={() => toggleEditState()}><GrEdit /></button>
 							<button><RiDeleteBin6Line /></button>
 						</div>
@@ -63,10 +68,12 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 				)}
 				{componentState === ComponentState.Viewing && (
 					<>
-						<div className="field dataType_wholeNumber">
-							<label className="fieldLabel">ID</label>
-							<div className="fieldData">{field_id}</div>
-						</div>
+						{showSystemInformation && (
+							<div className="field dataType_wholeNumber systemInformation">
+								<label className="fieldLabel">ID</label>
+								<div className="fieldData">{field_id}</div>
+							</div>
+						)}
 						<div className="field dataType_line">
 							<label className="fieldLabel">Title</label>
 							<div className="fieldData">{field_title}</div>
