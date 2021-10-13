@@ -7,11 +7,25 @@ div.item {
     background-color: #e2e2e2;
     border-radius: 5px;
     margin: 0 0 20px 0;
+    button {
+        background: #ccc;
+        border-left: 2px solid #eee;
+        border-top: 2px solid #eee;
+        border-right: 2px solid #aaa;
+        border-bottom: 2px solid #aaa;
+    }
+    button.pressed {
+        background: #ccc;
+        border-left: 2px solid #aaa;
+        border-top: 2px solid #aaa;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+    }
     div.systemInformation {
         font-family: "Courier New", Courier, monospace;
         div.fieldData {
             background-color: #ccc;
-            color:#999; 
+            color: #999;
             padding: 3px;
         }
         label.fieldLabel {

@@ -25,6 +25,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	const [field_title, setField_title] = useState('');
 	const [field_description, setField_description] = useState('');
 	const [field_systemWhenCreated, setField_systemWhenCreated] = useState('');
+	const [field_systemWhoCreated, setField_systemWhoCreated] = useState('');
 	const [showSystemInformation, setShowSystemInformation] = useState(false);
 	const [componentState, setComponentState] = useState(ComponentState.Loading);
 	const editable = props.editable === undefined ? true : props.editable;
@@ -35,6 +36,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 			setField_title(props.item.get_title());
 			setField_description(props.item.get_description());
 			setField_systemWhenCreated(props.item.get_systemWhenCreated());
+			setField_systemWhoCreated(props.item.get_systemWhoCreated());
 			setComponentState(ComponentState.Viewing);
 		}, 0);
 	}, [props.item]);
@@ -54,7 +56,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 					<h3>Showcase Report</h3>
 					{editable && (
 						<div className="buttonPanel">
-							<button onClick={() => setShowSystemInformation(!showSystemInformation)}><ImDatabase /></button>
+							<button className={showSystemInformation ? 'pressed' : ''} onClick={() => setShowSystemInformation(!showSystemInformation)}><ImDatabase /></button>
 							<button onClick={() => toggleEditState()}><GrEdit /></button>
 							<button><RiDeleteBin6Line /></button>
 						</div>
@@ -88,6 +90,12 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 							<div className="field dataType_wholeNumber systemInformation">
 								<label className="fieldLabel">System When Created</label>
 								<div className="fieldData">{field_systemWhenCreated}</div>
+							</div>
+						)}
+						{showSystemInformation && (
+							<div className="field dataType_wholeNumber systemInformation">
+								<label className="fieldLabel">System Who Created</label>
+								<div className="fieldData">{field_systemWhoCreated}</div>
 							</div>
 						)}
 					</>
