@@ -12,5 +12,7 @@
 	"fi;FiCopy;copy;two",
 	"bs;BsInfoSquare;info;box",
 	"fa;FaInfo;info;without",
-	"bs;BsPlusLg;large add;plus"
+	"bs;BsPlusLg;large add;plus",
+	"gr;GrRevert;revert;back,clear,arrow",
+	"bi;BiSave;save; disk"
 ]

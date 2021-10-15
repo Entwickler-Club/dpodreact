@@ -5,10 +5,14 @@
 	- devnotes: added notes on versioning
 	- qstr.escapeHtml()
 	- added: Showcase: React-Icons
-===================================================================================================
+==============================================================================================
+
+- .. make clear and save buttons work with editing
+	- on clear: be able to set all initial values back
+
 
 - .. make edit work
-	- .. focus field change
+	- .. save button and mask icon buttons
 
 
 - .. make components (ShowReports) also edit, delete, etc
@@ -72,6 +76,7 @@
                     - menu = main
 
 - various todos
+	- convert all requires in imports 
 	- tasks
     - dpod setup site process
     - dpod site build process

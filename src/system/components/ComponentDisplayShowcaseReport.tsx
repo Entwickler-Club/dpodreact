@@ -8,6 +8,8 @@ import FadeIn from 'react-fade-in';
 import { FiCopy } from 'react-icons/fi';
 import { FaInfo } from 'react-icons/fa';
 import { BsPlusLg } from 'react-icons/bs';
+import { GrRevert } from 'react-icons/gr';
+import { BiSave } from 'react-icons/bi';
 
 interface IComponentDisplayShowcaseReportProps {
 	item: ShowcaseReport;
@@ -19,7 +21,8 @@ enum ComponentState {
 	Viewing,
 	Editing,
 	Deleting,
-	Adding
+	Adding,
+	Copying
 }
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportProps) => {
@@ -33,6 +36,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	const [showSystemInformation, setShowSystemInformation] = useState(false);
 	const [componentState, setComponentState] = useState(ComponentState.Loading);
 	const editable = props.editable === undefined ? true : props.editable;
+	const [dataHasChanged, setDataHasChanged] = useState(false);
 
 	useEffect(() => {
 		if (firstField.current !== null) {
@@ -60,18 +64,23 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 		}
 	}
 
+	const handleFieldChange_title = (e: any) => {
+		setField_title(e.target.value);
+		setDataHasChanged(true);
+	}
+
 	return (
 		<FadeIn>
-			<div className="item showcaseReportItem">
+			<form className="item showcaseReportItem">
 				<div className="header">
 					<h3>Showcase Report</h3>
 					{editable && (
 						<div className="buttonPanel">
-							<button className={componentState === ComponentState.Editing ? 'pressed' : ''} title="edit item" onClick={() => toggleEditState()}><GrEdit /></button>
-							<button title="delete item"><RiDeleteBin6Line /></button>
-							<button title="add item"><BsPlusLg /></button>
-							<button title="copy item"><FiCopy /></button>
-							<button className={showSystemInformation ? 'pressed' : ''} title="show/hide system fields" onClick={() => setShowSystemInformation(!showSystemInformation)}><FaInfo /></button>
+							<button type="button" disabled={dataHasChanged} className={`${componentState === ComponentState.Editing ? 'pressed' : ''} ${dataHasChanged ? 'disabled' : ''}`} title="edit item" onClick={() => toggleEditState()}><GrEdit /></button>
+							<button type="button" className={`${componentState === ComponentState.Deleting ? 'pressed' : ''} ${dataHasChanged ? 'disabled' : ''}`} title="delete item"><RiDeleteBin6Line /></button>
+							<button type="button" className={`${componentState === ComponentState.Adding ? 'pressed' : ''} ${dataHasChanged ? 'disabled' : ''}`} title="add item"><BsPlusLg /></button>
+							<button type="button" className={`${componentState === ComponentState.Copying ? 'pressed' : ''} ${dataHasChanged ? 'disabled' : ''}`} title="copy item"><FiCopy /></button>
+							<button type="button" className={showSystemInformation ? 'pressed' : ''} title="show/hide system fields" onClick={() => setShowSystemInformation(!showSystemInformation)}><FaInfo /></button>
 						</div>
 					)}
 				</div>
@@ -123,7 +132,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 						)}
 						<div className="field dataType_line">
 							<label className="fieldLabel">Title</label>
-							<input type="text" value={field_title} ref={firstField} onChange={(e) => setField_title(e.target.value)} />
+							<input type="text" value={field_title} ref={firstField} onChange={handleFieldChange_title} />
 						</div>
 						<div className="field dataType_line">
 							<label className="fieldLabel">Description</label>
@@ -141,9 +150,15 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 								<div className="fieldData">{field_systemWhoCreated}</div>
 							</div>
 						)}
+						{dataHasChanged && (
+							<div className="formButtonArea">
+								<button type="button" className="clear"><span className="text">Clear</span><GrRevert className="icon" /> </button>
+								<button type="button" className="save"><span className="text">Save</span><BiSave className="icon" /></button>
+							</div>
+						)}
 					</>
 				)}
-			</div>
+			</form>
 		</FadeIn>
 	)
 }

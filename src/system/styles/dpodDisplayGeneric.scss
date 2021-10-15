@@ -1,25 +1,57 @@
 $fieldBorderColor: #999;
 
-div.item {
+form.item {
 	width: 500px;
 	border: 1px solid #aaa;
 	padding: 15px 25px 5px 20px;
 	background-color: #e2e2e2;
 	border-radius: 5px;
 	margin: 0 0 20px 0;
-	button {
-		background: #ccc;
-		border-left: 2px solid #eee;
-		border-top: 2px solid #eee;
-		border-right: 2px solid #aaa;
-		border-bottom: 2px solid #aaa;
+
+	.formButtonArea {
+		display: flex;
+		justify-content: flex-end;
+		margin: 0 0 10px 0;
+		button {
+			margin: 0 0 0 10px;
+			padding: 8px 8px 5px 8px;
+			display: flex;
+			border-radius: 7px;
+			.text {
+				font-size: 0.8rem;
+				margin: -2px 5px 0 0;
+			}
+			.icon {
+				font-size: 1rem;
+			}
+		}
+		button.clear {
+			background-color: rgb(250, 235, 231);
+		}
+		button.save {
+			background-color: rgb(220, 250, 214);
+		}
 	}
-	button.pressed {
-		background: #aaa;
-		border-left: 2px solid #777;
-		border-top: 2px solid #777;
-		border-right: 2px solid #fff;
-		border-bottom: 2px solid #fff;
+
+	.buttonPanel {
+		button {
+			background: #ccc;
+			border-left: 2px solid #eee;
+			border-top: 2px solid #eee;
+			border-right: 2px solid #aaa;
+			border-bottom: 2px solid #aaa;
+		}
+		button.pressed {
+			background: #aaa;
+			border-left: 2px solid #777;
+			border-top: 2px solid #777;
+			border-right: 2px solid #fff;
+			border-bottom: 2px solid #fff;
+		}
+		button.disabled {
+			opacity: .3;
+			margin: 1px 0 0 0;
+		}
 	}
 	div.systemInformation {
 		font-family: "Courier New", Courier, monospace;
