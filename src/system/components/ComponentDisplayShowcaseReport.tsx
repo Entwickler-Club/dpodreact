@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import '../styles/dpodDisplayGeneric.scss';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import Loader from "react-loader-spinner";
 import FadeIn from 'react-fade-in';
-import { MdAdd } from 'react-icons/md';
 import { FiCopy } from 'react-icons/fi';
 import { FaInfo } from 'react-icons/fa';
 import { BsPlusLg } from 'react-icons/bs';
@@ -25,6 +24,7 @@ enum ComponentState {
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportProps) => {
 
+	const firstField: any = useRef(null);
 	const [field_id, setField_id] = useState(0);
 	const [field_title, setField_title] = useState('');
 	const [field_description, setField_description] = useState('');
@@ -33,6 +33,12 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	const [showSystemInformation, setShowSystemInformation] = useState(false);
 	const [componentState, setComponentState] = useState(ComponentState.Loading);
 	const editable = props.editable === undefined ? true : props.editable;
+
+	useEffect(() => {
+		if (firstField.current !== null) {
+			firstField.current.focus();
+		}
+	}, [componentState]);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -48,6 +54,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	const toggleEditState = () => {
 		if (componentState !== ComponentState.Editing) {
 			setComponentState(ComponentState.Editing)
+
 		} else {
 			setComponentState(ComponentState.Viewing)
 		}
@@ -62,7 +69,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 						<div className="buttonPanel">
 							<button className={componentState === ComponentState.Editing ? 'pressed' : ''} title="edit item" onClick={() => toggleEditState()}><GrEdit /></button>
 							<button title="delete item"><RiDeleteBin6Line /></button>
-							<button title="add item"><BsPlusLg/></button>
+							<button title="add item"><BsPlusLg /></button>
 							<button title="copy item"><FiCopy /></button>
 							<button className={showSystemInformation ? 'pressed' : ''} title="show/hide system fields" onClick={() => setShowSystemInformation(!showSystemInformation)}><FaInfo /></button>
 						</div>
@@ -116,7 +123,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 						)}
 						<div className="field dataType_line">
 							<label className="fieldLabel">Title</label>
-							<input type="text" value={field_title} onChange={(e) => setField_title(e.target.value)} />
+							<input type="text" value={field_title} ref={firstField} onChange={(e) => setField_title(e.target.value)} />
 						</div>
 						<div className="field dataType_line">
 							<label className="fieldLabel">Description</label>

@@ -7,33 +7,8 @@
 	- added: Showcase: React-Icons
 ===================================================================================================
 
-- .. database icon switch
-
-
-
-- ..react-Icons
-        "importLine": "import { ImDatabase } from 'react-icons/im'",
-        "useLine": "<ImDatabase/>"
-    }
-        "importLine": "import { RiDeleteBin6Line } from 'react-icons/ri';",
-        "useLine": "<RiDeleteBin6Line/>"
-    },
-    {
-        "importLine": "import {FiSettings} from 'react-icons/ft';",
-        "useLine": "<FiSettings/>"
-    },
-    {
-
-
-
-- .. add icons from react-icon pages
-	- save button and
-	- save edit button
-	- delete button
-	- system fields button
-	- genericize for itemtype creation
-
-
+- .. make edit work
+	- .. focus field change
 
 
 - .. make components (ShowReports) also edit, delete, etc

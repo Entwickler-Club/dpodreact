@@ -57,8 +57,8 @@ function PageShowcaseReactIcons() {
 			<h3>Information</h3>
 			<ul>
 				<li>React-Icons have already been installed in Datapod with <code>npm i react-icons</code></li>
-				<li><a target="_blank" href="https://react-icons.github.io/react-icons/search?q=lightning">search for react-icons here</a> </li>
-				<li><a target="_blank" href="https://onespace.netlify.app/howtos?id=373">small React-Icon howto</a></li>
+				<li><a target="_blank" href="https://react-icons.github.io/react-icons/search?q=lightning" rel="noreferrer">search for react-icons here</a> </li>
+				<li><a target="_blank" href="https://onespace.netlify.app/howtos?id=373" rel="noreferrer">small React-Icon howto</a></li>
 			</ul>
 			<h3>Useful Icons</h3>
 			{iconExamples.map((iconExample: any, index: number) => {
