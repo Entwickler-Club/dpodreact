@@ -7,6 +7,8 @@ import * as ImIcons from 'react-icons/im';
 import * as RiIcons from 'react-icons/ri';
 import * as FiIcons from 'react-icons/fi';
 import * as BsIcons from 'react-icons/bs';
+import * as MdIcons from 'react-icons/md';
+import * as FaIcons from 'react-icons/fa';
 
 function PageShowcaseReactIcons() {
 
@@ -22,6 +24,10 @@ function PageShowcaseReactIcons() {
 				return React.createElement((FiIcons as any)[iconName]);
 			case 'bs':
 				return React.createElement((BsIcons as any)[iconName]);
+			case 'md':
+				return React.createElement((MdIcons as any)[iconName]);
+			case 'fa':
+				return React.createElement((FaIcons as any)[iconName]);
 			default:
 				return null;
 		}

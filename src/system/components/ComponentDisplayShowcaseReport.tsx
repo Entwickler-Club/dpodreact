@@ -3,9 +3,12 @@ import '../styles/dpodDisplayGeneric.scss';
 import ShowcaseReport from '../itemTypes/showcaseReport';
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { ImDatabase } from 'react-icons/im';
 import Loader from "react-loader-spinner";
 import FadeIn from 'react-fade-in';
+import { MdAdd } from 'react-icons/md';
+import { FiCopy } from 'react-icons/fi';
+import { FaInfo } from 'react-icons/fa';
+import { BsPlusLg } from 'react-icons/bs';
 
 interface IComponentDisplayShowcaseReportProps {
 	item: ShowcaseReport;
@@ -16,7 +19,8 @@ enum ComponentState {
 	Loading,
 	Viewing,
 	Editing,
-	Deleting
+	Deleting,
+	Adding
 }
 
 export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseReportProps) => {
@@ -56,9 +60,11 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 					<h3>Showcase Report</h3>
 					{editable && (
 						<div className="buttonPanel">
-							<button className={showSystemInformation ? 'pressed' : ''} onClick={() => setShowSystemInformation(!showSystemInformation)}><ImDatabase /></button>
-							<button className={componentState === ComponentState.Editing ? 'pressed' : ''} onClick={() => toggleEditState()}><GrEdit /></button>
-							<button><RiDeleteBin6Line /></button>
+							<button className={componentState === ComponentState.Editing ? 'pressed' : ''} title="edit item" onClick={() => toggleEditState()}><GrEdit /></button>
+							<button title="delete item"><RiDeleteBin6Line /></button>
+							<button title="add item"><BsPlusLg/></button>
+							<button title="copy item"><FiCopy /></button>
+							<button className={showSystemInformation ? 'pressed' : ''} title="show/hide system fields" onClick={() => setShowSystemInformation(!showSystemInformation)}><FaInfo /></button>
 						</div>
 					)}
 				</div>
