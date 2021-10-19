@@ -12,24 +12,32 @@ form.item {
 		display: flex;
 		justify-content: flex-end;
 		margin: 0 0 10px 0;
-		button {
-			margin: 0 0 0 10px;
-			padding: 8px 8px 5px 8px;
+		button.clear {
+			width: 26px;
+			background-color: rgb(206, 206, 206);
+			padding: 4px 3px 3px 4px;
+			.icon {
+				font-size: 1.1rem;
+			}
+		}
+		button.save {
+			width: 100px;
+			background-color: rgb(220, 250, 214);
+			padding: 3px;
+			.icon {
+				font-size: 1.3rem;
+			}
+		}
+		button.iconButton {
+			margin: 0 0 0 5px;
 			display: flex;
+			justify-content: center;
 			border-radius: 7px;
 			.text {
 				font-size: 0.8rem;
 				margin: -2px 5px 0 0;
+				display: none;
 			}
-			.icon {
-				font-size: 1rem;
-			}
-		}
-		button.clear {
-			background-color: rgb(250, 235, 231);
-		}
-		button.save {
-			background-color: rgb(220, 250, 214);
 		}
 	}
 

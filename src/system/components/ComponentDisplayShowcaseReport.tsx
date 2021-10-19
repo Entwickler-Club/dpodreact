@@ -45,20 +45,27 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 	}, [componentState]);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setField_id(props.item.get_id());
-			setField_title(props.item.get_title());
-			setField_description(props.item.get_description());
-			setField_systemWhenCreated(props.item.get_systemWhenCreated());
-			setField_systemWhoCreated(props.item.get_systemWhoCreated());
-			setComponentState(ComponentState.Viewing);
-		}, 0);
+		assignFieldsFromItem();
+		setComponentState(ComponentState.Viewing);
 	}, [props.item]);
+
+	const assignFieldsFromItem = () => {
+		setField_id(props.item.get_id());
+		setField_title(props.item.get_title());
+		setField_description(props.item.get_description());
+		setField_systemWhenCreated(props.item.get_systemWhenCreated());
+		setField_systemWhoCreated(props.item.get_systemWhoCreated());
+	}
+
+	const handleClearButton = () => {
+		setDataHasChanged(false);
+		assignFieldsFromItem();
+		setComponentState(ComponentState.Viewing);
+	}
 
 	const toggleEditState = () => {
 		if (componentState !== ComponentState.Editing) {
 			setComponentState(ComponentState.Editing)
-
 		} else {
 			setComponentState(ComponentState.Viewing)
 		}
@@ -152,8 +159,8 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 						)}
 						{dataHasChanged && (
 							<div className="formButtonArea">
-								<button type="button" className="clear"><span className="text">Clear</span><GrRevert className="icon" /> </button>
-								<button type="button" className="save"><span className="text">Save</span><BiSave className="icon" /></button>
+								<button type="button" className="clear iconButton" onClick={handleClearButton}><span className="text">Clear</span><GrRevert className="icon" /> </button>
+								<button type="button" className="save iconButton"><span className="text">Save</span><BiSave className="icon" /></button>
 							</div>
 						)}
 					</>
