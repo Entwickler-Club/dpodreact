@@ -63,6 +63,13 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 		setComponentState(ComponentState.Viewing);
 	}
 
+	const handleSaveButton = () => {
+		// TODO: change to save state
+		setDataHasChanged(false);
+		assignFieldsFromItem();
+		setComponentState(ComponentState.Viewing);
+	}
+
 	const toggleEditState = () => {
 		if (componentState !== ComponentState.Editing) {
 			setComponentState(ComponentState.Editing)
@@ -160,7 +167,7 @@ export const ComponentDisplayShowcaseReport = (props: IComponentDisplayShowcaseR
 						{dataHasChanged && (
 							<div className="formButtonArea">
 								<button type="button" className="clear iconButton" onClick={handleClearButton}><span className="text">Clear</span><GrRevert className="icon" /> </button>
-								<button type="button" className="save iconButton"><span className="text">Save</span><BiSave className="icon" /></button>
+								<button type="button" onClick={handleSaveButton} className="save iconButton"><span className="text">Save</span><BiSave className="icon" /></button>
 							</div>
 						)}
 					</>
