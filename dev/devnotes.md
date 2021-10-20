@@ -4,15 +4,46 @@
 	- added: useToggle showcase 
 	- devnotes: added notes on versioning
 	- qstr.escapeHtml()
-===================================================================================================
-- .. components/page
+	- added: Showcase: React-Icons
+==============================================================================================
+
+- .. make new branch: rename ShowcaseManageItemTypes to ShowcaseManageShowcaseReports
+	- use the same actions
+
+- .. make clear and save buttons work with editing
+	- on clear: be able to set all initial values back
 
 
-- make components (ShowReports) also edit, delete, etc
+- .. make edit work
+	- .. save button and mask icon buttons
+
+
+- .. make components (ShowReports) also edit, delete, etc
+	- .. in component: enable user to edit and delete with nice UX
+		- save changes to JSON file
+ 
+
+
+- refactor
+	- itemsType --> itemTypes
+	
+
+
+- fix all naming conventions: itemObject --> itemTypeObject
+- put back into item
+	- infuseWithItemObject
+- fix
+	- itemstype
+- simplify
+		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
+
+- put a fade-in on every page to avoid quick-blink loading phenomenon
+
 - and enable grid view
 
+- make ComponentDisplay components generic
 
-
+- vim
 
 - .. display all singular/plural display components
 	- .. *** find solution for component per file:
@@ -48,6 +79,7 @@
                     - menu = main
 
 - various todos
+	- convert all requires in imports 
 	- tasks
     - dpod setup site process
     - dpod site build process
@@ -101,20 +133,60 @@
                     - to get this.itemRecord, use this.getItemRecord which gets its data from this.itemObject
                     - this.itemObject satisfies the interface e.g. IShowcaseReport
             - nomenclature
-                - pageItems
+                - PageItems
                     - pageItem is of type PageItem (class)
                     - pageItems is of type PageItems (class)
                         - (has an internal array of pageItems)
                     - pageItemObject if of type IPageItem (interface)  
                     - pageItemObjects is of type IPageItem[] (interface) 
                 - ShowcaseReports
-                    - showcaseReport is of type ShowcaseReport (class)
-                    - showcaseReports is of type ShowcaseReports (class)
-                        - (has an internal array of showcaseReports)
+                    - showcaseReport is of type ShowcaseReport (singular class object)
+                    - showcaseReports is of type ShowcaseReports (plural class object)
+                        - (it has an internal array of singular showcaseReport class objects)
                     - showcaseReportObject if of type IShowcaseReport (interface)  
+						- (this is sent e.g. from backend to front end via JSON)
                     - showcaseReportObjects is of type IShowcaseReport[] (interface) 
 				- infuse prefix
 					- to fill the itemType with data, e.g. infuseWithObjectArray
+
+- Datapod itemType creation syntax
+	----------------------------------------
+	** Magazines
+	Title
+	Description;p
+	Number Of Pages;wn
+	First Date Of Publication;dt
+
+	** Employees
+	First Name;germanFirstName|englishFirstName
+	Last Name;lastName
+	City;city
+	----------------------------------------
+- Datapod data format
+	----------------------------------------
+	==magazine
+	New Yorker
+	This is askdfj slfkjsldfjsaldfjsdf.
+	45
+	2021-10-08 12:52:34
+	----------------------------------------
+- Datapod Script (Domain-Specific-Language)
+	----------------------------------------
+	ITEM(magazine) {
+		{title.toUpperCase().chopLeft('REPORT:')}
+		{description}
+	}
+	----------------------------------------
+
+
+
+
+
+
+
+
+
+
 		- paths
 			- absolutePath
 			- relativePath

@@ -4,39 +4,43 @@ import '../styles/page_showcaseManageItemTypes.scss';
 import PageManager from '../classes/pageManager';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
-import ComponentDisplayShowcaseReport from '../components/ComponenDisplayShowcaseReport';
+import ComponentDisplayShowcaseReport from '../components/ComponentDisplayShowcaseReport';
 import ComponentDisplayShowcaseReports from '../components/ComponentDisplayShowcaseReports';
+import { IShowcaseReport } from '../dataLayer/interfaces';
 
 function PageShowcaseManageItemTypes() {
 	const pageIdCode = 'showcaseManageItemTypes';
+	const [showcaseReport, setShowcaseReport] = useState<ShowcaseReport>(new ShowcaseReport());
 	const [showcaseReports, setShowcaseReports] = useState<ShowcaseReports>(new ShowcaseReports());
-	const [firstItem, setFirstItem] = useState<ShowcaseReport>(new ShowcaseReport());
+	// const [editable, setEditable] = useState<boolean>(false);
+
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		const showcaseReports = await ShowcaseReports.instantiateFromItemObjects(data.showcaseReportObjects);
-
-		showcaseReports.debug();
-		const firstItem = showcaseReports.getFirstItem<ShowcaseReport>();
-		setFirstItem(firstItem);
-
-		setShowcaseReports(showcaseReports);
+		const initialShowcaseReport = await ShowcaseReport.instantiateFromItemObject<ShowcaseReport, IShowcaseReport>(ShowcaseReport, data.showcaseReportItemObject);
+		const initialShowcaseReports = await ShowcaseReports.instantiateFromItemObjects<ShowcaseReports, ShowcaseReport, IShowcaseReport>(ShowcaseReports, ShowcaseReport, data.showcaseReportObjects);
+		setShowcaseReport(initialShowcaseReport);
+		setShowcaseReports(initialShowcaseReports);
 	}
 
 	useEffect(() => {
 		loadPageData();
 	}, []);
 
+	// const toggleEditable = () => {
+	// 	setEditable(!editable);
+	// }
+
 	return (
 		<div className="page page_showcaseManageItemTypes">
 			<h2 className="title">Showcase: Manage Item Types</h2>
 			<p className="description">An info page that displays showcase manage item types</p>
 			<section>
-				<h3>Singular Components</h3>
-				<ComponentDisplayShowcaseReport item={firstItem}/>
+				<h3>Singular Component</h3>
+				<ComponentDisplayShowcaseReport item={showcaseReport} />
 				<h3>Plural Components</h3>
-				<ComponentDisplayShowcaseReports items={showcaseReports}/>
+				<ComponentDisplayShowcaseReports items={showcaseReports} />
 			</section>
 		</div>
 	)

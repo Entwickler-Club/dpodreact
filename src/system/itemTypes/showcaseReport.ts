@@ -1,7 +1,14 @@
-import { IShowcaseReport } from '../dataLayer/interfaces';
 import Item from './item';
 
 class ShowcaseReport extends Item {
+
+    constructor() {
+        super();
+        this.itemObject = {
+            title: 'initial title',
+            description: 'initial description'
+        }
+    }
 
     get_title() {
         return this.itemObject.title;
@@ -11,10 +18,6 @@ class ShowcaseReport extends Item {
         return this.itemObject.description;
     }
     
-    fillWithObject(itemObject: IShowcaseReport) {
-        this.itemObject = itemObject;
-    }
-
     displayAsHtml() {
         return `
         <div>
@@ -23,6 +26,11 @@ class ShowcaseReport extends Item {
         `;
     }
 
+    debug() {
+		console.log('SHOWCASE REPORT:');
+		console.log(this.itemObject);
+        console.log(`title: ${this.get_title()}`);
+    }
 }
 
 export default ShowcaseReport;
