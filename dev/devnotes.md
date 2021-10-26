@@ -7,7 +7,7 @@
 	- added: Showcase: React-Icons
 ==============================================================================================
 
-- .. make new branch: rename ShowcaseManageItemTypes to ShowcaseManageShowcaseReports
+- .. make new branch: rename ShowcaseManageItemTypes to ManageShowcaseReports
 	- use the same actions
 
 - .. make clear and save buttons work with editing
