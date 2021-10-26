@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import '../styles/page_showcaseManageItemTypes.scss';
+import '../styles/page_manageShowcaseReports.scss';
 import PageManager from '../classes/pageManager';
 import ShowcaseReports from '../itemTypes/showcaseReports';
 import ShowcaseReport from '../itemTypes/showcaseReport';
@@ -8,8 +8,8 @@ import ComponentDisplayShowcaseReport from '../components/ComponentDisplayShowca
 import ComponentDisplayShowcaseReports from '../components/ComponentDisplayShowcaseReports';
 import { IShowcaseReport } from '../dataLayer/interfaces';
 
-function PageShowcaseManageItemTypes() {
-	const pageIdCode = 'showcaseManageItemTypes';
+function PageManageShowcaseReports() {
+	const pageIdCode = 'manageShowcaseReports';
 	const [showcaseReport, setShowcaseReport] = useState<ShowcaseReport>(new ShowcaseReport());
 	const [showcaseReports, setShowcaseReports] = useState<ShowcaseReports>(new ShowcaseReports());
 	// const [editable, setEditable] = useState<boolean>(false);
@@ -33,7 +33,7 @@ function PageShowcaseManageItemTypes() {
 	// }
 
 	return (
-		<div className="page page_showcaseManageItemTypes">
+		<div className="page page_manageShowcaseReports">
 			<h2 className="title">Showcase: Manage Item Types</h2>
 			<p className="description">An info page that displays showcase manage item types</p>
 			<section>
@@ -46,4 +46,4 @@ function PageShowcaseManageItemTypes() {
 	)
 }
 
-export default PageShowcaseManageItemTypes;
+export default PageManageShowcaseReports;

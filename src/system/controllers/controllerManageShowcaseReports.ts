@@ -2,7 +2,7 @@
 import Controller from './controller';
 import * as dpod from '../dataLayer/dpod';
 
-class ControllerShowcaseManageItemTypes extends Controller {
+class ControllerManageShowcaseReports extends Controller {
 
 	constructor(request: any, response: any) {
 		super(request, response);
@@ -21,4 +21,4 @@ class ControllerShowcaseManageItemTypes extends Controller {
 
 }
 
-export default ControllerShowcaseManageItemTypes;
+export default ControllerManageShowcaseReports;

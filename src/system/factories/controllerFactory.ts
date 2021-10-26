@@ -5,7 +5,7 @@ import ControllerShowcaseSqliteReader from '../controllers/controllerShowcaseSql
 import ControllerDeletePage from '../controllers/controllerDeletePage';// ::deletePage
 import ControllerCreatePage from '../controllers/controllerCreatePage';// ::createPage
 import ControllerShowcaseNewsApi from '../controllers/controllerShowcaseNewsApi';// ::showcaseNewsApi
-import ControllerShowcaseManageItemTypes from '../controllers/controllerShowcaseManageItemTypes';// ::showcaseManageItemTypes
+import ControllerManageShowcaseReports from '../controllers/controllerManageShowcaseReports';// ::manageShowcaseReports
 import ControllerShowcaseFetchTryCatch from '../controllers/controllerShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
@@ -21,8 +21,8 @@ case 'controllerCreatePage':// ::createPage
 return new ControllerCreatePage(request, response);
 case 'controllerShowcaseNewsApi':// ::showcaseNewsApi
 return new ControllerShowcaseNewsApi(request, response);
-case 'controllerShowcaseManageItemTypes':// ::showcaseManageItemTypes
-return new ControllerShowcaseManageItemTypes(request, response);
+case 'controllerManageShowcaseReports':// ::manageShowcaseReports
+return new ControllerManageShowcaseReports(request, response);
 case 'controllerShowcaseFetchTryCatch':// ::showcaseFetchTryCatch
 return new ControllerShowcaseFetchTryCatch(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
