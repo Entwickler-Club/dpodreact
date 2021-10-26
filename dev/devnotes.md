@@ -5,7 +5,7 @@
 	- devnotes: added notes on versioning
 	- qstr.escapeHtml()
 	- added: Showcase: React-Icons
-==============================================================================================
+====================================================================================
 
 - .. make new branch: rename ShowcaseManageItemTypes to ManageShowcaseReports
 	- use the same actions
