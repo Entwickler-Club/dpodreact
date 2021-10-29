@@ -11,7 +11,9 @@ function PageCurriculumFlashcardParser() {
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
-		// const data = await pm.loadPageData();
+		const data = await pm.loadPageData();
+		console.log(data);
+		setSourceText(data.defaultText);
 	}
 
 	const handleFieldChange_sourceText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -35,11 +37,10 @@ function PageCurriculumFlashcardParser() {
 				<h2 className="title">Curriculum Flashcard Parser</h2>
 				<p className="description">Convert a list of flashcards into the JSON equivalent to paste into Curriculum JSON file.</p>
 			</div>
-			<form className="dpodFormGeneric">
+			<form spellCheck="false" className="dpodFormGeneric">
 				<div className="field dataType_paragraph">
 					<label htmlFor="sourceText" className="fieldLabel">Source Text</label>
-					<textarea id="sourceText" autoFocus onChange={handleFieldChange_sourceText} />
-					<div className="example">e.g.<br/><div className="content"><code>What is the capital of England?<br/>&nbsp;&nbsp;London<br/><br/>What is the capital of France?<br/>&nbsp;&nbsp;Paris</code></div></div>
+					<textarea id="sourceText" value={sourceText} autoFocus onChange={handleFieldChange_sourceText} />
 				</div>
 				<div className="field dataType_paragraph readOnly">
 					<label htmlFor="targetText" className="fieldLabel">Target Text</label>

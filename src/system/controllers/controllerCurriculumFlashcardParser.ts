@@ -9,7 +9,11 @@ class ControllerCurriculumFlashcardParser extends Controller {
 
 	action_loadPageData() {
         this.response.send({
-           message: 'Welcome to this page2.' 
+			defaultText: `What is the capital of England?
+  London
+
+What is the capital of France?
+  Paris`
         });
 	}
 
