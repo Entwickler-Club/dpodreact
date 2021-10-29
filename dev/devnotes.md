@@ -78,6 +78,12 @@
                     - all
                     - menu = main
 
+- tasks
+	- replace all any with e.g. e: React.ChangeEvent<HTMLInputElement>
+	- make Text Parser out of Curriculum Flashcard Parser
+	- create page "Generate New Datapod Version"
+	- autofocus on textarea (text parser)
+
 - various todos
 	- convert all requires in imports 
 	- tasks

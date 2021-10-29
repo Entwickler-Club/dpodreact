@@ -7,6 +7,7 @@ import ControllerCreatePage from '../controllers/controllerCreatePage';// ::crea
 import ControllerShowcaseNewsApi from '../controllers/controllerShowcaseNewsApi';// ::showcaseNewsApi
 import ControllerManageShowcaseReports from '../controllers/controllerManageShowcaseReports';// ::manageShowcaseReports
 import ControllerShowcaseFetchTryCatch from '../controllers/controllerShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
+import ControllerCurriculumFlashcardParser from '../controllers/controllerCurriculumFlashcardParser';// ::curriculumFlashcardParser
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -25,6 +26,8 @@ case 'controllerManageShowcaseReports':// ::manageShowcaseReports
 return new ControllerManageShowcaseReports(request, response);
 case 'controllerShowcaseFetchTryCatch':// ::showcaseFetchTryCatch
 return new ControllerShowcaseFetchTryCatch(request, response);
+case 'controllerCurriculumFlashcardParser':// ::curriculumFlashcardParser
+return new ControllerCurriculumFlashcardParser(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

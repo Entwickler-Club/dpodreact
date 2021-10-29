@@ -20,6 +20,7 @@ import PageShowcaseUseToggle from './pages/PageShowcaseUseToggle';// ::showcaseU
 import PageShowcaseClassInState from './pages/PageShowcaseClassInState';// ::showcaseClassInState
 import PageShowcaseFetchTryCatch from './pages/PageShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 import PageShowcaseReactIcons from './pages/PageShowcaseReactIcons';// ::showcaseReactIcons
+import PageCurriculumFlashcardParser from './pages/PageCurriculumFlashcardParser';// ::curriculumFlashcardParser
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -67,6 +68,7 @@ function Site() {
 <span><Link to='/showcaseClassInState'>Showcase Class In State</Link></span>{/* ::showcaseClassInState */}
 <span><Link to='/showcaseFetchTryCatch'>Showcase: Fetch Try/Catch</Link></span>{/* ::showcaseFetchTryCatch */}
 <span><Link to='/showcaseReactIcons'>Showcase: React-Icons</Link></span>{/* ::showcaseReactIcons */}
+<span><Link to='/curriculumFlashcardParser'>Curriculum Flashcard Parser</Link></span>{/* ::curriculumFlashcardParser */}
 						</>
 					)}
 				</nav>
@@ -91,6 +93,7 @@ function Site() {
 <Route path='/showcaseClassInState'><PageShowcaseClassInState /></Route>{/* ::showcaseClassInState */}
 <Route path='/showcaseFetchTryCatch'><PageShowcaseFetchTryCatch /></Route>{/* ::showcaseFetchTryCatch */}
 <Route path='/showcaseReactIcons'><PageShowcaseReactIcons /></Route>{/* ::showcaseReactIcons */}
+<Route path='/curriculumFlashcardParser'><PageCurriculumFlashcardParser /></Route>{/* ::curriculumFlashcardParser */}
 					</Switch>
 				</section>
 			</div>

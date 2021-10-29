@@ -131,6 +131,7 @@ input[type="radio"]:checked {
 	-webkit-filter: grayscale(100%);
 }
 input[type="text"]:focus,
+textarea,
 button:focus {
 	// border: 9px solid red;
 	outline: 0px;

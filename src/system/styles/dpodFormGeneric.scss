@@ -6,6 +6,7 @@ form.dpodFormGeneric {
         font-size: 0.8rem;
         color: rgb(179, 84, 84);
         margin: 3px 0 0 8px;
+		line-height: 1rem;
     }
     code {
         font-family: "Courier New", Courier, monospace;
@@ -98,6 +99,23 @@ form.dpodFormGeneric {
             border: 1px solid $fieldBorderColor;
             font-size: 1rem;
         }
+    }
+    div.dataType_paragraph {
+        .fieldLabel {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 490px; // TODO: calculate
+            margin: 0 0 0 5px;
+            border: 1px solid $fieldBorderColor;
+            font-size: 1rem;
+			height: 200px;
+        }
+		.content {
+			background-color: #eee;
+			padding: 5px;
+		}
     }
     .buttonArea {
         padding: 0 0 0 5px;
