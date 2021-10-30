@@ -12,7 +12,6 @@ function PageCurriculumFlashcardParser() {
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		console.log(data);
 		setSourceText(data.defaultText);
 	}
 

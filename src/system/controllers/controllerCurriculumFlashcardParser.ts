@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
 import * as qstr from '../qtools/qstr';
@@ -48,7 +49,6 @@ What is the capital of France?
 		let back = '';
 		let count = 1;
 		lines.forEach(line => {
-			console.log(count, front, back);
 			switch (count) {
 				case 1:
 					front = line;
@@ -68,6 +68,8 @@ What is the capital of France?
 
 	}
 	addFlashcard(flashcards: IFlashcard[], front: string, back: string) {
+		front = qstr.replaceAll(front, "\"", '\\"');
+		back = qstr.replaceAll(back, '"', '\\"');
 		flashcards.push({
 			front,
 			back
