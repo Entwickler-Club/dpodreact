@@ -117,6 +117,12 @@ form.dpodFormGeneric {
 			padding: 5px;
 		}
     }
+	div.readOnly {
+		textarea {
+			color: #555;
+			font-size: .9rem;
+		}
+	}
     .buttonArea {
         padding: 0 0 0 5px;
         .submitButton {
