@@ -8,6 +8,7 @@ import ControllerShowcaseNewsApi from '../controllers/controllerShowcaseNewsApi'
 import ControllerManageShowcaseReports from '../controllers/controllerManageShowcaseReports';// ::manageShowcaseReports
 import ControllerShowcaseFetchTryCatch from '../controllers/controllerShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 import ControllerCurriculumFlashcardParser from '../controllers/controllerCurriculumFlashcardParser';// ::curriculumFlashcardParser
+import ControllerImportAssessmentJSONIntoSQLite from '../controllers/controllerImportAssessmentJSONIntoSQLite';// ::importAssessmentJSONIntoSQLite
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -28,6 +29,8 @@ case 'controllerShowcaseFetchTryCatch':// ::showcaseFetchTryCatch
 return new ControllerShowcaseFetchTryCatch(request, response);
 case 'controllerCurriculumFlashcardParser':// ::curriculumFlashcardParser
 return new ControllerCurriculumFlashcardParser(request, response);
+case 'controllerImportAssessmentJSONIntoSQLite':// ::importAssessmentJSONIntoSQLite
+return new ControllerImportAssessmentJSONIntoSQLite(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

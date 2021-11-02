@@ -21,6 +21,7 @@ import PageShowcaseClassInState from './pages/PageShowcaseClassInState';// ::sho
 import PageShowcaseFetchTryCatch from './pages/PageShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 import PageShowcaseReactIcons from './pages/PageShowcaseReactIcons';// ::showcaseReactIcons
 import PageCurriculumFlashcardParser from './pages/PageCurriculumFlashcardParser';// ::curriculumFlashcardParser
+import PageImportAssessmentJSONIntoSQLite from './pages/PageImportAssessmentJSONIntoSQLite';// ::importAssessmentJSONIntoSQLite
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -69,6 +70,7 @@ function Site() {
 <span><Link to='/showcaseFetchTryCatch'>Showcase: Fetch Try/Catch</Link></span>{/* ::showcaseFetchTryCatch */}
 <span><Link to='/showcaseReactIcons'>Showcase: React-Icons</Link></span>{/* ::showcaseReactIcons */}
 <span><Link to='/curriculumFlashcardParser'>Curriculum Flashcard Parser</Link></span>{/* ::curriculumFlashcardParser */}
+<span><Link to='/importAssessmentJSONIntoSQLite'>Import Assessment JSON into SQLite</Link></span>{/* ::importAssessmentJSONIntoSQLite */}
 						</>
 					)}
 				</nav>
@@ -94,6 +96,7 @@ function Site() {
 <Route path='/showcaseFetchTryCatch'><PageShowcaseFetchTryCatch /></Route>{/* ::showcaseFetchTryCatch */}
 <Route path='/showcaseReactIcons'><PageShowcaseReactIcons /></Route>{/* ::showcaseReactIcons */}
 <Route path='/curriculumFlashcardParser'><PageCurriculumFlashcardParser /></Route>{/* ::curriculumFlashcardParser */}
+<Route path='/importAssessmentJSONIntoSQLite'><PageImportAssessmentJSONIntoSQLite /></Route>{/* ::importAssessmentJSONIntoSQLite */}
 					</Switch>
 				</section>
 			</div>
