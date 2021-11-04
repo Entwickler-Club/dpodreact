@@ -60,6 +60,12 @@
 - all pages to /pages
 - .. enable save to itemtype in DisplayAndEdit
 
+- todo
+	- outline
+		- 3x highlight: yellow, red, green
+		- useful and rather emoticons
+		- enable code and images in e.g. curriculum live-codings
+		- videos 
 
 - make plural itemTypes iterable
 
