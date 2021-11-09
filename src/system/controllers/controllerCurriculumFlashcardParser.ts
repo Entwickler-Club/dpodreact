@@ -16,11 +16,11 @@ class ControllerCurriculumFlashcardParser extends Controller {
 
 	action_loadPageData() {
 		this.response.send({
-			defaultText: `What is the capital of England?
-  London
+			defaultText: `- What is the capital of England?
+  - London
 
-What is the capital of France?
-  Paris`
+- What is the capital of France?
+  - Paris`
 		});
 	}
 
@@ -55,21 +55,21 @@ What is the capital of France?
 					break;
 				case 2:
 					back = line;
-					break;
-				default:
 					this.addFlashcard(flashcards, front, back);
 					count = 0;
 					break;
 			}
 			count++;
 		});
-		this.addFlashcard(flashcards, front, back);
+		// this.addFlashcard(flashcards, front, back);
 		return flashcards;
 
 	}
 	addFlashcard(flashcards: IFlashcard[], front: string, back: string) {
 		front = qstr.replaceAll(front, "\"", '\\"');
 		back = qstr.replaceAll(back, '"', '\\"');
+		front = qstr.chopLeft(front, '- ').trim();
+		back = qstr.chopLeft(back, '- ').trim();
 		flashcards.push({
 			front,
 			back
