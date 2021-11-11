@@ -15,11 +15,14 @@ import PageShowcaseJsonReadWrite from './pages/PageShowcaseJsonReadWrite';// ::s
 import PageDeletePage from './pages/PageDeletePage';// ::deletePage
 import PageCreatePage from './pages/PageCreatePage';// ::createPage
 import PageShowcaseNewsApi from './pages/PageShowcaseNewsApi';// ::showcaseNewsApi
-import PageShowcaseManageItemTypes from './pages/PageShowcaseManageItemTypes';// ::showcaseManageItemTypes
+import PageManageShowcaseReports from './pages/PageManageShowcaseReports';// ::manageShowcaseReports
 import PageShowcaseUseToggle from './pages/PageShowcaseUseToggle';// ::showcaseUseToggle
 import PageShowcaseClassInState from './pages/PageShowcaseClassInState';// ::showcaseClassInState
 import PageShowcaseFetchTryCatch from './pages/PageShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 import PageShowcaseReactIcons from './pages/PageShowcaseReactIcons';// ::showcaseReactIcons
+import PageCurriculumFlashcardParser from './pages/PageCurriculumFlashcardParser';// ::curriculumFlashcardParser
+import PageImportAssessmentJSONIntoSQLite from './pages/PageImportAssessmentJSONIntoSQLite';// ::importAssessmentJSONIntoSQLite
+import PageShowcaseSampleDataWithFaker from './pages/PageShowcaseSampleDataWithFaker';// ::showcaseSampleDataWithFaker
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -62,11 +65,14 @@ function Site() {
 <span><Link to='/showcaseSqliteReader'>Showcase: SQLite Reader</Link></span>{/* ::showcaseSqliteReader */}
 <span><Link to='/showcaseJsonReadWrite'>Showcase: JSON Read/Write</Link></span>{/* ::showcaseJsonReadWrite */}
 <span><Link to='/showcaseNewsApi'>Showcase: News Api</Link></span>{/* ::showcaseNewsApi */}
-<span><Link to='/showcaseManageItemTypes'>Showcase: Manage Item Types</Link></span>{/* ::showcaseManageItemTypes */}
+<span><Link to='/manageShowcaseReports'>Manage Showcase Reports</Link></span>{/* ::manageShowcaseReports */}
 <span><Link to='/showcaseUseToggle'>Showcase: useToggle()</Link></span>{/* ::showcaseUseToggle */}
 <span><Link to='/showcaseClassInState'>Showcase Class In State</Link></span>{/* ::showcaseClassInState */}
 <span><Link to='/showcaseFetchTryCatch'>Showcase: Fetch Try/Catch</Link></span>{/* ::showcaseFetchTryCatch */}
 <span><Link to='/showcaseReactIcons'>Showcase: React-Icons</Link></span>{/* ::showcaseReactIcons */}
+<span><Link to='/curriculumFlashcardParser'>Curriculum Flashcard Parser</Link></span>{/* ::curriculumFlashcardParser */}
+<span><Link to='/importAssessmentJSONIntoSQLite'>Import Assessment JSON into SQLite</Link></span>{/* ::importAssessmentJSONIntoSQLite */}
+<span><Link to='/showcaseSampleDataWithFaker'>Showcase: Sample Data with Faker</Link></span>{/* ::showcaseSampleDataWithFaker */}
 						</>
 					)}
 				</nav>
@@ -86,11 +92,14 @@ function Site() {
 <Route path='/deletePage'><PageDeletePage /></Route>{/* ::deletePage */}
 <Route path='/createPage'><PageCreatePage /></Route>{/* ::createPage */}
 <Route path='/showcaseNewsApi'><PageShowcaseNewsApi /></Route>{/* ::showcaseNewsApi */}
-<Route path='/showcaseManageItemTypes'><PageShowcaseManageItemTypes /></Route>{/* ::showcaseManageItemTypes */}
+<Route path='/manageShowcaseReports'><PageManageShowcaseReports /></Route>{/* ::manageShowcaseReports */}
 <Route path='/showcaseUseToggle'><PageShowcaseUseToggle /></Route>{/* ::showcaseUseToggle */}
 <Route path='/showcaseClassInState'><PageShowcaseClassInState /></Route>{/* ::showcaseClassInState */}
 <Route path='/showcaseFetchTryCatch'><PageShowcaseFetchTryCatch /></Route>{/* ::showcaseFetchTryCatch */}
 <Route path='/showcaseReactIcons'><PageShowcaseReactIcons /></Route>{/* ::showcaseReactIcons */}
+<Route path='/curriculumFlashcardParser'><PageCurriculumFlashcardParser /></Route>{/* ::curriculumFlashcardParser */}
+<Route path='/importAssessmentJSONIntoSQLite'><PageImportAssessmentJSONIntoSQLite /></Route>{/* ::importAssessmentJSONIntoSQLite */}
+<Route path='/showcaseSampleDataWithFaker'><PageShowcaseSampleDataWithFaker /></Route>{/* ::showcaseSampleDataWithFaker */}
 					</Switch>
 				</section>
 			</div>

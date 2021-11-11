@@ -7,7 +7,9 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 
-- .. make new branch: rename ShowcaseManageItemTypes to ManageShowcaseReports
+- dpod published and to Heroku
+
+- .. make new branch: rename SxhowcaseManageItemTypes to ManageShowcaseReports
 	- use the same actions
 
 - .. make clear and save buttons work with editing
@@ -58,6 +60,12 @@
 - all pages to /pages
 - .. enable save to itemtype in DisplayAndEdit
 
+- todo
+	- outline
+		- 3x highlight: yellow, red, green
+		- useful and rather emoticons
+		- enable code and images in e.g. curriculum live-codings
+		- videos 
 
 - make plural itemTypes iterable
 
@@ -77,6 +85,12 @@
                 - build buttons for various loadCodes
                     - all
                     - menu = main
+
+- tasks
+	- replace all any with e.g. e: React.ChangeEvent<HTMLInputElement>
+	- make Text Parser out of Curriculum Flashcard Parser
+	- create page "Generate New Datapod Version"
+	- autofocus on textarea (text parser)
 
 - various todos
 	- convert all requires in imports 

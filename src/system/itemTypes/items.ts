@@ -106,6 +106,10 @@ class Items {
 		// TODO: implement this
 	}
 
+	getCount() {
+		return this.itemObjects.length;
+	}
+
 }
 
 export default Items;
