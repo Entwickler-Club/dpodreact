@@ -9,6 +9,7 @@ import ControllerManageShowcaseReports from '../controllers/controllerManageShow
 import ControllerShowcaseFetchTryCatch from '../controllers/controllerShowcaseFetchTryCatch';// ::showcaseFetchTryCatch
 import ControllerCurriculumFlashcardParser from '../controllers/controllerCurriculumFlashcardParser';// ::curriculumFlashcardParser
 import ControllerImportAssessmentJSONIntoSQLite from '../controllers/controllerImportAssessmentJSONIntoSQLite';// ::importAssessmentJSONIntoSQLite
+import ControllerShowcaseSampleDataWithFaker from '../controllers/controllerShowcaseSampleDataWithFaker';// ::showcaseSampleDataWithFaker
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -31,6 +32,8 @@ case 'controllerCurriculumFlashcardParser':// ::curriculumFlashcardParser
 return new ControllerCurriculumFlashcardParser(request, response);
 case 'controllerImportAssessmentJSONIntoSQLite':// ::importAssessmentJSONIntoSQLite
 return new ControllerImportAssessmentJSONIntoSQLite(request, response);
+case 'controllerShowcaseSampleDataWithFaker':// ::showcaseSampleDataWithFaker
+return new ControllerShowcaseSampleDataWithFaker(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}
