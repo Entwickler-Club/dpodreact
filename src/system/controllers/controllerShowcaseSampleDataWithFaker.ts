@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
+import faker from 'faker';
 
 class ControllerShowcaseSampleDataWithFaker extends Controller {
 
@@ -8,9 +9,12 @@ class ControllerShowcaseSampleDataWithFaker extends Controller {
 	}
 
 	action_loadPageData() {
-        this.response.send({
-           message: 'Welcome to this page.' 
-        });
+		this.response.send([
+			{
+				label: "Full Name",
+				data: faker.name.findName()
+			}
+		]);
 	}
 
 }
