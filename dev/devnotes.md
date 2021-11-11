@@ -7,6 +7,10 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 
+- .. faker button
+
+
+
 - dpod published and to Heroku
 
 - .. make new branch: rename SxhowcaseManageItemTypes to ManageShowcaseReports

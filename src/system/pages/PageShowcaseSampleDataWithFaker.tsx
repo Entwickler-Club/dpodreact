@@ -20,7 +20,10 @@ function PageShowcaseSampleDataWithFaker() {
 	return (
 		<div className="page page_showcaseSampleDataWithFaker">
 			<h2 className="title">Showcase: Sample Data with Faker</h2>
-			<p className="description">An info page that displays showcase: sample data with faker</p>
+			<p className="description">This page shows how you can use the faker.js library to generate sample data.</p>
+			<div className="buttonArea">
+				<button className="refresh" onClick={() => loadPageData()}>Regenerate sample data</button>
+			</div>
 			<ul>
 				{fakeDataItems.map((fakeDataItem: any, index) => {
 					return (

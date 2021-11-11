@@ -1,11 +1,20 @@
 .page_showcaseSampleDataWithFaker {
-    .message {
-        font-style: italic;
-    }
+	.message {
+		font-style: italic;
+	}
 	.theData {
-		font-family: 'Courier New', Courier, monospace;
+		font-family: "Courier New", Courier, monospace;
 		color: brown;
 		background-color: #eee;
 		font-weight: bold;
 	}
+
+    .buttonArea {
+        padding: 0 0 20px 0;
+        button {
+            font-size: 0.9rem;
+            padding: 4px 10px;
+			border-radius: 3px;
+        }
+    }
 }
