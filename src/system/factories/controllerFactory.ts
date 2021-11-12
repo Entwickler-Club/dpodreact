@@ -10,6 +10,7 @@ import ControllerShowcaseFetchTryCatch from '../controllers/controllerShowcaseFe
 import ControllerCurriculumFlashcardParser from '../controllers/controllerCurriculumFlashcardParser';// ::curriculumFlashcardParser
 import ControllerImportAssessmentJSONIntoSQLite from '../controllers/controllerImportAssessmentJSONIntoSQLite';// ::importAssessmentJSONIntoSQLite
 import ControllerShowcaseSampleDataWithFaker from '../controllers/controllerShowcaseSampleDataWithFaker';// ::showcaseSampleDataWithFaker
+import ControllerShowcaseMongoDBDriverCRUD from '../controllers/controllerShowcaseMongoDBDriverCRUD';// ::showcaseMongoDBDriverCRUD
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -34,6 +35,8 @@ case 'controllerImportAssessmentJSONIntoSQLite':// ::importAssessmentJSONIntoSQL
 return new ControllerImportAssessmentJSONIntoSQLite(request, response);
 case 'controllerShowcaseSampleDataWithFaker':// ::showcaseSampleDataWithFaker
 return new ControllerShowcaseSampleDataWithFaker(request, response);
+case 'controllerShowcaseMongoDBDriverCRUD':// ::showcaseMongoDBDriverCRUD
+return new ControllerShowcaseMongoDBDriverCRUD(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

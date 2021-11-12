@@ -7,11 +7,7 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 
-- .. faker finish
-	- .. make dpod.scss
-		- dpod_labeledPanel (like on createPage)
-		- dpod_button
-
+- .. mongodb driver crud
 
 
 - dpod published and to Heroku
