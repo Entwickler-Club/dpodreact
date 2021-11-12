@@ -7,7 +7,10 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 
-- .. faker button
+- .. faker finish
+	- .. make dpod.scss
+		- dpod_labeledPanel (like on createPage)
+		- dpod_button
 
 
 
