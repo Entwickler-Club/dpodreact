@@ -14,6 +14,7 @@ function PageShowcaseMongoDBDriverCRUD() {
 		const data = await pm.loadPageData();
 		setProducts(data.products);
 	}
+	console.log(process.env.REACT_APP_MONGODB_URI);
 
 	useEffect(() => {
 		loadPageData();
@@ -23,7 +24,7 @@ function PageShowcaseMongoDBDriverCRUD() {
 		<div className="page page_showcaseMongoDBDriverCRUD">
 			<h2 className="title">Showcase: MongoDB Driver CRUD</h2>
 			<p className="description">An page that demonstrates how to access MongoDB via backend</p>
-			<p className="dpod_p">
+			<div className="dpod_p">
 				<ul>
 					{products.map((product: any, index: number) => {
 						return (
@@ -31,7 +32,7 @@ function PageShowcaseMongoDBDriverCRUD() {
 						)
 					})}
 				</ul>
-			</p>
+			</div>
 			<div className="infoArea dpod_labeledArea dpod_topSpace">
 				<fieldset>
 					<legend className="fieldLabel">Infos</legend>

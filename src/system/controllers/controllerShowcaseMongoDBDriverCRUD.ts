@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 
-const client = new MongoClient('mongodb://localhost:27017');
+dotenv.config();
+const mongoConnectString = process.env.REACT_APP_MONGODB_URI || 'mongodb://localhost:27017';
+
+const client = new MongoClient(mongoConnectString);
 
 const getData = async (callback: any) => {
 	await client.connect();
