@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
 import faker from 'faker';
+import * as qdat from '../../system/qtools/qdat';
 
 faker.locale = 'de';
 
@@ -38,12 +39,12 @@ class ControllerShowcaseSampleDataWithFaker extends Controller {
 				data: faker.address.country()
 			},
 			{
-				label: "past iso date/time",
-				data: faker.date.past()
+				label: "past date/time",
+				data: qdat.convertIsoDateToDpodDate(faker.date.past().toISOString())
 			},
 			{
-				label: "future iso date/time",
-				data: faker.date.past()
+				label: "future date/time",
+				data: qdat.convertIsoDateToDpodDate(faker.date.future().toISOString())
 			},
 			{
 				label: "month",
@@ -55,7 +56,7 @@ class ControllerShowcaseSampleDataWithFaker extends Controller {
 			},
 			{
 				label: "file Name",
-				data: faker.system.fileName()
+				data: faker.system.commonFileName()
 			}
 		]);
 	}

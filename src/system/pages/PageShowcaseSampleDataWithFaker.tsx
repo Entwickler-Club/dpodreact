@@ -20,7 +20,7 @@ function PageShowcaseSampleDataWithFaker() {
 
 	return (
 		<div className="page page_showcaseSampleDataWithFaker">
-			<h2 className="title">Showcase: Sample Data with Faker</h2>
+			<h2 className="title">Showcase: Sample Data with faker.js</h2>
 			<p className="description">This page shows how you can use the faker.js library to generate sample data.</p>
 			<div className="buttonArea">
 				<button className="dpod_button" onClick={() => loadPageData()}>Regenerate sample data</button>
