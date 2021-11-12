@@ -7,11 +7,7 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 
-- .. mongodb driver crud
-	- .. environment variables
 
-
-- dpod published and to Heroku
 
 - .. make new branch: rename SxhowcaseManageItemTypes to ManageShowcaseReports
 	- use the same actions
@@ -33,6 +29,7 @@
 - refactor
 	- itemsType --> itemTypes
 	
+- dpod published and to Heroku
 
 
 - fix all naming conventions: itemObject --> itemTypeObject
