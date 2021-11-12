@@ -8,7 +8,7 @@ function PageShowcaseFetchTryCatch() {
 	const [displayCity, setDisplayCity] = useState('');
 
 	const loadPageData = async () => {
-		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY} [${process.env.REACT_APP_MONGODB_URI}]`;
 		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();

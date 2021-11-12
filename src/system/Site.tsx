@@ -23,6 +23,7 @@ import PageShowcaseReactIcons from './pages/PageShowcaseReactIcons';// ::showcas
 import PageCurriculumFlashcardParser from './pages/PageCurriculumFlashcardParser';// ::curriculumFlashcardParser
 import PageImportAssessmentJSONIntoSQLite from './pages/PageImportAssessmentJSONIntoSQLite';// ::importAssessmentJSONIntoSQLite
 import PageShowcaseSampleDataWithFaker from './pages/PageShowcaseSampleDataWithFaker';// ::showcaseSampleDataWithFaker
+import PageShowcaseMongoDBDriverCRUD from './pages/PageShowcaseMongoDBDriverCRUD';// ::showcaseMongoDBDriverCRUD
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -73,6 +74,7 @@ function Site() {
 <span><Link to='/curriculumFlashcardParser'>Curriculum Flashcard Parser</Link></span>{/* ::curriculumFlashcardParser */}
 <span><Link to='/importAssessmentJSONIntoSQLite'>Import Assessment JSON into SQLite</Link></span>{/* ::importAssessmentJSONIntoSQLite */}
 <span><Link to='/showcaseSampleDataWithFaker'>Showcase: Sample Data with Faker</Link></span>{/* ::showcaseSampleDataWithFaker */}
+<span><Link to='/showcaseMongoDBDriverCRUD'>Showcase: MongoDB Driver CRUD</Link></span>{/* ::showcaseMongoDBDriverCRUD */}
 						</>
 					)}
 				</nav>
@@ -100,6 +102,7 @@ function Site() {
 <Route path='/curriculumFlashcardParser'><PageCurriculumFlashcardParser /></Route>{/* ::curriculumFlashcardParser */}
 <Route path='/importAssessmentJSONIntoSQLite'><PageImportAssessmentJSONIntoSQLite /></Route>{/* ::importAssessmentJSONIntoSQLite */}
 <Route path='/showcaseSampleDataWithFaker'><PageShowcaseSampleDataWithFaker /></Route>{/* ::showcaseSampleDataWithFaker */}
+<Route path='/showcaseMongoDBDriverCRUD'><PageShowcaseMongoDBDriverCRUD /></Route>{/* ::showcaseMongoDBDriverCRUD */}
 					</Switch>
 				</section>
 			</div>

@@ -1,5 +1,5 @@
 div.dpod_labeledArea {
-	margin: 0 0 20px 0;
+	margin-bottom: 20px;
 	position: absolute;
 	.fieldLabel {
 		font-variant: small-caps;
@@ -37,4 +37,12 @@ button.dpod_button {
 	font-size: 0.9rem;
 	padding: 4px 10px;
 	border-radius: 3px;
+}
+
+.dpod_p {
+	margin-bottom: 10px;
+}
+
+.dpod_topSpace {
+	margin-top: 10px;
 }
