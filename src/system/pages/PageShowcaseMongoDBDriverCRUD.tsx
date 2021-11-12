@@ -7,12 +7,12 @@ import '../styles/dpod.scss';
 
 function PageShowcaseMongoDBDriverCRUD() {
 	const pageIdCode = 'showcaseMongoDBDriverCRUD';
-	const [message, setMessage] = useState('');
+	const [products, setProducts] = useState([]);
 	const pm = new PageManager(pageIdCode);
 
 	const loadPageData = async () => {
 		const data = await pm.loadPageData();
-		setMessage(data.message);
+		setProducts(data.products);
 	}
 
 	useEffect(() => {
@@ -23,7 +23,15 @@ function PageShowcaseMongoDBDriverCRUD() {
 		<div className="page page_showcaseMongoDBDriverCRUD">
 			<h2 className="title">Showcase: MongoDB Driver CRUD</h2>
 			<p className="description">An page that demonstrates how to access MongoDB via backend</p>
-			<p className="dpod_p">{message}</p>
+			<p className="dpod_p">
+				<ul>
+					{products.map((product: any, index: number) => {
+						return (
+							<li key={index}>{product.ProductName}</li>
+						)
+					})}
+				</ul>
+			</p>
 			<div className="infoArea dpod_labeledArea dpod_topSpace">
 				<fieldset>
 					<legend className="fieldLabel">Infos</legend>
