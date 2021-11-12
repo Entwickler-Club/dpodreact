@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import Controller from './controller';
 import faker from 'faker';
+import * as qdat from '../../system/qtools/qdat';
+
+faker.locale = 'de';
 
 class ControllerShowcaseSampleDataWithFaker extends Controller {
 
@@ -9,10 +12,51 @@ class ControllerShowcaseSampleDataWithFaker extends Controller {
 	}
 
 	action_loadPageData() {
+
+		// interesting as person represented as nested JSON object: 
+		// const card = faker.helpers.createCard()
+		// console.log(card);
+
 		this.response.send([
 			{
-				label: "Full Name",
+				label: "full name",
 				data: faker.name.findName()
+			},
+			{
+				label: "email",
+				data: faker.internet.email()
+			},
+			{
+				label: "HTML color",
+				data: faker.commerce.color()
+			},
+			{
+				label: "city",
+				data: faker.address.city()
+			},
+			{
+				label: "country",
+				data: faker.address.country()
+			},
+			{
+				label: "past date/time",
+				data: qdat.convertIsoDateToDpodDate(faker.date.past().toISOString())
+			},
+			{
+				label: "future date/time",
+				data: qdat.convertIsoDateToDpodDate(faker.date.future().toISOString())
+			},
+			{
+				label: "month",
+				data: faker.date.month()
+			},
+			{
+				label: "weekday",
+				data: faker.date.weekday()
+			},
+			{
+				label: "file Name",
+				data: faker.system.commonFileName()
 			}
 		]);
 	}
