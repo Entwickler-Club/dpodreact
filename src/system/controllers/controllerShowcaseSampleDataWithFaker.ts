@@ -13,7 +13,7 @@ class ControllerShowcaseSampleDataWithFaker extends Controller {
 
 	action_loadPageData() {
 
-		// interesting as person represented as nested JSON object: 
+		// creates a person represented as nested JSON object: 
 		// const card = faker.helpers.createCard()
 		// console.log(card);
 
