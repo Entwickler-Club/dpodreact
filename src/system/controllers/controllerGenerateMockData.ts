@@ -9,24 +9,20 @@ class ControllerGenerateMockData extends Controller {
 		super(request, response);
 	}
 
-	action_loadPageData() {
-		this.response.send({
-			message: 'Click a button to generate data. You can find the data in the /public directory of this site, or download it with the link.'
-		});
-	}
-
 	action_generateUsersJsonFile() {
 		const howMany = 3;
 		const users = [];
 		for (let x = 1; x <= howMany; x++) {
 			users.push(faker.helpers.createCard());
 		}
-		const fileName = `./public/output/json/users.json`;
+		const filePath = './public/output/json';
+		const fileName = 'users.json';
+		const physicalFilePathAndFileName = `${filePath}/${fileName}`;
 
-		if (fs.existsSync(fileName)) {
-			fs.unlinkSync(fileName);
+		if (fs.existsSync(physicalFilePathAndFileName)) {
+			fs.unlinkSync(physicalFilePathAndFileName);
 		}
-		fs.writeFile(fileName, JSON.stringify(users, null, 4), (err: any) => {
+		fs.writeFile(physicalFilePathAndFileName, JSON.stringify(users, null, 4), (err: any) => {
 			if (err) {
 				this.response.status(417).json({
 					message: "error occurred, file not created",
@@ -34,7 +30,7 @@ class ControllerGenerateMockData extends Controller {
 				});
 			} else {
 				this.response.status(201).json({
-					message: "file created",
+					message: `Download file: <code><a href="output/json/${fileName}">${fileName}</a></code>`, 
 					success: true
 				});
 			}

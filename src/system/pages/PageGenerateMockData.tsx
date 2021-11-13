@@ -8,28 +8,19 @@ function PageGenerateMockData() {
 	const [message, setMessage] = useState('');
 	const pm = new PageManager(pageIdCode);
 
-	const loadPageData = async () => {
-		const data = await pm.loadPageData();
-		setMessage(data.message);
-	}
-
 	const generateUsersJsonFile = async () => {
 		const data = await pm.callAction('generateUsersJsonFile');
 		setMessage(data.message);
 	}
 
-	useEffect(() => {
-		loadPageData();
-	}, []);
-
 	return (
 		<div className="page page_generateMockData">
 			<h2 className="title">Generate Mock Data</h2>
 			<p className="description">An info page that displays generate mock data</p>
-			<p className="message dpod_p">{message}</p>
 			<div className="dpod_p buttonArea">
 				<button className="dpod_button" onClick={() => generateUsersJsonFile()}>Generate users.json</button>
 			</div>
+			<p className="dpod_p" dangerouslySetInnerHTML={{__html: message}}></p>
 
 			<div className="infoArea dpod_labeledArea dpod_hide">
 				<fieldset>
