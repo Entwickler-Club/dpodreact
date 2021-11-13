@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import '../styles/page_showcaseSampleDataWithFaker.scss';
-import '../styles/dpod.scss';
 import PageManager from '../classes/pageManager';
 
 function PageShowcaseSampleDataWithFaker() {
