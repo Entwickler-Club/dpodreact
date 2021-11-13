@@ -2,6 +2,8 @@
 import Controller from './controller';
 import faker from 'faker';
 import fs from 'fs';
+import * as qstr from '../../system/qtools/qstr';
+import removeAccents from 'remove-accents';
 
 class ControllerGenerateMockData extends Controller {
 
@@ -10,10 +12,12 @@ class ControllerGenerateMockData extends Controller {
 	}
 
 	action_generateUsersJsonFile() {
-		const howMany = this.getValue('howMany'); 
+		const howMany = this.getValue('howMany');
 		const users: any[] = [];
 		for (let x = 1; x <= howMany; x++) {
-			users.push(faker.helpers.createCard());
+			const user = faker.helpers.createCard();
+			this.standardizeUser(user);
+			users.push(user);
 		}
 		const filePath = './public/output/json';
 		const fileName = 'users.json';
@@ -38,6 +42,18 @@ class ControllerGenerateMockData extends Controller {
 		});
 	}
 
+	standardizeUser(user: any) {
+		// name "Benedikt Denner", "Hr. Nikolas Krippner", "Lennie Plautz DDS"
+		let cleanName: string = user.name;
+		cleanName = qstr.replaceAll(cleanName, '.', '');
+		cleanName = removeAccents(cleanName);
+		const parts = qstr.breakIntoParts(cleanName, ' ');
+		// username
+		user.username = parts.join('_').toLowerCase();
+		// email
+		const emailParts = qstr.breakIntoParts(user.email, '@');
+		user.email = `${user.username}@${emailParts[1]}`;
+	}
 }
 
 export default ControllerGenerateMockData;

@@ -7,7 +7,7 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 - .. generate mock data
-	- .. slider
+	- .. fix names and other data
 
 
 

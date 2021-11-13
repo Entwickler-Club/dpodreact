@@ -22,6 +22,22 @@
 			margin-top: 10px;
 			font-size: 0.9rem;
 		}
+		.loadingMessage {
+			margin-top: 10px;
+			font-size: 0.9rem;
+			font-style: italic;
+		}
+		.spinner {
+			animation: spin infinite 2s linear;
+		}
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
 	}
 	.buttonArea {
 		display: flex;

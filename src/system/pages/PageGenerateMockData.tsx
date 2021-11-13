@@ -2,25 +2,27 @@
 import { useState, useEffect } from 'react';
 import '../styles/page_generateMockData.scss';
 import PageManager from '../classes/pageManager';
-import Loader from "react-loader-spinner";
+import { FaSpinner } from 'react-icons/fa';
 
 function PageGenerateMockData() {
 	const pageIdCode = 'generateMockData';
+	const [showUserObjectsLoadingMessage, setShowUserObjectsLoadingMessage] = useState(false);
 	const [userObjectsMessage, setUserObjectsMessage] = useState('');
 	const [userObjectsTotal, setUserObjectsTotal] = useState(10);
-	const [userObjects, setUserObjects] = useState();
 	const pm = new PageManager(pageIdCode);
 
 	const generateUsersJsonFile = () => {
-		setUserObjectsMessage('<div class="message">Generating file...</div><textarea></textarea>');
+		setUserObjectsMessage('');
+		setShowUserObjectsLoadingMessage(true);
 		setTimeout(() => {
 			(async () => {
 				const data = await pm.callAction('generateUsersJsonFile', {
 					howMany: userObjectsTotal
 				});
 				setUserObjectsMessage(data.message);
+				setShowUserObjectsLoadingMessage(false);
 			})();
-		}, 600)
+		}, 300)
 	}
 
 	const handleUsersNumberChange = (e: any) => {
@@ -38,6 +40,11 @@ function PageGenerateMockData() {
 						<button className="dpod_button userObjectButton" onClick={() => generateUsersJsonFile()}>Generate file with {userObjectsTotal} users</button>
 						<input type="range" min="1" max="100" onChange={handleUsersNumberChange} value={userObjectsTotal} />
 					</div>
+					{showUserObjectsLoadingMessage && (
+						<div className="loadingMessage">
+							<FaSpinner className="spinner" /> Generating file...<textarea></textarea>
+						</div>
+					)}
 					<div dangerouslySetInnerHTML={{ __html: userObjectsMessage }}></div>
 				</div>
 			</div>
