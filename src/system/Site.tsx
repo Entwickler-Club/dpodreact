@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import ShowContext from '../context/ShowContext.jsx';
 import './styles/reset.scss';
 import './styles/site.scss';
+import './styles/dpod.scss';
 import PageHome from '../custom/components/PageHome';
 
 // DYNAMIC_CODE_AREA: loadPageComponentLines

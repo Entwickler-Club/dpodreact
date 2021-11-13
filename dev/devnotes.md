@@ -7,6 +7,9 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 - .. generate mock data
+	- .. use faker
+
+
 
 
 - .. make new branch: rename SxhowcaseManageItemTypes to ManageShowcaseReports

@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/page_showcaseMongoDBDriverCRUD.scss';
 import PageManager from '../classes/pageManager';
-import '../styles/dpod.scss';
 
 function PageShowcaseMongoDBDriverCRUD() {
 	const pageIdCode = 'showcaseMongoDBDriverCRUD';

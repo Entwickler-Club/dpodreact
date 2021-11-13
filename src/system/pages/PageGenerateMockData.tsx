@@ -31,7 +31,7 @@ function PageGenerateMockData() {
 				<button className="dpod_button" onClick={() => generateUsersJsonFile()}>Generate users.json</button>
 			</div>
 
-			<div className="infoArea dpod_labeledArea">
+			<div className="infoArea dpod_labeledArea dpod_hide">
 				<fieldset>
 					<legend className="fieldLabel">Infos</legend>
 					<ul>

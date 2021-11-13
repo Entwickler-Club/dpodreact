@@ -2,7 +2,6 @@
 import Controller from './controller';
 import faker from 'faker';
 import fs from 'fs';
-import path from 'path';
 
 class ControllerGenerateMockData extends Controller {
 
@@ -17,22 +16,11 @@ class ControllerGenerateMockData extends Controller {
 	}
 
 	action_generateUsersJsonFile() {
-		// const user = faker.helpers.createCard()
-		const users = [
-			{
-				firstName: "Timo"
-			},
-			{
-				firstName: "Angelika"
-			}
-		];
-		// this.response.status(201).json({
-		// 	message: "testing",
-		// 	success: true
-		// });
-		const rnum = Math.floor(Math.random() * 10000);
-		users[1].firstName = rnum.toString();
-		// const fileName = `./public/output/json/users${rnum}.json`;
+		const howMany = 3;
+		const users = [];
+		for (let x = 1; x <= howMany; x++) {
+			users.push(faker.helpers.createCard());
+		}
 		const fileName = `./public/output/json/users.json`;
 
 		if (fs.existsSync(fileName)) {
