@@ -6,7 +6,7 @@
 	- qstr.escapeHtml()
 	- added: Showcase: React-Icons
 ====================================================================================
-
+- .. generate mock data
 
 
 - .. make new branch: rename SxhowcaseManageItemTypes to ManageShowcaseReports
