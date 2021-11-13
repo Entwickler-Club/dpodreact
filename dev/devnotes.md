@@ -304,3 +304,6 @@
 
 			- major/minor/patch format is quite standard
 
+
+- add tips:
+	- https://www.npmjs.com/package/remove-accents
