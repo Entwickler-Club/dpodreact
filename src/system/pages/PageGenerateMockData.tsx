@@ -2,25 +2,45 @@
 import { useState, useEffect } from 'react';
 import '../styles/page_generateMockData.scss';
 import PageManager from '../classes/pageManager';
+import Loader from "react-loader-spinner";
 
 function PageGenerateMockData() {
 	const pageIdCode = 'generateMockData';
-	const [message, setMessage] = useState('');
+	const [userObjectsMessage, setUserObjectsMessage] = useState('');
+	const [userObjectsTotal, setUserObjectsTotal] = useState(10);
+	const [userObjects, setUserObjects] = useState();
 	const pm = new PageManager(pageIdCode);
 
-	const generateUsersJsonFile = async () => {
-		const data = await pm.callAction('generateUsersJsonFile');
-		setMessage(data.message);
+	const generateUsersJsonFile = () => {
+		setUserObjectsMessage('<div class="message">Generating file...</div><textarea></textarea>');
+		setTimeout(() => {
+			(async () => {
+				const data = await pm.callAction('generateUsersJsonFile', {
+					howMany: userObjectsTotal
+				});
+				setUserObjectsMessage(data.message);
+			})();
+		}, 600)
+	}
+
+	const handleUsersNumberChange = (e: any) => {
+		setUserObjectsTotal(e.target.value);
 	}
 
 	return (
 		<div className="page page_generateMockData">
 			<h2 className="title">Generate Mock Data</h2>
 			<p className="description">An info page that displays generate mock data</p>
-			<div className="dpod_p buttonArea">
-				<button className="dpod_button" onClick={() => generateUsersJsonFile()}>Generate users.json</button>
+			<div className="exportItem">
+				<h3>Generate JSON file with array of full user objects</h3>
+				<div className="dpod_p workArea">
+					<div className="buttonArea">
+						<button className="dpod_button userObjectButton" onClick={() => generateUsersJsonFile()}>Generate file with {userObjectsTotal} users</button>
+						<input type="range" min="1" max="100" onChange={handleUsersNumberChange} value={userObjectsTotal} />
+					</div>
+					<div dangerouslySetInnerHTML={{ __html: userObjectsMessage }}></div>
+				</div>
 			</div>
-			<p className="dpod_p" dangerouslySetInnerHTML={{__html: message}}></p>
 
 			<div className="infoArea dpod_labeledArea dpod_hide">
 				<fieldset>

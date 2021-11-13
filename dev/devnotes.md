@@ -7,7 +7,7 @@
 	- added: Showcase: React-Icons
 ====================================================================================
 - .. generate mock data
-	- .. use faker
+	- .. slider
 
 
 
@@ -27,7 +27,8 @@
 	- .. in component: enable user to edit and delete with nice UX
 		- save changes to JSON file
  
-
+- generalize dpod.scss
+	- dpod_unit
 
 - refactor
 	- itemsType --> itemTypes

@@ -10,8 +10,8 @@ class ControllerGenerateMockData extends Controller {
 	}
 
 	action_generateUsersJsonFile() {
-		const howMany = 3;
-		const users = [];
+		const howMany = this.getValue('howMany'); 
+		const users: any[] = [];
 		for (let x = 1; x <= howMany; x++) {
 			users.push(faker.helpers.createCard());
 		}
@@ -22,7 +22,8 @@ class ControllerGenerateMockData extends Controller {
 		if (fs.existsSync(physicalFilePathAndFileName)) {
 			fs.unlinkSync(physicalFilePathAndFileName);
 		}
-		fs.writeFile(physicalFilePathAndFileName, JSON.stringify(users, null, 4), (err: any) => {
+		const theJson = JSON.stringify(users, null, 4);
+		fs.writeFile(physicalFilePathAndFileName, theJson, (err: any) => {
 			if (err) {
 				this.response.status(417).json({
 					message: "error occurred, file not created",
@@ -30,7 +31,7 @@ class ControllerGenerateMockData extends Controller {
 				});
 			} else {
 				this.response.status(201).json({
-					message: `Download file: <code><a href="output/json/${fileName}">${fileName}</a></code>`, 
+					message: `<div class="message">Download file with ${howMany} users: <code><a href="output/json/${fileName}" target="_blank">${fileName}</a></code></div><textarea spellCheck="false">${theJson}</textarea>`,
 					success: true
 				});
 			}
