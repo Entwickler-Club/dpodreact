@@ -12,6 +12,7 @@ import ControllerImportAssessmentJSONIntoSQLite from '../controllers/controllerI
 import ControllerShowcaseSampleDataWithFaker from '../controllers/controllerShowcaseSampleDataWithFaker';// ::showcaseSampleDataWithFaker
 import ControllerShowcaseMongoDBDriverCRUD from '../controllers/controllerShowcaseMongoDBDriverCRUD';// ::showcaseMongoDBDriverCRUD
 import ControllerGenerateMockData from '../controllers/controllerGenerateMockData';// ::generateMockData
+import ControllerShowcaseMongooseCRUD from '../controllers/controllerShowcaseMongooseCRUD';// ::showcaseMongooseCRUD
 
 export const instantiate = (controllerIdCode: string, request: any, response: any) => {
 	switch (controllerIdCode) {
@@ -40,6 +41,8 @@ case 'controllerShowcaseMongoDBDriverCRUD':// ::showcaseMongoDBDriverCRUD
 return new ControllerShowcaseMongoDBDriverCRUD(request, response);
 case 'controllerGenerateMockData':// ::generateMockData
 return new ControllerGenerateMockData(request, response);
+case 'controllerShowcaseMongooseCRUD':// ::showcaseMongooseCRUD
+return new ControllerShowcaseMongooseCRUD(request, response);
 		case 'controllerShowcaseSqliteReader': //:showcaseSqliteReader
 			return new ControllerShowcaseSqliteReader(request, response);
 	}

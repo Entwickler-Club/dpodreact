@@ -26,6 +26,7 @@ import PageImportAssessmentJSONIntoSQLite from './pages/PageImportAssessmentJSON
 import PageShowcaseSampleDataWithFaker from './pages/PageShowcaseSampleDataWithFaker';// ::showcaseSampleDataWithFaker
 import PageShowcaseMongoDBDriverCRUD from './pages/PageShowcaseMongoDBDriverCRUD';// ::showcaseMongoDBDriverCRUD
 import PageGenerateMockData from './pages/PageGenerateMockData';// ::generateMockData
+import PageShowcaseMongooseCRUD from './pages/PageShowcaseMongooseCRUD';// ::showcaseMongooseCRUD
 
 function Site() {
 	const { isShowing, setIsShowing } = useContext(ShowContext);
@@ -78,6 +79,7 @@ function Site() {
 <span><Link to='/showcaseSampleDataWithFaker'>Showcase: Sample Data with Faker</Link></span>{/* ::showcaseSampleDataWithFaker */}
 <span><Link to='/showcaseMongoDBDriverCRUD'>Showcase: MongoDB Driver CRUD</Link></span>{/* ::showcaseMongoDBDriverCRUD */}
 <span><Link to='/generateMockData'>Generate Mock Data</Link></span>{/* ::generateMockData */}
+<span><Link to='/showcaseMongooseCRUD'>Showcase: Mongoose CRUD</Link></span>{/* ::showcaseMongooseCRUD */}
 						</>
 					)}
 				</nav>
@@ -107,6 +109,7 @@ function Site() {
 <Route path='/showcaseSampleDataWithFaker'><PageShowcaseSampleDataWithFaker /></Route>{/* ::showcaseSampleDataWithFaker */}
 <Route path='/showcaseMongoDBDriverCRUD'><PageShowcaseMongoDBDriverCRUD /></Route>{/* ::showcaseMongoDBDriverCRUD */}
 <Route path='/generateMockData'><PageGenerateMockData /></Route>{/* ::generateMockData */}
+<Route path='/showcaseMongooseCRUD'><PageShowcaseMongooseCRUD /></Route>{/* ::showcaseMongooseCRUD */}
 					</Switch>
 				</section>
 			</div>
