@@ -2,7 +2,7 @@
 
 This is a framework which extends create-react-app to enables you to quickly build data-driven sites.
 
-## Setup
+## The Setup
 
 - clone repository
 - `npm install`
